@@ -13,6 +13,7 @@
   --grid:#e1e0d9; --axis:#c3c2b7; --tick:#898781; --other:rgba(137,135,129,.42); --band:rgba(42,120,214,.14);
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
   --up:#006300; --down:#b42323;
+  --pdl:#3b5bdb; --pdl-bg:#e9edfc; --pmod:#0f766e; --pmod-bg:#e3f3f0;
   --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, Consolas, "Courier New", monospace;
   color-scheme: light;
@@ -22,12 +23,14 @@
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg:#10131a; --panel:#181c25; --text:#e3e7ef; --muted:#9aa3b5; --line:#2c3240;
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -42,6 +45,28 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .rail a { display: block; padding: 5px 8px; border-radius: 4px; color: var(--side-text); text-decoration: none; font-size: 14px; }
 .rail a:hover, .rail a:focus-visible { background: var(--side-hover); color: #fff; outline: none; }
 .rail .key { font-size: 11px; color: var(--side-muted); margin: 14px 8px 0; }
+.rail li.grp:has(a) { padding: 14px 0 2px; }
+.rail li.grp a { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+.rail li.grp.dl a { color: #8ea6ff; } .rail li.grp.mod a { color: #2dd4bf; }
+.rail li.sub.dl a { box-shadow: inset 3px 0 0 #8ea6ff55; } .rail li.sub.mod a { box-shadow: inset 3px 0 0 #2dd4bf55; }
+.rail li.grp.dl a, .rail li.grp.mod a { box-shadow: inset 3px 0 0 currentColor; }
+
+/* The two parts: Downloads (indigo) and Mod count (teal). Part colours are never used for game lines. */
+.parts-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 6px 0 2px; }
+.pk { --p: var(--pdl); display: grid; gap: 1px; text-decoration: none; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-top: 4px solid var(--p); border-radius: 6px; padding: 10px 12px; }
+.pk.mod { --p: var(--pmod); }
+.pk:hover { border-color: var(--p); }
+.pk .n { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--p); }
+.pk b { font-size: 18px; line-height: 1.3; }
+.pk span:last-child { font-size: 13px; color: var(--muted); }
+.part { --p: var(--pdl); --pbg: var(--pdl-bg); display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 20px 20px 24px; border: 1px solid var(--line); border-top: 5px solid var(--p); border-radius: 8px; background: linear-gradient(var(--pbg), var(--bg) 220px); scroll-margin-top: 16px; min-width: 0; }
+.part.mod { --p: var(--pmod); --pbg: var(--pmod-bg); }
+.part-head { display: grid; gap: 4px; }
+.part-head .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--p); }
+.part-head h2 { margin: 0; font-size: 30px; line-height: 1.15; }
+.part-head p { margin: 0; color: var(--muted); max-width: 72ch; }
+.part section > h2 .kick { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--p); margin-bottom: 2px; }
+.part .tile, .part .panel { border-left: 3px solid var(--p); }
 
 main { padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); min-width: 0; }
 .col { max-width: 62rem; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
@@ -120,7 +145,10 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
   nav.rail { padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 12px; }
   .rail-inner { position: static; }
   .rail ul { display: flex; flex-wrap: wrap; gap: 4px; }
-  .rail li.grp, .rail .key { display: none; }
+  .rail li.grp.plain, .rail .key { display: none; }
+  .rail li.grp { padding: 0; width: 100%; }
+  .part { padding: 14px 12px 18px; }
+  .part-head h2 { font-size: 24px; }
   .panel { padding: 12px; }
 }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
@@ -132,15 +160,18 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
     <div class="rail-inner">
       <ul>
         <li><a href="#top">Top</a></li>
-        <li class="grp">Downloads</li>
-        <li><a href="#leaderboard">Leaderboard</a></li>
-        <li><a href="#race">Starfield race</a></li>
-        <li><a href="#downloads">All 15 games</a></li>
-        <li class="grp">Mods</li>
-        <li><a href="#mods">Mod count growth</a></li>
-        <li class="grp">About</li>
-        <li><a href="#check">Forecast check</a></li>
-        <li><a href="#method">Method and sources</a></li>
+        <li class="grp dl"><a href="#part-dl">Part 1 · Downloads</a></li>
+        <li class="sub dl"><a href="#dl-leaderboard">Leaderboard</a></li>
+        <li class="sub dl"><a href="#dl-race">Starfield race</a></li>
+        <li class="sub dl"><a href="#dl-all">All 15 games</a></li>
+        <li class="grp mod"><a href="#part-mod">Part 2 · Mod count</a></li>
+        <li class="sub mod"><a href="#mod-leaderboard">Leaderboard</a></li>
+        <li class="sub mod"><a href="#mod-race">Starfield race</a></li>
+        <li class="sub mod"><a href="#mod-all">All 15 games</a></li>
+        <li class="sub mod"><a href="#mod-new">New mods per month</a></li>
+        <li class="grp plain">About</li>
+        <li class="sub"><a href="#check">Forecast check</a></li>
+        <li class="sub"><a href="#method">Method and sources</a></li>
       </ul>
       <p class="key">Updated daily from the Nexus Mods API.</p>
     </div>
@@ -149,82 +180,117 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
     <div class="col">
       <header class="intro" id="top">
         <h1>Nexus Mods growth: the top 15 games</h1>
-        <p>Total downloads and mod counts for the 15 most-downloaded games on Nexus Mods, recorded once a day, with forecasts of when Starfield passes the games around it.</p>
+        <p>Two measures for the 15 most-downloaded games on Nexus Mods, recorded once a day, with forecasts of when Starfield passes the games around it.</p>
+        <div class="parts-key">
+          <a class="pk dl" href="#part-dl"><span class="n">Part 1</span><b>Downloads</b><span>How often players download the game's mods</span></a>
+          <a class="pk mod" href="#part-mod"><span class="n">Part 2</span><b>Mod count</b><span>How many mods modders have published</span></a>
+        </div>
         <p id="stamp"></p>
       </header>
 
-      <div class="tiles" id="tiles"></div>
-
-      <section id="leaderboard">
-        <h2>Leaderboard</h2>
-        <p class="lead">Ranked by total downloads. Speeds need at least a week of daily snapshots; games marked "collecting" fill in as the history grows.</p>
-        <div class="panel"><div class="tablewrap"><table id="lbTable"></table></div></div>
-      </section>
-
-      <section id="race">
-        <h2>The Starfield race</h2>
-        <p class="lead">Starfield and its neighbours by downloads. Solid lines are measured; dashed lines are the likely path, and the shaded band is Starfield's slow-to-fast range.</p>
-        <div class="panel">
-          <div class="controls"><details class="picker"><summary>Games</summary><div class="menu"></div></details></div>
-          <div class="legend" id="raceLegend"></div>
-          <div class="chart" id="raceChart"></div>
+      <!-- ============================== PART 1: DOWNLOADS ============================== -->
+      <div class="part dl" id="part-dl">
+        <div class="part-head">
+          <span class="kicker">Part 1</span>
+          <h2>Downloads</h2>
+          <p>Total downloads of each game's mods: how much players use them.</p>
         </div>
-        <div class="panel">
-          <h3>Pass dates</h3>
-          <div class="tablewrap"><table id="passTable"></table></div>
-          <p class="note">Earliest uses the fastest recent speed for the game catching up and the slowest for the game ahead; latest is the reverse.</p>
-        </div>
-      </section>
 
-      <section id="downloads">
-        <h2>Downloads: all 15 games</h2>
-        <div class="panel">
-          <div class="controls">
-            <details class="picker"><summary>Games</summary><div class="menu"></div></details>
-            <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
-            <span class="seg" id="dlScale"><button aria-pressed="true" data-v="log">Log scale</button><button aria-pressed="false" data-v="lin">Linear</button></span>
+        <div class="tiles" id="tiles"></div>
+
+        <section id="dl-leaderboard">
+          <h2><span class="kick">Downloads</span>Leaderboard</h2>
+          <p class="lead">Ranked by total downloads. Speeds need at least a week of daily snapshots; games marked "collecting" fill in as the history grows.</p>
+          <div class="panel"><div class="tablewrap"><table id="lbTable"></table></div></div>
+        </section>
+
+        <section id="dl-race">
+          <h2><span class="kick">Downloads</span>The Starfield race</h2>
+          <p class="lead">Starfield and its neighbours by downloads. Solid lines are measured; dashed lines are the likely path, and the shaded band is Starfield's slow-to-fast range.</p>
+          <div class="panel">
+            <div class="controls"><details class="picker"><summary>Games</summary><div class="menu"></div></details></div>
+            <div class="legend" id="raceLegend"></div>
+            <div class="chart" id="raceChart"></div>
           </div>
-          <div class="legend" id="dlLegend"></div>
-          <div class="chart" id="dlChart"></div>
-          <p class="cap">Log scale keeps Skyrim Special Edition (billions) and the smaller games readable on one chart.</p>
-        </div>
-        <div class="panel">
-          <h3>Growth speed: million downloads per day</h3>
-          <div class="chart" id="dlSpeed"></div>
-        </div>
-      </section>
+          <div class="panel">
+            <h3>Download pass dates</h3>
+            <div class="tablewrap"><table id="passTable"></table></div>
+            <p class="note">Earliest uses the fastest recent speed for the game catching up and the slowest for the game ahead; latest is the reverse.</p>
+          </div>
+        </section>
 
-      <section id="mods">
-        <h2>Mod count growth</h2>
-        <p class="lead">Mods published per game. History is rebuilt from each mod's creation date, so mods later deleted or hidden are missing and older counts run slightly low.</p>
+        <section id="dl-all">
+          <h2><span class="kick">Downloads</span>All 15 games</h2>
+          <div class="panel">
+            <h3>Total downloads</h3>
+            <div class="controls">
+              <details class="picker"><summary>Games</summary><div class="menu"></div></details>
+              <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
+              <span class="seg" id="dlScale"><button aria-pressed="true" data-v="log">Log scale</button><button aria-pressed="false" data-v="lin">Linear</button></span>
+            </div>
+            <div class="legend" id="dlLegend"></div>
+            <div class="chart" id="dlChart"></div>
+            <p class="cap">Log scale keeps Skyrim Special Edition (billions) and the smaller games readable on one chart.</p>
+          </div>
+          <div class="panel">
+            <h3>Growth speed: million downloads per day</h3>
+            <div class="chart" id="dlSpeed"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============================== PART 2: MOD COUNT ============================== -->
+      <div class="part mod" id="part-mod">
+        <div class="part-head">
+          <span class="kicker">Part 2</span>
+          <h2>Mod count</h2>
+          <p>Mods published for each game: how active its modders are. History is rebuilt from each mod's creation date, so mods later deleted or hidden are missing and older counts run slightly low.</p>
+        </div>
+
         <div class="tiles" id="modTiles"></div>
-        <div class="panel">
-          <div class="controls">
-            <details class="picker"><summary>Games</summary><div class="menu"></div></details>
-            <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
-            <span class="seg" id="modRange"><button aria-pressed="false" data-v="0">All</button><button aria-pressed="true" data-v="5">5 years</button><button aria-pressed="false" data-v="2">2 years</button></span>
-          </div>
-          <div class="legend" id="modLegend"></div>
-          <div class="chart" id="modChart"></div>
-        </div>
-        <div class="panel">
-          <h3 id="newModsTitle">New mods per month</h3>
-          <div class="controls"><label>Game <select id="newModsPick"></select></label></div>
-          <div class="chart" id="newMods"></div>
-        </div>
-        <div class="panel">
-          <h3>Mod-count leaderboard</h3>
-          <div class="tablewrap"><table id="modTable"></table></div>
-        </div>
-        <div class="panel">
-          <h3>Starfield mod-count pass dates</h3>
-          <div class="tablewrap"><table id="modPassTable"></table></div>
-        </div>
-      </section>
 
+        <section id="mod-leaderboard">
+          <h2><span class="kick">Mod count</span>Leaderboard</h2>
+          <p class="lead">The same 15 games, ranked by how many mods they have.</p>
+          <div class="panel"><div class="tablewrap"><table id="modTable"></table></div></div>
+        </section>
+
+        <section id="mod-race">
+          <h2><span class="kick">Mod count</span>The Starfield race</h2>
+          <div class="panel">
+            <h3>Mod-count pass dates</h3>
+            <div class="tablewrap"><table id="modPassTable"></table></div>
+          </div>
+        </section>
+
+        <section id="mod-all">
+          <h2><span class="kick">Mod count</span>All 15 games</h2>
+          <div class="panel">
+            <h3>Total mods</h3>
+            <div class="controls">
+              <details class="picker"><summary>Games</summary><div class="menu"></div></details>
+              <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
+              <span class="seg" id="modRange"><button aria-pressed="false" data-v="0">All</button><button aria-pressed="true" data-v="5">5 years</button><button aria-pressed="false" data-v="2">2 years</button></span>
+            </div>
+            <div class="legend" id="modLegend"></div>
+            <div class="chart" id="modChart"></div>
+          </div>
+        </section>
+
+        <section id="mod-new">
+          <h2><span class="kick">Mod count</span>New mods per month</h2>
+          <div class="panel">
+            <h3 id="newModsTitle">New mods per month</h3>
+            <div class="controls"><label>Game <select id="newModsPick"></select></label></div>
+            <div class="chart" id="newMods"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============================== ABOUT ============================== -->
       <section id="check">
         <h2>Forecast check</h2>
-        <p class="lead">Every daily build records its pass-date forecasts, so you can see whether they hold steady or drift.</p>
+        <p class="lead">Every daily build records its pass-date forecasts for both downloads and mod count, so you can see whether they hold steady or drift.</p>
         <div class="panel">
           <div id="backtest"></div>
           <div class="tablewrap"><table id="checkTable"></table></div>
