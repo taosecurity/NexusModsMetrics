@@ -11,7 +11,7 @@
   --bg:#f6f7f9; --panel:#ffffff; --text:#1c2230; --muted:#5d6678; --line:#dde1e8;
   --accent:#3b5bdb; --side:#151a26; --side-text:#c9cfdb; --side-muted:#7f889b; --side-hover:#232a3a;
   --grid:#e1e0d9; --axis:#c3c2b7; --tick:#898781; --other:rgba(137,135,129,.42); --band:rgba(42,120,214,.14);
-  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
   --up:#006300; --down:#b42323;
   --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, Consolas, "Courier New", monospace;
@@ -21,13 +21,13 @@
   --bg:#10131a; --panel:#181c25; --text:#e3e7ef; --muted:#9aa3b5; --line:#2c3240;
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg:#10131a; --panel:#181c25; --text:#e3e7ef; --muted:#9aa3b5; --line:#2c3240;
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -67,6 +67,19 @@ section > p.lead { margin: 0; color: var(--muted); max-width: 72ch; }
 .seg button { font: inherit; font-size: 12px; background: var(--panel); color: var(--muted); border: 0; padding: 3px 9px; cursor: pointer; }
 .seg button + button { border-left: 1px solid var(--line); }
 .seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.controls label.sw { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+details.picker { position: relative; }
+details.picker summary { list-style: none; cursor: pointer; font-size: 13px; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 3px 10px; user-select: none; }
+details.picker summary::-webkit-details-marker { display: none; }
+details.picker summary::after { content: " ▾"; color: var(--muted); }
+details.picker[open] summary { border-color: var(--accent); }
+details.picker .menu { position: absolute; z-index: 6; top: calc(100% + 4px); left: 0; width: min(290px, calc(100vw - 32px)); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,.18); padding: 8px; display: grid; gap: 2px; max-height: 70vh; overflow-y: auto; }
+details.picker .quick { display: flex; flex-wrap: wrap; gap: 6px; padding: 2px 2px 8px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+details.picker .quick button { font: inherit; font-size: 12px; color: var(--accent); background: none; border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; cursor: pointer; }
+details.picker .menu label { display: flex; align-items: center; gap: 8px; padding: 4px 6px; border-radius: 4px; font-size: 13px; color: var(--text); cursor: pointer; }
+details.picker .menu label:hover { background: var(--bg); }
+details.picker .menu label .rk { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+details.picker .menu i { width: 12px; height: 3px; border-radius: 2px; display: inline-block; flex: none; }
 .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--muted); }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
 .legend i { width: 14px; height: 0; border-top: 2px solid; display: inline-block; }
@@ -152,6 +165,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <h2>The Starfield race</h2>
         <p class="lead">Starfield and its neighbours by downloads. Solid lines are measured; dashed lines are the likely path, and the shaded band is Starfield's slow-to-fast range.</p>
         <div class="panel">
+          <div class="controls"><details class="picker"><summary>Games</summary><div class="menu"></div></details></div>
           <div class="legend" id="raceLegend"></div>
           <div class="chart" id="raceChart"></div>
         </div>
@@ -166,7 +180,8 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <h2>Downloads: all 15 games</h2>
         <div class="panel">
           <div class="controls">
-            <label>Highlight <select id="dlPick"></select></label>
+            <details class="picker"><summary>Games</summary><div class="menu"></div></details>
+            <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
             <span class="seg" id="dlScale"><button aria-pressed="true" data-v="log">Log scale</button><button aria-pressed="false" data-v="lin">Linear</button></span>
           </div>
           <div class="legend" id="dlLegend"></div>
@@ -185,7 +200,8 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <div class="tiles" id="modTiles"></div>
         <div class="panel">
           <div class="controls">
-            <label>Highlight <select id="modPick"></select></label>
+            <details class="picker"><summary>Games</summary><div class="menu"></div></details>
+            <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
             <span class="seg" id="modRange"><button aria-pressed="false" data-v="0">All</button><button aria-pressed="true" data-v="5">5 years</button><button aria-pressed="false" data-v="2">2 years</button></span>
           </div>
           <div class="legend" id="modLegend"></div>
@@ -193,6 +209,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         </div>
         <div class="panel">
           <h3 id="newModsTitle">New mods per month</h3>
+          <div class="controls"><label>Game <select id="newModsPick"></select></label></div>
           <div class="chart" id="newMods"></div>
         </div>
         <div class="panel">
@@ -366,7 +383,7 @@ function barChart(box, items, fmt, unit) {
     el("text", { x: padL - 8, y: y + 14, "text-anchor": "end", class: "lbl" }, svg).textContent = it.name.length > 30 ? it.name.slice(0, 29) + "…" : it.name;
     if (it.v == null) { el("text", { x: padL, y: y + 14, class: "ax" }, svg).textContent = it.note || "collecting"; return; }
     const w = Math.max(2, (it.v / max) * (W - padL - padR));
-    const r = el("rect", { x: padL, y: y + 4, width: w, height: rowH - 8, rx: 3, fill: it.focus ? "var(--s1)" : it.pick ? "var(--s2)" : "var(--other)" }, svg);
+    const r = el("rect", { x: padL, y: y + 4, width: w, height: rowH - 8, rx: 3, fill: it.color || "var(--other)" }, svg);
     el("text", { x: padL + w + 6, y: y + 14, class: "ax" }, svg).textContent = fmt(it.v);
     r.addEventListener("pointermove", ev => { const b = box.getBoundingClientRect(); showTip(box, ev.clientX - b.left, ev.clientY - b.top, `<b>${esc(it.name)}</b><div class="r"><span>${esc(unit)}</span><span>${fmt(it.v)}</span></div>${it.tipExtra || ""}`); });
     r.addEventListener("pointerleave", hideTip);
@@ -437,56 +454,97 @@ document.getElementById("lbTable").innerHTML = `<thead><tr><th class="num">#</th
   A.rows.map(r => `<tr class="${r.domain === FOCUS ? "focus" : ""}"><td class="num">${r.rank}</td><td class="game">${esc(r.name)}</td><td class="num">${fmtM(r.value)}</td><td class="num">${fmtSigned(r.gain30, fmtM)}</td><td class="num">${fmtSigned(r.gain90, fmtM)}</td><td class="num">${speedTxt(r)}</td><td class="num">${r.pct_month != null ? r.pct_month.toFixed(2) + "%" : '<span class="na">–</span>'}</td><td class="num">${r.speed ? rankMove(r.rank, r.proj_rank[12]) : '<span class="na">–</span>'}</td><td>${spark(byDom[r.domain].dl)}</td></tr>`).join("") + "</tbody>";
 function rankMove(now, later) { return later < now ? `<span class="up">#${later} ▲</span>` : later > now ? `<span class="down">#${later} ▼</span>` : "#" + later; }
 
-// race chart
+// ---------------------------------------------------------------- shared game selection (the "Games" picker)
 const today = t(DATA.latest_snapshot);
 const fcEnd = today + 730 * DAY;
-const raceSlots = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)"];
+const SLOTS = ["var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)", "var(--s6)", "var(--s7)", "var(--s8)"];
+const STORE = "nexus-metrics-games";
+const allDoms = A.rows.map(r => r.domain);
+let sel = DATA.race.slice();           // ordered: colour slots follow the order games were picked
+try { const saved = JSON.parse(localStorage.getItem(STORE) || "null"); if (Array.isArray(saved)) sel = saved.filter(d => allDoms.includes(d)); } catch (e) { /* storage unavailable */ }
+let showOthers = true;
+function colorOf(dom) {
+  if (dom === FOCUS) return "var(--s1)";
+  const i = sel.filter(d => d !== FOCUS).indexOf(dom);
+  return i < 0 ? null : (SLOTS[i] || "var(--muted)");   // past 8 coloured games: grey, still labelled
+}
+const shortName = n => n.replace(/^The Witcher 3: Wild Hunt$/, "Witcher 3").replace(/^Mount & Blade II: Bannerlord$/, "Bannerlord");
+function setSel(next) {
+  sel = next.filter((d, i) => allDoms.includes(d) && next.indexOf(d) === i);
+  try { localStorage.setItem(STORE, JSON.stringify(sel)); } catch (e) { /* storage unavailable */ }
+  renderPickers(); drawRace(); drawDl(); drawMods(); drawPassTable();
+}
+function renderPickers() {
+  document.querySelectorAll("details.picker").forEach(dp => {
+    dp.querySelector("summary").textContent = `Games (${sel.length} of ${allDoms.length})`;
+    const menu = dp.querySelector(".menu");
+    menu.innerHTML = `<div class="quick"><button type="button" data-q="near">Neighbours</button><button type="button" data-q="all">All</button><button type="button" data-q="none">None</button></div>` +
+      A.rows.map(r => { const c = colorOf(r.domain); return `<label><input type="checkbox" value="${r.domain}" ${sel.includes(r.domain) ? "checked" : ""}><i style="background:${c || "transparent"}"></i>${esc(r.name)}<span class="rk">#${r.rank}</span></label>`; }).join("");
+    menu.querySelectorAll("input").forEach(cb => cb.addEventListener("change", () => setSel(cb.checked ? sel.concat(cb.value) : sel.filter(d => d !== cb.value))));
+    menu.querySelectorAll(".quick button").forEach(b => b.addEventListener("click", () => {
+      const q = b.dataset.q; setSel(q === "near" ? DATA.race.slice() : q === "all" ? [FOCUS].concat(allDoms.filter(d => d !== FOCUS)) : []);
+      document.querySelectorAll("details.picker").forEach(x => { if (x !== dp) x.open = false; });
+      dp.open = true;
+    }));
+  });
+}
+document.addEventListener("click", ev => document.querySelectorAll("details.picker[open]").forEach(dp => { if (!dp.contains(ev.target)) dp.open = false; }));
+document.addEventListener("keydown", ev => { if (ev.key === "Escape") document.querySelectorAll("details.picker[open]").forEach(dp => { dp.open = false; }); });
+function legendFor(box, others) {
+  const picked = A.rows.filter(r => sel.includes(r.domain)).sort((a, b) => sel.indexOf(a.domain) - sel.indexOf(b.domain));
+  picked.sort((a, b) => (a.domain === FOCUS ? -1 : b.domain === FOCUS ? 1 : 0));
+  box.innerHTML = picked.map(r => `<span><i style="border-color:${colorOf(r.domain)}"></i>${esc(r.name)}</span>`).join("") +
+    (others ? `<span><i style="border-color:var(--other)"></i>Other top-15 games</span>` : "") + (picked.length || others ? "" : `<span>No games selected: use the Games button.</span>`);
+}
+function seriesFor(key, others) {
+  return A.rows.filter(r => sel.includes(r.domain) || others).map(r => {
+    const g = byDom[r.domain], c = colorOf(r.domain), on = !!c;
+    return { name: g.name, color: on ? c : "var(--other)", width: on ? 2.5 : 1.5, z: r.domain === FOCUS ? 3 : on ? 2 : 1,
+             label: on ? shortName(g.name) : null, pts: g[key].map(p => [t(p[0]), p[1]]) };
+  });
+}
+
+// race chart: selected games only, each with its likely path; Starfield also gets its range band
 function fcLine(r, rate) { return [[t(r.as_of), r.value], [fcEnd, r.value + rate * (fcEnd - t(r.as_of)) / DAY]]; }
 function bandOf(r) { const n = 25, out = []; for (let i = 0; i <= n; i++) { const ms = t(r.as_of) + (fcEnd - t(r.as_of)) * i / n, d = (ms - t(r.as_of)) / DAY; out.push([ms, r.value + r.speed[0] * d, r.value + r.speed[2] * d]); } return out; }
 function drawRace() {
-  const series = DATA.race.map((dom, i) => {
-    const r = dlRow[dom], g = byDom[dom];
-    return { name: r.name, label: r.name.replace(/^The Witcher 3: Wild Hunt$/, "Witcher 3").replace(/^Mount & Blade II: Bannerlord$/, "Bannerlord"), color: raceSlots[i], width: dom === FOCUS ? 2.5 : 2, z: dom === FOCUS ? 2 : 1,
-             pts: g.dl.map(p => [t(p[0]), p[1]]), fc: r.speed ? fcLine(r, r.speed[1]) : [], band: dom === FOCUS && r.speed ? bandOf(r) : [] };
+  const box = document.getElementById("raceChart");
+  const series = A.rows.filter(r => sel.includes(r.domain)).map(r => {
+    const g = byDom[r.domain];
+    return { name: r.name, label: shortName(r.name), color: colorOf(r.domain), width: r.domain === FOCUS ? 2.5 : 2, z: r.domain === FOCUS ? 2 : 1,
+             pts: g.dl.map(p => [t(p[0]), p[1]]), fc: r.speed ? fcLine(r, r.speed[1]) : [], band: r.domain === FOCUS && r.speed ? bandOf(r) : [] };
   });
-  const x0 = Math.min(...series.flatMap(s => s.pts.map(p => p[0])));
-  lineChart(document.getElementById("raceChart"), { series, x0, x1: fcEnd, today, yfmt: v => M(v).toFixed(0) + "M", tipfmt: v => M(v).toFixed(1) + "M", aria: "Starfield and neighbours, downloads with forecasts" });
-  document.getElementById("raceLegend").innerHTML = series.map(s => `<span><i style="border-color:${s.color}"></i>${esc(s.name)}</span>`).join("") + `<span><i class="dash" style="border-color:var(--muted)"></i>Likely path</span><span><i class="band"></i>Starfield range</span>`;
+  if (!series.length) { box.innerHTML = '<p class="note">No games selected: use the Games button.</p>'; document.getElementById("raceLegend").innerHTML = ""; return; }
+  const x0 = Math.min(...series.flatMap(s => s.pts.map(p => p[0])), today - 120 * DAY);
+  lineChart(box, { series, x0, x1: fcEnd, today, log: series.some(s => s.pts.length && s.pts[s.pts.length - 1][1] > 2e9), yfmt: v => fmtM(v), tipfmt: v => fmtM(v), aria: "Selected games: downloads with forecasts" });
+  document.getElementById("raceLegend").innerHTML = series.map(s => `<span><i style="border-color:${s.color}"></i>${esc(s.name)}</span>`).join("") +
+    `<span><i class="dash" style="border-color:var(--muted)"></i>Likely path</span>` + (sel.includes(FOCUS) ? `<span><i class="band"></i>Starfield range</span>` : "");
 }
 const passRows = (passes, fmtGap) => passes.slice().sort((a, b) => (a.dir === b.dir ? a.gap - b.gap : a.dir === "up" ? -1 : 1)).map(p =>
   `<tr><td class="game">${p.dir === "up" ? "Starfield passes " : ""}${esc(p.name)}${p.dir === "down" ? " passes Starfield" : ""}</td><td class="num">${fmtGap(p.gap)} ${p.dir === "up" ? "ahead" : "behind"}</td><td class="num">${passCell(p)}</td><td class="num">${rangeCell(p)}</td></tr>`).join("");
-const near = A.passes.filter(p => DATA.race.includes(p.domain) || p.dates && p.dates[1]);
-document.getElementById("passTable").innerHTML = `<thead><tr><th>Event</th><th class="num">Gap now</th><th class="num">Likely</th><th class="num">Range</th></tr></thead><tbody>${passRows(near, fmtM)}</tbody>`;
+function drawPassTable() {
+  const near = A.passes.filter(p => sel.includes(p.domain) || p.dates && p.dates[1]);
+  document.getElementById("passTable").innerHTML = near.length ? `<thead><tr><th>Event</th><th class="num">Gap now</th><th class="num">Likely</th><th class="num">Range</th></tr></thead><tbody>${passRows(near, fmtM)}</tbody>`
+    : "<tbody><tr><td class='na'>Select games with the Games button to see their pass dates.</td></tr></tbody>";
+}
 
 // all-games downloads chart
-function fillPick(sel, rows, def) {
-  sel.innerHTML = '<option value="">(none)</option>' + rows.filter(r => r.domain !== FOCUS).map(r => `<option value="${r.domain}">${esc(r.name)}</option>`).join("");
-  sel.value = def || "";
-}
-const dlPick = document.getElementById("dlPick"), modPick = document.getElementById("modPick");
-fillPick(dlPick, A.rows, DATA.race[1]); fillPick(modPick, MA.rows, DATA.race[1]);
 let dlLog = true;
-function seriesFor(key, pick) {
-  return A.rows.map(r => {
-    const g = byDom[r.domain], focus = r.domain === FOCUS, picked = r.domain === pick;
-    return { name: g.name, color: focus ? "var(--s1)" : picked ? "var(--s2)" : "var(--other)", width: focus || picked ? 2.5 : 1.5, z: focus ? 3 : picked ? 2 : 1,
-             label: focus || picked ? g.name : null, pts: g[key].map(p => [t(p[0]), p[1]]) };
-  });
-}
-function legendFor(box, pick, rows) {
-  const p = rows.find(r => r.domain === pick);
-  box.innerHTML = `<span><i style="border-color:var(--s1)"></i>Starfield</span>` + (p ? `<span><i style="border-color:var(--s2)"></i>${esc(p.name)}</span>` : "") + `<span><i style="border-color:var(--other)"></i>Other top-15 games</span>`;
-}
+const othersBox = document.querySelectorAll("input.others");
+othersBox.forEach(cb => cb.addEventListener("change", () => { showOthers = cb.checked; othersBox.forEach(x => { x.checked = showOthers; }); drawDl(); drawMods(); }));
 function drawDl() {
-  const series = seriesFor("dl", dlPick.value);
-  const x0 = Math.min(...series.flatMap(s => s.pts.map(p => p[0])));
-  lineChart(document.getElementById("dlChart"), { series, x0: x0 - 10 * DAY, x1: today + 10 * DAY, log: dlLog, yfmt: v => fmtM(v), tipfmt: v => fmtM(v), aria: "Total downloads, top 15 games" });
-  legendFor(document.getElementById("dlLegend"), dlPick.value, A.rows);
+  const series = seriesFor("dl", showOthers);
+  const box = document.getElementById("dlChart");
+  if (!series.length) { box.innerHTML = '<p class="note">No games selected: use the Games button or tick "Show other games".</p>'; }
+  else {
+    const x0 = Math.min(...series.flatMap(s => s.pts.map(p => p[0])));
+    lineChart(box, { series, x0: x0 - 10 * DAY, x1: today + 10 * DAY, log: dlLog, yfmt: v => fmtM(v), tipfmt: v => fmtM(v), aria: "Total downloads, top 15 games" });
+  }
+  legendFor(document.getElementById("dlLegend"), showOthers);
   barChart(document.getElementById("dlSpeed"), A.rows.slice().sort((a, b) => (b.speed ? b.speed[1] : -1) - (a.speed ? a.speed[1] : -1)).map(r => ({
-    name: r.name, v: r.speed ? M(r.speed[1]) : null, focus: r.domain === FOCUS, pick: r.domain === dlPick.value,
+    name: r.name, v: r.speed ? M(r.speed[1]) : null, color: colorOf(r.domain),
     note: `collecting data (${r.history_days} days so far)`, tipExtra: r.speed ? `<div class="r"><span>Range</span><span>${M(r.speed[0]).toFixed(3)}–${M(r.speed[2]).toFixed(3)}</span></div>` : "" })), v => v.toFixed(3), "Million downloads per day (likely)");
 }
-dlPick.addEventListener("change", drawDl);
 document.querySelectorAll("#dlScale button").forEach(b => b.addEventListener("click", () => { dlLog = b.dataset.v === "log"; document.querySelectorAll("#dlScale button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawDl(); }));
 
 // mods
@@ -499,14 +557,22 @@ const nextModUp = MA.passes.filter(p => p.dir === "up").sort((a, b) => a.gap - b
 if (nextModUp) modTiles.push(["Next to pass (mods)", esc(nextModUp.name), `${fmtInt(nextModUp.gap)} ahead · likely ${passCell(nextModUp)}`]);
 document.getElementById("modTiles").innerHTML = modTiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
 let modYears = 5;
+const newModsPick = document.getElementById("newModsPick");
+newModsPick.innerHTML = A.rows.map(r => `<option value="${r.domain}">${esc(r.name)}</option>`).join("");
+newModsPick.value = FOCUS;
+newModsPick.addEventListener("change", drawNewMods);
 function drawMods() {
-  const series = seriesFor("mods", modPick.value);
+  const series = seriesFor("mods", showOthers);
+  const box = document.getElementById("modChart");
+  legendFor(document.getElementById("modLegend"), showOthers);
+  if (!series.length) { box.innerHTML = '<p class="note">No games selected: use the Games button or tick "Show other games".</p>'; return; }
   const x1 = today + 10 * DAY, all = Math.min(...series.flatMap(s => s.pts.map(p => p[0])));
   const x0 = modYears ? Math.max(all, today - modYears * 365.25 * DAY) : all;
   series.forEach(s => { s.pts = s.pts.filter(p => p[1] >= 100); });
-  lineChart(document.getElementById("modChart"), { series, x0, x1, log: true, minY: 100,yfmt: v => v >= 1000 ? (v / 1000) + "k" : String(v), tipfmt: fmtInt, aria: "Mod count per game" });
-  legendFor(document.getElementById("modLegend"), modPick.value, MA.rows);
-  const dom = modPick.value || FOCUS, g = byDom[dom];
+  lineChart(box, { series, x0, x1, log: true, minY: 100, yfmt: v => v >= 1000 ? (v / 1000) + "k" : String(v), tipfmt: fmtInt, aria: "Mod count per game" });
+}
+function drawNewMods() {
+  const dom = newModsPick.value || FOCUS, g = byDom[dom];
   const monthly = g.mods.filter(p => p[0].endsWith("-01"));
   const items = [];
   for (let i = 1; i < monthly.length; i++) items.push({ ms: t(monthly[i - 1][0]), v: monthly[i][1] - monthly[i - 1][1] });
@@ -516,7 +582,6 @@ function drawMods() {
   document.getElementById("newModsTitle").textContent = `New mods per month: ${g.name} (last ${shown.length} months)`;
   columnChart(document.getElementById("newMods"), shown, fmtInt, "New mods per month");
 }
-modPick.addEventListener("change", drawMods);
 document.querySelectorAll("#modRange button").forEach(b => b.addEventListener("click", () => { modYears = +b.dataset.v; document.querySelectorAll("#modRange button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawMods(); }));
 document.getElementById("modTable").innerHTML = `<thead><tr><th class="num">#</th><th>Game</th><th class="num">Mods</th><th class="num">30-day gain</th><th class="num">Mods / month</th><th class="num">% / month</th><th class="num">Rank in 12 mo</th><th>Trend</th></tr></thead><tbody>` +
   MA.rows.map(r => `<tr class="${r.domain === FOCUS ? "focus" : ""}"><td class="num">${r.rank}</td><td class="game">${esc(r.name)}</td><td class="num">${fmtInt(r.value)}</td><td class="num">${fmtSigned(r.gain30, fmtInt)}</td><td class="num">${r.speed ? fmtInt(r.speed[1] * 30.44) : '<span class="na">–</span>'}</td><td class="num">${r.pct_month != null ? r.pct_month.toFixed(2) + "%" : '<span class="na">–</span>'}</td><td class="num">${r.speed ? rankMove(r.rank, r.proj_rank[12]) : '<span class="na">–</span>'}</td><td>${spark(byDom[r.domain].mods.slice(-37))}</td></tr>`).join("") + "</tbody>";
@@ -535,7 +600,8 @@ document.getElementById("checkTable").innerHTML = ch.length ? `<thead><tr><th>Ev
 document.getElementById("srcTable").innerHTML = `<thead><tr><th>Game</th><th class="num">Download history from</th><th class="num">Points</th><th class="num">Mod history from</th></tr></thead><tbody>` +
   A.rows.map(r => { const g = byDom[r.domain]; return `<tr><td class="game">${esc(g.name)}</td><td class="num">${g.dl.length ? g.dl[0][0] : "–"}</td><td class="num">${g.dl.length}</td><td class="num">${g.mods.length ? g.mods[0][0] : "–"}</td></tr>`; }).join("") + "</tbody>";
 
-function drawAll() { drawRace(); drawDl(); drawMods(); }
+function drawAll() { drawRace(); drawDl(); drawMods(); drawNewMods(); }
+renderPickers(); drawPassTable();
 drawAll();
 let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawAll);
