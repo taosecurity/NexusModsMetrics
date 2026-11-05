@@ -1,7 +1,7 @@
 # Tracking Starfield on Nexus Mods
 
 By Richard Bejtlich of [Richard Presents Starfield Essentials](https://www.youtube.com/@RichardBejtlich).
-Parts 1 and 2 track mod downloads and mod counts for the top 15 games on
+Parts 1 and 2 track and forecast mod downloads and mod counts for the top 15 games on
 [Nexus Mods](https://www.nexusmods.com/), with a focus on Starfield. Part 3 looks at the types of mods published
 for Starfield. Updated daily.
 
