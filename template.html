@@ -329,8 +329,13 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <section id="type-growth">
           <h2><span class="kick">Mod types</span>Mods per type over time</h2>
           <div class="panel">
-            <h3>Total Starfield mods in each type</h3>
-            <div class="controls"><span class="seg range" data-chart="typeline"></span></div>
+            <h3 id="typeLinesTitle">Total Starfield mods in each type</h3>
+            <div class="controls">
+              <details class="picker tpick" id="typePicker"><summary>Types</summary><div class="menu"></div></details>
+              <span class="seg" id="typeView"><button type="button" aria-pressed="true" data-v="count">Mods</button><button type="button" aria-pressed="false" data-v="share">Share of all mods</button></span>
+              <label class="sw"><input type="checkbox" id="typeRest"> Show "all other types" line</label>
+              <span class="seg range" data-chart="typeline"></span>
+            </div>
             <div class="legend" id="typeLegend2"></div>
             <div class="chart" id="typeLines"></div>
           </div>
@@ -628,7 +633,7 @@ function setSel(next) {
   renderPickers(); drawRace(); drawDl(); drawMods(); drawPassTable();
 }
 function renderPickers() {
-  document.querySelectorAll("details.picker").forEach(dp => {
+  document.querySelectorAll("details.picker:not(.tpick)").forEach(dp => {
     dp.querySelector("summary").textContent = `Games (${sel.length} of ${allDoms.length})`;
     const menu = dp.querySelector(".menu");
     menu.innerHTML = `<div class="quick"><button type="button" data-q="near">Neighbours</button><button type="button" data-q="all">All</button><button type="button" data-q="none">None</button></div>` +
@@ -812,7 +817,6 @@ function drawTypes() {
 
   const legend = TY.top.concat("Other").map(k => `<span><i style="border-color:${typeColor(k)}"></i>${esc(k)}</span>`).join("");
   document.getElementById("typeLegend").innerHTML = legend;
-  document.getElementById("typeLegend2").innerHTML = legend;
   drawTypeMix(); drawTypeLines();
 
   if (hasDl) {
@@ -834,12 +838,65 @@ function drawTypeMix() {
   qs = RANGE.mix === "launch" ? qs.filter(q => q.start >= LAUNCH - 31 * DAY) : qs.slice(-8);
   stackedChart(document.getElementById("typeMix"), qs, "Share of new Starfield mods by type, per quarter");
 }
+/* Type picker for "Mods per type over time". The seven biggest types keep their colours from the mix chart;
+   other picked types borrow the free colours in the order picked; past eight coloured lines, extras are grey. */
+const TSTORE = "nexus-metrics-types";
+const ALL_SLOTS = ["var(--s8)", "var(--s7)", "var(--s5)", "var(--s3)", "var(--s2)", "var(--s4)", "var(--s6)", "var(--s1)"];  // most distinct first
+const typeNames = TY ? TY.rows.map(r => r.name) : [];
+const TYPE_PRESETS = TY ? {
+  top: TY.rows.slice(0, 5).map(r => r.name),
+  gaining: TY.rows.filter(r => r.new90 >= 10 && r.trend > 0.3).sort((a, b) => b.trend - a.trend).slice(0, 5).map(r => r.name),
+  losing: TY.rows.filter(r => r.mods >= 100 && r.trend < -0.3).sort((a, b) => a.trend - b.trend).slice(0, 5).map(r => r.name),
+} : {};
+let tsel = TYPE_PRESETS.top || [], showRest = false, typeShare = false;
+try { const saved = JSON.parse(localStorage.getItem(TSTORE) || "null"); if (Array.isArray(saved)) tsel = saved.filter(k => typeNames.includes(k)); } catch (e) { /* storage unavailable */ }
+function tlineColor(k) {
+  const fixed = TY.top.indexOf(k);
+  if (fixed >= 0) return TYPE_SLOTS[fixed];
+  const used = new Set(tsel.filter(x => TY.top.includes(x)).map(x => TYPE_SLOTS[TY.top.indexOf(x)]));
+  const free = ALL_SLOTS.filter(c => !used.has(c));
+  const i = tsel.filter(x => !TY.top.includes(x)).indexOf(k);
+  return i >= 0 && i < free.length ? free[i] : "var(--muted)";
+}
+function setTsel(next) {
+  tsel = next.filter((k, i) => typeNames.includes(k) && next.indexOf(k) === i);
+  try { localStorage.setItem(TSTORE, JSON.stringify(tsel)); } catch (e) { /* storage unavailable */ }
+  renderTypePicker(); drawTypeLines();
+}
+function renderTypePicker() {
+  const dp = document.getElementById("typePicker");
+  if (!dp || !TY) return;
+  dp.querySelector("summary").textContent = `Types (${tsel.length} of ${typeNames.length})`;
+  const menu = dp.querySelector(".menu");
+  menu.innerHTML = `<div class="quick"><button type="button" data-q="top">Biggest 5</button><button type="button" data-q="gaining">Gaining ground</button><button type="button" data-q="losing">Losing ground</button><button type="button" data-q="none">None</button></div>` +
+    TY.rows.map(r => `<label><input type="checkbox" value="${esc(r.name)}" ${tsel.includes(r.name) ? "checked" : ""}><i style="background:${tsel.includes(r.name) ? tlineColor(r.name) : "transparent"}"></i>${esc(r.name)}<span class="rk">${fmtInt(r.mods)}</span></label>`).join("");
+  menu.querySelectorAll("input").forEach(cb => cb.addEventListener("change", () => setTsel(cb.checked ? tsel.concat(cb.value) : tsel.filter(k => k !== cb.value))));
+  menu.querySelectorAll(".quick button").forEach(b => b.addEventListener("click", () => { setTsel(b.dataset.q === "none" ? [] : TYPE_PRESETS[b.dataset.q].slice()); document.getElementById("typePicker").open = true; }));
+}
 function drawTypeLines() {
   if (!TY) return;
-  const series = TY.top.concat("Other").map(k => ({ name: k, label: k, color: typeColor(k), width: 2, pts: TY.lines[k].map(p => [t(p[0]), p[1]]) }));
+  const L = TY.all_lines;
+  const val = (v, i) => typeShare ? (L._total[i][1] ? v / L._total[i][1] * 100 : 0) : v;
+  const series = tsel.map(k => ({ name: k, label: k, color: tlineColor(k), width: 2, pts: L[k].map((p, i) => [t(p[0]), val(p[1], i)]) }));
+  if (showRest) series.push({ name: "All other types", label: "All other types", color: "var(--other)", width: 2, z: -1,
+    pts: L._total.map((p, i) => [t(p[0]), val(p[1] - tsel.reduce((s, k) => s + L[k][i][1], 0), i)]) });
+  const box = document.getElementById("typeLines");
+  document.getElementById("typeLegend2").innerHTML = series.map(s => `<span><i style="border-color:${s.color}"></i>${esc(s.name)}</span>`).join("");
+  if (!series.length) { box.innerHTML = '<p class="note">No types selected: use the Types button.</p>'; return; }
   const x0 = RANGE.typeline === "launch" ? LAUNCH : today - 365 * DAY;
-  lineChart(document.getElementById("typeLines"), { series, x0, x1: today + 10 * DAY, zero: true, yfmt: v => v >= 1000 ? (v / 1000) + "k" : String(v), tipfmt: fmtInt, aria: "Starfield mods per type over time" });
+  // in share view, skip the first months after launch (tiny totals make shares jump around)
+  const sx0 = typeShare ? Math.max(x0, LAUNCH + 92 * DAY) : x0;
+  lineChart(box, { series, x0: sx0, x1: today + 10 * DAY, zero: true,
+    yfmt: typeShare ? (v => v.toFixed(v < 10 && v % 1 ? 1 : 0) + "%") : (v => v >= 1000 ? (v / 1000) + "k" : String(v)),
+    tipfmt: typeShare ? (v => v.toFixed(1) + "%") : fmtInt, aria: "Starfield mods per type over time" });
+  document.getElementById("typeLinesTitle").textContent = typeShare ? "Each type's share of all Starfield mods" : "Total Starfield mods in each type";
 }
+renderTypePicker();
+const restBox = document.getElementById("typeRest");
+if (restBox) restBox.addEventListener("change", () => { showRest = restBox.checked; drawTypeLines(); });
+document.querySelectorAll("#typeView button").forEach(b => b.addEventListener("click", () => {
+  typeShare = b.dataset.v === "share"; document.querySelectorAll("#typeView button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawTypeLines();
+}));
 
 Object.assign(REDRAW, { race: drawRace, dl: drawDl, mods: drawMods, newmods: drawNewMods, mix: drawTypeMix, typeline: drawTypeLines });
 drawTypes();

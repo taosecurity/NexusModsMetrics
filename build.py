@@ -192,7 +192,10 @@ def types_section():
                       "fastest": fast, "fastest_new": newc.get(fast, 0), "fastest_share": newc.get(fast, 0) / (tn or 1) * 100,
                       "rising": rising, "rising_gap": (newc[rising] / (tn or 1) - n0[rising] / tot) * 100 if rising else None,
                       "new90": tn})
-    return {"date": tj["date"], "total": total, "rows": rows, "top": top, "lines": lines, "quarters": quarters,
+    # every type's monthly history (for the type picker); "_total" lets the page draw "all other types"
+    all_lines = {k: [[date, counts.get(k, 0)] for date, counts in points] for k in now}
+    all_lines["_total"] = [[date, sum(counts.values())] for date, counts in points]
+    return {"date": tj["date"], "total": total, "rows": rows, "top": top, "lines": lines, "all_lines": all_lines, "quarters": quarters,
             "dl_date": snap_dates[-1] if snap_dates else None, "dl_prev": prev_date, "games": games}
 
 
