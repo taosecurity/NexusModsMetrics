@@ -3,7 +3,7 @@
 By Richard Bejtlich of [Richard Presents Starfield Essentials](https://www.youtube.com/@RichardBejtlich).
 Parts 1 and 2 track and forecast mod downloads and mod counts for the top 15 games on
 [Nexus Mods](https://www.nexusmods.com/), with a focus on Starfield. Part 3 looks at the types of mods published
-for Starfield. Updated daily.
+for Starfield. Part 4 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.
 
 - **Page:** https://taosecurity.github.io/NexusModsMetrics/ (rebuilt every day)
 - **Data:** `data/` (CSV files you can open on GitHub or in a spreadsheet)
@@ -30,7 +30,7 @@ use `gh workflow run daily.yml`.
 |---|---|
 | `nexus.py` | Sends API requests. Identifies itself with the `Application-Name` and `Application-Version` headers that Nexus asks for. |
 | `collect.py` | Daily snapshot into `data/downloads.csv`. |
-| `types.py` | Mod types (Nexus categories). Daily: mods per category for every tracked game, now and 30/90/365 days ago, plus Starfield's monthly category history (about 20 requests). Weekly: Starfield downloads per category (about 180 requests; only category totals are kept). |
+| `modtypes.py` | Mod types (Nexus categories). Daily: mods per category for every tracked game, now and 30/90/365 days ago, plus Starfield's monthly category history (about 20 requests). Weekly: Starfield downloads per category (about 180 requests; only category totals are kept). |
 | `model.py` | Growth speeds, pass dates and rank projections. |
 | `headlines.py` | Writes each Part's Headlines (3–5 plain-English sentences) from the day's data, by rules: passes, surges, types gaining or losing ground. |
 | `build.py` | Builds the page. `--local` also runs `git pull` first and copies the page to a local folder. |
@@ -49,6 +49,13 @@ use `gh workflow run daily.yml`.
   category counts on the 1st of each month. Rewritten daily.
 - `data/category_downloads.csv`: weekly Starfield downloads per category, with downloads of mods created in
   the last 90 days.
+- `data/critics_downloads.csv`: weekly Starfield mods and downloads for the Part 4 hot topics (translations,
+  Star Wars by name, franchise-tagged, character presets and saves, AI content, and mods that are none of them).
+- `data/issues.csv`: numbers the collectors refused because they looked wrong (for example a total that fell).
+  The page shows a notice for the last 7 days.
+
+`types.json` also holds the hot-topic tag counts per game, and Starfield's Star Wars count (counts only, no
+mod names).
 
 ## How the forecast works
 

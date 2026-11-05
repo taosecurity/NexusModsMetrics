@@ -200,6 +200,89 @@ def types_section():
             "dl_date": snap_dates[-1] if snap_dates else None, "dl_prev": prev_date, "games": games}
 
 
+CRITICS_DL = os.path.join(HERE, "data", "critics_downloads.csv")
+TRANSLATION = "Translation"
+FRANCHISE = "Related to Movies/TV/Books/Other Games"
+
+
+def critics_section():
+    """Part 4: translations and Star Wars. Shares of Starfield's mods and downloads, the 15-game comparison, and the
+    trend in new mods."""
+    if not os.path.exists(TYPES_JSON):
+        return None
+    with open(TYPES_JSON, encoding="utf-8") as f:
+        tj = json.load(f)
+    g = tj["games"].get(FOCUS)
+    if not g or "tags" not in g:
+        return None
+    t0, t90 = g["tags"]["0"], g["tags"]["90"]
+    total = t0["_total"]
+    sw = tj.get("starwars") or {}
+    sw_n = sw.get("count", 0)
+    sw_tr = sw.get("translations", 0)
+    neither = total - t0[TRANSLATION] - sw_n + sw_tr
+
+    def share(tags_now, tags_then, key):
+        new = tags_now["_total"] - tags_then["_total"]
+        return (tags_now[key] - tags_then[key]) / new * 100 if new > 0 else None
+
+    games = []
+    for dom, gg in tj["games"].items():
+        if "tags" not in gg:
+            continue
+        a, b = gg["tags"]["0"], gg["tags"]["90"]
+        row = {"domain": dom, "name": gg["name"], "mods": a["_total"]}
+        for key, tag in (("translation", TRANSLATION), ("franchise", FRANCHISE), ("presets", "presets"), ("ai", "ai")):
+            if tag in a:
+                row[key] = a[tag] / a["_total"] * 100 if a["_total"] else 0
+                row[key + "_new90"] = share(a, b, tag) if tag in b else None
+        games.append(row)
+    for key in ("translation", "franchise", "presets", "ai"):
+        if not all(key in r for r in games):
+            continue
+        for i, row in enumerate(sorted(games, key=lambda r: -r[key])):
+            row[key + "_rank"] = i + 1
+
+    # quarterly shares of new Starfield mods
+    mt = tj.get("focus_monthly_tags", [])
+    swm = sw.get("monthly_new", {})
+    quarters = []
+    qs = [(d, c) for d, c in mt if d[5:7] in ("01", "04", "07", "10")]
+    for i in range(len(qs)):
+        start, a = qs[i]
+        end, b, partial = (qs[i + 1][0], qs[i + 1][1], False) if i + 1 < len(qs) else (tj["date"], t0, True)
+        new = b["_total"] - a["_total"]
+        if new <= 0:
+            continue
+        y, m = int(start[:4]), int(start[5:7])
+        sw_q = sum(swm.get(f"{y}-{m + k:02d}", 0) for k in range(3))
+        q = {"start": start, "partial": partial, "new": new,
+             "translation": (b[TRANSLATION] - a[TRANSLATION]) / new * 100,
+             "franchise": (b[FRANCHISE] - a[FRANCHISE]) / new * 100,
+             "starwars": sw_q / new * 100}
+        for gk in ("presets", "ai"):
+            if gk in a and gk in b:
+                q[gk] = (b[gk] - a[gk]) / new * 100
+        quarters.append(q)
+
+    dl = {}
+    if os.path.exists(CRITICS_DL):
+        with open(CRITICS_DL, newline="", encoding="utf-8") as f:
+            rows = list(csv.DictReader(f))
+        if rows:
+            last = max(r["date"] for r in rows)
+            dl = {r["group"]: {k: int(r[k]) for k in ("mods", "downloads", "new90_mods", "new90_downloads")}
+                  for r in rows if r["date"] == last}
+            dl["_date"] = last
+    return {"date": tj["date"], "total": total, "translation": t0[TRANSLATION], "franchise": t0[FRANCHISE],
+            "starwars": sw_n, "starwars_translations": sw_tr, "starwars_franchise_tagged": sw.get("franchise_tagged", 0),
+            "neither": neither, "translation_new90": share(t0, t90, TRANSLATION), "franchise_new90": share(t0, t90, FRANCHISE),
+            "presets": t0.get("presets"), "ai": t0.get("ai"),
+            "presets_new90": share(t0, t90, "presets") if "presets" in t0 and "presets" in t90 else None,
+            "ai_new90": share(t0, t90, "ai") if "ai" in t0 and "ai" in t90 else None,
+            "games": games, "quarters": quarters, "downloads": dl, "sw_terms": list((sw.get("per_term") or {}).keys())}
+
+
 def jsonable(res):
     out = {"rows": [], "passes": [], "unknown": res["unknown"]}
     for r in res["rows"]:
@@ -250,12 +333,23 @@ def main():
         "dl": jsonable(dl), "mods": jsonable(mods), "race": race,
         "check": check_table(fc_rows), "backtest": backtest(),
         "types": types_section(),
+        "critics": critics_section(),
     }
     order = {d: i for i, d in enumerate(ranked)}
     if page_data["types"]:
         page_data["types"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
+    # data problems the collector caught in the last 7 days (shown as a notice under the snapshot date)
+    issues_path = os.path.join(HERE, "data", "issues.csv")
+    page_data["issues"] = []
+    if os.path.exists(issues_path):
+        cutoff = (datetime.datetime.now(datetime.timezone.utc).date() - datetime.timedelta(days=7)).isoformat()
+        with open(issues_path, newline="", encoding="utf-8") as f:
+            page_data["issues"] = [r for r in csv.DictReader(f) if r["date"] >= cutoff]
     page_data["headlines"] = {"dl": headlines.downloads(data, dl, FOCUS), "mods": headlines.mods(data, mods, FOCUS),
-                              "types": headlines.types(page_data["types"])}
+                              "types": headlines.types(page_data["types"]),
+                              "critics": headlines.critics(page_data["critics"])}
+    if page_data["critics"]:
+        page_data["critics"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:
         tpl = f.read()
     blob = json.dumps(page_data, separators=(",", ":")).replace("</", "<\\/")
@@ -264,6 +358,10 @@ def main():
     out = os.path.join(SITE, "index.html")
     with open(out, "w", encoding="utf-8", newline="\n") as f:
         f.write(html)
+    # link-preview image (static; source is assets/preview-card.html)
+    preview = os.path.join(HERE, "assets", "preview.png")
+    if os.path.exists(preview):
+        shutil.copyfile(preview, os.path.join(SITE, "preview.png"))
     sf = next(r for r in dl["rows"] if r["domain"] == FOCUS)
     print(f"build: {out} ({len(html) // 1024} KB), snapshot {today}, Starfield #{sf['rank']} {sf['value'] / 1e6:.1f}M")
     for p in sorted(dl["passes"], key=lambda p: p["gap"])[:4]:

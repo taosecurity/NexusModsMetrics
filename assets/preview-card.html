@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Preview card</title>
+<!-- Source for assets/preview.png (the link-preview image, 1200x630). Render with headless Chrome:
+     chrome --headless=new --window-size=1200,630 --screenshot=assets/preview.png assets/preview-card.html -->
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; background: #10131a; color: #e3e7ef; font-family: "Segoe UI", system-ui, sans-serif;
+         display: grid; grid-template-rows: 1fr auto; overflow: hidden; }
+  .main { padding: 70px 80px 0; display: grid; align-content: start; gap: 22px; }
+  .kicker { font-size: 26px; letter-spacing: .14em; text-transform: uppercase; color: #8ea6ff; font-weight: 700; }
+  h1 { margin: 0; font-size: 84px; line-height: 1.02; letter-spacing: -.01em; }
+  p { margin: 0; font-size: 32px; line-height: 1.35; color: #aab2c2; max-width: 980px; }
+  .parts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .parts div { padding: 26px 40px 34px 56px; border-top: 10px solid; font-size: 27px; font-weight: 600; white-space: nowrap; }
+  .parts span { display: block; font-size: 20px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+  .parts .dl { border-top-color: #8ea6ff; background: #1b2240; } .dl span { color: #8ea6ff; }
+  .parts .mod { border-top-color: #2dd4bf; background: #10302c; } .mod span { color: #2dd4bf; }
+  .parts .type { border-top-color: #c4b5fd; background: #251c3d; } .type span { color: #c4b5fd; }
+  .parts .crit { border-top-color: #fda4af; background: #3a1620; } .crit span { color: #fda4af; }
+</style>
+</head>
+<body>
+  <div class="main">
+    <div class="kicker">Richard Presents Starfield Essentials</div>
+    <h1>Tracking Starfield<br>on Nexus Mods</h1>
+    <p>Daily mod downloads, mod counts, mod types and hot topics for the top 15 games, with forecasts for Starfield.</p>
+  </div>
+  <div class="parts">
+    <div class="dl"><span>Part 1</span>Mod downloads</div>
+    <div class="mod"><span>Part 2</span>Mod count</div>
+    <div class="type"><span>Part 3</span>Mod types</div>
+    <div class="crit"><span>Part 4</span>Hot topics</div>
+  </div>
+</body>
+</html>

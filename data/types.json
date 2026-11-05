@@ -1206,9 +1206,431 @@
 }
 ]
 ],
+"focus_monthly_tags": [
+[
+"2023-09-01",
+{
+"Related to Movies/TV/Books/Other Games": 0,
+"Translation": 0,
+"_total": 15,
+"ai": 0,
+"presets": 0
+}
+],
+[
+"2023-10-01",
+{
+"Related to Movies/TV/Books/Other Games": 60,
+"Translation": 97,
+"_total": 3051,
+"ai": 94,
+"presets": 292
+}
+],
+[
+"2023-11-01",
+{
+"Related to Movies/TV/Books/Other Games": 140,
+"Translation": 142,
+"_total": 4420,
+"ai": 115,
+"presets": 393
+}
+],
+[
+"2023-12-01",
+{
+"Related to Movies/TV/Books/Other Games": 166,
+"Translation": 216,
+"_total": 5249,
+"ai": 139,
+"presets": 447
+}
+],
+[
+"2024-01-01",
+{
+"Related to Movies/TV/Books/Other Games": 176,
+"Translation": 238,
+"_total": 5707,
+"ai": 149,
+"presets": 469
+}
+],
+[
+"2024-02-01",
+{
+"Related to Movies/TV/Books/Other Games": 186,
+"Translation": 257,
+"_total": 5956,
+"ai": 155,
+"presets": 472
+}
+],
+[
+"2024-03-01",
+{
+"Related to Movies/TV/Books/Other Games": 197,
+"Translation": 307,
+"_total": 6165,
+"ai": 160,
+"presets": 475
+}
+],
+[
+"2024-04-01",
+{
+"Related to Movies/TV/Books/Other Games": 213,
+"Translation": 383,
+"_total": 6384,
+"ai": 161,
+"presets": 480
+}
+],
+[
+"2024-05-01",
+{
+"Related to Movies/TV/Books/Other Games": 220,
+"Translation": 417,
+"_total": 6504,
+"ai": 166,
+"presets": 486
+}
+],
+[
+"2024-06-01",
+{
+"Related to Movies/TV/Books/Other Games": 235,
+"Translation": 465,
+"_total": 6715,
+"ai": 184,
+"presets": 496
+}
+],
+[
+"2024-07-01",
+{
+"Related to Movies/TV/Books/Other Games": 265,
+"Translation": 580,
+"_total": 7362,
+"ai": 193,
+"presets": 507
+}
+],
+[
+"2024-08-01",
+{
+"Related to Movies/TV/Books/Other Games": 288,
+"Translation": 611,
+"_total": 7719,
+"ai": 198,
+"presets": 535
+}
+],
+[
+"2024-09-01",
+{
+"Related to Movies/TV/Books/Other Games": 314,
+"Translation": 706,
+"_total": 8115,
+"ai": 203,
+"presets": 549
+}
+],
+[
+"2024-10-01",
+{
+"Related to Movies/TV/Books/Other Games": 333,
+"Translation": 759,
+"_total": 8448,
+"ai": 204,
+"presets": 570
+}
+],
+[
+"2024-11-01",
+{
+"Related to Movies/TV/Books/Other Games": 351,
+"Translation": 866,
+"_total": 8910,
+"ai": 221,
+"presets": 573
+}
+],
+[
+"2024-12-01",
+{
+"Related to Movies/TV/Books/Other Games": 366,
+"Translation": 893,
+"_total": 9132,
+"ai": 222,
+"presets": 582
+}
+],
+[
+"2025-01-01",
+{
+"Related to Movies/TV/Books/Other Games": 380,
+"Translation": 921,
+"_total": 9328,
+"ai": 224,
+"presets": 600
+}
+],
+[
+"2025-02-01",
+{
+"Related to Movies/TV/Books/Other Games": 397,
+"Translation": 969,
+"_total": 9518,
+"ai": 231,
+"presets": 607
+}
+],
+[
+"2025-03-01",
+{
+"Related to Movies/TV/Books/Other Games": 414,
+"Translation": 987,
+"_total": 9672,
+"ai": 232,
+"presets": 611
+}
+],
+[
+"2025-04-01",
+{
+"Related to Movies/TV/Books/Other Games": 420,
+"Translation": 1027,
+"_total": 9818,
+"ai": 233,
+"presets": 617
+}
+],
+[
+"2025-05-01",
+{
+"Related to Movies/TV/Books/Other Games": 427,
+"Translation": 1043,
+"_total": 9995,
+"ai": 233,
+"presets": 646
+}
+],
+[
+"2025-06-01",
+{
+"Related to Movies/TV/Books/Other Games": 442,
+"Translation": 1072,
+"_total": 10173,
+"ai": 235,
+"presets": 667
+}
+],
+[
+"2025-07-01",
+{
+"Related to Movies/TV/Books/Other Games": 458,
+"Translation": 1131,
+"_total": 10393,
+"ai": 238,
+"presets": 676
+}
+],
+[
+"2025-08-01",
+{
+"Related to Movies/TV/Books/Other Games": 469,
+"Translation": 1160,
+"_total": 10568,
+"ai": 240,
+"presets": 696
+}
+],
+[
+"2025-09-01",
+{
+"Related to Movies/TV/Books/Other Games": 487,
+"Translation": 1240,
+"_total": 10816,
+"ai": 243,
+"presets": 720
+}
+],
+[
+"2025-10-01",
+{
+"Related to Movies/TV/Books/Other Games": 494,
+"Translation": 1302,
+"_total": 11018,
+"ai": 247,
+"presets": 735
+}
+],
+[
+"2025-11-01",
+{
+"Related to Movies/TV/Books/Other Games": 499,
+"Translation": 1378,
+"_total": 11203,
+"ai": 248,
+"presets": 750
+}
+],
+[
+"2025-12-01",
+{
+"Related to Movies/TV/Books/Other Games": 504,
+"Translation": 1541,
+"_total": 11438,
+"ai": 249,
+"presets": 757
+}
+],
+[
+"2026-01-01",
+{
+"Related to Movies/TV/Books/Other Games": 507,
+"Translation": 1687,
+"_total": 11681,
+"ai": 252,
+"presets": 765
+}
+],
+[
+"2026-02-01",
+{
+"Related to Movies/TV/Books/Other Games": 517,
+"Translation": 1731,
+"_total": 11831,
+"ai": 259,
+"presets": 768
+}
+],
+[
+"2026-03-01",
+{
+"Related to Movies/TV/Books/Other Games": 525,
+"Translation": 1758,
+"_total": 11953,
+"ai": 264,
+"presets": 770
+}
+],
+[
+"2026-04-01",
+{
+"Related to Movies/TV/Books/Other Games": 530,
+"Translation": 1788,
+"_total": 12089,
+"ai": 269,
+"presets": 780
+}
+],
+[
+"2026-05-01",
+{
+"Related to Movies/TV/Books/Other Games": 535,
+"Translation": 1942,
+"_total": 12586,
+"ai": 281,
+"presets": 806
+}
+],
+[
+"2026-06-01",
+{
+"Related to Movies/TV/Books/Other Games": 549,
+"Translation": 2019,
+"_total": 12964,
+"ai": 310,
+"presets": 829
+}
+],
+[
+"2026-07-01",
+{
+"Related to Movies/TV/Books/Other Games": 553,
+"Translation": 2069,
+"_total": 13196,
+"ai": 331,
+"presets": 838
+}
+],
+[
+"2026-08-01",
+{
+"Related to Movies/TV/Books/Other Games": 558,
+"Translation": 2096,
+"_total": 13376,
+"ai": 357,
+"presets": 846
+}
+],
+[
+"2026-09-01",
+{
+"Related to Movies/TV/Books/Other Games": 559,
+"Translation": 2164,
+"_total": 13594,
+"ai": 415,
+"presets": 857
+}
+],
+[
+"2026-10-01",
+{
+"Related to Movies/TV/Books/Other Games": 564,
+"Translation": 2187,
+"_total": 13783,
+"ai": 448,
+"presets": 870
+}
+],
+[
+"2026-11-01",
+{
+"Related to Movies/TV/Books/Other Games": 572,
+"Translation": 2210,
+"_total": 14033,
+"ai": 508,
+"presets": 885
+}
+]
+],
 "games": {
 "baldursgate3": {
 "name": "Baldur's Gate 3",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 197,
+"Translation": 7080,
+"_total": 20358,
+"ai": 1043,
+"presets": 924
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 183,
+"Translation": 6802,
+"_total": 19656,
+"ai": 766,
+"presets": 892
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 133,
+"Translation": 4766,
+"_total": 14820,
+"ai": 368,
+"presets": 715
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 171,
+"Translation": 6442,
+"_total": 18689,
+"ai": 568,
+"presets": 850
+}
+},
 "windows": {
 "0": {
 "Accessories": 843,
@@ -1310,6 +1732,36 @@
 },
 "bladeandsorcery": {
 "name": "Blade & Sorcery",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 149,
+"Translation": 17,
+"_total": 9040,
+"ai": 122,
+"presets": 156
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 146,
+"Translation": 17,
+"_total": 8894,
+"ai": 55,
+"presets": 153
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 124,
+"Translation": 12,
+"_total": 8172,
+"ai": 5,
+"presets": 143
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 130,
+"Translation": 15,
+"_total": 8752,
+"ai": 32,
+"presets": 151
+}
+},
 "windows": {
 "0": {
 "Armour": 952,
@@ -1318,7 +1770,7 @@
 "Gameplay": 671,
 "Maps": 804,
 "Miscellaneous": 550,
-"Spells": 524,
+"Spells": 525,
 "Waves": 134,
 "Weapons": 4785
 },
@@ -1359,6 +1811,36 @@
 },
 "cyberpunk2077": {
 "name": "Cyberpunk 2077",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 250,
+"Translation": 2919,
+"_total": 26046,
+"ai": 1697,
+"presets": 1558
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 242,
+"Translation": 2703,
+"_total": 24324,
+"ai": 1110,
+"presets": 1512
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 181,
+"Translation": 1748,
+"_total": 17824,
+"ai": 484,
+"presets": 1236
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 231,
+"Translation": 2459,
+"_total": 22732,
+"ai": 822,
+"presets": 1464
+}
+},
 "windows": {
 "0": {
 "AI Voices": 129,
@@ -1366,7 +1848,7 @@
 "Adverts": 87,
 "Animations": 894,
 "Apartment": 159,
-"Appearance": 3855,
+"Appearance": 3856,
 "Appearance Change Unlocker Preset": 125,
 "Appearance Menu Mod Preset": 66,
 "Armour and Clothing": 5178,
@@ -1382,7 +1864,7 @@
 "Props and Decorations": 128,
 "Scripts": 137,
 "User Interface": 1300,
-"Utilities": 457,
+"Utilities": 458,
 "Vehicles": 1014,
 "Visuals and Graphics": 1556,
 "Weapons": 1363
@@ -1472,6 +1954,36 @@
 },
 "fallout3": {
 "name": "Fallout 3",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 27,
+"Translation": 643,
+"_total": 17284,
+"ai": 70,
+"presets": 223
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 27,
+"Translation": 641,
+"_total": 17223,
+"ai": 62,
+"presets": 223
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 23,
+"Translation": 575,
+"_total": 16769,
+"ai": 23,
+"presets": 217
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 27,
+"Translation": 631,
+"_total": 17150,
+"ai": 49,
+"presets": 222
+}
+},
 "windows": {
 "0": {
 "Ammo": 77,
@@ -1649,6 +2161,36 @@
 },
 "fallout4": {
 "name": "Fallout 4",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 1689,
+"Translation": 14721,
+"_total": 77669,
+"ai": 2166,
+"presets": 2714
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 1674,
+"Translation": 14475,
+"_total": 76744,
+"ai": 1897,
+"presets": 2687
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 1528,
+"Translation": 10899,
+"_total": 67362,
+"ai": 543,
+"presets": 2512
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 1641,
+"Translation": 14059,
+"_total": 75134,
+"ai": 1520,
+"presets": 2653
+}
+},
 "windows": {
 "0": {
 "Ammo": 1090,
@@ -1674,7 +2216,7 @@
 "Environment": 499,
 "Factions": 545,
 "Fallout 4": 1,
-"Gameplay": 4214,
+"Gameplay": 4215,
 "Immersion": 1347,
 "Items (Food, Drinks, Chems, etc)": 1079,
 "Locations - New": 702,
@@ -1906,6 +2448,36 @@
 },
 "monsterhunterworld": {
 "name": "Monster Hunter: World",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 107,
+"Translation": 82,
+"_total": 6606,
+"ai": 29,
+"presets": 95
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 104,
+"Translation": 81,
+"_total": 6544,
+"ai": 14,
+"presets": 95
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 101,
+"Translation": 73,
+"_total": 6252,
+"ai": 2,
+"presets": 94
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 104,
+"Translation": 80,
+"_total": 6468,
+"ai": 6,
+"presets": 94
+}
+},
 "windows": {
 "0": {
 "Armour and Clothing": 2112,
@@ -1967,6 +2539,36 @@
 },
 "morrowind": {
 "name": "Morrowind",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 87,
+"Translation": 815,
+"_total": 16536,
+"ai": 491,
+"presets": 43
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 84,
+"Translation": 795,
+"_total": 16205,
+"ai": 358,
+"presets": 41
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 70,
+"Translation": 672,
+"_total": 14016,
+"ai": 155,
+"presets": 35
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 84,
+"Translation": 769,
+"_total": 15665,
+"ai": 272,
+"presets": 39
+}
+},
 "windows": {
 "0": {
 "Animations": 136,
@@ -2124,6 +2726,36 @@
 },
 "mountandblade2bannerlord": {
 "name": "Mount & Blade II: Bannerlord",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 53,
+"Translation": 2833,
+"_total": 9802,
+"ai": 701,
+"presets": 497
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 44,
+"Translation": 2774,
+"_total": 9278,
+"ai": 542,
+"presets": 474
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 28,
+"Translation": 1896,
+"_total": 6213,
+"ai": 42,
+"presets": 395
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 32,
+"Translation": 2513,
+"_total": 8368,
+"ai": 243,
+"presets": 448
+}
+},
 "windows": {
 "0": {
 "Armour": 494,
@@ -2201,6 +2833,36 @@
 },
 "newvegas": {
 "name": "Fallout New Vegas",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 334,
+"Translation": 2592,
+"_total": 42439,
+"ai": 568,
+"presets": 484
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 333,
+"Translation": 2556,
+"_total": 42099,
+"ai": 478,
+"presets": 479
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 288,
+"Translation": 2107,
+"_total": 38037,
+"ai": 260,
+"presets": 431
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 326,
+"Translation": 2461,
+"_total": 41325,
+"ai": 398,
+"presets": 468
+}
+},
 "windows": {
 "0": {
 "2.5 Millionth Member Competition": 5,
@@ -2390,6 +3052,36 @@
 },
 "oblivion": {
 "name": "Oblivion",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 556,
+"Translation": 907,
+"_total": 33647,
+"ai": 429,
+"presets": 611
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 555,
+"Translation": 879,
+"_total": 33551,
+"ai": 385,
+"presets": 611
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 551,
+"Translation": 813,
+"_total": 32696,
+"ai": 243,
+"presets": 604
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 554,
+"Translation": 851,
+"_total": 33335,
+"ai": 319,
+"presets": 609
+}
+},
 "windows": {
 "0": {
 "Animals, Creatures, Mounts  & Horses": 537,
@@ -2627,6 +3319,36 @@
 },
 "skyrim": {
 "name": "Skyrim",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 1698,
+"Translation": 9321,
+"_total": 73201,
+"ai": 236,
+"presets": 2692
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 1697,
+"Translation": 9317,
+"_total": 73116,
+"ai": 217,
+"presets": 2690
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 1686,
+"Translation": 9016,
+"_total": 72040,
+"ai": 105,
+"presets": 2671
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 1696,
+"Translation": 9284,
+"_total": 72942,
+"ai": 182,
+"presets": 2686
+}
+},
 "windows": {
 "0": {
 "Alchemy": 556,
@@ -2920,10 +3642,40 @@
 },
 "skyrimspecialedition": {
 "name": "Skyrim Special Edition",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 1705,
+"Translation": 40780,
+"_total": 143573,
+"ai": 5845,
+"presets": 6449
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 1685,
+"Translation": 39957,
+"_total": 140652,
+"ai": 4649,
+"presets": 6356
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 1513,
+"Translation": 32080,
+"_total": 117434,
+"ai": 1733,
+"presets": 5536
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 1649,
+"Translation": 38310,
+"_total": 135672,
+"ai": 3332,
+"presets": 6156
+}
+},
 "windows": {
 "0": {
 "Alchemy": 1546,
-"Animation": 2897,
+"Animation": 2896,
 "Armour": 11512,
 "Armour - Shields": 351,
 "Audio": 3006,
@@ -2941,7 +3693,7 @@
 "Environmental": 1847,
 "Followers & Companions": 11408,
 "Followers & Companions - Creatures": 521,
-"Gameplay": 6693,
+"Gameplay": 6694,
 "Guilds/Factions": 596,
 "Immersion": 7251,
 "Items and Objects - Player": 516,
@@ -2965,7 +3717,7 @@
 "Skills and Leveling": 702,
 "Stealth": 130,
 "User Interface": 6310,
-"Utilities": 2027,
+"Utilities": 2026,
 "VR": 512,
 "Visuals and Graphics": 1933,
 "Weapons": 5740,
@@ -3125,11 +3877,41 @@
 },
 "stardewvalley": {
 "name": "Stardew Valley",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 335,
+"Translation": 9450,
+"_total": 35216,
+"ai": 2058,
+"presets": 672
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 329,
+"Translation": 9212,
+"_total": 34212,
+"ai": 1637,
+"presets": 654
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 270,
+"Translation": 5880,
+"_total": 25408,
+"ai": 236,
+"presets": 502
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 318,
+"Translation": 8468,
+"_total": 32310,
+"ai": 1098,
+"presets": 639
+}
+},
 "windows": {
 "0": {
 "Audio": 362,
 "Buildings": 1240,
-"Characters": 4296,
+"Characters": 4297,
 "Cheats": 439,
 "Clothing": 1272,
 "Crafting": 870,
@@ -3150,7 +3932,7 @@
 "New Characters": 1339,
 "Pets / Horses": 837,
 "Player": 363,
-"Portraits": 2574,
+"Portraits": 2575,
 "User Interface": 1566,
 "Visuals and Graphics": 2331
 },
@@ -3242,6 +4024,36 @@
 },
 "starfield": {
 "name": "Starfield",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 574,
+"Translation": 2214,
+"_total": 14081,
+"ai": 531,
+"presets": 885
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 567,
+"Translation": 2190,
+"_total": 13817,
+"ai": 455,
+"presets": 871
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 499,
+"Translation": 1396,
+"_total": 11231,
+"ai": 248,
+"presets": 752
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 558,
+"Translation": 2101,
+"_total": 13403,
+"ai": 363,
+"presets": 847
+}
+},
 "windows": {
 "0": {
 "Animations": 137,
@@ -3363,15 +4175,45 @@
 },
 "witcher3": {
 "name": "The Witcher 3: Wild Hunt",
+"tags": {
+"0": {
+"Related to Movies/TV/Books/Other Games": 66,
+"Translation": 1819,
+"_total": 10725,
+"ai": 1017,
+"presets": 537
+},
+"30": {
+"Related to Movies/TV/Books/Other Games": 57,
+"Translation": 1578,
+"_total": 9429,
+"ai": 402,
+"presets": 496
+},
+"365": {
+"Related to Movies/TV/Books/Other Games": 51,
+"Translation": 1228,
+"_total": 7851,
+"ai": 58,
+"presets": 424
+},
+"90": {
+"Related to Movies/TV/Books/Other Games": 55,
+"Translation": 1479,
+"_total": 8705,
+"ai": 131,
+"presets": 470
+}
+},
 "windows": {
 "0": {
 "Alchemy and Crafting": 319,
 "Armour": 631,
-"Audio": 132,
+"Audio": 133,
 "Balancing": 147,
 "Bug Fixes": 287,
 "Camera": 102,
-"Characters": 1005,
+"Characters": 1006,
 "Cheats and God items": 137,
 "Combat": 294,
 "Controller Button Layout": 98,
@@ -3392,7 +4234,6 @@
 "Save Games": 302,
 "Signs": 94,
 "Skills and Leveling": 121,
-"The Witcher 3": 5072,
 "Tweaks": 332,
 "User Interface": 938,
 "Utilities": 166,
@@ -3428,7 +4269,6 @@
 "Save Games": 298,
 "Signs": 88,
 "Skills and Leveling": 106,
-"The Witcher 3": 3778,
 "Tweaks": 314,
 "User Interface": 692,
 "Utilities": 139,
@@ -3464,7 +4304,6 @@
 "Save Games": 285,
 "Signs": 80,
 "Skills and Leveling": 87,
-"The Witcher 3": 2590,
 "Tweaks": 290,
 "User Interface": 509,
 "Utilities": 108,
@@ -3500,7 +4339,6 @@
 "Save Games": 294,
 "Signs": 87,
 "Skills and Leveling": 96,
-"The Witcher 3": 3093,
 "Tweaks": 305,
 "User Interface": 578,
 "Utilities": 124,
@@ -3510,5 +4348,68 @@
 }
 }
 }
+},
+"starwars": {
+"count": 511,
+"date": "2026-11-05",
+"franchise_tagged": 328,
+"monthly_new": {
+"2023-09": 62,
+"2023-10": 57,
+"2023-11": 22,
+"2023-12": 6,
+"2024-01": 5,
+"2024-02": 9,
+"2024-03": 14,
+"2024-04": 9,
+"2024-05": 18,
+"2024-06": 32,
+"2024-07": 21,
+"2024-08": 15,
+"2024-09": 10,
+"2024-10": 11,
+"2024-11": 14,
+"2024-12": 10,
+"2025-01": 14,
+"2025-02": 13,
+"2025-03": 6,
+"2025-04": 6,
+"2025-05": 17,
+"2025-06": 20,
+"2025-07": 9,
+"2025-08": 18,
+"2025-09": 5,
+"2025-10": 6,
+"2025-12": 2,
+"2026-01": 9,
+"2026-02": 9,
+"2026-03": 9,
+"2026-04": 3,
+"2026-05": 14,
+"2026-06": 3,
+"2026-07": 6,
+"2026-08": 8,
+"2026-09": 7,
+"2026-10": 12
+},
+"per_term": {
+"boba fett": 24,
+"clone trooper": 3,
+"darth": 11,
+"galactic empire": 5,
+"grogu": 4,
+"jedi": 16,
+"kenobi": 0,
+"lightsaber": 7,
+"mandalorian": 50,
+"millennium falcon": 9,
+"sith": 19,
+"skywalker": 2,
+"star wars": 434,
+"stormtrooper": 7,
+"tie fighter": 3,
+"x-wing": 10
+},
+"translations": 36
 }
 }

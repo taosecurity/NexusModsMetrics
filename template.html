@@ -4,6 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tracking Starfield on Nexus Mods</title>
+<link rel="canonical" href="https://taosecurity.github.io/NexusModsMetrics/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2310131a'/%3E%3Cpath d='M6 24 L13 16 L18 20 L26 9' fill='none' stroke='%238ea6ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='26' cy='9' r='2.6' fill='%232dd4bf'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Richard Presents Starfield Essentials">
+<meta property="og:title" content="Tracking Starfield on Nexus Mods">
+<meta property="og:description" content="Daily mod downloads, mod counts, mod types and hot topics for the top 15 games on Nexus Mods, with forecasts for Starfield.">
+<meta property="og:url" content="https://taosecurity.github.io/NexusModsMetrics/">
+<meta property="og:image" content="https://taosecurity.github.io/NexusModsMetrics/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tracking Starfield on Nexus Mods: Part 1 Downloads, Part 2 Mod count, Part 3 Mod types">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tracking Starfield on Nexus Mods">
+<meta name="twitter:description" content="Daily mod downloads, mod counts, mod types and hot topics for the top 15 games on Nexus Mods, with forecasts for Starfield.">
+<meta name="twitter:image" content="https://taosecurity.github.io/NexusModsMetrics/preview.png">
 <meta name="description" content="Daily download and mod-count growth for the top 15 games on Nexus Mods, with Starfield's projected pass dates.">
 <style>
 /* Layout: dark rail on the left (same style as the author's other pages), one column of panels. */
@@ -13,7 +28,7 @@
   --grid:#e1e0d9; --axis:#c3c2b7; --tick:#898781; --other:rgba(137,135,129,.42); --band:rgba(42,120,214,.14);
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
   --up:#006300; --down:#b42323;
-  --pdl:#3b5bdb; --pdl-bg:#e9edfc; --pmod:#0f766e; --pmod-bg:#e3f3f0; --ptype:#7c3aed; --ptype-bg:#f1ebfd;
+  --pdl:#3b5bdb; --pdl-bg:#e9edfc; --pmod:#0f766e; --pmod-bg:#e3f3f0; --ptype:#7c3aed; --ptype-bg:#f1ebfd; --pcrit:#be123c; --pcrit-bg:#fdecef;
   --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, Consolas, "Courier New", monospace;
   color-scheme: light;
@@ -23,14 +38,14 @@
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
-  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d;
+  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d; --pcrit:#fda4af; --pcrit-bg:#3a1620;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg:#10131a; --panel:#181c25; --text:#e3e7ef; --muted:#9aa3b5; --line:#2c3240;
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
-  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d;
+  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d; --pcrit:#fda4af; --pcrit-bg:#3a1620;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -62,6 +77,16 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .part { --p: var(--pdl); --pbg: var(--pdl-bg); display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 20px 20px 24px; border: 1px solid var(--line); border-top: 5px solid var(--p); border-radius: 8px; background: linear-gradient(var(--pbg), var(--bg) 220px); scroll-margin-top: 16px; min-width: 0; }
 .part.mod { --p: var(--pmod); --pbg: var(--pmod-bg); }
 .part.type { --p: var(--ptype); --pbg: var(--ptype-bg); }
+.part.crit { --p: var(--pcrit); --pbg: var(--pcrit-bg); }
+.pk.crit { --p: var(--pcrit); }
+.rail li.grp.crit a { color: #fda4af; box-shadow: inset 3px 0 0 currentColor; }
+.rail li.sub.crit a { box-shadow: inset 3px 0 0 #fda4af55; }
+.splitbar { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 6px 12px; align-items: center; margin: 4px 0; }
+.splitbar .lab { font-size: 13px; color: var(--muted); text-align: right; }
+.splitbar .bar { display: flex; height: 30px; border-radius: 4px; overflow: hidden; gap: 2px; background: var(--panel); }
+.splitbar .seg2 { display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; min-width: 2px; }
+.splitbar .seg2.lightink { color: #0b0b0b; }
+@media (max-width: 560px) { .splitbar { grid-template-columns: minmax(0, 1fr); } .splitbar .lab { text-align: left; } }
 .pk.type { --p: var(--ptype); }
 .rail li.grp.type a { color: #c4b5fd; box-shadow: inset 3px 0 0 currentColor; }
 .rail li.sub.type a { box-shadow: inset 3px 0 0 #c4b5fd55; }
@@ -71,6 +96,9 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .part-head p { margin: 0; color: var(--muted); max-width: 72ch; }
 .part section > h2 .kick { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--p); margin-bottom: 2px; }
 .part .tile, .part .panel { border-left: 3px solid var(--p); }
+.issues { font-size: 13px; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-left: 4px solid #fab219; border-radius: 6px; padding: 8px 12px; }
+.issues b { font-weight: 600; }
+.issues ul { margin: 4px 0 0; padding-left: 1.2em; color: var(--muted); }
 .headlines { scroll-margin-top: 16px; background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--p); border-radius: 6px; padding: 14px 18px 12px; display: grid; gap: 6px; }
 .headlines h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--p); font-weight: 700; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .headlines h3 span { color: var(--muted); font-weight: 400; letter-spacing: .04em; text-transform: none; }
@@ -172,7 +200,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
     <div class="rail-inner">
       <ul>
         <li><a href="#top">Top</a></li>
-        <li class="grp dl"><a href="#part-dl">Part 1 · Downloads</a></li>
+        <li class="grp dl"><a href="#part-dl">Part 1 · Mod downloads</a></li>
         <li class="sub dl"><a href="#dl-headlines">Headlines</a></li>
         <li class="sub dl"><a href="#dl-leaderboard">Leaderboard</a></li>
         <li class="sub dl"><a href="#dl-race">Starfield race</a></li>
@@ -190,6 +218,12 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <li class="sub type"><a href="#type-growth">Types over time</a></li>
         <li class="sub type"><a href="#type-dl">Downloads by type</a></li>
         <li class="sub type"><a href="#type-games">Across the 15 games</a></li>
+        <li class="grp crit"><a href="#part-crit">Part 4 · Hot topics</a></li>
+        <li class="sub crit"><a href="#crit-headlines">Headlines</a></li>
+        <li class="sub crit"><a href="#crit-split">What Starfield's mods are</a></li>
+        <li class="sub crit"><a href="#crit-compare">Compared with other games</a></li>
+        <li class="sub crit"><a href="#crit-trend">Are they growing?</a></li>
+        <li class="sub crit"><a href="#crit-method">How these are counted</a></li>
         <li class="grp plain">About</li>
         <li class="sub"><a href="#check">Forecast check</a></li>
         <li class="sub"><a href="#method">Method and sources</a></li>
@@ -201,20 +235,22 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
     <div class="col">
       <header class="intro" id="top">
         <h1>Tracking Starfield on Nexus Mods</h1>
-        <p class="byline">Parts 1 and 2 of this project by Richard Bejtlich of <a href="https://www.youtube.com/@RichardBejtlich">Richard Presents Starfield Essentials</a> track and forecast mod downloads and mod counts for the top 15 games on Nexus Mods, with a focus on Starfield. Part 3 dives into the types of mods published for Starfield on Nexus Mods. Updated daily.</p>
+        <p class="byline">Parts 1 and 2 of this project by Richard Bejtlich of <a href="https://www.youtube.com/@RichardBejtlich">Richard Presents Starfield Essentials</a> track and forecast mod downloads and mod counts for the top 15 games on Nexus Mods, with a focus on Starfield. Part 3 dives into the types of mods published for Starfield on Nexus Mods. Part 4 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.</p>
         <div class="parts-key">
-          <a class="pk dl" href="#part-dl"><span class="n">Part 1</span><b>Downloads</b><span>How often players download the game's mods</span></a>
+          <a class="pk dl" href="#part-dl"><span class="n">Part 1</span><b>Mod downloads</b><span>How often players download the game's mods</span></a>
           <a class="pk mod" href="#part-mod"><span class="n">Part 2</span><b>Mod count</b><span>How many mods modders have published</span></a>
           <a class="pk type" href="#part-type"><span class="n">Part 3</span><b>Mod types</b><span>What kinds of mods, and which kinds are growing</span></a>
+          <a class="pk crit" href="#part-crit"><span class="n">Part 4</span><b>Hot topics</b><span>Translations, Star Wars, presets and AI: testing the critics</span></a>
         </div>
         <p id="stamp"></p>
+        <div class="issues" id="issues" hidden></div>
       </header>
 
       <!-- ============================== PART 1: DOWNLOADS ============================== -->
       <div class="part dl" id="part-dl">
         <div class="part-head">
           <span class="kicker">Part 1</span>
-          <h2>Downloads</h2>
+          <h2>Mod downloads</h2>
           <p>Total downloads of each game's mods: how much players use them.</p>
         </div>
 
@@ -222,13 +258,13 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <div class="tiles" id="tiles"></div>
 
         <section id="dl-leaderboard">
-          <h2><span class="kick">Downloads</span>Leaderboard</h2>
+          <h2><span class="kick">Mod downloads</span>Leaderboard</h2>
           <p class="lead">Ranked by total downloads. Speeds need at least a week of daily snapshots; games marked "collecting" fill in as the history grows.</p>
           <div class="panel"><div class="tablewrap"><table id="lbTable"></table></div></div>
         </section>
 
         <section id="dl-race">
-          <h2><span class="kick">Downloads</span>The Starfield race</h2>
+          <h2><span class="kick">Mod downloads</span>The Starfield race</h2>
           <p class="lead">Starfield and its neighbours by downloads. Solid lines are measured; dashed lines are the likely path, and the shaded band is Starfield's slow-to-fast range.</p>
           <div class="panel">
             <div class="controls"><details class="picker"><summary>Games</summary><div class="menu"></div></details><span class="seg range" data-chart="race"></span></div>
@@ -243,7 +279,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         </section>
 
         <section id="dl-all">
-          <h2><span class="kick">Downloads</span>All 15 games</h2>
+          <h2><span class="kick">Mod downloads</span>All 15 games</h2>
           <div class="panel">
             <h3>Total downloads</h3>
             <div class="controls">
@@ -376,6 +412,70 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         </section>
       </div>
 
+      <!-- ============================== PART 4: TRANSLATIONS AND STAR WARS ============================== -->
+      <div class="part crit" id="part-crit">
+        <div class="part-head">
+          <span class="kicker">Part 4</span>
+          <h2>Hot topics</h2>
+          <p>Critics say Starfield's mods are mostly translations, Star Wars, character presets or AI content. Here's what the Nexus data shows, and how Starfield compares with the other top games.</p>
+        </div>
+
+        <div class="headlines" id="crit-headlines" data-part="critics"></div>
+        <div class="tiles" id="critTiles"></div>
+
+        <section id="crit-split">
+          <h2><span class="kick">Hot topics</span>What Starfield's mods are</h2>
+          <div class="panel">
+            <h3>Share of Starfield mods, and of their downloads</h3>
+            <div id="critBars"></div>
+            <div class="legend" id="critLegend"></div>
+            <p class="cap" id="critBarsNote"></p>
+          </div>
+        </section>
+
+        <section id="crit-compare">
+          <h2><span class="kick">Hot topics</span>Compared with the other top games</h2>
+          <div class="panel">
+            <h3>Translations: share of each game's mods</h3>
+            <div class="chart" id="critTr"></div>
+          </div>
+          <div class="panel">
+            <h3>Related to movies, TV, books or other games: share of each game's mods</h3>
+            <div class="chart" id="critFr"></div>
+            <p class="cap">Nexus has no Star Wars tag, so this broader franchise tag is the fair comparison across games.</p>
+          </div>
+          <div class="panel">
+            <h3>Character presets and save games: share of each game's mods</h3>
+            <div class="chart" id="critPr"></div>
+          </div>
+          <div class="panel">
+            <h3>AI-generated or AI-assisted: share of each game's mods</h3>
+            <div class="chart" id="critAi"></div>
+          </div>
+        </section>
+
+        <section id="crit-trend">
+          <h2><span class="kick">Hot topics</span>Are they growing?</h2>
+          <div class="panel">
+            <h3>Share of each quarter's new Starfield mods</h3>
+            <div class="controls"><span class="seg range" data-chart="crit"></span></div>
+            <div class="legend" id="critTrendLegend"></div>
+            <div class="chart" id="critTrend"></div>
+            <p class="cap">The current quarter is still in progress.</p>
+          </div>
+        </section>
+
+        <section id="crit-method">
+          <h2><span class="kick">Hot topics</span>How these are counted</h2>
+          <div class="panel method">
+            <p><b>Translations</b> are mods carrying Nexus's <i>Translation</i> tag. <b>Franchise mods</b> carry the <i>Related to Movies/TV/Books/Other Games</i> tag. Tags are set by mod authors, so a few mods are mis-tagged or untagged.</p>
+            <p><b>Star Wars mods</b> are counted by name, because Nexus has no Star Wars tag: any Starfield mod whose name contains <span id="critTerms"></span>. This misses Star Wars mods that don't say so in their names and catches a handful of false matches (a modder named "Jedi", for example), so treat it as approximate. Star Wars translations are counted in both groups; "neither" excludes them once.</p>
+            <p><b>Character presets and save games</b> are mods tagged <i>Character Preset</i> or <i>Saved games</i>: the character uploads often called "skins". <b>AI content</b> is any mod tagged <i>AI-Generated Content</i>, <i>AI Media</i> or <i>AI Assisted</i>. A mod with several of a group's tags counts once.</p>
+            <p><b>Downloads</b> are added up from every Starfield mod once a week. "None of the four" means a mod is not a translation, not Star Wars by name, not a preset or save, and not tagged as AI content.</p>
+          </div>
+        </section>
+      </div>
+
       <!-- ============================== ABOUT ============================== -->
       <section id="check">
         <h2>Forecast check</h2>
@@ -421,8 +521,9 @@ const RANGE_OPTS = {
   newmods: [["36", "36 months"], ["launch", "Since Sep 2023"], ["all", "All"]],
   mix: [["launch", "Since Sep 2023"], ["8", "Last 8 quarters"]],
   typeline: [["launch", "Since Sep 2023"], ["1", "Last year"]],
+  crit: [["launch", "Since Sep 2023"], ["8", "Last 8 quarters"]],
 };
-const RANGE = { race: "all", dl: "all", mods: "5", newmods: "36", mix: "launch", typeline: "launch" };
+const RANGE = { race: "all", dl: "all", mods: "5", newmods: "36", mix: "launch", typeline: "launch", crit: "launch" };
 const REDRAW = {};   // chart name -> draw function (filled in below)
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
@@ -912,7 +1013,80 @@ document.querySelectorAll("#typeView button").forEach(b => b.addEventListener("c
   typeShare = b.dataset.v === "share"; document.querySelectorAll("#typeView button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawTypeLines();
 }));
 
-Object.assign(REDRAW, { race: drawRace, dl: drawDl, mods: drawMods, newmods: drawNewMods, mix: drawTypeMix, typeline: drawTypeLines });
+// ---------------------------------------------------------------- Part 4: translations and Star Wars
+const CR = DATA.critics;
+const C_COL = { neither: "var(--s1)", translation: "var(--s2)", starwars: "var(--s3)", franchise: "var(--s7)", presets: "var(--s5)", ai: "var(--s8)" };
+function drawCritics() {
+  if (!CR) { document.getElementById("part-crit").style.display = "none"; document.querySelectorAll(".rail li.crit, .pk.crit").forEach(e => { e.style.display = "none"; }); return; }
+  const tot = CR.total, P = v => v / tot * 100;
+  const me = CR.games.find(g => g.domain === FOCUS) || {};
+  const n = CR.games.length;
+  const D = CR.downloads || {}, hasDl = !!(D.all && D.translation);
+  const dshare = g => hasDl && D[g] ? D[g].downloads / D.all.downloads * 100 : null;
+  const tiles = [
+    ["Neither translation nor Star Wars", P(CR.neither).toFixed(0) + "%", `${fmtInt(CR.neither)} of ${fmtInt(tot)} Starfield mods`],
+    ["Translations", P(CR.translation).toFixed(1) + "%", `#${me.translation_rank} of ${n} games by translation share`],
+    ["Star Wars (by name)", P(CR.starwars).toFixed(1) + "%", `about ${fmtInt(CR.starwars)} mods`],
+    ["Franchise-tagged", P(CR.franchise).toFixed(1) + "%", `#${me.franchise_rank} of ${n} games`],
+    hasDl ? ["Translations' share of downloads", dshare("translation").toFixed(1) + "%", `against ${P(CR.translation).toFixed(1)}% of mods`] : null,
+    hasDl && D.starwars ? ["Star Wars' share of downloads", dshare("starwars").toFixed(1) + "%", `against ${P(CR.starwars).toFixed(1)}% of mods`] : null,
+    CR.presets != null ? ["Character presets & saves", P(CR.presets).toFixed(1) + "%", `${fmtInt(CR.presets)} mods · #${me.presets_rank} of ${n} games` + (hasDl && D.presets ? ` · ${dshare("presets").toFixed(1)}% of downloads` : "")] : null,
+    CR.ai != null ? ["AI-generated or assisted", P(CR.ai).toFixed(1) + "%", `${fmtInt(CR.ai)} mods · #${me.ai_rank} of ${n} games` + (hasDl && D.ai ? ` · ${dshare("ai").toFixed(1)}% of downloads` : "")] : null,
+    hasDl && D.none ? ["None of the four hot topics", (D.none.mods / D.all.mods * 100).toFixed(0) + "%", `of Starfield mods · ${dshare("none").toFixed(0)}% of downloads`] : null,
+  ].filter(Boolean);
+  document.getElementById("critTiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
+
+  // split bars: translations (including Star Wars translations), Star Wars that aren't translations, neither
+  const bar = (label, parts) => {
+    const sum = parts.reduce((s, p) => s + p.v, 0) || 1;
+    return `<div class="splitbar"><span class="lab">${label}</span><div class="bar" role="img" aria-label="${label}: ${parts.map(p => `${p.name} ${(p.v / sum * 100).toFixed(1)}%`).join(", ")}">` +
+      parts.map(p => { const f = p.v / sum * 100; return `<span class="seg2" style="width:${f}%;background:${p.color}" title="${p.name}: ${f.toFixed(1)}%">${f >= 7 ? f.toFixed(0) + "%" : ""}</span>`; }).join("") + `</div></div>`;
+  };
+  const modsParts = [
+    { name: "Neither", v: CR.neither, color: C_COL.neither },
+    { name: "Translations", v: CR.translation, color: C_COL.translation },
+    { name: "Star Wars (not translations)", v: CR.starwars - CR.starwars_translations, color: C_COL.starwars },
+  ];
+  let html = bar("Mods", modsParts);
+  if (hasDl && D.neither) {
+    const swOnly = Math.max(0, D.all.downloads - D.translation.downloads - D.neither.downloads);
+    html += bar("Downloads", [
+      { name: "Neither", v: D.neither.downloads, color: C_COL.neither },
+      { name: "Translations", v: D.translation.downloads, color: C_COL.translation },
+      { name: "Star Wars (not translations)", v: swOnly, color: C_COL.starwars },
+    ]);
+  }
+  document.getElementById("critBars").innerHTML = html;
+  document.getElementById("critLegend").innerHTML = modsParts.map(p => `<span><i style="border-color:${p.color};border-top-width:8px"></i>${p.name}</span>`).join("");
+  document.getElementById("critBarsNote").textContent = hasDl
+    ? `Downloads added up from every Starfield mod on ${D._date}. A mod that is both a translation and Star Wars counts once, as a translation.`
+    : "Downloads by group appear after the first weekly count.";
+
+  const cmp = (key, el) => barChart(document.getElementById(el), CR.games.slice().sort((a, b) => b[key] - a[key]).map(g => ({
+    name: g.name, v: g[key], color: g.domain === FOCUS ? "var(--s1)" : null,
+    tipExtra: g[key + "_new90"] != null ? `<div class="r"><span>Share of new mods (90 d)</span><span>${g[key + "_new90"].toFixed(1)}%</span></div><div class="r"><span>Mods</span><span>${fmtInt(g.mods)}</span></div>` : "" })),
+    v => v.toFixed(1) + "%", "Share of mods");
+  cmp("translation", "critTr");
+  cmp("franchise", "critFr");
+  if (CR.games.every(g => g.presets != null)) cmp("presets", "critPr"); else document.getElementById("critPr").innerHTML = "<p class=\"note\">Collecting.</p>";
+  if (CR.games.every(g => g.ai != null)) cmp("ai", "critAi"); else document.getElementById("critAi").innerHTML = "<p class=\"note\">Collecting.</p>";
+  document.getElementById("critTerms").textContent = (CR.sw_terms || []).map(s => `"${s}"`).join(", ");
+  drawCritTrend();
+}
+function drawCritTrend() {
+  if (!CR) return;
+  let qs = CR.quarters.map(q => ({ ms: t(q.start) + 45 * DAY, q }));
+  qs = RANGE.crit === "launch" ? qs.filter(x => x.ms >= LAUNCH) : qs.slice(-8);
+  const series = [["translation", "Translations"], ["starwars", "Star Wars (by name)"], ["franchise", "Franchise-tagged"], ["presets", "Character presets & saves"], ["ai", "AI content"]].filter(([k]) => qs.length && qs[0].q[k] != null).map(([k, name]) => ({
+    name, label: name, color: C_COL[k], width: 2, dots: true, pts: qs.map(x => [x.ms, x.q[k]]) }));
+  document.getElementById("critTrendLegend").innerHTML = series.map(s => `<span><i style="border-color:${s.color}"></i>${s.name}</span>`).join("");
+  if (!qs.length) { document.getElementById("critTrend").innerHTML = '<p class="note">No quarters in range.</p>'; return; }
+  lineChart(document.getElementById("critTrend"), { series, x0: Math.min(...qs.map(x => x.ms)) - 30 * DAY, x1: Math.max(...qs.map(x => x.ms)) + 30 * DAY, zero: true,
+    yfmt: v => v.toFixed(0) + "%", tipfmt: v => v.toFixed(1) + "%", aria: "Share of new Starfield mods that are translations, Star Wars or franchise-tagged, by quarter" });
+}
+
+Object.assign(REDRAW, { race: drawRace, dl: drawDl, mods: drawMods, newmods: drawNewMods, mix: drawTypeMix, typeline: drawTypeLines, crit: drawCritTrend });
+drawCritics();
 drawTypes();
 document.querySelectorAll("span.range[data-chart]").forEach(seg => {
   const name = seg.dataset.chart;
@@ -922,6 +1096,13 @@ document.querySelectorAll("span.range[data-chart]").forEach(seg => {
   }));
 });
 function drawAll() { Object.values(REDRAW).forEach(fn => fn()); }
+// Data notices: snapshots or games the collector refused in the last 7 days
+if ((DATA.issues || []).length) {
+  const box = document.getElementById("issues");
+  box.hidden = false;
+  box.innerHTML = `<b>⚠ Data notice:</b> some recent numbers from Nexus looked wrong and were left out, so charts and headlines skip them.<ul>` +
+    DATA.issues.map(i => `<li>${esc(i.date)}: ${esc(i.what)}${i.detail ? " (" + esc(i.detail) + ")" : ""}</li>`).join("") + "</ul>";
+}
 // Headlines: generated server-side (headlines.py) from today's data; names are already HTML-escaped there.
 document.querySelectorAll(".headlines[data-part]").forEach(box => {
   const items = (DATA.headlines || {})[box.dataset.part] || [];

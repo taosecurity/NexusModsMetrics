@@ -33,7 +33,7 @@ jobs:
         run: python collect.py
 
       - name: Count mod types (weekly downloads-by-type pass when due)
-        run: python types.py
+        run: python modtypes.py
 
       - name: Build the page
         run: python build.py
