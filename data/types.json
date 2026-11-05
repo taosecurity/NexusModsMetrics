@@ -1814,8 +1814,8 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 250,
-"Translation": 2919,
-"_total": 26046,
+"Translation": 2920,
+"_total": 26047,
 "ai": 1697,
 "presets": 1558
 },
@@ -1863,7 +1863,7 @@
 "Modders Resources": 306,
 "Props and Decorations": 128,
 "Scripts": 137,
-"User Interface": 1300,
+"User Interface": 1301,
 "Utilities": 458,
 "Vehicles": 1014,
 "Visuals and Graphics": 1556,
@@ -2731,7 +2731,7 @@
 "Related to Movies/TV/Books/Other Games": 53,
 "Translation": 2833,
 "_total": 9802,
-"ai": 701,
+"ai": 703,
 "presets": 497
 },
 "30": {
@@ -3646,29 +3646,29 @@
 "0": {
 "Related to Movies/TV/Books/Other Games": 1705,
 "Translation": 40780,
-"_total": 143573,
-"ai": 5845,
+"_total": 143575,
+"ai": 5847,
 "presets": 6449
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 1685,
 "Translation": 39957,
 "_total": 140652,
-"ai": 4649,
+"ai": 4650,
 "presets": 6356
 },
 "365": {
 "Related to Movies/TV/Books/Other Games": 1513,
 "Translation": 32080,
 "_total": 117434,
-"ai": 1733,
+"ai": 1734,
 "presets": 5536
 },
 "90": {
 "Related to Movies/TV/Books/Other Games": 1649,
 "Translation": 38310,
 "_total": 135672,
-"ai": 3332,
+"ai": 3333,
 "presets": 6156
 }
 },
@@ -3707,7 +3707,7 @@
 "Models and Textures": 8028,
 "NPC": 5432,
 "Overhauls": 1932,
-"Patches": 10709,
+"Patches": 10711,
 "Player homes": 3412,
 "Presets - ENB and ReShade": 716,
 "Quests and Adventures": 3938,
@@ -3881,7 +3881,7 @@
 "0": {
 "Related to Movies/TV/Books/Other Games": 335,
 "Translation": 9450,
-"_total": 35216,
+"_total": 35217,
 "ai": 2058,
 "presets": 672
 },
@@ -3923,7 +3923,7 @@
 "Furniture": 1623,
 "Gameplay Mechanics": 4399,
 "Interiors": 323,
-"Items": 2235,
+"Items": 2236,
 "Livestock and Animals": 1757,
 "Locations": 338,
 "Maps": 1358,
