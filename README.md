@@ -28,6 +28,7 @@ use `gh workflow run daily.yml`.
 |---|---|
 | `nexus.py` | Sends API requests. Identifies itself with the `Application-Name` and `Application-Version` headers that Nexus asks for. |
 | `collect.py` | Daily snapshot into `data/downloads.csv`. |
+| `types.py` | Mod types (Nexus categories). Daily: mods per category for every tracked game, now and 30/90/365 days ago, plus Starfield's monthly category history (about 20 requests). Weekly: Starfield downloads per category (about 180 requests; only category totals are kept). |
 | `model.py` | Growth speeds, pass dates and rank projections. |
 | `build.py` | Builds the page. `--local` also runs `git pull` first and copies the page to a local folder. |
 | `template.html` | The page layout and chart code. |
@@ -41,6 +42,10 @@ use `gh workflow run daily.yml`.
 - `data/modcounts.csv`: mod count on the 1st of each month, rebuilt from mod creation dates. Mods that
   were later deleted or hidden aren't counted, so older figures run slightly low.
 - `data/forecasts.csv`: each day's pass-date forecasts, used by the page's Forecast check section.
+- `data/types.json`: mods per category for each tracked game (now, 30, 90 and 365 days ago), and Starfield's
+  category counts on the 1st of each month. Rewritten daily.
+- `data/category_downloads.csv`: weekly Starfield downloads per category, with downloads of mods created in
+  the last 90 days.
 
 ## How the forecast works
 

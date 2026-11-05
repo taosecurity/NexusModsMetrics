@@ -100,6 +100,102 @@ def backtest():
     return {"as_of": as_of.isoformat(), "name": "Fallout 3", "earliest": e, "likely": l, "latest": la, "actual": act}
 
 
+TYPES_JSON = os.path.join(HERE, "data", "types.json")
+CAT_DL = os.path.join(HERE, "data", "category_downloads.csv")
+TOP_TYPES = 7  # categories drawn in colour; the rest fold into "Other"
+
+
+def types_section():
+    """Mod types (Nexus categories): Starfield's mix and trends, plus each tracked game's biggest and fastest-growing type."""
+    if not os.path.exists(TYPES_JSON):
+        return None
+    with open(TYPES_JSON, encoding="utf-8") as f:
+        tj = json.load(f)
+    g = tj["games"].get(FOCUS)
+    if not g:
+        return None
+    w = g["windows"]
+    now = w["0"]
+    total = sum(now.values())
+    new = {k: {d: now.get(k, 0) - w[d].get(k, 0) for d in ("30", "90", "365")} for k in now}
+    total_new90 = sum(v["90"] for v in new.values()) or 1
+
+    # downloads per category: latest weekly snapshot, and the gain since the previous one
+    dl_snaps = {}
+    if os.path.exists(CAT_DL):
+        with open(CAT_DL, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                dl_snaps.setdefault(r["date"], {})[r["category"]] = r
+    snap_dates = sorted(dl_snaps)
+    latest = dl_snaps[snap_dates[-1]] if snap_dates else {}
+    prev_date = next((d for d in reversed(snap_dates[:-1])
+                      if (datetime.date.fromisoformat(snap_dates[-1]) - datetime.date.fromisoformat(d)).days >= 6), None)
+    prev = dl_snaps.get(prev_date, {})
+    dl_total = sum(int(r["downloads"]) for r in latest.values()) or 1
+    dl_new_total = sum(int(r["new90_downloads"]) for r in latest.values()) or 1
+
+    rows = []
+    for k in sorted(now, key=lambda c: -now[c]):
+        n = now[k]
+        d = latest.get(k)
+        dls = int(d["downloads"]) if d else None
+        rows.append({
+            "name": k, "mods": n, "share": n / total * 100 if total else 0,
+            "new30": new[k]["30"], "new90": new[k]["90"], "new365": new[k]["365"],
+            "pct_month": (new[k]["90"] / 3.0) / (n - new[k]["90"]) * 100 if n - new[k]["90"] > 0 else None,
+            "share_new90": new[k]["90"] / total_new90 * 100,
+            "downloads": dls, "dl_share": dls / dl_total * 100 if d else None,
+            "avg_dl": dls / n if d and n else None,
+            "new90_downloads": int(d["new90_downloads"]) if d else None,
+            "new90_dl_share": int(d["new90_downloads"]) / dl_new_total * 100 if d else None,
+            "dl_gain": (dls - int(prev[k]["downloads"])) if d and k in prev else None,
+        })
+    for r in rows:
+        r["trend"] = r["share_new90"] - r["share"]
+
+    top = [r["name"] for r in rows[:TOP_TYPES]]
+    monthly = tj.get("focus_monthly", [])
+    # cumulative mods per top type (+ Other), month by month, then today's count
+    lines = {k: [] for k in top + ["Other"]}
+    points = monthly + [[tj["date"], now]]
+    for date, counts in points:
+        for k in top:
+            lines[k].append([date, counts.get(k, 0)])
+        lines["Other"].append([date, sum(v for c, v in counts.items() if c not in top)])
+    # new mods per quarter by type (share of each quarter's new mods)
+    qstarts = [(date, counts) for date, counts in monthly if date[5:7] in ("01", "04", "07", "10")]
+    quarters = []
+    for i in range(len(qstarts)):
+        start, c0 = qstarts[i]
+        end, c1, partial = (qstarts[i + 1][0], qstarts[i + 1][1], False) if i + 1 < len(qstarts) else (tj["date"], now, True)
+        per = {k: c1.get(k, 0) - c0.get(k, 0) for k in top}
+        per["Other"] = sum(v for c, v in c1.items() if c not in top) - sum(v for c, v in c0.items() if c not in top)
+        quarters.append({"start": start, "partial": partial, "counts": per, "total": sum(per.values())})
+    # first quarter (the launch months before the first quarter boundary)
+    if monthly and qstarts and monthly[0][0] < qstarts[0][0]:
+        c0, c1 = monthly[0][1], qstarts[0][1]
+        per = {k: c1.get(k, 0) - c0.get(k, 0) for k in top}
+        per["Other"] = sum(v for c, v in c1.items() if c not in top) - sum(v for c, v in c0.items() if c not in top)
+        quarters.insert(0, {"start": monthly[0][0], "partial": False, "counts": per, "total": sum(per.values())})
+
+    games = []
+    for dom, gg in tj["games"].items():
+        n0, n90 = gg["windows"]["0"], gg["windows"]["90"]
+        tot = sum(n0.values()) or 1
+        newc = {k: n0[k] - n90.get(k, 0) for k in n0}
+        tn = sum(newc.values())
+        big = max(n0, key=n0.get) if n0 else None
+        fast = max(newc, key=newc.get) if newc else None
+        rising = max((k for k in n0 if newc[k] >= 20), key=lambda k: newc[k] / (tn or 1) - n0[k] / tot, default=None)
+        games.append({"domain": dom, "name": gg["name"], "categories": len(n0),
+                      "biggest": big, "biggest_share": n0[big] / tot * 100 if big else None,
+                      "fastest": fast, "fastest_new": newc.get(fast, 0), "fastest_share": newc.get(fast, 0) / (tn or 1) * 100,
+                      "rising": rising, "rising_gap": (newc[rising] / (tn or 1) - n0[rising] / tot) * 100 if rising else None,
+                      "new90": tn})
+    return {"date": tj["date"], "total": total, "rows": rows, "top": top, "lines": lines, "quarters": quarters,
+            "dl_date": snap_dates[-1] if snap_dates else None, "dl_prev": prev_date, "games": games}
+
+
 def jsonable(res):
     out = {"rows": [], "passes": [], "unknown": res["unknown"]}
     for r in res["rows"]:
@@ -149,7 +245,11 @@ def main():
                    "mods": [[x.isoformat(), v] for x, v in data["mods"].get(d, [])]} for d in ranked],
         "dl": jsonable(dl), "mods": jsonable(mods), "race": race,
         "check": check_table(fc_rows), "backtest": backtest(),
+        "types": types_section(),
     }
+    order = {d: i for i, d in enumerate(ranked)}
+    if page_data["types"]:
+        page_data["types"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:
         tpl = f.read()
     blob = json.dumps(page_data, separators=(",", ":")).replace("</", "<\\/")

@@ -13,7 +13,7 @@
   --grid:#e1e0d9; --axis:#c3c2b7; --tick:#898781; --other:rgba(137,135,129,.42); --band:rgba(42,120,214,.14);
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
   --up:#006300; --down:#b42323;
-  --pdl:#3b5bdb; --pdl-bg:#e9edfc; --pmod:#0f766e; --pmod-bg:#e3f3f0;
+  --pdl:#3b5bdb; --pdl-bg:#e9edfc; --pmod:#0f766e; --pmod-bg:#e3f3f0; --ptype:#7c3aed; --ptype-bg:#f1ebfd;
   --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, Consolas, "Courier New", monospace;
   color-scheme: light;
@@ -23,14 +23,14 @@
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
-  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c;
+  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg:#10131a; --panel:#181c25; --text:#e3e7ef; --muted:#9aa3b5; --line:#2c3240;
   --accent:#8ea6ff; --side:#0b0e14; --side-text:#aab2c2; --side-muted:#6c7588; --side-hover:#1a1f2b;
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
-  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c;
+  --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -61,6 +61,10 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .pk span:last-child { font-size: 13px; color: var(--muted); }
 .part { --p: var(--pdl); --pbg: var(--pdl-bg); display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 20px 20px 24px; border: 1px solid var(--line); border-top: 5px solid var(--p); border-radius: 8px; background: linear-gradient(var(--pbg), var(--bg) 220px); scroll-margin-top: 16px; min-width: 0; }
 .part.mod { --p: var(--pmod); --pbg: var(--pmod-bg); }
+.part.type { --p: var(--ptype); --pbg: var(--ptype-bg); }
+.pk.type { --p: var(--ptype); }
+.rail li.grp.type a { color: #c4b5fd; box-shadow: inset 3px 0 0 currentColor; }
+.rail li.sub.type a { box-shadow: inset 3px 0 0 #c4b5fd55; }
 .part-head { display: grid; gap: 4px; }
 .part-head .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--p); }
 .part-head h2 { margin: 0; font-size: 30px; line-height: 1.15; }
@@ -169,6 +173,12 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <li class="sub mod"><a href="#mod-race">Starfield race</a></li>
         <li class="sub mod"><a href="#mod-all">All 15 games</a></li>
         <li class="sub mod"><a href="#mod-new">New mods per month</a></li>
+        <li class="grp type"><a href="#part-type">Part 3 · Mod types</a></li>
+        <li class="sub type"><a href="#type-table">Starfield by type</a></li>
+        <li class="sub type"><a href="#type-mix">Mix of new mods</a></li>
+        <li class="sub type"><a href="#type-growth">Types over time</a></li>
+        <li class="sub type"><a href="#type-dl">Downloads by type</a></li>
+        <li class="sub type"><a href="#type-games">Across the 15 games</a></li>
         <li class="grp plain">About</li>
         <li class="sub"><a href="#check">Forecast check</a></li>
         <li class="sub"><a href="#method">Method and sources</a></li>
@@ -180,10 +190,11 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
     <div class="col">
       <header class="intro" id="top">
         <h1>Nexus Mods growth: the top 15 games, focusing on Starfield</h1>
-        <p>Two measures for the 15 most-downloaded games on Nexus Mods, recorded once a day, with forecasts of when Starfield passes the games around it.</p>
+        <p>Three views of the 15 most-downloaded games on Nexus Mods, recorded once a day, with forecasts of when Starfield passes the games around it.</p>
         <div class="parts-key">
           <a class="pk dl" href="#part-dl"><span class="n">Part 1</span><b>Downloads</b><span>How often players download the game's mods</span></a>
           <a class="pk mod" href="#part-mod"><span class="n">Part 2</span><b>Mod count</b><span>How many mods modders have published</span></a>
+          <a class="pk type" href="#part-type"><span class="n">Part 3</span><b>Mod types</b><span>What kinds of mods, and which kinds are growing</span></a>
         </div>
         <p id="stamp"></p>
       </header>
@@ -208,7 +219,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <h2><span class="kick">Downloads</span>The Starfield race</h2>
           <p class="lead">Starfield and its neighbours by downloads. Solid lines are measured; dashed lines are the likely path, and the shaded band is Starfield's slow-to-fast range.</p>
           <div class="panel">
-            <div class="controls"><details class="picker"><summary>Games</summary><div class="menu"></div></details></div>
+            <div class="controls"><details class="picker"><summary>Games</summary><div class="menu"></div></details><span class="seg range" data-chart="race"></span></div>
             <div class="legend" id="raceLegend"></div>
             <div class="chart" id="raceChart"></div>
           </div>
@@ -227,6 +238,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
               <details class="picker"><summary>Games</summary><div class="menu"></div></details>
               <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
               <span class="seg" id="dlScale"><button aria-pressed="true" data-v="log">Log scale</button><button aria-pressed="false" data-v="lin">Linear</button></span>
+              <span class="seg range" data-chart="dl"></span>
             </div>
             <div class="legend" id="dlLegend"></div>
             <div class="chart" id="dlChart"></div>
@@ -270,7 +282,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
             <div class="controls">
               <details class="picker"><summary>Games</summary><div class="menu"></div></details>
               <label class="sw"><input type="checkbox" class="others" checked> Show other games in grey</label>
-              <span class="seg" id="modRange"><button aria-pressed="false" data-v="0">All</button><button aria-pressed="true" data-v="5">5 years</button><button aria-pressed="false" data-v="2">2 years</button></span>
+              <span class="seg range" data-chart="mods"></span>
             </div>
             <div class="legend" id="modLegend"></div>
             <div class="chart" id="modChart"></div>
@@ -281,9 +293,67 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <h2><span class="kick">Mod count</span>New mods per month</h2>
           <div class="panel">
             <h3 id="newModsTitle">New mods per month</h3>
-            <div class="controls"><label>Game <select id="newModsPick"></select></label></div>
+            <div class="controls"><label>Game <select id="newModsPick"></select></label><span class="seg range" data-chart="newmods"></span></div>
             <div class="chart" id="newMods"></div>
           </div>
+        </section>
+      </div>
+
+      <!-- ============================== PART 3: MOD TYPES ============================== -->
+      <div class="part type" id="part-type">
+        <div class="part-head">
+          <span class="kicker">Part 3</span>
+          <h2>Mod types</h2>
+          <p>What kinds of mods Starfield gets and which kinds are growing, using the Nexus category each author picks at upload. The last section compares the 15 games.</p>
+        </div>
+
+        <div class="tiles" id="typeTiles"></div>
+
+        <section id="type-table">
+          <h2><span class="kick">Mod types</span>Starfield mods by type</h2>
+          <p class="lead">"Share of new" is each type's share of the mods published in the last 90 days. When it beats the type's share of all mods, that type is gaining ground (▲).</p>
+          <div class="panel"><div class="tablewrap"><table id="typeTable"></table></div><p class="note" id="typeDlNote"></p></div>
+        </section>
+
+        <section id="type-mix">
+          <h2><span class="kick">Mod types</span>How the mix of new mods has changed</h2>
+          <div class="panel">
+            <h3>Share of each quarter's new Starfield mods</h3>
+            <div class="controls"><span class="seg range" data-chart="mix"></span></div>
+            <div class="legend" id="typeLegend"></div>
+            <div class="chart" id="typeMix"></div>
+            <p class="cap">The seven biggest types are in colour; all other types are grouped as "Other". The current quarter, still in progress, has a dashed outline.</p>
+          </div>
+        </section>
+
+        <section id="type-growth">
+          <h2><span class="kick">Mod types</span>Mods per type over time</h2>
+          <div class="panel">
+            <h3>Total Starfield mods in each type</h3>
+            <div class="controls"><span class="seg range" data-chart="typeline"></span></div>
+            <div class="legend" id="typeLegend2"></div>
+            <div class="chart" id="typeLines"></div>
+          </div>
+        </section>
+
+        <section id="type-dl">
+          <h2><span class="kick">Mod types</span>Downloads by type</h2>
+          <p class="lead" id="typeDlLead">Downloads of every Starfield mod, added up by type. Recounted once a week.</p>
+          <div class="panel">
+            <h3>Total downloads by type (millions)</h3>
+            <div class="chart" id="typeDl"></div>
+          </div>
+          <div class="panel">
+            <h3>Downloads of mods released in the last 90 days</h3>
+            <div class="chart" id="typeDlNew"></div>
+            <p class="cap">What players are picking up among the newest mods.</p>
+          </div>
+        </section>
+
+        <section id="type-games">
+          <h2><span class="kick">Mod types</span>Mod types across the 15 games</h2>
+          <p class="lead">Each game uses its own category list, so this compares types within each game: its biggest type, the type with the most new mods in the last 90 days, and the type gaining the most ground.</p>
+          <div class="panel"><div class="tablewrap"><table id="typeGames"></table></div></div>
         </section>
       </div>
 
@@ -323,6 +393,18 @@ const DATA = JSON.parse(document.getElementById("data").textContent);
 const FOCUS = DATA.focus;
 const NS = "http://www.w3.org/2000/svg";
 const DAY = 864e5;
+const LAUNCH = Date.parse("2023-09-01T00:00:00Z");   // September 2023: the month Starfield became public
+const RELEASE = Date.parse("2023-09-06T00:00:00Z");  // Starfield's release day (marked on time charts)
+const RANGE_OPTS = {
+  race: [["all", "All data"], ["launch", "Since Sep 2023"]],
+  dl: [["all", "All data"], ["launch", "Since Sep 2023"]],
+  mods: [["launch", "Since Sep 2023"], ["5", "5 years"], ["2", "2 years"], ["all", "All"]],
+  newmods: [["36", "36 months"], ["launch", "Since Sep 2023"], ["all", "All"]],
+  mix: [["launch", "Since Sep 2023"], ["8", "Last 8 quarters"]],
+  typeline: [["launch", "Since Sep 2023"], ["1", "Last year"]],
+};
+const RANGE = { race: "all", dl: "all", mods: "5", newmods: "36", mix: "launch", typeline: "launch" };
+const REDRAW = {};   // chart name -> draw function (filled in below)
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
 const h = (tag, attrs, html) => { const e = document.createElement(tag); if (attrs) for (const k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; };
@@ -388,6 +470,7 @@ function lineChart(box, opt) {
   let lastX = -1e9;
   for (const ms of tt.ticks) { const x = X(ms); if (x - lastX < 54) continue; lastX = x; el("text", { x, y: H - pad.b + 15, "text-anchor": "middle", class: "ax" }, svg).textContent = tt.fmt(ms); }
   if (opt.today) { const x = X(opt.today); el("line", { x1: x, x2: x, y1: pad.t, y2: H - pad.b, class: "grid", "stroke-dasharray": "3 3" }, svg); }
+  if (RELEASE >= x0 && RELEASE <= x1) { const x = X(RELEASE); el("line", { x1: x, x2: x, y1: pad.t, y2: H - pad.b, class: "base", "stroke-dasharray": "2 3" }, svg); el("text", { x: x + 4, y: pad.t + 10, class: "ax" }, svg).textContent = "Starfield release"; }
   const clip = arr => arr.filter(p => p[0] >= x0 && p[0] <= x1);
   const path = arr => arr.map((p, i) => (i ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1)).join("");
   const order = opt.series.slice().sort((a, b) => (a.z || 0) - (b.z || 0));
@@ -502,17 +585,21 @@ const f = dlRow[FOCUS], fm = modRow[FOCUS];
 document.getElementById("stamp").innerHTML = `Last snapshot <b>${DATA.latest_snapshot}</b> · built ${DATA.built}`;
 document.getElementById("built").textContent = ` Page built ${DATA.built}.`;
 
-// tiles
-const nextUp = A.passes.filter(p => p.dir === "up").sort((a, b) => a.gap - b.gap)[0];
-const nextDown = A.passes.filter(p => p.dir === "down").sort((a, b) => a.gap - b.gap)[0];
-const tiles = [
-  ["Starfield rank (downloads)", "#" + f.rank, `of ${A.rows.length} tracked games`],
-  ["Starfield downloads", fmtM(f.value), f.speed ? `+${M(f.speed[1]).toFixed(2)}M a day · ${f.pct_month.toFixed(2)}% a month` : "collecting"],
-  nextUp ? ["Next to pass", esc(nextUp.name), `${fmtM(nextUp.gap)} ahead · likely ${passCell(nextUp)}`] : null,
-  nextDown ? ["Closest behind", esc(nextDown.name), `${fmtM(nextDown.gap)} behind · ${nextDown.dates && nextDown.dates[1] ? "could pass " + nextDown.dates[1] : "not catching up"}`] : null,
-  ["Starfield in 12 months", "#" + f.proj_rank[12], `projected rank · #${f.proj_rank[24]} in 24 months`],
-].filter(Boolean);
-document.getElementById("tiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
+// tiles: Parts 1 and 2 use the same five tiles in the same order
+function partTiles(boxId, an, row, o) {
+  const up = an.passes.filter(p => p.dir === "up").sort((a, b) => a.gap - b.gap)[0];
+  const down = an.passes.filter(p => p.dir === "down").sort((a, b) => a.gap - b.gap)[0];
+  const est = m => row.speed ? row.value + row.speed[1] * m * 30.44 : null;
+  const tiles = [
+    [`Starfield rank (${o.measure})`, "#" + row.rank, `of ${an.rows.length} tracked games`],
+    [`Starfield ${o.noun}`, o.fmt(row.value), row.speed ? `${o.rate(row.speed[1])} · ${row.pct_month.toFixed(2)}% a month` : "collecting"],
+    ["Next to pass", up ? esc(up.name) : "–", up ? `${o.fmt(up.gap)} ahead · likely ${passCell(up)}` : "Starfield leads this list"],
+    ["Closest behind", down ? esc(down.name) : "–", down ? `${o.fmt(down.gap)} behind · ${down.dates && down.dates[1] ? "could pass " + down.dates[1] : "not catching up"}` : "nothing behind"],
+    ["Starfield in 12 months", "#" + row.proj_rank[12], row.speed ? `about ${o.fmt(est(12))} ${o.noun} · #${row.proj_rank[24]} in 24 months` : `projected rank · #${row.proj_rank[24]} in 24 months`],
+  ];
+  document.getElementById(boxId).innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
+}
+partTiles("tiles", A, f, { measure: "downloads", noun: "downloads", fmt: fmtM, rate: v => `+${M(v).toFixed(2)}M a day` });
 
 // leaderboard
 const speedTxt = r => r.speed ? (M(r.speed[1]) >= 0.1 ? M(r.speed[1]).toFixed(2) : M(r.speed[1]).toFixed(3)) : `<span class="na">collecting (${r.history_days} d)</span>`;
@@ -581,7 +668,7 @@ function drawRace() {
              pts: g.dl.map(p => [t(p[0]), p[1]]), fc: r.speed ? fcLine(r, r.speed[1]) : [], band: r.domain === FOCUS && r.speed ? bandOf(r) : [] };
   });
   if (!series.length) { box.innerHTML = '<p class="note">No games selected: use the Games button.</p>'; document.getElementById("raceLegend").innerHTML = ""; return; }
-  const x0 = Math.min(...series.flatMap(s => s.pts.map(p => p[0])), today - 120 * DAY);
+  const x0 = RANGE.race === "launch" ? LAUNCH : Math.min(...series.flatMap(s => s.pts.map(p => p[0])), today - 120 * DAY);
   lineChart(box, { series, x0, x1: fcEnd, today, log: series.some(s => s.pts.length && s.pts[s.pts.length - 1][1] > 2e9), yfmt: v => fmtM(v), tipfmt: v => fmtM(v), aria: "Selected games: downloads with forecasts" });
   document.getElementById("raceLegend").innerHTML = series.map(s => `<span><i style="border-color:${s.color}"></i>${esc(s.name)}</span>`).join("") +
     `<span><i class="dash" style="border-color:var(--muted)"></i>Likely path</span>` + (sel.includes(FOCUS) ? `<span><i class="band"></i>Starfield range</span>` : "");
@@ -604,7 +691,7 @@ function drawDl() {
   if (!series.length) { box.innerHTML = '<p class="note">No games selected: use the Games button or tick "Show other games".</p>'; }
   else {
     const x0 = Math.min(...series.flatMap(s => s.pts.map(p => p[0])));
-    lineChart(box, { series, x0: x0 - 10 * DAY, x1: today + 10 * DAY, log: dlLog, yfmt: v => fmtM(v), tipfmt: v => fmtM(v), aria: "Total downloads, top 15 games" });
+    lineChart(box, { series, x0: RANGE.dl === "launch" ? LAUNCH : x0 - 10 * DAY, x1: today + 10 * DAY, log: dlLog, yfmt: v => fmtM(v), tipfmt: v => fmtM(v), aria: "Total downloads, top 15 games" });
   }
   legendFor(document.getElementById("dlLegend"), showOthers);
   barChart(document.getElementById("dlSpeed"), A.rows.slice().sort((a, b) => (b.speed ? b.speed[1] : -1) - (a.speed ? a.speed[1] : -1)).map(r => ({
@@ -614,15 +701,7 @@ function drawDl() {
 document.querySelectorAll("#dlScale button").forEach(b => b.addEventListener("click", () => { dlLog = b.dataset.v === "log"; document.querySelectorAll("#dlScale button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawDl(); }));
 
 // mods
-const modTiles = [
-  ["Starfield mods", fmtInt(fm.value), `#${fm.rank} of ${MA.rows.length} by mod count`],
-  ["New Starfield mods", fm.gain30 != null ? "+" + fmtInt(fm.gain30) : "–", "in the last 30 days"],
-  ["Mod growth", fm.speed ? fmtInt(fm.speed[1] * 30.44) + " / month" : "–", fm.pct_month != null ? fm.pct_month.toFixed(2) + "% a month" : ""],
-];
-const nextModUp = MA.passes.filter(p => p.dir === "up").sort((a, b) => a.gap - b.gap)[0];
-if (nextModUp) modTiles.push(["Next to pass (mods)", esc(nextModUp.name), `${fmtInt(nextModUp.gap)} ahead · likely ${passCell(nextModUp)}`]);
-document.getElementById("modTiles").innerHTML = modTiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
-let modYears = 5;
+partTiles("modTiles", MA, fm, { measure: "mod count", noun: "mods", fmt: fmtInt, rate: v => `+${fmtInt(v * 30.44)} a month` });
 const newModsPick = document.getElementById("newModsPick");
 newModsPick.innerHTML = A.rows.map(r => `<option value="${r.domain}">${esc(r.name)}</option>`).join("");
 newModsPick.value = FOCUS;
@@ -633,7 +712,7 @@ function drawMods() {
   legendFor(document.getElementById("modLegend"), showOthers);
   if (!series.length) { box.innerHTML = '<p class="note">No games selected: use the Games button or tick "Show other games".</p>'; return; }
   const x1 = today + 10 * DAY, all = Math.min(...series.flatMap(s => s.pts.map(p => p[0])));
-  const x0 = modYears ? Math.max(all, today - modYears * 365.25 * DAY) : all;
+  const r = RANGE.mods, x0 = r === "all" ? all : r === "launch" ? LAUNCH : Math.max(all, today - (+r) * 365.25 * DAY);
   series.forEach(s => { s.pts = s.pts.filter(p => p[1] >= 100); });
   lineChart(box, { series, x0, x1, log: true, minY: 100, yfmt: v => v >= 1000 ? (v / 1000) + "k" : String(v), tipfmt: fmtInt, aria: "Mod count per game" });
 }
@@ -644,11 +723,11 @@ function drawNewMods() {
   for (let i = 1; i < monthly.length; i++) items.push({ ms: t(monthly[i - 1][0]), v: monthly[i][1] - monthly[i - 1][1] });
   const lastM = monthly[monthly.length - 1], live = g.mods[g.mods.length - 1];
   if (lastM && live && live[0] > lastM[0]) items.push({ ms: t(lastM[0]), v: live[1] - lastM[1], partial: true });
-  const shown = items.slice(-36);
-  document.getElementById("newModsTitle").textContent = `New mods per month: ${g.name} (last ${shown.length} months)`;
+  const r = RANGE.newmods, shown = r === "launch" ? items.filter(it => it.ms >= LAUNCH) : r === "all" ? items : items.slice(-36);
+  const span = r === "launch" ? "since September 2023" : r === "all" ? `since ${shown.length ? monthName(shown[0].ms) : "–"}` : `last ${shown.length} months`;
+  document.getElementById("newModsTitle").textContent = `New mods per month: ${g.name} (${span})`;
   columnChart(document.getElementById("newMods"), shown, fmtInt, "New mods per month");
 }
-document.querySelectorAll("#modRange button").forEach(b => b.addEventListener("click", () => { modYears = +b.dataset.v; document.querySelectorAll("#modRange button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawMods(); }));
 document.getElementById("modTable").innerHTML = `<thead><tr><th class="num">#</th><th>Game</th><th class="num">Mods</th><th class="num">30-day gain</th><th class="num">Mods / month</th><th class="num">% / month</th><th class="num">Rank in 12 mo</th><th>Trend</th></tr></thead><tbody>` +
   MA.rows.map(r => `<tr class="${r.domain === FOCUS ? "focus" : ""}"><td class="num">${r.rank}</td><td class="game">${esc(r.name)}</td><td class="num">${fmtInt(r.value)}</td><td class="num">${fmtSigned(r.gain30, fmtInt)}</td><td class="num">${r.speed ? fmtInt(r.speed[1] * 30.44) : '<span class="na">–</span>'}</td><td class="num">${r.pct_month != null ? r.pct_month.toFixed(2) + "%" : '<span class="na">–</span>'}</td><td class="num">${r.speed ? rankMove(r.rank, r.proj_rank[12]) : '<span class="na">–</span>'}</td><td>${spark(byDom[r.domain].mods.slice(-37))}</td></tr>`).join("") + "</tbody>";
 const modNear = MA.passes.filter(p => p.dates && p.dates[1]).concat(MA.passes.filter(p => p.dir === "up").sort((a, b) => a.gap - b.gap).slice(0, 1)).filter((p, i, a) => a.indexOf(p) === i);
@@ -666,7 +745,112 @@ document.getElementById("checkTable").innerHTML = ch.length ? `<thead><tr><th>Ev
 document.getElementById("srcTable").innerHTML = `<thead><tr><th>Game</th><th class="num">Download history from</th><th class="num">Points</th><th class="num">Mod history from</th></tr></thead><tbody>` +
   A.rows.map(r => { const g = byDom[r.domain]; return `<tr><td class="game">${esc(g.name)}</td><td class="num">${g.dl.length ? g.dl[0][0] : "–"}</td><td class="num">${g.dl.length}</td><td class="num">${g.mods.length ? g.mods[0][0] : "–"}</td></tr>`; }).join("") + "</tbody>";
 
-function drawAll() { drawRace(); drawDl(); drawMods(); drawNewMods(); }
+// ---------------------------------------------------------------- Part 3: mod types
+const TY = DATA.types;
+const TYPE_SLOTS = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)", "var(--s6)", "var(--s7)"];
+const typeColor = k => { const i = TY ? TY.top.indexOf(k) : -1; return i >= 0 ? TYPE_SLOTS[i] : "var(--other)"; };
+const pct = v => v == null ? '<span class="na">–</span>' : v.toFixed(1) + "%";
+const quarterName = s => { const d = new Date(t(s)); return "Q" + (Math.floor(d.getUTCMonth() / 3) + 1) + " " + d.getUTCFullYear(); };
+
+/* 100% stacked columns: items [{label, partial, parts: [{key, v, color}], total}] */
+function stackedChart(box, items, label) {
+  box.innerHTML = "";
+  const W = Math.max(320, box.clientWidth || 640), H = 260, pad = { l: 40, r: 10, t: 10, b: 30 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": label }, box);
+  const Y = f => pad.t + (1 - f) * (H - pad.t - pad.b);
+  for (const f of [0, .25, .5, .75, 1]) { el("line", { x1: pad.l, x2: W - pad.r, y1: Y(f), y2: Y(f), class: "grid" }, svg); el("text", { x: pad.l - 6, y: Y(f) + 3.5, "text-anchor": "end", class: "ax" }, svg).textContent = Math.round(f * 100) + "%"; }
+  const bw = (W - pad.l - pad.r) / Math.max(1, items.length);
+  items.forEach((it, i) => {
+    const x = pad.l + i * bw + Math.max(2, bw * 0.12), w = Math.max(3, bw - 2 * Math.max(2, bw * 0.12));
+    let acc = 0;
+    for (const p of it.parts) {
+      if (!p.v || !it.total) continue;
+      const f = p.v / it.total, y1 = Y(acc + f), y0 = Y(acc);
+      const r = el("rect", { x, y: y1 + 1, width: w, height: Math.max(0.5, y0 - y1 - 2), fill: p.color, opacity: it.partial ? 0.55 : 1 }, svg);
+      r.addEventListener("pointermove", ev => { const b = box.getBoundingClientRect(); showTip(box, ev.clientX - b.left, ev.clientY - b.top,
+        `<b>${it.label}${it.partial ? " (so far)" : ""}</b>` + it.parts.slice().reverse().map(q => `<div class="r"><span><i style="background:${q.color}"></i>${esc(q.key)}</span><span>${fmtInt(q.v)} · ${(q.v / it.total * 100).toFixed(0)}%</span></div>`).join("") +
+        `<div class="r"><span>All new mods</span><span>${fmtInt(it.total)}</span></div>`); });
+      r.addEventListener("pointerleave", hideTip);
+      acc += f;
+    }
+    if (it.partial) el("rect", { x: x - 1, y: Y(1), width: w + 2, height: Y(0) - Y(1), fill: "none", stroke: "var(--muted)", "stroke-dasharray": "3 3" }, svg);
+    if (items.length <= 12 || i % 2 === 0) el("text", { x: x + w / 2, y: H - pad.b + 15, "text-anchor": "middle", class: "ax" }, svg).textContent = it.label;
+  });
+}
+
+function drawTypes() {
+  const part = document.getElementById("part-type");
+  if (!TY) { part.style.display = "none"; document.querySelectorAll(".rail li.type, .pk.type").forEach(e => { e.style.display = "none"; }); return; }
+  const R = TY.rows;
+  const big = R[0];
+  const fast = R.slice().sort((a, b) => b.new90 - a.new90)[0];
+  const rising = R.filter(r => r.new90 >= 20).sort((a, b) => b.trend - a.trend)[0];
+  const falling = R.filter(r => r.mods >= 100).sort((a, b) => a.trend - b.trend)[0];
+  const hasDl = R.some(r => r.downloads != null);
+  const topDl = hasDl ? R.slice().sort((a, b) => (b.downloads || 0) - (a.downloads || 0))[0] : null;
+  const perMod = hasDl ? R.filter(r => r.mods >= 50).sort((a, b) => (b.avg_dl || 0) - (a.avg_dl || 0))[0] : null;
+  const tiles = [
+    ["Starfield mod types", String(R.length), `${fmtInt(TY.total)} mods in all`],
+    ["Biggest type", esc(big.name), `${fmtInt(big.mods)} mods · ${big.share.toFixed(1)}% of all`],
+    ["Most new mods (90 days)", esc(fast.name), `+${fmtInt(fast.new90)} · ${fast.share_new90.toFixed(1)}% of new mods`],
+    rising ? ["Gaining the most ground", esc(rising.name), `${rising.share_new90.toFixed(1)}% of new mods vs ${rising.share.toFixed(1)}% of all`] : null,
+    falling ? ["Losing the most ground", esc(falling.name), `${falling.share_new90.toFixed(1)}% of new mods vs ${falling.share.toFixed(1)}% of all`] : null,
+    topDl ? ["Most-downloaded type", esc(topDl.name), `${fmtM(topDl.downloads)} · ${topDl.dl_share.toFixed(1)}% of downloads`] : null,
+    perMod ? ["Most downloads per mod", esc(perMod.name), `${fmtInt(perMod.avg_dl)} per mod on average`] : null,
+  ].filter(Boolean);
+  document.getElementById("typeTiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
+
+  const gain = R.some(r => r.dl_gain != null);
+  const trendCell = r => { const d = r.trend; if (Math.abs(d) < 0.3) return `<span class="na">steady</span>`; return d > 0 ? `<span class="up">▲ +${d.toFixed(1)} pts</span>` : `<span class="down">▼ ${d.toFixed(1)} pts</span>`; };
+  document.getElementById("typeTable").innerHTML = `<thead><tr><th>Type</th><th class="num">Mods</th><th class="num">Share</th><th class="num">New 30 d</th><th class="num">New 90 d</th><th class="num">Growth / month</th><th class="num">Share of new</th><th class="num">Trend</th>` +
+    (hasDl ? `<th class="num">Downloads</th><th class="num">Download share</th><th class="num">Per mod</th>` : "") + (gain ? `<th class="num">Downloads gained</th>` : "") + `</tr></thead><tbody>` +
+    R.map(r => `<tr><td class="game"><i style="display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;background:${typeColor(r.name)}"></i>${esc(r.name)}</td><td class="num">${fmtInt(r.mods)}</td><td class="num">${pct(r.share)}</td><td class="num">${fmtSigned(r.new30, fmtInt)}</td><td class="num">${fmtSigned(r.new90, fmtInt)}</td><td class="num">${pct(r.pct_month)}</td><td class="num">${pct(r.share_new90)}</td><td class="num">${trendCell(r)}</td>` +
+      (hasDl ? `<td class="num">${fmtM(r.downloads)}</td><td class="num">${pct(r.dl_share)}</td><td class="num">${fmtInt(r.avg_dl)}</td>` : "") + (gain ? `<td class="num">${fmtSigned(r.dl_gain, fmtM)}</td>` : "") + `</tr>`).join("") + "</tbody>";
+  document.getElementById("typeDlNote").textContent = hasDl
+    ? `Downloads counted ${TY.dl_date}${TY.dl_prev ? `; "Downloads gained" is the change since ${TY.dl_prev}` : "; a weekly recount starts the downloads-gained column after the second count"}. These per-mod totals are counted separately from the game's headline total in Part 1, so the two don't match exactly.`
+    : "Downloads by type are counted once a week; the first count hasn't run yet.";
+
+  const legend = TY.top.concat("Other").map(k => `<span><i style="border-color:${typeColor(k)}"></i>${esc(k)}</span>`).join("");
+  document.getElementById("typeLegend").innerHTML = legend;
+  document.getElementById("typeLegend2").innerHTML = legend;
+  drawTypeMix(); drawTypeLines();
+
+  if (hasDl) {
+    const bars = (key) => R.filter(r => r[key] != null).sort((a, b) => b[key] - a[key]).slice(0, 15).map(r => ({ name: r.name, v: M(r[key]), color: typeColor(r.name),
+      tipExtra: `<div class="r"><span>Share</span><span>${pct(key === "downloads" ? r.dl_share : r.new90_dl_share)}</span></div><div class="r"><span>Mods</span><span>${fmtInt(key === "downloads" ? r.mods : r.new90)}</span></div>` }));
+    barChart(document.getElementById("typeDl"), bars("downloads"), v => v.toFixed(2) + "M", "Downloads (millions)");
+    barChart(document.getElementById("typeDlNew"), bars("new90_downloads"), v => v >= 1 ? v.toFixed(2) + "M" : Math.round(v * 1000) + "k", "Downloads of new mods");
+  } else {
+    document.getElementById("typeDl").innerHTML = document.getElementById("typeDlNew").innerHTML = '<p class="note">The first weekly count hasn\'t run yet.</p>';
+  }
+
+  document.getElementById("typeGames").innerHTML = `<thead><tr><th>Game</th><th class="num">Types</th><th>Biggest type</th><th>Most new mods (90 d)</th><th>Gaining the most ground</th><th class="num">New mods (90 d)</th></tr></thead><tbody>` +
+    TY.games.map(g => `<tr class="${g.domain === FOCUS ? "focus" : ""}"><td class="game">${esc(g.name)}</td><td class="num">${g.categories}</td><td>${esc(g.biggest || "–")} <span class="na">${g.biggest_share != null ? g.biggest_share.toFixed(0) + "%" : ""}</span></td><td>${esc(g.fastest || "–")} <span class="na">+${fmtInt(g.fastest_new)} · ${g.fastest_share.toFixed(0)}%</span></td><td>${g.rising ? esc(g.rising) + ` <span class="up">+${g.rising_gap.toFixed(1)} pts</span>` : '<span class="na">–</span>'}</td><td class="num">${fmtInt(g.new90)}</td></tr>`).join("") + "</tbody>";
+}
+function drawTypeMix() {
+  if (!TY) return;
+  let qs = TY.quarters.map(q => ({ label: quarterName(q.start), start: t(q.start), partial: q.partial, total: q.total,
+    parts: TY.top.concat("Other").map(k => ({ key: k, v: Math.max(0, q.counts[k] || 0), color: typeColor(k) })) }));
+  qs = RANGE.mix === "launch" ? qs.filter(q => q.start >= LAUNCH - 31 * DAY) : qs.slice(-8);
+  stackedChart(document.getElementById("typeMix"), qs, "Share of new Starfield mods by type, per quarter");
+}
+function drawTypeLines() {
+  if (!TY) return;
+  const series = TY.top.concat("Other").map(k => ({ name: k, label: k, color: typeColor(k), width: 2, pts: TY.lines[k].map(p => [t(p[0]), p[1]]) }));
+  const x0 = RANGE.typeline === "launch" ? LAUNCH : today - 365 * DAY;
+  lineChart(document.getElementById("typeLines"), { series, x0, x1: today + 10 * DAY, zero: true, yfmt: v => v >= 1000 ? (v / 1000) + "k" : String(v), tipfmt: fmtInt, aria: "Starfield mods per type over time" });
+}
+
+Object.assign(REDRAW, { race: drawRace, dl: drawDl, mods: drawMods, newmods: drawNewMods, mix: drawTypeMix, typeline: drawTypeLines });
+drawTypes();
+document.querySelectorAll("span.range[data-chart]").forEach(seg => {
+  const name = seg.dataset.chart;
+  seg.innerHTML = RANGE_OPTS[name].map(([v, label]) => `<button type="button" data-v="${v}" aria-pressed="${RANGE[name] === v}">${label}</button>`).join("");
+  seg.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    RANGE[name] = b.dataset.v; seg.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); REDRAW[name]();
+  }));
+});
+function drawAll() { Object.values(REDRAW).forEach(fn => fn()); }
 renderPickers(); drawPassTable();
 drawAll();
 let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
