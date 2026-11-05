@@ -713,7 +713,7 @@ function partTiles(boxId, an, row, o) {
   const tiles = [
     [`Starfield rank (${o.measure})`, "#" + row.rank, `of ${an.rows.length} tracked games`],
     [`Starfield ${o.noun}`, o.fmt(row.value), row.speed ? `${o.rate(row.speed[1])} · ${row.pct_month.toFixed(2)}% a month` : "collecting"],
-    ["Next to pass", up ? esc(up.name) : "–", up ? `${o.fmt(up.gap)} ahead · likely ${passCell(up)}` : "Starfield leads this list"],
+    ["Next to pass", up ? esc(up.name) : "–", up ? `${o.fmt(up.gap)} ahead · ` + (!up.known ? "collecting data" : up.dates && up.dates[1] ? `likely ${up.dates[1]}` : "not catching up on current trends") : "Starfield leads this list"],
     ["Closest behind", down ? esc(down.name) : "–", down ? `${o.fmt(down.gap)} behind · ${down.dates && down.dates[1] ? "could pass " + down.dates[1] : "not catching up"}` : "nothing behind"],
     ["Starfield in 12 months", "#" + row.proj_rank[12], row.speed ? `about ${o.fmt(est(12))} ${o.noun} · #${row.proj_rank[24]} in 24 months` : `projected rank · #${row.proj_rank[24]} in 24 months`],
   ];
