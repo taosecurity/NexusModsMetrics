@@ -1,0 +1,57 @@
+name: daily
+
+# Once a day: record the top games' totals from the Nexus Mods API, rebuild the page,
+# commit the new data, and publish the page to GitHub Pages. "Run workflow" on the Actions tab runs it now.
+on:
+  schedule:
+    - cron: "17 20 * * *"   # 20:17 UTC daily (GitHub may start it a little late)
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit data/
+  pages: write      # deploy the site
+  id-token: write   # required by deploy-pages
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  collect-build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect today's totals
+        run: python collect.py
+
+      - name: Build the page
+        run: python build.py
+
+      - name: Commit new data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Data: snapshot $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4
