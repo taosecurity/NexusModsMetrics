@@ -1015,7 +1015,7 @@ document.querySelectorAll("#typeView button").forEach(b => b.addEventListener("c
 
 // ---------------------------------------------------------------- Part 4: translations and Star Wars
 const CR = DATA.critics;
-const C_COL = { neither: "var(--s1)", translation: "var(--s2)", starwars: "var(--s3)", franchise: "var(--s7)", presets: "var(--s5)", ai: "var(--s8)" };
+const C_COL = { neither: "var(--s1)", translation: "var(--s2)", starwars: "var(--s3)", franchise: "var(--s7)", presets: "var(--s5)", ai: "var(--s4)" };
 function drawCritics() {
   if (!CR) { document.getElementById("part-crit").style.display = "none"; document.querySelectorAll(".rail li.crit, .pk.crit").forEach(e => { e.style.display = "none"; }); return; }
   const tot = CR.total, P = v => v / tot * 100;

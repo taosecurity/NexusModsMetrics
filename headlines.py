@@ -258,9 +258,9 @@ def critics(c):
     if d.get("all") and d.get("translation"):
         dsh = d["translation"]["downloads"] / d["all"]["downloads"] * 100
         if dsh < tr * 0.6:
-            lead = f"Players download them far less: translations get only <b>{dsh:.1f}% of Starfield mod downloads</b>"
+            lead = f"Players rarely download translations: they get only <b>{dsh:.1f}% of Starfield mod downloads</b>"
         elif dsh < tr * 0.9:
-            lead = f"Players download them less: translations get <b>{dsh:.1f}% of Starfield mod downloads</b>"
+            lead = f"Players download translations less: they get <b>{dsh:.1f}% of Starfield mod downloads</b>"
         else:
             lead = f"Translations get <b>{dsh:.1f}% of Starfield mod downloads</b>"
         out.append((8, f"{lead}, against {tr:.1f}% of mods."))
@@ -290,22 +290,31 @@ def critics(c):
         if c.get(key) is None or not me or key + "_rank" not in me:
             continue
         sh = c[key] / tot * 100
-        s = f"{label} are <b>{sh:.1f}%</b> of Starfield mods ({fi(c[key])}), #{me[key + '_rank']} of {len(games)} games"
+        rank = me[key + "_rank"]
+        rank_txt = f"the highest share of the {len(games)} games" if rank == 1 else f"#{rank} of {len(games)} games"
+        s = f"{label} are <b>{sh:.1f}%</b> of Starfield mods ({fi(c[key])}), {rank_txt}"
         n90 = c.get(key + "_new90")
+        rising = n90 is not None and n90 > sh * 1.5
         if n90 is not None:
-            if n90 > sh * 1.3:
+            if rising:
+                s += f", and rising fast: <b>{n90:.0f}% of the last 90 days' new mods</b>"
+            elif n90 > sh * 1.3:
                 s += f", and rising: {n90:.1f}% of the last 90 days' new mods"
             elif n90 < sh * 0.7:
                 s += f", and falling: {n90:.1f}% of the last 90 days' new mods"
         if d.get("all") and d.get(key):
-            s += f". They get {d[key]['downloads'] / d['all']['downloads'] * 100:.1f}% of downloads"
-        out.append((prio, s + "."))
+            dsh = d[key]["downloads"] / d["all"]["downloads"] * 100
+            s += (f". But they get only {dsh:.1f}% of downloads" if rank == 1 and dsh < sh * 0.5
+                  else f". They get {dsh:.1f}% of downloads")
+        if rank == 1:
+            s = "Another point for critics: " + s[0].lower() + s[1:]
+        out.append((8.2 if rising else prio, s + "."))
     if d.get("all") and d.get("none"):
         nn = d["none"]["mods"] / d["all"]["mods"] * 100
         out.append((9.6, f"Counting all four hot topics together (translations, Star Wars, character presets and saves, AI), "
                          f"<b>{nn:.0f}% of Starfield mods are none of them</b>, and those mods get "
                          f"{d['none']['downloads'] / d['all']['downloads'] * 100:.0f}% of downloads."))
-    return [t for _, t in sorted(out, key=lambda x: -x[0])][:MAX + 2]   # Part 4 covers four topics
+    return [t for _, t in sorted(out, key=lambda x: -x[0])][:MAX + 3]   # Part 4 covers four topics
 
 
 # ------------------------------------------------------------------ Part 3: mod types
