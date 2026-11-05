@@ -71,7 +71,7 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .part-head p { margin: 0; color: var(--muted); max-width: 72ch; }
 .part section > h2 .kick { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--p); margin-bottom: 2px; }
 .part .tile, .part .panel { border-left: 3px solid var(--p); }
-.headlines { background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--p); border-radius: 6px; padding: 14px 18px 12px; display: grid; gap: 6px; }
+.headlines { scroll-margin-top: 16px; background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--p); border-radius: 6px; padding: 14px 18px 12px; display: grid; gap: 6px; }
 .headlines h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--p); font-weight: 700; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .headlines h3 span { color: var(--muted); font-weight: 400; letter-spacing: .04em; text-transform: none; }
 .headlines ol { margin: 0; padding-left: 1.3em; display: grid; gap: 7px; }
@@ -173,15 +173,18 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
       <ul>
         <li><a href="#top">Top</a></li>
         <li class="grp dl"><a href="#part-dl">Part 1 · Downloads</a></li>
+        <li class="sub dl"><a href="#dl-headlines">Headlines</a></li>
         <li class="sub dl"><a href="#dl-leaderboard">Leaderboard</a></li>
         <li class="sub dl"><a href="#dl-race">Starfield race</a></li>
         <li class="sub dl"><a href="#dl-all">All 15 games</a></li>
         <li class="grp mod"><a href="#part-mod">Part 2 · Mod count</a></li>
+        <li class="sub mod"><a href="#mod-headlines">Headlines</a></li>
         <li class="sub mod"><a href="#mod-leaderboard">Leaderboard</a></li>
         <li class="sub mod"><a href="#mod-race">Starfield race</a></li>
         <li class="sub mod"><a href="#mod-all">All 15 games</a></li>
         <li class="sub mod"><a href="#mod-new">New mods per month</a></li>
         <li class="grp type"><a href="#part-type">Part 3 · Mod types</a></li>
+        <li class="sub type"><a href="#type-headlines">Headlines</a></li>
         <li class="sub type"><a href="#type-table">Starfield by type</a></li>
         <li class="sub type"><a href="#type-mix">Mix of new mods</a></li>
         <li class="sub type"><a href="#type-growth">Types over time</a></li>
@@ -215,7 +218,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p>Total downloads of each game's mods: how much players use them.</p>
         </div>
 
-        <div class="headlines" data-part="dl"></div>
+        <div class="headlines" id="dl-headlines" data-part="dl"></div>
         <div class="tiles" id="tiles"></div>
 
         <section id="dl-leaderboard">
@@ -268,7 +271,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p>Mods published for each game: how active its modders are. History is rebuilt from each mod's creation date, so mods later deleted or hidden are missing and older counts run slightly low.</p>
         </div>
 
-        <div class="headlines" data-part="mods"></div>
+        <div class="headlines" id="mod-headlines" data-part="mods"></div>
         <div class="tiles" id="modTiles"></div>
 
         <section id="mod-leaderboard">
@@ -317,7 +320,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p>What kinds of mods Starfield gets and which kinds are growing, using the Nexus category each author picks at upload. The last section compares the 15 games.</p>
         </div>
 
-        <div class="headlines" data-part="types"></div>
+        <div class="headlines" id="type-headlines" data-part="types"></div>
         <div class="tiles" id="typeTiles"></div>
 
         <section id="type-table">
