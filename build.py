@@ -16,6 +16,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)  # python -I leaves the script folder off the path
 import model  # noqa: E402
+import headlines  # noqa: E402
 
 SITE = os.path.join(HERE, "site")
 FORECASTS = os.path.join(HERE, "data", "forecasts.csv")
@@ -253,6 +254,8 @@ def main():
     order = {d: i for i, d in enumerate(ranked)}
     if page_data["types"]:
         page_data["types"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
+    page_data["headlines"] = {"dl": headlines.downloads(data, dl, FOCUS), "mods": headlines.mods(data, mods, FOCUS),
+                              "types": headlines.types(page_data["types"])}
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:
         tpl = f.read()
     blob = json.dumps(page_data, separators=(",", ":")).replace("</", "<\\/")

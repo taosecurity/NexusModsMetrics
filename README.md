@@ -1,7 +1,9 @@
-# Nexus Mods Growth
+# Tracking Starfield on Nexus Mods
 
-This tracks how fast downloads and mod counts grow for the 15 most-downloaded games on
-[Nexus Mods](https://www.nexusmods.com/), and forecasts when Starfield passes the games around it.
+By Richard Bejtlich of [Richard Presents Starfield Essentials](https://www.youtube.com/@RichardBejtlich).
+Parts 1 and 2 track mod downloads and mod counts for the top 15 games on
+[Nexus Mods](https://www.nexusmods.com/), with a focus on Starfield. Part 3 looks at the types of mods published
+for Starfield. Updated daily.
 
 - **Page:** https://taosecurity.github.io/NexusModsMetrics/ (rebuilt every day)
 - **Data:** `data/` (CSV files you can open on GitHub or in a spreadsheet)
@@ -30,6 +32,7 @@ use `gh workflow run daily.yml`.
 | `collect.py` | Daily snapshot into `data/downloads.csv`. |
 | `types.py` | Mod types (Nexus categories). Daily: mods per category for every tracked game, now and 30/90/365 days ago, plus Starfield's monthly category history (about 20 requests). Weekly: Starfield downloads per category (about 180 requests; only category totals are kept). |
 | `model.py` | Growth speeds, pass dates and rank projections. |
+| `headlines.py` | Writes each Part's Headlines (3–5 plain-English sentences) from the day's data, by rules: passes, surges, types gaining or losing ground. |
 | `build.py` | Builds the page. `--local` also runs `git pull` first and copies the page to a local folder. |
 | `template.html` | The page layout and chart code. |
 | `import_sheet.py` | One-time import of the hand-recorded history (2025-04 to 2026-11) from a spreadsheet. Formula (forecast) cells are skipped. |

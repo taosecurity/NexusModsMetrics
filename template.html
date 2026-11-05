@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nexus Mods Growth</title>
+<title>Tracking Starfield on Nexus Mods</title>
 <meta name="description" content="Daily download and mod-count growth for the top 15 games on Nexus Mods, with Starfield's projected pass dates.">
 <style>
 /* Layout: dark rail on the left (same style as the author's other pages), one column of panels. */
@@ -71,11 +71,20 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .part-head p { margin: 0; color: var(--muted); max-width: 72ch; }
 .part section > h2 .kick { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--p); margin-bottom: 2px; }
 .part .tile, .part .panel { border-left: 3px solid var(--p); }
+.headlines { background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--p); border-radius: 6px; padding: 14px 18px 12px; display: grid; gap: 6px; }
+.headlines h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--p); font-weight: 700; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.headlines h3 span { color: var(--muted); font-weight: 400; letter-spacing: .04em; text-transform: none; }
+.headlines ol { margin: 0; padding-left: 1.3em; display: grid; gap: 7px; }
+.headlines li { max-width: 78ch; line-height: 1.5; }
+.headlines li:first-child { font-size: 16.5px; }
+.headlines li::marker { color: var(--p); font-weight: 700; }
+.headlines b { font-weight: 650; }
 
 main { padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); min-width: 0; }
 .col { max-width: 62rem; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
 .intro { display: grid; gap: 6px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
-.intro h1 { margin: 0; font-size: 26px; line-height: 1.2; text-wrap: balance; }
+.intro h1 { margin: 0; font-size: clamp(32px, 6vw, 48px); line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
+.intro p.byline { color: var(--text); font-size: 16px; max-width: 75ch; }
 .intro p { margin: 0; color: var(--muted); max-width: 70ch; }
 section { scroll-margin-top: 16px; display: grid; gap: 12px; min-width: 0; }
 section > h2 { margin: 8px 0 0; font-size: 20px; line-height: 1.3; }
@@ -189,8 +198,8 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
   <main>
     <div class="col">
       <header class="intro" id="top">
-        <h1>Nexus Mods growth: the top 15 games, focusing on Starfield</h1>
-        <p>Three views of the 15 most-downloaded games on Nexus Mods, recorded once a day, with forecasts of when Starfield passes the games around it.</p>
+        <h1>Tracking Starfield on Nexus Mods</h1>
+        <p class="byline">Parts 1 and 2 of this project by Richard Bejtlich of <a href="https://www.youtube.com/@RichardBejtlich">Richard Presents Starfield Essentials</a> track mod downloads and mod counts for the top 15 games on Nexus Mods, with a focus on Starfield. Part 3 dives into the types of mods published for Starfield on Nexus Mods. Updated daily.</p>
         <div class="parts-key">
           <a class="pk dl" href="#part-dl"><span class="n">Part 1</span><b>Downloads</b><span>How often players download the game's mods</span></a>
           <a class="pk mod" href="#part-mod"><span class="n">Part 2</span><b>Mod count</b><span>How many mods modders have published</span></a>
@@ -207,6 +216,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p>Total downloads of each game's mods: how much players use them.</p>
         </div>
 
+        <div class="headlines" data-part="dl"></div>
         <div class="tiles" id="tiles"></div>
 
         <section id="dl-leaderboard">
@@ -259,6 +269,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p>Mods published for each game: how active its modders are. History is rebuilt from each mod's creation date, so mods later deleted or hidden are missing and older counts run slightly low.</p>
         </div>
 
+        <div class="headlines" data-part="mods"></div>
         <div class="tiles" id="modTiles"></div>
 
         <section id="mod-leaderboard">
@@ -307,6 +318,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p>What kinds of mods Starfield gets and which kinds are growing, using the Nexus category each author picks at upload. The last section compares the 15 games.</p>
         </div>
 
+        <div class="headlines" data-part="types"></div>
         <div class="tiles" id="typeTiles"></div>
 
         <section id="type-table">
@@ -908,6 +920,12 @@ document.querySelectorAll("span.range[data-chart]").forEach(seg => {
   }));
 });
 function drawAll() { Object.values(REDRAW).forEach(fn => fn()); }
+// Headlines: generated server-side (headlines.py) from today's data; names are already HTML-escaped there.
+document.querySelectorAll(".headlines[data-part]").forEach(box => {
+  const items = (DATA.headlines || {})[box.dataset.part] || [];
+  if (!items.length) { box.style.display = "none"; return; }
+  box.innerHTML = `<h3>Headlines <span>as of ${DATA.latest_snapshot}, written automatically from the data</span></h3><ol>${items.map(s => `<li>${s}</li>`).join("")}</ol>`;
+});
 renderPickers(); drawPassTable();
 drawAll();
 let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
