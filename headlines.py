@@ -232,7 +232,114 @@ def mods(data, ma, focus="starfield"):
     return [t for _, t in sorted(out, key=lambda x: -x[0])][:MAX]
 
 
-# ------------------------------------------------------------------ Part 4: translations and Star Wars
+# ------------------------------------------------------------------ Part 4: top mods
+SFSE_WORDS = ("sfse", "script extender", "address library")
+
+
+def _is_sfse(m):
+    n = m["name"].lower()
+    return any(w in n for w in SFSE_WORDS)
+
+
+def top(t):
+    """Headlines for Part 4 from data/top_mods.json. Names are escaped here (the page inserts them as HTML)."""
+    if not t:
+        return []
+    out = []
+    od, oe = t["overall"]["downloads"], t["overall"]["endorsements"]
+    w = t.get("weekly") or {}
+    b = w.get("best_loved") or {}
+    med = b.get("median_rate")
+    rate = lambda m: m["en"] / m["dl"] * 1000 if m["dl"] else 0
+    if od and oe:
+        a, e = od[0], oe[0]
+        lead = f" ({a['dl'] / od[1]['dl']:.1f}× the #2, {_e(od[1]['name'])})" if len(od) > 1 and od[1]["dl"] and a["dl"] >= od[1]["dl"] * 1.5 else ""
+        if a["id"] == e["id"]:
+            out.append((10, f"<b>{_e(a['name'])}</b> is Starfield's most downloaded and most endorsed mod: {fi(a['dl'])} "
+                            f"downloads{lead} and {fi(a['en'])} endorsements."))
+        else:
+            s = f"Starfield's most downloaded mod is <b>{_e(a['name'])}</b> with {fi(a['dl'])} downloads{lead}"
+            if med and rate(a) < med / 4:
+                s += (f", but it has only {fi(a['en'])} endorsements ({rate(a):.2f} per 1,000 downloads, against a typical "
+                      f"{med:.1f})")
+            s += f". The most endorsed is <b>{_e(e['name'])}</b> ({fi(e['en'])} endorsements)."
+            out.append((10, s))
+    ml = t.get("modlists") or []
+    if ml and od and ml[0]["dl"] > od[0]["dl"]:
+        m = ml[0]
+        out.append((9.5, f"The most downloaded upload of all isn't a single mod: it's the modlist <b>{_e(m['name'])}</b>, "
+                         f"with {fm(m['dl'])} downloads against {fm(od[0]['dl'])} for the top mod, but only "
+                         f"{fi(m['en'])} endorsements. Part 4 lists modlists with the collections."))
+    # Star Wars mods (same name matching as Part 5) in the category top 5s: downloads vs endorsements
+    cats = t.get("categories") or []
+    if cats:
+        from modtypes import SW_RE
+        lead = {k: sum(1 for c in cats if c[k] and SW_RE.search(c[k][0]["name"])) for k in ("downloads", "endorsements")}
+        slots = {k: sum(1 for c in cats for m in c[k] if SW_RE.search(m["name"])) for k in ("downloads", "endorsements")}
+        total = sum(len(c["downloads"]) for c in cats)
+        if lead["downloads"] >= 3 and lead["endorsements"] <= lead["downloads"] / 3:
+            endo = "none" if lead["endorsements"] == 0 else f"only {lead['endorsements']}"
+            out.append((8.8, f"Star Wars mods are the most downloaded mod in <b>{lead['downloads']} of {len(cats)} categories</b>, "
+                             f"but the most endorsed in {endo}. They fill {slots['downloads']} of the {total} top-5 places by "
+                             f"downloads, but just {slots['endorsements']} by endorsements: widely installed, much less often "
+                             f"endorsed."))
+    sf = [m for m in oe if _is_sfse(m)]
+    if len(sf) >= 2:
+        out.append((7, f"{len(sf)} of the 10 most endorsed mods are script-extender tools or need it ("
+                       + ", ".join(_e(m["name"]) for m in sf[:3]) + "): Starfield's most valued mods are often the plumbing "
+                       f"other mods build on."))
+    early = sum(1 for m in oe if m["created"] and m["created"] < "2023-11-01")
+    if early >= 7:
+        out.append((7.5, f"<b>{'All 10' if early == 10 else f'{early} of the 10'} most endorsed mods</b> came out in Starfield's first two months "
+                         f"(by the end of October 2023). Early mods have had the longest to collect endorsements."))
+    r = t.get("rising", {}).get("downloads") or []
+    if r:
+        m = r[0]
+        out.append((6, f"The biggest new mod of the last {t['rising']['days']} days is <b>{_e(m['name'])}</b> "
+                       f"({_e(m['cat'])}, released {day(D.fromisoformat(m['created']))} {m['created'][:4]}): "
+                       f"{fi(m['dl'])} downloads so far."))
+    tr = w.get("trending")
+    if tr and tr.get("downloads"):
+        m = tr["downloads"][0]
+        out.append((9, f"Trending this week: <b>{_e(m['name'])}</b> gained the most downloads since {tr['since']} "
+                       f"(+{fi(m['g_dl'])})" + (", and it's new this week" if m.get("new") else "") + "."))
+    conc = t.get("concentration") or []
+    me = next((c for c in conc if c["domain"] == "starfield"), None)
+    if me and len(conc) >= 5:
+        order = sorted(conc, key=lambda c: -c["top10"] / c["total"])
+        rank = order.index(me) + 1
+        sh = me["top10"] / me["total"] * 100
+        hi, lo = order[0], order[-1]
+        where = ("one of the most concentrated" if rank <= 3 else "one of the most spread out" if rank > len(conc) - 3
+                 else "middle of the pack")
+        s = (f"Starfield's top 10 mods take <b>{sh:.1f}% of its downloads</b>, #{rank} of {len(conc)} games "
+             f"({where}). The range runs from {_e(short(hi['name']))} ({hi['top10'] / hi['total'] * 100:.0f}%) "
+             f"to {_e(short(lo['name']))} ({lo['top10'] / lo['total'] * 100:.0f}%).")
+        alt = me.get("top10_no_modlists")
+        if alt and alt < me["top10"]:
+            s += f" Counting only ordinary mods (no modlists), Starfield's figure is {alt / me['total'] * 100:.1f}%."
+        out.append((6.5, s))
+    au = (w.get("authors") or {}).get("downloads") or []
+    if au and w.get("downloads_counted"):
+        a = au[0]
+        out.append((5.5, f"The top author by downloads, <b>{_e(a['name'])}</b>, has {fm(a['dl'])} downloads across "
+                         f"{fi(a['mods'])} mods: {a['dl'] / w['downloads_counted'] * 100:.1f}% of all Starfield mod downloads."))
+    col = t.get("collections") or {}
+    if col.get("downloads") and (ml or od):
+        c = col["downloads"][0]
+        big = ml[0] if ml else od[0]
+        if big["dl"] >= c["dl"] * 20:
+            out.append((5, f"Nexus collections are still small for Starfield: the biggest of {fi(col['total'])}, "
+                           f"<b>{_e(c['name'])}</b>, has {fi(c['dl'])} downloads, against {fm(big['dl'])} for "
+                           + (f"the biggest modlist, {_e(big['name'])}." if ml else "the top mod.")))
+    if b.get("top"):
+        m = b["top"][0]
+        out.append((4, f"The best-loved big mod is <b>{_e(m['name'])}</b>: {m['rate']:.0f} endorsements per 1,000 downloads"
+                       + (f", against a typical {med:.1f}" if med else "") + "."))
+    return [s for _, s in sorted(out, key=lambda x: -x[0])][:MAX + 2]
+
+
+# ------------------------------------------------------------------ Part 5: translations and Star Wars
 def critics(c):
     if not c:
         return []
@@ -314,7 +421,7 @@ def critics(c):
         out.append((9.6, f"Counting all four hot topics together (translations, Star Wars, character presets and saves, AI), "
                          f"<b>{nn:.0f}% of Starfield mods are none of them</b>, and those mods get "
                          f"{d['none']['downloads'] / d['all']['downloads'] * 100:.0f}% of downloads."))
-    return [t for _, t in sorted(out, key=lambda x: -x[0])][:MAX + 3]   # Part 4 covers four topics
+    return [t for _, t in sorted(out, key=lambda x: -x[0])][:MAX + 3]   # Part 5 covers four topics
 
 
 # ------------------------------------------------------------------ Part 3: mod types

@@ -9,15 +9,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Richard Presents Starfield Essentials">
 <meta property="og:title" content="Tracking Starfield on Nexus Mods">
-<meta property="og:description" content="Daily mod downloads, mod counts, mod types and hot topics for the top 15 games on Nexus Mods, with forecasts for Starfield.">
+<meta property="og:description" content="Daily mod downloads, mod counts, mod types, top mods and hot topics for the top 15 games on Nexus Mods, with forecasts for Starfield.">
 <meta property="og:url" content="https://taosecurity.github.io/NexusModsMetrics/">
 <meta property="og:image" content="https://taosecurity.github.io/NexusModsMetrics/preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tracking Starfield on Nexus Mods: Part 1 Downloads, Part 2 Mod count, Part 3 Mod types">
+<meta property="og:image:alt" content="Tracking Starfield on Nexus Mods: Part 1 Mod downloads, Part 2 Mod count, Part 3 Mod types, Part 4 Top mods, Part 5 Hot topics">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tracking Starfield on Nexus Mods">
-<meta name="twitter:description" content="Daily mod downloads, mod counts, mod types and hot topics for the top 15 games on Nexus Mods, with forecasts for Starfield.">
+<meta name="twitter:description" content="Daily mod downloads, mod counts, mod types, top mods and hot topics for the top 15 games on Nexus Mods, with forecasts for Starfield.">
 <meta name="twitter:image" content="https://taosecurity.github.io/NexusModsMetrics/preview.png">
 <meta name="description" content="Daily download and mod-count growth for the top 15 games on Nexus Mods, with Starfield's projected pass dates.">
 <style>
@@ -29,6 +29,7 @@
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
   --up:#006300; --down:#b42323;
   --pdl:#3b5bdb; --pdl-bg:#e9edfc; --pmod:#0f766e; --pmod-bg:#e3f3f0; --ptype:#7c3aed; --ptype-bg:#f1ebfd; --pcrit:#be123c; --pcrit-bg:#fdecef;
+  --ptop:#b45309; --ptop-bg:#fdf3e3;
   --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: ui-monospace, Consolas, "Courier New", monospace;
   color-scheme: light;
@@ -39,6 +40,7 @@
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
   --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d; --pcrit:#fda4af; --pcrit-bg:#3a1620;
+  --ptop:#fbbf24; --ptop-bg:#33260c;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg:#10131a; --panel:#181c25; --text:#e3e7ef; --muted:#9aa3b5; --line:#2c3240;
@@ -46,6 +48,7 @@
   --grid:#2c2c2a; --axis:#383835; --tick:#898781; --other:rgba(137,135,129,.45); --band:rgba(57,135,229,.20);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
   --pdl:#8ea6ff; --pdl-bg:#1b2240; --pmod:#2dd4bf; --pmod-bg:#10302c; --ptype:#c4b5fd; --ptype-bg:#251c3d; --pcrit:#fda4af; --pcrit-bg:#3a1620;
+  --ptop:#fbbf24; --ptop-bg:#33260c;
   --up:#0ca30c; --down:#e66767; color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -54,7 +57,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--sans); font
 a { color: var(--accent); }
 .wrap { display: grid; grid-template-columns: 190px minmax(0, 1fr); min-height: 100vh; }
 nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: 12px; }
-.rail-inner { position: sticky; top: 20px; }
+.rail-inner { position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--side-muted) transparent; }
 .rail ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
 .rail li.grp { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--side-muted); padding: 12px 8px 4px; }
 .rail a { display: block; padding: 5px 8px; border-radius: 4px; color: var(--side-text); text-decoration: none; font-size: 14px; }
@@ -67,7 +70,7 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .rail li.grp.dl a, .rail li.grp.mod a { box-shadow: inset 3px 0 0 currentColor; }
 
 /* The two parts: Downloads (indigo) and Mod count (teal). Part colours are never used for game lines. */
-.parts-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 6px 0 2px; }
+.parts-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 6px 0 2px; }
 .pk { --p: var(--pdl); display: grid; gap: 1px; text-decoration: none; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-top: 4px solid var(--p); border-radius: 6px; padding: 10px 12px; }
 .pk.mod { --p: var(--pmod); }
 .pk:hover { border-color: var(--p); }
@@ -90,6 +93,34 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .pk.type { --p: var(--ptype); }
 .rail li.grp.type a { color: #c4b5fd; box-shadow: inset 3px 0 0 currentColor; }
 .rail li.sub.type a { box-shadow: inset 3px 0 0 #c4b5fd55; }
+.part.top { --p: var(--ptop); --pbg: var(--ptop-bg); }
+.pk.top { --p: var(--ptop); }
+.rail li.grp.top a { color: #fbbf24; box-shadow: inset 3px 0 0 currentColor; }
+.rail li.sub.top a { box-shadow: inset 3px 0 0 #fbbf2455; }
+.notice { scroll-margin-top: 16px; font-size: 13.5px; color: var(--text); background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--muted); border-radius: 6px; padding: 8px 12px; margin: 0; }
+.part-sub { margin: 0; font-size: 13px; color: var(--muted); }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 12px; }
+td.mod { white-space: normal; min-width: 12rem; }
+td.mod a { text-decoration: none; font-weight: 600; }
+td.mod a:hover { text-decoration: underline; }
+td.mod .by { display: block; font-size: 12px; color: var(--muted); }
+th.sorted, td.sorted { color: var(--p); font-weight: 650; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--p); border-radius: 6px; padding: 10px 12px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.card h3 { margin: 0; font-size: 14px; display: flex; justify-content: space-between; gap: 8px; }
+.card h3 span { font-weight: 400; font-size: 12px; color: var(--muted); }
+.card ol { margin: 0; padding-left: 1.4em; display: grid; gap: 5px; font-size: 13px; }
+.card li { line-height: 1.35; }
+.card li a { text-decoration: none; }
+.card li a:hover { text-decoration: underline; }
+.card li .v { font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+.howto { display: grid; gap: 6px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.howto p { margin: 0; }
+.howto b { color: var(--text); font-weight: 600; }
+.legend.stack { flex-direction: column; align-items: flex-start; }
+.legend i.sq { width: 11px; height: 11px; border: 0; border-radius: 2px; }
+table.sticky th:first-child, table.sticky td:first-child { position: sticky; left: 0; background: var(--panel); z-index: 1; padding-right: 14px; }
+td .cnt { color: var(--muted); font-size: 11.5px; }
 .part-head { display: grid; gap: 4px; }
 .part-head .kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--p); }
 .part-head h2 { margin: 0; font-size: 30px; line-height: 1.15; }
@@ -179,11 +210,12 @@ td.game { white-space: normal; min-width: 11rem; }
 .note { font-size: 13px; color: var(--muted); margin: 0; }
 .method p { margin: 0 0 8px; }
 footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); padding-top: 12px; }
+footer .thanks { margin: 8px 0 0; color: var(--text); font-size: 13px; }
 
 @media (max-width: 760px) {
   .wrap { grid-template-columns: minmax(0, 1fr); }
   nav.rail { padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 12px; }
-  .rail-inner { position: static; }
+  .rail-inner { position: static; max-height: none; overflow: visible; }
   .rail ul { display: flex; flex-wrap: wrap; gap: 4px; }
   .rail li.grp.plain, .rail .key { display: none; }
   .rail li.grp { padding: 0; width: 100%; }
@@ -218,7 +250,17 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <li class="sub type"><a href="#type-growth">Types over time</a></li>
         <li class="sub type"><a href="#type-dl">Downloads by type</a></li>
         <li class="sub type"><a href="#type-games">Across the 15 games</a></li>
-        <li class="grp crit"><a href="#part-crit">Part 4 · Hot topics</a></li>
+        <li class="grp top"><a href="#part-top">Part 4 · Top mods</a></li>
+        <li class="sub top"><a href="#top-headlines">Headlines</a></li>
+        <li class="sub top"><a href="#top-overall">Top 10 overall</a></li>
+        <li class="sub top"><a href="#top-cats">Top 5 by type</a></li>
+        <li class="sub top"><a href="#top-trending">Trending this week</a></li>
+        <li class="sub top"><a href="#top-rising">Rising new mods</a></li>
+        <li class="sub top"><a href="#top-authors">Top authors</a></li>
+        <li class="sub top"><a href="#top-collections">Collections and modlists</a></li>
+        <li class="sub top"><a href="#top-conc">Concentration</a></li>
+        <li class="sub top"><a href="#top-method">How these are counted</a></li>
+        <li class="grp crit"><a href="#part-crit">Part 5 · Hot topics</a></li>
         <li class="sub crit"><a href="#crit-headlines">Headlines</a></li>
         <li class="sub crit"><a href="#crit-split">What Starfield's mods are</a></li>
         <li class="sub crit"><a href="#crit-compare">Compared with other games</a></li>
@@ -227,6 +269,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <li class="grp plain">About</li>
         <li class="sub"><a href="#check">Forecast check</a></li>
         <li class="sub"><a href="#method">Method and sources</a></li>
+        <li class="sub"><a href="#adult">No adult content</a></li>
       </ul>
       <p class="key">Updated daily from the Nexus Mods API.</p>
     </div>
@@ -235,12 +278,12 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
     <div class="col">
       <header class="intro" id="top">
         <h1>Tracking Starfield on Nexus Mods</h1>
-        <p class="byline">Parts 1 and 2 of this project by Richard Bejtlich of <a href="https://www.youtube.com/@RichardBejtlich">Richard Presents Starfield Essentials</a> track and forecast mod downloads and mod counts for the top 15 games on Nexus Mods, with a focus on Starfield. Part 3 dives into the types of mods published for Starfield on Nexus Mods. Part 4 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.</p>
-        <div class="parts-key">
+        <p class="byline">This is a project by Richard Bejtlich of <a href="https://www.youtube.com/@RichardBejtlich">Richard Presents Starfield Essentials</a>. Parts 1 and 2 track and forecast mod downloads and mod counts for the top 15 games on Nexus Mods, with a focus on Starfield. Part 3 dives into the types of mods published for Starfield on Nexus Mods. Part 4 lists Starfield's most downloaded, most endorsed and trending mods. Part 5 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.</p>        <div class="parts-key">
           <a class="pk dl" href="#part-dl"><span class="n">Part 1</span><b>Mod downloads</b><span>How often players download the game's mods</span></a>
           <a class="pk mod" href="#part-mod"><span class="n">Part 2</span><b>Mod count</b><span>How many mods modders have published</span></a>
           <a class="pk type" href="#part-type"><span class="n">Part 3</span><b>Mod types</b><span>What kinds of mods, and which kinds are growing</span></a>
-          <a class="pk crit" href="#part-crit"><span class="n">Part 4</span><b>Hot topics</b><span>Translations, Star Wars, presets and AI: testing the critics</span></a>
+          <a class="pk top" href="#part-top"><span class="n">Part 4</span><b>Top mods</b><span>Most downloaded, most endorsed, trending and rising</span></a>
+          <a class="pk crit" href="#part-crit"><span class="n">Part 5</span><b>Hot topics</b><span>Translations, Star Wars, presets and AI: testing the critics</span></a>
         </div>
         <p id="stamp"></p>
         <div class="issues" id="issues" hidden></div>
@@ -362,7 +405,7 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         <section id="type-table">
           <h2><span class="kick">Mod types</span>Starfield mods by type</h2>
           <p class="lead">"Share of new" is each type's share of the mods published in the last 90 days. When it beats the type's share of all mods, that type is gaining ground (▲).</p>
-          <div class="panel"><div class="tablewrap"><table id="typeTable"></table></div><p class="note" id="typeDlNote"></p></div>
+          <div class="panel"><div class="tablewrap"><table id="typeTable"></table></div><p class="note" id="typeDlNote"></p><div class="howto" id="typeHow"></div></div>
         </section>
 
         <section id="type-mix">
@@ -370,9 +413,11 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <div class="panel">
             <h3>Share of each quarter's new Starfield mods</h3>
             <div class="controls"><span class="seg range" data-chart="mix"></span></div>
-            <div class="legend" id="typeLegend"></div>
             <div class="chart" id="typeMix"></div>
+            <div class="legend stack" id="typeMixKey" hidden></div>
             <p class="cap">The seven biggest types are in colour; all other types are grouped as "Other". The current quarter, still in progress, has a dashed outline.</p>
+            <div class="tablewrap"><table class="sticky" id="typeMixTable"></table></div>
+            <p class="cap">Each cell: the type's share of that quarter's new Starfield mods, then the number of new mods.</p>
           </div>
         </section>
 
@@ -412,10 +457,90 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
         </section>
       </div>
 
-      <!-- ============================== PART 4: TRANSLATIONS AND STAR WARS ============================== -->
-      <div class="part crit" id="part-crit">
+      <!-- ============================== PART 4: TOP MODS ============================== -->
+      <div class="part top" id="part-top">
         <div class="part-head">
           <span class="kicker">Part 4</span>
+          <h2>Top mods</h2>
+          <p>Starfield's most downloaded and most endorsed mods, overall and in every category, plus what's trending this week, the hottest new mods, the most-loved mods, top authors and top collections.</p>
+          <p class="part-sub" id="topAdult"></p>
+        </div>
+
+        <div class="headlines" id="top-headlines" data-part="top"></div>
+        <div class="tiles" id="topTiles"></div>
+
+        <section id="top-overall">
+          <h2><span class="kick">Top mods</span>Top 10 Starfield mods</h2>
+          <div class="panel"><h3>Most downloaded</h3><div class="tablewrap"><table id="topOverallDl"></table></div></div>
+          <div class="panel"><h3>Most endorsed</h3><div class="tablewrap"><table id="topOverallEn"></table></div></div>
+          <div class="panel"><h3>Most endorsed per download</h3><div class="tablewrap"><table id="topOverallRate"></table></div>
+            <p class="cap" id="topOverallRateNote"></p></div>
+        </section>
+
+        <section id="top-cats">
+          <h2><span class="kick">Top mods</span>Top 5 in every category</h2>
+          <p class="lead">Categories are the ones mod authors pick on Nexus, biggest first.</p>
+          <div class="controls">
+            <label>Category <select id="topCatPick"></select></label>
+            <span class="seg" id="topCatBy"><button type="button" aria-pressed="true" data-v="downloads">Downloads</button><button type="button" aria-pressed="false" data-v="endorsements">Endorsements</button></span>
+          </div>
+          <div class="cards" id="topCats"></div>
+        </section>
+
+        <section id="top-trending">
+          <h2><span class="kick">Top mods</span>Trending this week</h2>
+          <p class="lead" id="topTrendLead">Mods ranked by what they gained since last week's count, the same 7-day window Nexus uses for its own trending list.</p>
+          <div class="pair" id="topTrend"></div>
+        </section>
+
+        <section id="top-rising">
+          <h2><span class="kick">Top mods</span>Rising: the hottest new mods</h2>
+          <p class="lead" id="topRisingLead"></p>
+          <div class="panel"><h3>Most downloaded new mods</h3><div class="tablewrap"><table id="topRisingDl"></table></div></div>
+          <div class="panel"><h3>Most endorsed new mods</h3><div class="tablewrap"><table id="topRisingEn"></table></div></div>
+        </section>
+
+        <section id="top-authors">
+          <h2><span class="kick">Top mods</span>Top authors</h2>
+          <p class="lead" id="topAuthorsLead"></p>
+          <div class="pair">
+            <div class="panel"><h3>By downloads</h3><div class="tablewrap"><table id="topAuthorsDl"></table></div></div>
+            <div class="panel"><h3>By endorsements</h3><div class="tablewrap"><table id="topAuthorsEn"></table></div></div>
+          </div>
+        </section>
+
+        <section id="top-collections">
+          <h2><span class="kick">Top mods</span>Top collections and modlists</h2>
+          <p class="lead" id="topColLead"></p>
+          <div class="panel"><h3>Most downloaded collections</h3><div class="tablewrap"><table id="topColDl"></table></div></div>
+          <div class="panel"><h3>Most endorsed collections</h3><div class="tablewrap"><table id="topColEn"></table></div></div>
+          <div class="panel"><h3>Modlists uploaded as mods</h3><div class="tablewrap"><table id="topModlists"></table></div>
+            <p class="cap" id="topModlistsNote"></p></div>
+        </section>
+
+        <section id="top-conc">
+          <h2><span class="kick">Top mods</span>How concentrated are downloads?</h2>
+          <p class="lead">The share of each game's downloads that go to its most popular mods. A high share means a few big mods dominate; a low share means downloads are spread across many mods.</p>
+          <div class="panel howto" id="topConcRate"></div>
+          <div class="panel"><h3>Share of downloads taken by the top 10 mods</h3><div class="chart" id="topConc10"></div></div>
+          <div class="panel"><h3>Share of downloads taken by the top 100 mods</h3><div class="chart" id="topConc100"></div>
+            <p class="cap" id="topConcNote"></p></div>
+        </section>
+
+        <section id="top-method">
+          <h2><span class="kick">Top mods</span>How these are counted</h2>
+          <div class="panel method">
+            <p><b>Top lists</b> come from the Nexus Mods API, sorted by downloads or endorsements, refreshed daily. <b>Adult-flagged mods and collections are left out</b> of every list. <b>Modlists are listed with the collections, not with the mods:</b> a modlist (usually installed with Wabbajack) is a whole set of other mods uploaded as a single "mod", so it isn't one mod competing with others. Modlists are the mods tagged <i>Wabbajack Mod List</i>, plus a few untagged ones picked out by hand.</p>
+            <p><b>Trending, Most endorsed per download and Top authors</b> come from a weekly count of every Starfield mod. Trending is the gain between the last two weekly counts. Most endorsed per download ranks endorsements per 1,000 downloads, for mods with at least <span id="topMinDl">50,000</span> downloads. Authors are grouped by the Nexus account that uploaded the mods; the "Author" shown on each mod is the credit its page gives.</p>
+            <p><b>Rising</b> means released in the last 90 days. <b>Collections</b> are Nexus collections (curated mod packs that install with one click). <b>Concentration</b> divides the downloads of each game's top 10 and top 100 mods (all mods, no names shown) by the game's total download count from Part 1.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============================== PART 5: TRANSLATIONS AND STAR WARS ============================== -->
+      <div class="part crit" id="part-crit">
+        <div class="part-head">
+          <span class="kicker">Part 5</span>
           <h2>Hot topics</h2>
           <p>Critics say Starfield's mods are mostly translations, Star Wars, character presets or AI content. Here's what the Nexus data shows, and how Starfield compares with the other top games.</p>
         </div>
@@ -494,11 +619,13 @@ footer { color: var(--muted); font-size: 12px; border-top: 1px solid var(--line)
           <p><b>Data.</b> Totals come from the Nexus Mods public GraphQL API (one request a day). Download history before daily collection began comes from hand-recorded figures for Witcher 3, Bannerlord, Starfield, Morrowind and Fallout 3. Mod-count history comes from mod creation dates.</p>
           <div class="tablewrap"><table id="srcTable"></table></div>
         </div>
+        <p class="notice" id="adult"><b>No adult content.</b> This page does not feature NSFW or adult content. No adult-flagged mod or collection is named anywhere on it. The game-wide totals in Parts 1, 2, 3 and 5 come straight from Nexus Mods and include its adult-flagged mods (<span id="adultShare">about 3%</span> of Starfield's), because those totals can't be split.</p>
       </section>
 
       <footer>
         Data: <a href="https://www.nexusmods.com/">Nexus Mods</a> public API, collected once a day. Not affiliated with or endorsed by Nexus Mods.
         <span id="built"></span>
+        <p class="thanks">Thank you to <a href="https://www.nexusmods.com/">Nexus Mods</a> for hosting Starfield's mods and for making this data freely available through its public API, and to the modders whose work these numbers describe.</p>
       </footer>
     </div>
   </main>
@@ -514,6 +641,12 @@ const NS = "http://www.w3.org/2000/svg";
 const DAY = 864e5;
 const LAUNCH = Date.parse("2023-09-01T00:00:00Z");   // September 2023: the month Starfield became public
 const RELEASE = Date.parse("2023-09-06T00:00:00Z");  // Starfield's release day (marked on time charts)
+// Starfield releases marked on Starfield-only monthly charts (label, tooltip text)
+const EVENTS = [
+  { ms: RELEASE, label: "Starfield release", tip: "Starfield released (6 Sep 2023)" },
+  { ms: Date.parse("2024-09-30T00:00:00Z"), label: "Shattered Space", tip: "Shattered Space add-on released (30 Sep 2024)" },
+  { ms: Date.parse("2026-04-07T00:00:00Z"), label: "Terran Armada", tip: "Terran Armada add-on, PS5 launch and Free Lanes update (7 Apr 2026)" },
+];
 const RANGE_OPTS = {
   race: [["all", "All data"], ["launch", "Since Sep 2023"]],
   dl: [["all", "All data"], ["launch", "Since Sep 2023"]],
@@ -658,10 +791,11 @@ function barChart(box, items, fmt, unit) {
     r.addEventListener("pointerleave", hideTip);
   });
 }
-/* Vertical bar chart over time: items [{ms, v, partial}] */
-function columnChart(box, items, fmt, label) {
+/* Vertical bar chart over time: items [{ms, v, partial}] (one per month); events [{ms, label, tip}] are marked */
+function columnChart(box, items, fmt, label, events) {
   box.innerHTML = "";
-  const W = Math.max(320, box.clientWidth || 640), H = 220, pad = { l: 48, r: 10, t: 10, b: 26 };
+  events = events || [];
+  const W = Math.max(320, box.clientWidth || 640), H = 220 + (events.length ? 14 : 0), pad = { l: 48, r: 10, t: 10 + (events.length ? 14 : 0), b: 26 };
   const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": label }, box);
   const max = Math.max(...items.map(i => i.v), 1);
   const yt = niceTicks(0, max, 4);
@@ -669,15 +803,45 @@ function columnChart(box, items, fmt, label) {
   const Y = v => pad.t + (top - v) / top * (H - pad.t - pad.b);
   for (const v of yt) { el("line", { x1: pad.l, x2: W - pad.r, y1: Y(v), y2: Y(v), class: "grid" }, svg); el("text", { x: pad.l - 6, y: Y(v) + 3.5, "text-anchor": "end", class: "ax" }, svg).textContent = fmtInt(v); }
   const bw = (W - pad.l - pad.r) / items.length;
+  // month labels: every month when there are few bars, otherwise every 3rd / 6th / 12th month so labels never overlap
+  const step = items.length <= 14 ? 1 : [3, 6, 12].find(s => s * bw >= 58) || 12;
+  const mon = ms => new Date(ms).toLocaleDateString("en-US", { month: "short", timeZone: "UTC" });
+  const monthEvents = it => { const d = new Date(it.ms), y = d.getUTCFullYear(), m = d.getUTCMonth(); return events.filter(e => { const x = new Date(e.ms); return x.getUTCFullYear() === y && x.getUTCMonth() === m; }); };
   items.forEach((it, i) => {
     const x = pad.l + i * bw, hgt = Math.max(1, Y(0) - Y(it.v));
+    const d = new Date(it.ms), m = d.getUTCMonth();
+    if (m === 0 && i > 0) el("line", { x1: x, x2: x, y1: pad.t, y2: Y(0), class: "grid" }, svg);   // year boundary
     const r = el("rect", { x: x + Math.min(1, bw * 0.1), y: Y(0) - hgt, width: Math.max(1, bw - Math.max(2, bw * 0.2)), height: hgt, rx: Math.min(3, bw / 4), fill: it.partial ? "var(--band)" : "var(--s1)", stroke: it.partial ? "var(--s1)" : "none", "stroke-dasharray": it.partial ? "2 2" : "" }, svg);
-    r.addEventListener("pointermove", ev => { const b = box.getBoundingClientRect(); showTip(box, ev.clientX - b.left, ev.clientY - b.top, `<b>${monthName(it.ms)}${it.partial ? " (so far)" : ""}</b><div class="r"><span>New mods</span><span>${fmtInt(it.v)}</span></div>`); });
+    const ev_ = monthEvents(it);
+    r.addEventListener("pointermove", ev => { const b = box.getBoundingClientRect(); showTip(box, ev.clientX - b.left, ev.clientY - b.top, `<b>${monthName(it.ms)}${it.partial ? " (so far)" : ""}</b><div class="r"><span>New mods</span><span>${fmtInt(it.v)}</span></div>` + ev_.map(e => `<div class="r"><span>${esc(e.tip)}</span><span></span></div>`).join("")); });
     r.addEventListener("pointerleave", hideTip);
-    const d = new Date(it.ms);
-    if (d.getUTCMonth() === 0 || items.length <= 14) el("text", { x: x + bw / 2, y: H - pad.b + 15, "text-anchor": "middle", class: "ax" }, svg).textContent = items.length <= 14 ? monthName(it.ms) : String(d.getUTCFullYear());
+    let text = null;
+    if (step === 1) text = monthName(it.ms);
+    else if (m % step === 0) text = step === 12 ? String(d.getUTCFullYear()) : m === 0 || i < step ? `${mon(it.ms)} ${d.getUTCFullYear()}` : mon(it.ms);
+    if (text) el("text", { x: x + bw / 2, y: H - pad.b + 15, "text-anchor": "middle", class: "ax" }, svg).textContent = text;
   });
   el("line", { x1: pad.l, x2: W - pad.r, y1: Y(0), y2: Y(0), class: "base" }, svg);
+  // release markers: a dashed line at the exact day inside its month's bar, label above the plot (stacked if close)
+  if (items.length) {
+    let lastEnd = -1e9, row = 0;
+    for (const e of events) {
+      const d = new Date(e.ms), y = d.getUTCFullYear(), m = d.getUTCMonth();
+      const i = items.findIndex(it => { const x = new Date(it.ms); return x.getUTCFullYear() === y && x.getUTCMonth() === m; });
+      if (i < 0) continue;
+      const days = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+      const x = pad.l + i * bw + bw * (d.getUTCDate() - 0.5) / days;
+      el("line", { x1: x, x2: x, y1: pad.t - 2, y2: Y(0), class: "base", "stroke-dasharray": "2 3" }, svg);
+      const wTxt = e.label.length * 6.4;
+      const right = x + 4 + wTxt > W - pad.r;
+      const start = right ? x - 4 - wTxt : x + 4;
+      row = start < lastEnd + 6 ? 1 - row : 0;
+      lastEnd = start + wTxt;
+      const ty = row ? pad.t - 16 : pad.t - 3;
+      const tx = el("text", { x: right ? x - 4 : x + 4, y: ty, "text-anchor": right ? "end" : "start", class: "ax" }, svg);
+      tx.textContent = e.label;
+      el("title", {}, tx).textContent = e.tip;
+    }
+  }
 }
 function spark(pts) {
   if (!pts || pts.length < 2) return '<span class="na">–</span>';
@@ -846,7 +1010,7 @@ function drawNewMods() {
   const r = RANGE.newmods, shown = r === "launch" ? items.filter(it => it.ms >= LAUNCH) : r === "all" ? items : items.slice(-36);
   const span = r === "launch" ? "since September 2023" : r === "all" ? `since ${shown.length ? monthName(shown[0].ms) : "–"}` : `last ${shown.length} months`;
   document.getElementById("newModsTitle").textContent = `New mods per month: ${g.name} (${span})`;
-  columnChart(document.getElementById("newMods"), shown, fmtInt, "New mods per month");
+  columnChart(document.getElementById("newMods"), shown, fmtInt, "New mods per month", dom === FOCUS ? EVENTS : []);
 }
 document.getElementById("modTable").innerHTML = `<thead><tr><th class="num">#</th><th>Game</th><th class="num">Mods</th><th class="num">30-day gain</th><th class="num">Mods / month</th><th class="num">% / month</th><th class="num">Rank in 12 mo</th><th>Trend</th></tr></thead><tbody>` +
   MA.rows.map(r => `<tr class="${r.domain === FOCUS ? "focus" : ""}"><td class="num">${r.rank}</td><td class="game">${esc(r.name)}</td><td class="num">${fmtInt(r.value)}</td><td class="num">${fmtSigned(r.gain30, fmtInt)}</td><td class="num">${r.speed ? fmtInt(r.speed[1] * 30.44) : '<span class="na">–</span>'}</td><td class="num">${r.pct_month != null ? r.pct_month.toFixed(2) + "%" : '<span class="na">–</span>'}</td><td class="num">${r.speed ? rankMove(r.rank, r.proj_rank[12]) : '<span class="na">–</span>'}</td><td>${spark(byDom[r.domain].mods.slice(-37))}</td></tr>`).join("") + "</tbody>";
@@ -872,10 +1036,13 @@ const typeColor = k => { const i = TY ? TY.top.indexOf(k) : -1; return i >= 0 ? 
 const pct = v => v == null ? '<span class="na">–</span>' : v.toFixed(1) + "%";
 const quarterName = s => { const d = new Date(t(s)); return "Q" + (Math.floor(d.getUTCMonth() / 3) + 1) + " " + d.getUTCFullYear(); };
 
-/* 100% stacked columns: items [{label, partial, parts: [{key, v, color}], total}] */
-function stackedChart(box, items, label) {
+/* 100% stacked columns: items [{label, partial, parts: [{key, v, color}], total}].
+   keyBox: on wide screens each part is labelled to the right of the chart, beside its own segment; on narrow
+   screens (no room on the right) the labels go into keyBox, under the chart, as a one-column colour key. */
+function stackedChart(box, items, label, keyBox) {
   box.innerHTML = "";
-  const W = Math.max(320, box.clientWidth || 640), H = 260, pad = { l: 40, r: 10, t: 10, b: 30 };
+  const W0 = Math.max(320, box.clientWidth || 640), side = W0 >= 520;
+  const W = W0, H = 260, pad = { l: 40, r: side ? 160 : 10, t: 10, b: 30 };
   const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": label }, box);
   const Y = f => pad.t + (1 - f) * (H - pad.t - pad.b);
   for (const f of [0, .25, .5, .75, 1]) { el("line", { x1: pad.l, x2: W - pad.r, y1: Y(f), y2: Y(f), class: "grid" }, svg); el("text", { x: pad.l - 6, y: Y(f) + 3.5, "text-anchor": "end", class: "ax" }, svg).textContent = Math.round(f * 100) + "%"; }
@@ -896,6 +1063,30 @@ function stackedChart(box, items, label) {
     if (it.partial) el("rect", { x: x - 1, y: Y(1), width: w + 2, height: Y(0) - Y(1), fill: "none", stroke: "var(--muted)", "stroke-dasharray": "3 3" }, svg);
     if (items.length <= 12 || i % 2 === 0) el("text", { x: x + w / 2, y: H - pad.b + 15, "text-anchor": "middle", class: "ax" }, svg).textContent = it.label;
   });
+  // labels: top-to-bottom in stack order, centred on the segments of the last complete quarter's bar
+  const parts0 = items.length ? items[0].parts : [];
+  if (keyBox) {
+    keyBox.hidden = side;
+    keyBox.innerHTML = side ? "" : parts0.slice().reverse().map(p => `<span><i class="sq" style="background:${p.color}"></i>${esc(p.key)}</span>`).join("");
+  }
+  if (!side || !items.length) return;
+  let ri = items.length - 1;
+  while (ri > 0 && items[ri].partial) ri--;
+  const ref = items[ri], refIsLast = ri === items.length - 1;
+  const rx = pad.l + ri * bw + Math.max(2, bw * 0.12) + Math.max(3, bw - 2 * Math.max(2, bw * 0.12));
+  let acc = 0;
+  const labs = ref.parts.map(p => { const f = ref.total ? p.v / ref.total : 0; const mid = Y(acc + f / 2); acc += f; return { p, mid, y: mid }; }).reverse();
+  for (let i = 1; i < labs.length; i++) if (labs[i].y - labs[i - 1].y < 14) labs[i].y = labs[i - 1].y + 14;
+  const over = labs.length ? labs[labs.length - 1].y - (H - pad.b - 2) : 0;
+  if (over > 0) for (const L of labs) L.y -= over;
+  for (let i = labs.length - 2; i >= 0; i--) if (labs[i + 1].y - labs[i].y < 14) labs[i].y = labs[i + 1].y - 14;
+  const lx = W - pad.r + 14;
+  for (const L of labs) {
+    if (refIsLast) el("path", { d: `M${rx + 1},${L.mid} L${lx - 8},${L.mid} L${lx - 3},${L.y}`, fill: "none", stroke: L.p.color, "stroke-width": 1, opacity: 0.7 }, svg);
+    el("rect", { x: lx, y: L.y - 5, width: 10, height: 10, rx: 2, fill: L.p.color }, svg);
+    const tx = el("text", { x: lx + 15, y: L.y + 4, class: "lbl" }, svg);
+    tx.textContent = L.p.key.length > 20 ? L.p.key.slice(0, 19) + "…" : L.p.key;
+  }
 }
 
 function drawTypes() {
@@ -930,8 +1121,21 @@ function drawTypes() {
     ? `Downloads counted ${TY.dl_date}${TY.dl_prev ? `; "Downloads gained" is the change since ${TY.dl_prev}` : "; a weekly recount starts the downloads-gained column after the second count"}. These per-mod totals are counted separately from the game's headline total in Part 1, so the two don't match exactly.`
     : "Downloads by type are counted once a week; the first count hasn't run yet.";
 
-  const legend = TY.top.concat("Other").map(k => `<span><i style="border-color:${typeColor(k)}"></i>${esc(k)}</span>`).join("");
-  document.getElementById("typeLegend").innerHTML = legend;
+  // "How to read this table": plain-words definitions with examples taken from today's rows
+  const how = [];
+  const mover = R.filter(r => r.mods >= 100).sort((a, b) => Math.abs(b.trend) - Math.abs(a.trend))[0];
+  if (mover) {
+    const up = mover.trend > 0;
+    how.push(`<b>Trend (pts)</b> compares a type's share of the last 90 days' new mods with its share of all mods. The difference is in percentage points ("pts"), a plain subtraction. Example: ${esc(mover.name)} is ${mover.share.toFixed(1)}% of all Starfield mods but ${mover.share_new90.toFixed(1)}% of mods released in the last 90 days, so its trend is <b>${up ? "▲ +" : "▼ "}${mover.trend.toFixed(1)} pts</b>: it is ${up ? "growing faster than the rest" : "falling behind the rest"}. (Going from ${mover.share.toFixed(1)}% to ${mover.share_new90.toFixed(1)}% is ${Math.abs(mover.trend).toFixed(1)} points, not ${Math.abs(mover.trend).toFixed(1)}%.) ▲ means gaining ground, ▼ losing ground; moves under 0.3 pts show as "steady".`);
+  }
+  if (hasDl) {
+    const ex = R.find(r => r.downloads != null) || R[0];
+    const dlTot = R.reduce((s, r) => s + (r.downloads || 0), 0);
+    how.push(`<b>Download share</b> is a type's downloads as a share of all Starfield mod downloads counted. Example: ${esc(ex.name)} mods have ${fmtM(ex.downloads)} of the ${fmtM(dlTot)} downloads counted, a <b>${ex.dl_share.toFixed(1)}%</b> download share (against ${ex.share.toFixed(1)}% of mods).`);
+    how.push(`<b>Per mod</b> is a type's downloads divided by its number of mods: the average downloads per mod. Example: ${fmtM(ex.downloads)} downloads ÷ ${fmtInt(ex.mods)} ${esc(ex.name)} mods = about <b>${fmtInt(ex.avg_dl)}</b> per mod.` +
+      (perMod && perMod !== ex ? ` The highest is ${esc(perMod.name)}, with ${fmtInt(perMod.avg_dl)} per mod.` : "") + " A few very popular mods can pull an average up a long way, so a high figure doesn't mean every mod of that type does well.");
+  }
+  document.getElementById("typeHow").innerHTML = how.length ? `<p><b>How to read this table</b></p>` + how.map(s => `<p>${s}</p>`).join("") : "";
   drawTypeMix(); drawTypeLines();
 
   if (hasDl) {
@@ -951,7 +1155,14 @@ function drawTypeMix() {
   let qs = TY.quarters.map(q => ({ label: quarterName(q.start), start: t(q.start), partial: q.partial, total: q.total,
     parts: TY.top.concat("Other").map(k => ({ key: k, v: Math.max(0, q.counts[k] || 0), color: typeColor(k) })) }));
   qs = RANGE.mix === "launch" ? qs.filter(q => q.start >= LAUNCH - 31 * DAY) : qs.slice(-8);
-  stackedChart(document.getElementById("typeMix"), qs, "Share of new Starfield mods by type, per quarter");
+  stackedChart(document.getElementById("typeMix"), qs, "Share of new Starfield mods by type, per quarter", document.getElementById("typeMixKey"));
+  // the same figures as a table: one row per type, one column per quarter shown
+  const keys = TY.top.concat("Other");
+  document.getElementById("typeMixTable").innerHTML = qs.length ? `<thead><tr><th>Type</th>${qs.map(q => `<th class="num">${q.label}${q.partial ? " (so far)" : ""}</th>`).join("")}</tr></thead><tbody>` +
+    keys.map(k => `<tr><td class="game"><i style="display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;background:${typeColor(k)}"></i>${esc(k)}</td>` +
+      qs.map(q => { const p = q.parts.find(x => x.key === k), v = p ? p.v : 0; return `<td class="num">${q.total ? (v / q.total * 100).toFixed(0) : 0}% <span class="cnt">· ${fmtInt(v)}</span></td>`; }).join("") + "</tr>").join("") +
+    `<tr><td class="game"><b>All new mods</b></td>${qs.map(q => `<td class="num"><b>${fmtInt(q.total)}</b></td>`).join("")}</tr></tbody>`
+    : '<tbody><tr><td class="na">No quarters in range.</td></tr></tbody>';
 }
 /* Type picker for "Mods per type over time". The seven biggest types keep their colours from the mix chart;
    other picked types borrow the free colours in the order picked; past eight coloured lines, extras are grey. */
@@ -1013,7 +1224,159 @@ document.querySelectorAll("#typeView button").forEach(b => b.addEventListener("c
   typeShare = b.dataset.v === "share"; document.querySelectorAll("#typeView button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawTypeLines();
 }));
 
-// ---------------------------------------------------------------- Part 4: translations and Star Wars
+// ---------------------------------------------------------------- Part 4: top mods
+const TP = DATA.top;
+const modUrl = m => `https://www.nexusmods.com/${FOCUS}/mods/${m.id}`;
+const colUrl = c => `https://www.nexusmods.com/games/${FOCUS}/collections/${encodeURIComponent(c.slug)}`;
+const nameCell = (m, url) => `<td class="mod"><a href="${url}" rel="noopener">${esc(m.name)}</a>${m.author ? `<span class="by">by ${esc(m.author)}</span>` : ""}</td>`;
+/* table of mods. cols: list of [heading, cell(m), sortedFlag] */
+function modTable(id, rows, cols, empty) {
+  const box = document.getElementById(id);
+  if (!rows || !rows.length) { box.innerHTML = `<tbody><tr><td class="na">${empty || "None yet."}</td></tr></tbody>`; return; }
+  box.innerHTML = `<thead><tr><th class="num">#</th><th>Mod</th>${cols.map(c => `<th class="${c[2] ? "num sorted" : c[3] ? "" : "num"}">${c[0]}</th>`).join("")}</tr></thead><tbody>` +
+    rows.map((m, i) => `<tr><td class="num">${i + 1}</td>${nameCell(m, modUrl(m))}${cols.map(c => `<td class="${c[2] ? "num sorted" : c[3] ? "" : "num"}">${c[1](m)}</td>`).join("")}</tr>`).join("") + "</tbody>";
+}
+const C_CAT = ["Category", m => esc(m.cat), false, true];
+const C_REL = ["Released", m => m.created || "–"];
+const C_DL = s => ["Downloads", m => fmtInt(m.dl), s];
+const C_EN = s => ["Endorsements", m => fmtInt(m.en), s];
+const C_RATE = s => ["Per 1,000 downloads", m => (m.rate != null ? m.rate : m.en / m.dl * 1000).toFixed(1), s];
+let topCatBy = "downloads";
+function drawTop() {
+  if (!TP) {
+    document.getElementById("part-top").style.display = "none";
+    document.querySelectorAll(".rail li.top, .pk.top").forEach(e => { e.style.display = "none"; });
+    return;
+  }
+  const W = TP.weekly || null;
+  const adultPct = TP.total_mods ? TP.adult_mods / TP.total_mods * 100 : null;
+  if (adultPct != null) document.getElementById("adultShare").textContent = `${adultPct.toFixed(1)}%`;
+  document.getElementById("topAdult").textContent = `Adult-flagged mods and collections are left out (${fmtInt(TP.adult_mods)} of ${fmtInt(TP.total_mods)} Starfield mods today). Lists refreshed ${TP.date}${W ? `; weekly figures counted ${W.date}` : ""}.`;
+
+  const od = TP.overall.downloads, oe = TP.overall.endorsements;
+  const me = (TP.concentration || []).slice().sort((a, b) => b.top10 / b.total - a.top10 / a.total);
+  const myRank = me.findIndex(c => c.domain === FOCUS) + 1, mine = me.find(c => c.domain === FOCUS);
+  const tiles = [
+    od[0] ? ["Most downloaded", esc(od[0].name), `${fmtInt(od[0].dl)} downloads`] : null,
+    oe[0] ? ["Most endorsed", esc(oe[0].name), `${fmtInt(oe[0].en)} endorsements`] : null,
+    TP.rising.downloads[0] ? ["Biggest new mod (90 days)", esc(TP.rising.downloads[0].name), `${fmtInt(TP.rising.downloads[0].dl)} downloads since ${TP.rising.downloads[0].created}`] : null,
+    W && W.authors.downloads[0] ? ["Top author by downloads", esc(W.authors.downloads[0].name), `${fmtM(W.authors.downloads[0].dl)} downloads across ${fmtInt(W.authors.downloads[0].mods)} mods`] : null,
+    mine ? ["Top 10 mods' share of downloads", (mine.top10 / mine.total * 100).toFixed(1) + "%", `#${myRank} of ${me.length} games (highest = most concentrated)`] : null,
+    ["Starfield collections", fmtInt(TP.collections.total), TP.collections.downloads[0] ? `biggest: ${fmtInt(TP.collections.downloads[0].dl)} downloads` : ""],
+  ].filter(Boolean);
+  document.getElementById("topTiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v" style="font-size:${v.length > 22 ? 18 : 26}px">${v}</span><span class="s">${s}</span></div>`).join("");
+
+  modTable("topOverallDl", od, [C_CAT, C_REL, C_DL(true), C_EN(false)]);
+  modTable("topOverallEn", oe, [C_CAT, C_REL, C_EN(true), C_DL(false)]);
+
+  // categories
+  const pick = document.getElementById("topCatPick");
+  if (!pick.options.length) {
+    pick.innerHTML = `<option value="">All categories (${TP.categories.length})</option>` + TP.categories.map(c => `<option value="${esc(c.name)}">${esc(c.name)} (${fmtInt(c.mods)})</option>`).join("");
+    pick.addEventListener("change", drawTopCats);
+    document.querySelectorAll("#topCatBy button").forEach(b => b.addEventListener("click", () => {
+      topCatBy = b.dataset.v; document.querySelectorAll("#topCatBy button").forEach(x => x.setAttribute("aria-pressed", x === b)); drawTopCats();
+    }));
+  }
+  drawTopCats();
+
+  // trending
+  const tr = W && W.trending;
+  const trBox = document.getElementById("topTrend");
+  if (tr) {
+    document.getElementById("topTrendLead").textContent = `Mods ranked by what they gained between the weekly counts of ${tr.since} and ${W.date}, the same 7-day window Nexus uses for its own trending list.`;
+    trBox.innerHTML = `<div class="panel"><h3>Downloads gained</h3><div class="tablewrap"><table id="topTrDl"></table></div></div><div class="panel"><h3>Endorsements gained</h3><div class="tablewrap"><table id="topTrEn"></table></div></div>`;
+    modTable("topTrDl", tr.downloads, [["Gained", m => "+" + fmtInt(m.g_dl) + (m.new ? ' <span class="na">new</span>' : ""), true], C_DL(false)]);
+    modTable("topTrEn", tr.endorsements, [["Gained", m => "+" + fmtInt(m.g_en) + (m.new ? ' <span class="na">new</span>' : ""), true], C_EN(false)]);
+  } else {
+    const first = W ? iso(t(W.date) + 7 * DAY) : "next week";
+    trBox.innerHTML = `<div class="panel"><p class="note">Trending needs two weekly counts a week apart. The first count ran ${W ? W.date : "–"}; the first trending list appears on <b>${first}</b>.</p></div>`;
+  }
+
+  // rising
+  document.getElementById("topRisingLead").textContent = `Mods released in the last ${TP.rising.days} days (since ${TP.rising.since}).`;
+  modTable("topRisingDl", TP.rising.downloads, [C_CAT, C_REL, C_DL(true), C_EN(false)]);
+  modTable("topRisingEn", TP.rising.endorsements, [C_CAT, C_REL, C_EN(true), C_DL(false)]);
+
+  // best-loved
+  if (W && W.best_loved) {
+    const b = W.best_loved;
+    document.getElementById("topMinDl").textContent = fmtInt(b.min_dl);
+    modTable("topOverallRate", b.top, [C_CAT, C_REL, C_RATE(true), C_EN(false), C_DL(false)]);
+    document.getElementById("topOverallRateNote").textContent = `Endorsements per 1,000 downloads, among the ${fmtInt(b.eligible)} mods with at least ${fmtInt(b.min_dl)} downloads (smaller mods can reach high rates from a handful of endorsements). The typical mod gets ${b.median_rate}. Counted weekly, last on ${W.date}.`;
+  } else {
+    modTable("topOverallRate", [], [], "Counted once a week; the first count hasn't run yet.");
+  }
+
+  // authors
+  if (W && W.authors) {
+    const A_ = W.authors;
+    document.getElementById("topAuthorsLead").textContent = `${fmtInt(A_.count)} Nexus accounts have uploaded Starfield mods (adult-flagged mods not counted). Share = the author's part of all ${fmtM(W.downloads_counted)} downloads or ${fmtInt(W.endorsements_counted)} endorsements counted.`;
+    const at = (id, rows, key) => {
+      const tot = key === "dl" ? W.downloads_counted : W.endorsements_counted;
+      document.getElementById(id).innerHTML = `<thead><tr><th class="num">#</th><th>Author</th><th class="num">Mods</th><th class="num ${key === "dl" ? "sorted" : ""}">Downloads</th><th class="num ${key === "en" ? "sorted" : ""}">Endorsements</th><th class="num">Share</th></tr></thead><tbody>` +
+        rows.map((a, i) => `<tr><td class="num">${i + 1}</td><td class="game">${esc(a.name)}</td><td class="num">${fmtInt(a.mods)}</td><td class="num ${key === "dl" ? "sorted" : ""}">${fmtM(a.dl)}</td><td class="num ${key === "en" ? "sorted" : ""}">${fmtInt(a.en)}</td><td class="num">${(a[key] / tot * 100).toFixed(1)}%</td></tr>`).join("") + "</tbody>";
+    };
+    at("topAuthorsDl", A_.downloads, "dl"); at("topAuthorsEn", A_.endorsements, "en");
+  } else {
+    document.getElementById("topAuthorsLead").textContent = "Counted once a week; the first count hasn't run yet.";
+  }
+
+  // collections
+  const C = TP.collections;
+  document.getElementById("topColLead").textContent = `${fmtInt(C.total)} Starfield collections on Nexus (adult-flagged ones left out). A collection is a curated pack of mods that installs in one go. Modlists, which do the same job but are uploaded as mods, are listed at the end.`;
+  const ct = (id, rows, key) => {
+    document.getElementById(id).innerHTML = rows.length ? `<thead><tr><th class="num">#</th><th>Collection</th><th>Category</th><th class="num ${key === "dl" ? "sorted" : ""}">Downloads</th><th class="num ${key === "en" ? "sorted" : ""}">Endorsements</th><th class="num">Rating</th></tr></thead><tbody>` +
+      rows.map((c, i) => `<tr><td class="num">${i + 1}</td><td class="mod"><a href="${colUrl(c)}" rel="noopener">${esc(c.name)}</a><span class="by">by ${esc(c.curator)}</span></td><td>${esc(c.cat)}</td><td class="num ${key === "dl" ? "sorted" : ""}">${fmtInt(c.dl)}</td><td class="num ${key === "en" ? "sorted" : ""}">${fmtInt(c.en)}</td><td class="num">${c.rating != null ? c.rating.toFixed(0) + "%" : "–"} <span class="cnt">${fmtInt(c.ratings)}</span></td></tr>`).join("") + "</tbody>"
+      : '<tbody><tr><td class="na">None.</td></tr></tbody>';
+  };
+  ct("topColDl", C.downloads, "dl"); ct("topColEn", C.endorsements, "en");
+  modTable("topModlists", TP.modlists || [], [C_CAT, C_REL, C_DL(true), C_EN(false)], "None found.");
+  document.getElementById("topModlistsNote").textContent = TP.modlists ? `${fmtInt(TP.modlists_count)} modlists found. They are left out of every other list in Part 4 (top mods, categories, trending, rising, endorsements per download and authors).` : "";
+
+  drawTopConc();
+}
+function drawTopCats() {
+  if (!TP) return;
+  const want = document.getElementById("topCatPick").value;
+  const cats = TP.categories.filter(c => !want || c.name === want);
+  const key = topCatBy, val = m => key === "downloads" ? `${fmtInt(m.dl)} dl` : `${fmtInt(m.en)} end.`;
+  document.getElementById("topCats").innerHTML = cats.map(c => {
+    const rows = c[key] || [];
+    return `<div class="card"><h3>${esc(c.name)} <span>${fmtInt(c.mods)} mods</span></h3>` +
+      (rows.length ? `<ol>${rows.map(m => `<li><a href="${modUrl(m)}" rel="noopener">${esc(m.name)}</a> <span class="v">${val(m)}</span></li>`).join("")}</ol>` : '<p class="note">No mods.</p>') + "</div>";
+  }).join("");
+}
+function drawTopConc() {
+  if (!TP || !(TP.concentration || []).length) return;
+  const bars = key => TP.concentration.slice().sort((a, b) => b[key] / b.total - a[key] / a.total).map(c => ({
+    name: c.name, v: c[key] / c.total * 100, color: c.domain === FOCUS ? "var(--s1)" : null,
+    tipExtra: `<div class="r"><span>Top ${key === "top10" ? 10 : 100} mods</span><span>${fmtM(c[key])}</span></div><div class="r"><span>All downloads</span><span>${fmtM(c.total)}</span></div>` }));
+  // how Starfield rates: rank on both measures, its Bethesda neighbours, and the modlist effect
+  const C = TP.concentration, me = C.find(c => c.domain === FOCUS);
+  if (me) {
+    const sh = (c, k) => c[k] / c.total * 100;
+    const rank = k => C.slice().sort((a, b) => sh(b, k) - sh(a, k)).indexOf(me) + 1;
+    const r10 = rank("top10"), r100 = rank("top100"), n = C.length;
+    const med = k => { const v = C.map(c => sh(c, k)).sort((a, b) => a - b); return v[Math.floor(v.length / 2)]; };
+    const beth = C.filter(c => c.domain !== FOCUS && /skyrim|fallout|oblivion|morrowind/i.test(c.name)).sort((a, b) => b.top10 / b.total - a.top10 / a.total);
+    const place = r => r <= Math.ceil(n / 3) ? "among the more concentrated games" : r > n - Math.ceil(n / 3) ? "among the more spread-out games" : "in the middle";
+    let s = `<p><b>How Starfield rates.</b> Starfield's top 10 mods take <b>${sh(me, "top10").toFixed(1)}%</b> of its downloads (#${r10} of ${n}, where #1 is the most concentrated; the middle game is ${med("top10").toFixed(1)}%), and its top 100 take <b>${sh(me, "top100").toFixed(1)}%</b> (#${r100} of ${n}). That puts it ${place(Math.round((r10 + r100) / 2))}: no single handful of mods dominates.</p>`;
+    const byTop = C.slice().sort((a, b) => sh(b, "top10") - sh(a, "top10"));
+    if (beth.length) s += `<p>Compare Bethesda's other games: ${beth.map(c => `${esc(c.name)} ${sh(c, "top10").toFixed(1)}%`).join(", ")}. The full range runs from ${esc(byTop[0].name)} (${sh(byTop[0], "top10").toFixed(1)}%) to ${esc(byTop[n - 1].name)} (${sh(byTop[n - 1], "top10").toFixed(1)}%).</p>`;
+    if (me.top10_no_modlists != null && me.top10_no_modlists < me.top10) {
+      const alt = me.top10_no_modlists / me.total * 100;
+      const altRank = C.filter(c => c !== me && sh(c, "top10") > alt).length + 1;
+      s += `<p>Part of Starfield's top-10 share comes from modlists, which bundle many mods into one download. Counting only ordinary mods, its top 10 take <b>${alt.toFixed(1)}%</b>, which would rank #${altRank} of ${n}. Other games' figures still include their own modlists, so this is a rough comparison.</p>`;
+    }
+    document.getElementById("topConcRate").innerHTML = s;
+  }
+  barChart(document.getElementById("topConc10"), bars("top10"), v => v.toFixed(1) + "%", "Share of downloads");
+  barChart(document.getElementById("topConc100"), bars("top100"), v => v.toFixed(1) + "%", "Share of downloads");
+  document.getElementById("topConcNote").textContent = `Counted ${TP.date}. Starfield is in blue. Totals are each game's whole download count from Part 1 (Nexus's own figure), which runs a little higher than the sum of the downloads of the mods listed today.`;
+}
+
+// ---------------------------------------------------------------- Part 5: translations and Star Wars
 const CR = DATA.critics;
 const C_COL = { neither: "var(--s1)", translation: "var(--s2)", starwars: "var(--s3)", franchise: "var(--s7)", presets: "var(--s5)", ai: "var(--s4)" };
 function drawCritics() {
@@ -1085,7 +1448,8 @@ function drawCritTrend() {
     yfmt: v => v.toFixed(0) + "%", tipfmt: v => v.toFixed(1) + "%", aria: "Share of new Starfield mods that are translations, Star Wars or franchise-tagged, by quarter" });
 }
 
-Object.assign(REDRAW, { race: drawRace, dl: drawDl, mods: drawMods, newmods: drawNewMods, mix: drawTypeMix, typeline: drawTypeLines, crit: drawCritTrend });
+Object.assign(REDRAW, { race: drawRace, dl: drawDl, mods: drawMods, newmods: drawNewMods, mix: drawTypeMix, typeline: drawTypeLines, crit: drawCritTrend, topconc: drawTopConc });
+drawTop();
 drawCritics();
 drawTypes();
 document.querySelectorAll("span.range[data-chart]").forEach(seg => {

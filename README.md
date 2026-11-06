@@ -3,7 +3,11 @@
 By Richard Bejtlich of [Richard Presents Starfield Essentials](https://www.youtube.com/@RichardBejtlich).
 Parts 1 and 2 track and forecast mod downloads and mod counts for the top 15 games on
 [Nexus Mods](https://www.nexusmods.com/), with a focus on Starfield. Part 3 looks at the types of mods published
-for Starfield. Part 4 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.
+for Starfield. Part 4 lists Starfield's most downloaded, most endorsed, trending and rising mods, top authors and top
+collections. Part 5 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.
+
+The page does not feature NSFW or adult content: Part 4 leaves adult-flagged mods and collections out of every list,
+and no other Part names individual mods. Game-wide totals come from Nexus as they are and include adult-flagged mods.
 
 - **Page:** https://taosecurity.github.io/NexusModsMetrics/ (rebuilt every day)
 - **Data:** `data/` (CSV files you can open on GitHub or in a spreadsheet)
@@ -31,9 +35,10 @@ use `gh workflow run daily.yml`.
 | `nexus.py` | Sends API requests. Identifies itself with the `Application-Name` and `Application-Version` headers that Nexus asks for. |
 | `collect.py` | Daily snapshot into `data/downloads.csv`. |
 | `modtypes.py` | Mod types (Nexus categories). Daily: mods per category for every tracked game, now and 30/90/365 days ago, plus Starfield's monthly category history (about 20 requests). Weekly: Starfield downloads per category (about 180 requests; only category totals are kept). |
+| `topmods.py` | Part 4 top mods. Daily (about 20 requests): top 10 overall and top 5 per category by downloads and endorsements, top new mods (last 90 days), top 10 collections, and each tracked game's top 10 / top 100 download sums. Weekly (about 180 requests): every Starfield mod's totals, for top authors, best-loved and trending. Adult-flagged mods and collections are filtered out. Modlists (tagged `Wabbajack Mod List`, plus a hand-kept list of untagged ones in `MODLIST_IDS`) are kept out of the mod lists and shown with the collections. `--out DIR` writes elsewhere (for local previews). |
 | `model.py` | Growth speeds, pass dates and rank projections. |
 | `headlines.py` | Writes each Part's Headlines (3–5 plain-English sentences) from the day's data, by rules: passes, surges, types gaining or losing ground. |
-| `build.py` | Builds the page. `--local` also runs `git pull` first and copies the page to a local folder. |
+| `build.py` | Builds the page. `--local` also runs `git pull` first and copies the page to a local folder. `--top DIR` uses Part 4 data from another folder. |
 | `template.html` | The page layout and chart code. |
 | `import_sheet.py` | One-time import of the hand-recorded history (2025-04 to 2026-11) from a spreadsheet. Formula (forecast) cells are skipped. |
 | `backfill_mods.py` | One-time rebuild of monthly mod counts back to each game's first mod. |
@@ -49,7 +54,12 @@ use `gh workflow run daily.yml`.
   category counts on the 1st of each month. Rewritten daily.
 - `data/category_downloads.csv`: weekly Starfield downloads per category, with downloads of mods created in
   the last 90 days.
-- `data/critics_downloads.csv`: weekly Starfield mods and downloads for the Part 4 hot topics (translations,
+- `data/top_mods.json`: Part 4's lists, rewritten daily (the weekly part carries over). Unlike the other files it
+  names mods: each entry is a public Nexus listing (mod id, name, credited author, category, release date, downloads,
+  endorsements). Adult-flagged mods are never stored.
+- `data/mod_totals.csv`: downloads and endorsements of every non-adult Starfield mod at the last two weekly counts
+  (numbers and mod ids only), used for "Trending this week".
+- `data/critics_downloads.csv`: weekly Starfield mods and downloads for the Part 5 hot topics (translations,
   Star Wars by name, franchise-tagged, character presets and saves, AI content, and mods that are none of them).
 - `data/issues.csv`: numbers the collectors refused because they looked wrong (for example a total that fell).
   The page shows a notice for the last 7 days.

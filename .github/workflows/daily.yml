@@ -35,6 +35,10 @@ jobs:
       - name: Count mod types (weekly downloads-by-type pass when due)
         run: python modtypes.py
 
+      - name: Top mods (weekly full count when due)
+        run: python topmods.py
+        continue-on-error: true   # a failure keeps yesterday's lists; the page still builds
+
       - name: Build the page
         run: python build.py
 

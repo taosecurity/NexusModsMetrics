@@ -2,7 +2,8 @@
 
 Usage:
   python build.py            build site/index.html (what GitHub Actions runs)
-  python -I build.py --local git pull first, build, then copy to D:\\Starfield Dev\\Browser\\nexus-metrics.html
+  python -I build.py --local git pull first, build, then copy to D:\\Starfield Dev\\Browser\\nexus-metrics\\
+  python -I build.py --local --top <folder or top_mods.json>   preview Part 4 from data collected elsewhere
 """
 import argparse
 import csv
@@ -20,7 +21,8 @@ import headlines  # noqa: E402
 
 SITE = os.path.join(HERE, "site")
 FORECASTS = os.path.join(HERE, "data", "forecasts.csv")
-LOCAL_COPY = r"D:\Starfield Dev\Browser\nexus-metrics.html"
+LOCAL_DIR = r"D:\Starfield Dev\Browser\nexus-metrics"   # local preview: index.html + preview.png
+TOP_JSON = os.path.join(HERE, "data", "top_mods.json")
 FOCUS = "starfield"
 FC_FIELDS = ["built", "metric", "domain", "name", "dir", "earliest", "likely", "latest"]
 
@@ -205,8 +207,19 @@ TRANSLATION = "Translation"
 FRANCHISE = "Related to Movies/TV/Books/Other Games"
 
 
+def top_section(path=None):
+    """Part 4: top mods. Read as collected by topmods.py (lists are already free of adult-flagged mods)."""
+    path = path or TOP_JSON
+    if os.path.isdir(path):
+        path = os.path.join(path, "top_mods.json")
+    if not os.path.exists(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def critics_section():
-    """Part 4: translations and Star Wars. Shares of Starfield's mods and downloads, the 15-game comparison, and the
+    """Part 5: translations and Star Wars. Shares of Starfield's mods and downloads, the 15-game comparison, and the
     trend in new mods."""
     if not os.path.exists(TYPES_JSON):
         return None
@@ -300,6 +313,7 @@ def jsonable(res):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--local", action="store_true", help="git pull first and copy the page to the local DD folder")
+    ap.add_argument("--top", help="top_mods.json (or its folder) to use instead of data/top_mods.json (previews)")
     args = ap.parse_args()
     if args.local:
         r = subprocess.run(["git", "-C", HERE, "pull", "--ff-only", "--quiet"], capture_output=True, text=True)
@@ -334,6 +348,7 @@ def main():
         "check": check_table(fc_rows), "backtest": backtest(),
         "types": types_section(),
         "critics": critics_section(),
+        "top": top_section(args.top),
     }
     order = {d: i for i, d in enumerate(ranked)}
     if page_data["types"]:
@@ -347,7 +362,8 @@ def main():
             page_data["issues"] = [r for r in csv.DictReader(f) if r["date"] >= cutoff]
     page_data["headlines"] = {"dl": headlines.downloads(data, dl, FOCUS), "mods": headlines.mods(data, mods, FOCUS),
                               "types": headlines.types(page_data["types"]),
-                              "critics": headlines.critics(page_data["critics"])}
+                              "critics": headlines.critics(page_data["critics"]),
+                              "top": headlines.top(page_data["top"])}
     if page_data["critics"]:
         page_data["critics"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:
@@ -369,8 +385,11 @@ def main():
         print(f"   {p['dir']:4} {p['name']:32} gap {p['gap'] / 1e6:6.1f}M  dates {d}")
     if args.local:
         try:
-            shutil.copyfile(out, LOCAL_COPY)
-            print(f"build: copied to {LOCAL_COPY}")
+            os.makedirs(LOCAL_DIR, exist_ok=True)
+            for name in ("index.html", "preview.png"):
+                if os.path.exists(os.path.join(SITE, name)):
+                    shutil.copyfile(os.path.join(SITE, name), os.path.join(LOCAL_DIR, name))
+            print(f"build: copied to {LOCAL_DIR}\\index.html")
         except OSError as e:
             print(f"build: local copy failed: {e}")
     return 0
