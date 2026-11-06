@@ -4,7 +4,7 @@ name: daily
 # commit the new data, and publish the page to GitHub Pages. "Run workflow" on the Actions tab runs it now.
 on:
   schedule:
-    - cron: "17 20 * * *"   # 20:17 UTC daily (GitHub may start it a little late)
+    - cron: "17 15 * * *"   # 15:17 UTC daily (10:17 ET in winter, 11:17 in summer) (GitHub may start it a little late)
   workflow_dispatch:
 
 permissions:

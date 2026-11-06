@@ -16,7 +16,7 @@ Not affiliated with or endorsed by Nexus Mods.
 
 ## How it works
 
-A GitHub Actions workflow (`.github/workflows/daily.yml`) runs once a day at about 20:17 UTC:
+A GitHub Actions workflow (`.github/workflows/daily.yml`) runs once a day at about 15:17 UTC:
 
 1. `collect.py` asks the Nexus Mods public GraphQL API for the top 40 games by downloads. That's one
    request, with no API key needed. It appends one row per game to `data/downloads.csv`. Running it
