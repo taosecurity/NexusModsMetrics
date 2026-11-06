@@ -47,7 +47,7 @@
   "types": [
    {
     "k": "types:gaining:User Interface",
-    "t": "<b>User Interface</b> is the type gaining the most ground: 13.6% of the last 90 days' new mods, against 6.6% of all Starfield mods."
+    "t": "<b>User Interface</b> is the type gaining the most ground: 13.5% of the last 90 days' new mods, against 6.6% of all Starfield mods."
    },
    {
     "k": "types:fading:Visuals",
@@ -69,7 +69,7 @@
   "critics": [
    {
     "k": "crit:neither",
-    "t": "<b>81% of Starfield mods</b> (11,397 of 14,086) are neither translations nor Star Wars mods: roughly 4 in 5."
+    "t": "<b>81% of Starfield mods</b> (11,395 of 14,085) are neither translations nor Star Wars mods: roughly 4 in 5."
    },
    {
     "k": "crit:none",
@@ -81,11 +81,11 @@
    },
    {
     "k": "crit:starwars-popular",
-    "t": "Star Wars mods are few but popular: about <b>3.6% of Starfield mods</b> (511) but <b>15.2% of downloads</b>, 4× their share. That's where critics' impression comes from: not volume, but visibility."
+    "t": "Star Wars mods are few but popular: about <b>3.6% of Starfield mods</b> (512) but <b>15.2% of downloads</b>, 4× their share. That's where critics' impression comes from: not volume, but visibility."
    },
    {
     "k": "crit:ai",
-    "t": "AI-generated or AI-assisted mods are <b>3.8%</b> of Starfield mods (536), #7 of 15 games, and rising fast: <b>25% of the last 90 days' new mods</b>. They get 5.3% of downloads."
+    "t": "AI-generated or AI-assisted mods are <b>3.8%</b> of Starfield mods (537), #7 of 15 games, and rising fast: <b>25% of the last 90 days' new mods</b>. They get 5.3% of downloads."
    },
    {
     "k": "crit:translation-downloads",
@@ -103,7 +103,7 @@
   "top": [
    {
     "k": "top:leaders:106:773",
-    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,204,580 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,053 endorsements)."
+    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,204,739 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,054 endorsements)."
    },
    {
     "k": "top:modlist:11114",
@@ -127,7 +127,7 @@
    },
    {
     "k": "top:rising:18047",
-    "t": "The biggest new mod of the last 90 days is <b>Collection - Revisited patches</b> (Miscellaneous, released 23 August 2026): 19,829 downloads so far."
+    "t": "The biggest new mod of the last 90 days is <b>Collection - Revisited patches</b> (Miscellaneous, released 23 August 2026): 19,864 downloads so far."
    }
   ]
  }

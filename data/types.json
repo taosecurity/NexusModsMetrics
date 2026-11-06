@@ -61,7 +61,7 @@
 "Quests": 3,
 "Ships": 222,
 "Space Suits": 54,
-"User Interface": 439,
+"User Interface": 437,
 "Utilities": 59,
 "Visuals": 783,
 "Weapons": 296
@@ -90,7 +90,7 @@
 "Quests": 4,
 "Ships": 288,
 "Space Suits": 72,
-"User Interface": 477,
+"User Interface": 475,
 "Utilities": 72,
 "Visuals": 831,
 "Weapons": 339
@@ -119,7 +119,7 @@
 "Quests": 5,
 "Ships": 321,
 "Space Suits": 79,
-"User Interface": 496,
+"User Interface": 494,
 "Utilities": 80,
 "Visuals": 853,
 "Weapons": 370
@@ -149,7 +149,7 @@
 "Races": 1,
 "Ships": 339,
 "Space Suits": 89,
-"User Interface": 508,
+"User Interface": 505,
 "Utilities": 85,
 "Visuals": 875,
 "Weapons": 387
@@ -180,7 +180,7 @@
 "Races": 1,
 "Ships": 347,
 "Space Suits": 95,
-"User Interface": 518,
+"User Interface": 515,
 "Utilities": 88,
 "Visuals": 880,
 "Weapons": 412
@@ -211,7 +211,7 @@
 "Races": 1,
 "Ships": 361,
 "Space Suits": 103,
-"User Interface": 523,
+"User Interface": 520,
 "Utilities": 92,
 "Visuals": 889,
 "Weapons": 438
@@ -242,7 +242,7 @@
 "Races": 1,
 "Ships": 370,
 "Space Suits": 107,
-"User Interface": 528,
+"User Interface": 525,
 "Utilities": 94,
 "Visuals": 893,
 "Weapons": 450
@@ -273,7 +273,7 @@
 "Races": 1,
 "Ships": 389,
 "Space Suits": 123,
-"User Interface": 539,
+"User Interface": 536,
 "Utilities": 98,
 "Visuals": 902,
 "Weapons": 476
@@ -304,7 +304,7 @@
 "Races": 1,
 "Ships": 425,
 "Space Suits": 152,
-"User Interface": 561,
+"User Interface": 558,
 "Utilities": 105,
 "Visuals": 925,
 "Weapons": 519
@@ -335,7 +335,7 @@
 "Races": 2,
 "Ships": 452,
 "Space Suits": 169,
-"User Interface": 568,
+"User Interface": 565,
 "Utilities": 112,
 "Visuals": 945,
 "Weapons": 543
@@ -366,7 +366,7 @@
 "Races": 3,
 "Ships": 501,
 "Space Suits": 184,
-"User Interface": 582,
+"User Interface": 579,
 "Utilities": 116,
 "Vehicles": 22,
 "Visuals": 956,
@@ -398,7 +398,7 @@
 "Races": 3,
 "Ships": 521,
 "Space Suits": 189,
-"User Interface": 592,
+"User Interface": 589,
 "Utilities": 119,
 "Vehicles": 29,
 "Visuals": 968,
@@ -430,7 +430,7 @@
 "Races": 3,
 "Ships": 580,
 "Space Suits": 193,
-"User Interface": 627,
+"User Interface": 624,
 "Utilities": 128,
 "Vehicles": 38,
 "Visuals": 984,
@@ -455,14 +455,14 @@
 "Miscellaneous": 713,
 "Modders Resources": 89,
 "Outposts": 230,
-"Perks and Skills": 201,
+"Perks and Skills": 200,
 "Planets": 51,
 "Player Home": 83,
 "Quests": 49,
 "Races": 4,
 "Ships": 615,
 "Space Suits": 198,
-"User Interface": 631,
+"User Interface": 628,
 "Utilities": 131,
 "Vehicles": 43,
 "Visuals": 991,
@@ -487,14 +487,14 @@
 "Miscellaneous": 731,
 "Modders Resources": 93,
 "Outposts": 242,
-"Perks and Skills": 201,
+"Perks and Skills": 200,
 "Planets": 53,
 "Player Home": 83,
 "Quests": 56,
 "Races": 4,
 "Ships": 629,
 "Space Suits": 201,
-"User Interface": 632,
+"User Interface": 629,
 "Utilities": 132,
 "Vehicles": 45,
 "Visuals": 998,
@@ -519,14 +519,14 @@
 "Miscellaneous": 737,
 "Modders Resources": 97,
 "Outposts": 249,
-"Perks and Skills": 206,
+"Perks and Skills": 205,
 "Planets": 55,
 "Player Home": 85,
 "Quests": 59,
 "Races": 4,
 "Ships": 647,
 "Space Suits": 204,
-"User Interface": 635,
+"User Interface": 632,
 "Utilities": 136,
 "Vehicles": 45,
 "Visuals": 1013,
@@ -551,14 +551,14 @@
 "Miscellaneous": 746,
 "Modders Resources": 101,
 "Outposts": 254,
-"Perks and Skills": 215,
+"Perks and Skills": 214,
 "Planets": 59,
 "Player Home": 90,
 "Quests": 61,
 "Races": 4,
 "Ships": 654,
 "Space Suits": 206,
-"User Interface": 637,
+"User Interface": 634,
 "Utilities": 138,
 "Vehicles": 46,
 "Visuals": 1025,
@@ -583,14 +583,14 @@
 "Miscellaneous": 749,
 "Modders Resources": 101,
 "Outposts": 260,
-"Perks and Skills": 221,
+"Perks and Skills": 220,
 "Planets": 63,
 "Player Home": 93,
 "Quests": 64,
 "Races": 4,
 "Ships": 675,
 "Space Suits": 210,
-"User Interface": 640,
+"User Interface": 637,
 "Utilities": 139,
 "Vehicles": 47,
 "Visuals": 1029,
@@ -615,14 +615,14 @@
 "Miscellaneous": 753,
 "Modders Resources": 105,
 "Outposts": 268,
-"Perks and Skills": 225,
+"Perks and Skills": 224,
 "Planets": 65,
 "Player Home": 97,
 "Quests": 69,
 "Races": 4,
 "Ships": 722,
 "Space Suits": 210,
-"User Interface": 650,
+"User Interface": 647,
 "Utilities": 139,
 "Vehicles": 48,
 "Visuals": 1032,
@@ -647,14 +647,14 @@
 "Miscellaneous": 754,
 "Modders Resources": 111,
 "Outposts": 274,
-"Perks and Skills": 229,
+"Perks and Skills": 228,
 "Planets": 67,
 "Player Home": 102,
 "Quests": 71,
 "Races": 4,
 "Ships": 744,
 "Space Suits": 212,
-"User Interface": 660,
+"User Interface": 657,
 "Utilities": 142,
 "Vehicles": 50,
 "Visuals": 1039,
@@ -679,14 +679,14 @@
 "Miscellaneous": 761,
 "Modders Resources": 115,
 "Outposts": 282,
-"Perks and Skills": 232,
+"Perks and Skills": 231,
 "Planets": 68,
 "Player Home": 121,
 "Quests": 76,
 "Races": 4,
 "Ships": 767,
 "Space Suits": 218,
-"User Interface": 674,
+"User Interface": 671,
 "Utilities": 147,
 "Vehicles": 51,
 "Visuals": 1046,
@@ -711,14 +711,14 @@
 "Miscellaneous": 766,
 "Modders Resources": 134,
 "Outposts": 287,
-"Perks and Skills": 235,
+"Perks and Skills": 234,
 "Planets": 70,
 "Player Home": 125,
 "Quests": 81,
 "Races": 4,
 "Ships": 798,
 "Space Suits": 218,
-"User Interface": 677,
+"User Interface": 674,
 "Utilities": 149,
 "Vehicles": 55,
 "Visuals": 1053,
@@ -743,14 +743,14 @@
 "Miscellaneous": 777,
 "Modders Resources": 138,
 "Outposts": 298,
-"Perks and Skills": 236,
+"Perks and Skills": 235,
 "Planets": 73,
 "Player Home": 128,
 "Quests": 90,
 "Races": 4,
 "Ships": 850,
 "Space Suits": 218,
-"User Interface": 690,
+"User Interface": 687,
 "Utilities": 155,
 "Vehicles": 59,
 "Visuals": 1058,
@@ -775,14 +775,14 @@
 "Miscellaneous": 792,
 "Modders Resources": 142,
 "Outposts": 304,
-"Perks and Skills": 237,
+"Perks and Skills": 236,
 "Planets": 77,
 "Player Home": 135,
 "Quests": 93,
 "Races": 4,
 "Ships": 893,
 "Space Suits": 221,
-"User Interface": 698,
+"User Interface": 695,
 "Utilities": 158,
 "Vehicles": 60,
 "Visuals": 1069,
@@ -807,14 +807,14 @@
 "Miscellaneous": 797,
 "Modders Resources": 146,
 "Outposts": 310,
-"Perks and Skills": 240,
+"Perks and Skills": 239,
 "Planets": 78,
 "Player Home": 158,
 "Quests": 99,
 "Races": 4,
 "Ships": 920,
 "Space Suits": 227,
-"User Interface": 708,
+"User Interface": 705,
 "Utilities": 161,
 "Vehicles": 64,
 "Visuals": 1080,
@@ -839,14 +839,14 @@
 "Miscellaneous": 805,
 "Modders Resources": 147,
 "Outposts": 333,
-"Perks and Skills": 253,
+"Perks and Skills": 252,
 "Planets": 81,
 "Player Home": 168,
 "Quests": 102,
 "Races": 5,
 "Ships": 945,
 "Space Suits": 228,
-"User Interface": 711,
+"User Interface": 708,
 "Utilities": 166,
 "Vehicles": 65,
 "Visuals": 1084,
@@ -871,14 +871,14 @@
 "Miscellaneous": 816,
 "Modders Resources": 148,
 "Outposts": 341,
-"Perks and Skills": 259,
+"Perks and Skills": 258,
 "Planets": 83,
 "Player Home": 169,
 "Quests": 110,
 "Races": 6,
 "Ships": 967,
 "Space Suits": 229,
-"User Interface": 723,
+"User Interface": 720,
 "Utilities": 169,
 "Vehicles": 66,
 "Visuals": 1090,
@@ -903,14 +903,14 @@
 "Miscellaneous": 822,
 "Modders Resources": 152,
 "Outposts": 349,
-"Perks and Skills": 262,
+"Perks and Skills": 261,
 "Planets": 86,
 "Player Home": 172,
 "Quests": 113,
 "Races": 6,
 "Ships": 984,
 "Space Suits": 235,
-"User Interface": 733,
+"User Interface": 730,
 "Utilities": 172,
 "Vehicles": 69,
 "Visuals": 1098,
@@ -935,14 +935,14 @@
 "Miscellaneous": 827,
 "Modders Resources": 152,
 "Outposts": 350,
-"Perks and Skills": 268,
+"Perks and Skills": 267,
 "Planets": 87,
 "Player Home": 174,
 "Quests": 117,
 "Races": 6,
 "Ships": 993,
 "Space Suits": 244,
-"User Interface": 745,
+"User Interface": 742,
 "Utilities": 174,
 "Vehicles": 69,
 "Visuals": 1106,
@@ -967,14 +967,14 @@
 "Miscellaneous": 838,
 "Modders Resources": 154,
 "Outposts": 353,
-"Perks and Skills": 268,
+"Perks and Skills": 267,
 "Planets": 88,
 "Player Home": 174,
 "Quests": 117,
 "Races": 7,
 "Ships": 1017,
 "Space Suits": 250,
-"User Interface": 752,
+"User Interface": 749,
 "Utilities": 179,
 "Vehicles": 70,
 "Visuals": 1111,
@@ -999,14 +999,14 @@
 "Miscellaneous": 863,
 "Modders Resources": 158,
 "Outposts": 361,
-"Perks and Skills": 274,
+"Perks and Skills": 273,
 "Planets": 93,
 "Player Home": 178,
 "Quests": 129,
 "Races": 8,
 "Ships": 1050,
 "Space Suits": 261,
-"User Interface": 799,
+"User Interface": 796,
 "Utilities": 184,
 "Vehicles": 75,
 "Visuals": 1136,
@@ -1031,14 +1031,14 @@
 "Miscellaneous": 877,
 "Modders Resources": 172,
 "Outposts": 371,
-"Perks and Skills": 277,
+"Perks and Skills": 276,
 "Planets": 96,
 "Player Home": 183,
 "Quests": 133,
 "Races": 9,
 "Ships": 1093,
 "Space Suits": 271,
-"User Interface": 822,
+"User Interface": 819,
 "Utilities": 193,
 "Vehicles": 79,
 "Visuals": 1150,
@@ -1063,14 +1063,14 @@
 "Miscellaneous": 883,
 "Modders Resources": 172,
 "Outposts": 377,
-"Perks and Skills": 282,
+"Perks and Skills": 281,
 "Planets": 98,
 "Player Home": 184,
 "Quests": 136,
 "Races": 9,
 "Ships": 1123,
 "Space Suits": 277,
-"User Interface": 831,
+"User Interface": 828,
 "Utilities": 195,
 "Vehicles": 81,
 "Visuals": 1171,
@@ -1095,14 +1095,14 @@
 "Miscellaneous": 890,
 "Modders Resources": 176,
 "Outposts": 379,
-"Perks and Skills": 282,
+"Perks and Skills": 281,
 "Planets": 98,
 "Player Home": 185,
 "Quests": 136,
 "Races": 10,
 "Ships": 1140,
 "Space Suits": 283,
-"User Interface": 838,
+"User Interface": 835,
 "Utilities": 201,
 "Vehicles": 81,
 "Visuals": 1180,
@@ -1127,14 +1127,14 @@
 "Miscellaneous": 896,
 "Modders Resources": 181,
 "Outposts": 384,
-"Perks and Skills": 284,
+"Perks and Skills": 283,
 "Planets": 100,
 "Player Home": 185,
 "Quests": 141,
 "Races": 10,
 "Ships": 1155,
 "Space Suits": 283,
-"User Interface": 890,
+"User Interface": 887,
 "Utilities": 209,
 "Vehicles": 82,
 "Visuals": 1182,
@@ -1159,14 +1159,14 @@
 "Miscellaneous": 905,
 "Modders Resources": 188,
 "Outposts": 389,
-"Perks and Skills": 284,
+"Perks and Skills": 283,
 "Planets": 100,
 "Player Home": 189,
 "Quests": 147,
 "Races": 10,
 "Ships": 1170,
 "Space Suits": 289,
-"User Interface": 911,
+"User Interface": 908,
 "Utilities": 211,
 "Vehicles": 83,
 "Visuals": 1188,
@@ -1191,14 +1191,14 @@
 "Miscellaneous": 912,
 "Modders Resources": 196,
 "Outposts": 397,
-"Perks and Skills": 291,
+"Perks and Skills": 290,
 "Planets": 100,
 "Player Home": 189,
 "Quests": 153,
 "Races": 10,
 "Ships": 1186,
 "Space Suits": 293,
-"User Interface": 928,
+"User Interface": 925,
 "Utilities": 219,
 "Vehicles": 86,
 "Visuals": 1197,
@@ -1232,7 +1232,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 140,
 "Translation": 142,
-"_total": 4420,
+"_total": 4418,
 "ai": 115,
 "presets": 393
 }
@@ -1242,7 +1242,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 166,
 "Translation": 216,
-"_total": 5249,
+"_total": 5247,
 "ai": 139,
 "presets": 447
 }
@@ -1252,7 +1252,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 176,
 "Translation": 238,
-"_total": 5707,
+"_total": 5705,
 "ai": 149,
 "presets": 469
 }
@@ -1262,7 +1262,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 186,
 "Translation": 257,
-"_total": 5956,
+"_total": 5953,
 "ai": 155,
 "presets": 472
 }
@@ -1272,7 +1272,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 197,
 "Translation": 307,
-"_total": 6165,
+"_total": 6162,
 "ai": 160,
 "presets": 475
 }
@@ -1282,7 +1282,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 213,
 "Translation": 383,
-"_total": 6384,
+"_total": 6381,
 "ai": 161,
 "presets": 480
 }
@@ -1292,7 +1292,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 220,
 "Translation": 417,
-"_total": 6504,
+"_total": 6501,
 "ai": 166,
 "presets": 486
 }
@@ -1302,7 +1302,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 235,
 "Translation": 465,
-"_total": 6715,
+"_total": 6712,
 "ai": 184,
 "presets": 496
 }
@@ -1312,7 +1312,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 265,
 "Translation": 580,
-"_total": 7362,
+"_total": 7359,
 "ai": 193,
 "presets": 507
 }
@@ -1322,7 +1322,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 288,
 "Translation": 611,
-"_total": 7719,
+"_total": 7716,
 "ai": 198,
 "presets": 535
 }
@@ -1332,7 +1332,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 314,
 "Translation": 706,
-"_total": 8115,
+"_total": 8112,
 "ai": 203,
 "presets": 549
 }
@@ -1342,7 +1342,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 333,
 "Translation": 759,
-"_total": 8448,
+"_total": 8445,
 "ai": 204,
 "presets": 570
 }
@@ -1352,7 +1352,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 351,
 "Translation": 866,
-"_total": 8910,
+"_total": 8907,
 "ai": 221,
 "presets": 573
 }
@@ -1362,7 +1362,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 366,
 "Translation": 893,
-"_total": 9132,
+"_total": 9128,
 "ai": 222,
 "presets": 582
 }
@@ -1372,7 +1372,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 380,
 "Translation": 921,
-"_total": 9328,
+"_total": 9324,
 "ai": 224,
 "presets": 600
 }
@@ -1382,7 +1382,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 397,
 "Translation": 969,
-"_total": 9518,
+"_total": 9514,
 "ai": 231,
 "presets": 607
 }
@@ -1392,7 +1392,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 414,
 "Translation": 987,
-"_total": 9672,
+"_total": 9668,
 "ai": 232,
 "presets": 611
 }
@@ -1402,7 +1402,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 420,
 "Translation": 1027,
-"_total": 9818,
+"_total": 9814,
 "ai": 233,
 "presets": 617
 }
@@ -1412,7 +1412,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 427,
 "Translation": 1043,
-"_total": 9995,
+"_total": 9991,
 "ai": 233,
 "presets": 646
 }
@@ -1422,7 +1422,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 442,
 "Translation": 1072,
-"_total": 10173,
+"_total": 10169,
 "ai": 235,
 "presets": 667
 }
@@ -1432,7 +1432,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 458,
 "Translation": 1131,
-"_total": 10393,
+"_total": 10389,
 "ai": 238,
 "presets": 676
 }
@@ -1442,7 +1442,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 469,
 "Translation": 1160,
-"_total": 10568,
+"_total": 10564,
 "ai": 240,
 "presets": 696
 }
@@ -1452,7 +1452,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 487,
 "Translation": 1240,
-"_total": 10816,
+"_total": 10812,
 "ai": 243,
 "presets": 720
 }
@@ -1462,7 +1462,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 494,
 "Translation": 1302,
-"_total": 11018,
+"_total": 11014,
 "ai": 247,
 "presets": 735
 }
@@ -1472,7 +1472,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 499,
 "Translation": 1378,
-"_total": 11203,
+"_total": 11199,
 "ai": 248,
 "presets": 750
 }
@@ -1482,7 +1482,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 504,
 "Translation": 1541,
-"_total": 11438,
+"_total": 11434,
 "ai": 249,
 "presets": 757
 }
@@ -1492,7 +1492,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 507,
 "Translation": 1687,
-"_total": 11681,
+"_total": 11677,
 "ai": 252,
 "presets": 765
 }
@@ -1502,7 +1502,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 517,
 "Translation": 1731,
-"_total": 11831,
+"_total": 11827,
 "ai": 259,
 "presets": 768
 }
@@ -1512,7 +1512,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 525,
 "Translation": 1758,
-"_total": 11953,
+"_total": 11949,
 "ai": 264,
 "presets": 770
 }
@@ -1522,7 +1522,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 530,
 "Translation": 1788,
-"_total": 12089,
+"_total": 12085,
 "ai": 269,
 "presets": 780
 }
@@ -1532,7 +1532,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 535,
 "Translation": 1942,
-"_total": 12586,
+"_total": 12582,
 "ai": 281,
 "presets": 806
 }
@@ -1542,7 +1542,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 549,
 "Translation": 2019,
-"_total": 12964,
+"_total": 12960,
 "ai": 310,
 "presets": 829
 }
@@ -1552,7 +1552,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 553,
 "Translation": 2069,
-"_total": 13196,
+"_total": 13192,
 "ai": 331,
 "presets": 838
 }
@@ -1562,7 +1562,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 558,
 "Translation": 2096,
-"_total": 13376,
+"_total": 13372,
 "ai": 357,
 "presets": 846
 }
@@ -1572,7 +1572,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 559,
 "Translation": 2164,
-"_total": 13594,
+"_total": 13590,
 "ai": 415,
 "presets": 857
 }
@@ -1582,7 +1582,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 564,
 "Translation": 2187,
-"_total": 13783,
+"_total": 13779,
 "ai": 448,
 "presets": 870
 }
@@ -1592,7 +1592,7 @@
 {
 "Related to Movies/TV/Books/Other Games": 572,
 "Translation": 2210,
-"_total": 14033,
+"_total": 14029,
 "ai": 508,
 "presets": 885
 }
@@ -1604,10 +1604,10 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 197,
-"Translation": 7082,
-"_total": 20366,
-"ai": 1048,
-"presets": 924
+"Translation": 7083,
+"_total": 20370,
+"ai": 1051,
+"presets": 925
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 184,
@@ -1637,8 +1637,8 @@
 "Animations": 82,
 "Armor": 712,
 "Audio": 257,
-"Character Customisation": 2442,
-"Classes": 2756,
+"Character Customisation": 2443,
+"Classes": 2757,
 "Clothing": 310,
 "Companions": 429,
 "Dice": 177,
@@ -1646,9 +1646,9 @@
 "Gameplay": 3767,
 "Maps": 104,
 "Miscellaneous": 882,
-"Photo Mode": 253,
+"Photo Mode": 254,
 "Quests": 96,
-"Races": 555,
+"Races": 556,
 "Resources": 142,
 "Spells": 1305,
 "User Interface": 938,
@@ -1736,7 +1736,7 @@
 "0": {
 "Related to Movies/TV/Books/Other Games": 149,
 "Translation": 17,
-"_total": 9043,
+"_total": 9044,
 "ai": 124,
 "presets": 156
 },
@@ -1769,7 +1769,7 @@
 "Enemies": 392,
 "Gameplay": 672,
 "Maps": 804,
-"Miscellaneous": 550,
+"Miscellaneous": 551,
 "Spells": 526,
 "Waves": 134,
 "Weapons": 4785
@@ -1813,31 +1813,31 @@
 "name": "Cyberpunk 2077",
 "tags": {
 "0": {
-"Related to Movies/TV/Books/Other Games": 252,
-"Translation": 2926,
-"_total": 26097,
-"ai": 1728,
+"Related to Movies/TV/Books/Other Games": 253,
+"Translation": 2932,
+"_total": 26114,
+"ai": 1743,
 "presets": 1561
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 244,
 "Translation": 2705,
-"_total": 24356,
-"ai": 1125,
+"_total": 24353,
+"ai": 1128,
 "presets": 1515
 },
 "365": {
 "Related to Movies/TV/Books/Other Games": 181,
 "Translation": 1748,
-"_total": 17833,
-"ai": 485,
+"_total": 17830,
+"ai": 486,
 "presets": 1236
 },
 "90": {
 "Related to Movies/TV/Books/Other Games": 232,
 "Translation": 2463,
-"_total": 22757,
-"ai": 833,
+"_total": 22754,
+"ai": 835,
 "presets": 1465
 }
 },
@@ -1848,25 +1848,25 @@
 "Adverts": 87,
 "Animations": 896,
 "Apartment": 159,
-"Appearance": 3858,
+"Appearance": 3862,
 "Appearance Change Unlocker Preset": 125,
 "Appearance Menu Mod Preset": 66,
 "Armour and Clothing": 5187,
 "Atelier Shop": 141,
-"Audio": 1394,
+"Audio": 1391,
 "Audio Replacer": 57,
-"Characters": 1373,
+"Characters": 1374,
 "Crafting": 85,
-"Gameplay": 4653,
-"Locations": 807,
-"Miscellaneous": 1212,
+"Gameplay": 4658,
+"Locations": 808,
+"Miscellaneous": 1213,
 "Modders Resources": 306,
 "Props and Decorations": 128,
-"Scripts": 137,
-"User Interface": 1309,
+"Scripts": 138,
+"User Interface": 1315,
 "Utilities": 458,
 "Vehicles": 1016,
-"Visuals and Graphics": 1560,
+"Visuals and Graphics": 1561,
 "Weapons": 1365
 },
 "30": {
@@ -1880,7 +1880,7 @@
 "Appearance Menu Mod Preset": 65,
 "Armour and Clothing": 4996,
 "Atelier Shop": 133,
-"Audio": 1318,
+"Audio": 1315,
 "Audio Replacer": 42,
 "Characters": 1338,
 "Crafting": 79,
@@ -1907,7 +1907,7 @@
 "Appearance Menu Mod Preset": 34,
 "Armour and Clothing": 3618,
 "Atelier Shop": 98,
-"Audio": 1065,
+"Audio": 1062,
 "Audio Replacer": 22,
 "Characters": 1088,
 "Crafting": 64,
@@ -1934,7 +1934,7 @@
 "Appearance Menu Mod Preset": 51,
 "Armour and Clothing": 4739,
 "Atelier Shop": 122,
-"Audio": 1261,
+"Audio": 1258,
 "Audio Replacer": 36,
 "Characters": 1286,
 "Crafting": 73,
@@ -2164,16 +2164,16 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 1689,
-"Translation": 14723,
-"_total": 77680,
-"ai": 2176,
+"Translation": 14722,
+"_total": 77685,
+"ai": 2184,
 "presets": 2714
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 1674,
-"Translation": 14480,
-"_total": 76764,
-"ai": 1905,
+"Translation": 14479,
+"_total": 76763,
+"ai": 1909,
 "presets": 2687
 },
 "365": {
@@ -2185,9 +2185,9 @@
 },
 "90": {
 "Related to Movies/TV/Books/Other Games": 1643,
-"Translation": 14063,
-"_total": 75163,
-"ai": 1523,
+"Translation": 14062,
+"_total": 75162,
+"ai": 1527,
 "presets": 2654
 }
 },
@@ -2195,7 +2195,7 @@
 "0": {
 "Ammo": 1090,
 "Animation": 788,
-"Armour": 4803,
+"Armour": 4804,
 "Audio - Misc": 248,
 "Audio - Music": 586,
 "Audio - SFX": 1501,
@@ -2216,18 +2216,18 @@
 "Environment": 499,
 "Factions": 545,
 "Fallout 4": 1,
-"Gameplay": 4216,
+"Gameplay": 4217,
 "Immersion": 1347,
 "Items (Food, Drinks, Chems, etc)": 1079,
 "Locations - New": 702,
 "Locations - Vanilla": 658,
 "Miscellaneous": 1225,
 "Modders Resources and Tutorials": 1031,
-"Models and Textures": 4649,
+"Models and Textures": 4650,
 "NPC": 1529,
 "NPC - Vendors": 154,
 "New Lands": 213,
-"Overhauls": 934,
+"Overhauls": 935,
 "Patches": 3704,
 "Performance": 213,
 "Perks": 616,
@@ -2251,7 +2251,7 @@
 "Vehicles": 180,
 "Videos and Trailers": 138,
 "Visuals and Graphics": 821,
-"Weapons": 9572,
+"Weapons": 9573,
 "Weapons and Armour": 304,
 "Weather and Lighting": 244
 },
@@ -2309,7 +2309,7 @@
 "Tattoos": 106,
 "Transfer Settlement Blueprints": 2548,
 "User Interface": 2106,
-"Utilities": 676,
+"Utilities": 675,
 "VR": 264,
 "Vehicles": 180,
 "Videos and Trailers": 136,
@@ -2435,7 +2435,7 @@
 "Tattoos": 106,
 "Transfer Settlement Blueprints": 2529,
 "User Interface": 2028,
-"Utilities": 651,
+"Utilities": 650,
 "VR": 253,
 "Vehicles": 175,
 "Videos and Trailers": 134,
@@ -2542,8 +2542,8 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 88,
-"Translation": 815,
-"_total": 16538,
+"Translation": 816,
+"_total": 16539,
 "ai": 492,
 "presets": 43
 },
@@ -2586,7 +2586,7 @@
 "ENB Preset": 24,
 "Gameplay": 2156,
 "Guilds/Factions": 210,
-"Immersion": 892,
+"Immersion": 893,
 "Items, Objects, and Clothes": 699,
 "Magic": 255,
 "Miscellaneous": 1116,
@@ -2729,9 +2729,9 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 53,
-"Translation": 2834,
-"_total": 9822,
-"ai": 725,
+"Translation": 2835,
+"_total": 9828,
+"ai": 729,
 "presets": 497
 },
 "30": {
@@ -2758,11 +2758,11 @@
 },
 "windows": {
 "0": {
-"Armour": 494,
+"Armour": 495,
 "Audio": 98,
 "Banners": 288,
 "Characters": 625,
-"Gameplay": 4184,
+"Gameplay": 4188,
 "Miscellaneous": 631,
 "Modders Resources": 95,
 "Mounts": 35,
@@ -2770,7 +2770,7 @@
 "Scenes and Maps": 85,
 "Total Conversions": 97,
 "Troops": 986,
-"User Interface": 1094,
+"User Interface": 1095,
 "Utilities": 388,
 "Visuals and Graphics": 150,
 "Weapons and Shields": 363
@@ -3323,8 +3323,8 @@
 "0": {
 "Related to Movies/TV/Books/Other Games": 1698,
 "Translation": 9322,
-"_total": 73206,
-"ai": 236,
+"_total": 73208,
+"ai": 237,
 "presets": 2692
 },
 "30": {
@@ -3363,7 +3363,7 @@
 "Buildings": 232,
 "Castles, Palaces, Mansions, and Estates": 354,
 "Character Presets": 1409,
-"Cheats and God items": 996,
+"Cheats and God items": 997,
 "Cities, Towns, Villages, and Hamlets": 944,
 "Clothing": 1772,
 "Clothing - Jewelry": 243,
@@ -3415,7 +3415,7 @@
 "Skills and Leveling": 493,
 "Stealth": 91,
 "Sure AI: Enderal": 188,
-"User Interface": 1170,
+"User Interface": 1171,
 "Utilities": 840,
 "Videos and Trailers": 117,
 "Visuals and Graphics": 1327,
@@ -3645,30 +3645,30 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 1704,
-"Translation": 40792,
-"_total": 143632,
-"ai": 5888,
+"Translation": 40800,
+"_total": 143651,
+"ai": 5896,
 "presets": 6448
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 1685,
 "Translation": 39992,
-"_total": 140760,
-"ai": 4688,
+"_total": 140756,
+"ai": 4689,
 "presets": 6361
 },
 "365": {
 "Related to Movies/TV/Books/Other Games": 1513,
 "Translation": 32107,
-"_total": 117520,
-"ai": 1742,
+"_total": 117518,
+"ai": 1741,
 "presets": 5539
 },
 "90": {
 "Related to Movies/TV/Books/Other Games": 1649,
 "Translation": 38337,
-"_total": 135766,
-"ai": 3358,
+"_total": 135764,
+"ai": 3361,
 "presets": 6159
 }
 },
@@ -3676,38 +3676,38 @@
 "0": {
 "Alchemy": 1547,
 "Animation": 2901,
-"Armour": 11514,
+"Armour": 11516,
 "Armour - Shields": 352,
 "Audio": 3008,
-"Body, Face, and Hair": 10186,
-"Bug Fixes": 2805,
+"Body, Face, and Hair": 10187,
+"Bug Fixes": 2806,
 "Buildings": 1231,
-"Cheats and God items": 857,
+"Cheats and God items": 856,
 "Cities, Towns, Villages, and Hamlets": 2219,
-"Clothing and Accessories": 4042,
+"Clothing and Accessories": 4043,
 "Collectables, Treasure Hunts, and Puzzles": 388,
 "Combat": 1223,
 "Crafting": 1024,
 "Creatures and Mounts": 3920,
 "Dungeons": 684,
 "Environmental": 1847,
-"Followers & Companions": 11406,
+"Followers & Companions": 11408,
 "Followers & Companions - Creatures": 523,
-"Gameplay": 6699,
+"Gameplay": 6700,
 "Guilds/Factions": 596,
-"Immersion": 7255,
+"Immersion": 7257,
 "Items and Objects - Player": 516,
 "Items and Objects - World": 765,
 "Locations -  New": 1174,
 "Locations - Vanilla": 1232,
-"Magic - Gameplay": 993,
+"Magic - Gameplay": 994,
 "Magic - Spells & Enchantments": 3531,
 "Miscellaneous": 3100,
 "Modders Resources": 1361,
 "Models and Textures": 8029,
-"NPC": 5431,
+"NPC": 5432,
 "Overhauls": 1933,
-"Patches": 10714,
+"Patches": 10716,
 "Player homes": 3417,
 "Presets - ENB and ReShade": 720,
 "Quests and Adventures": 3939,
@@ -3716,11 +3716,11 @@
 "Shouts": 301,
 "Skills and Leveling": 703,
 "Stealth": 130,
-"User Interface": 6315,
-"Utilities": 2029,
+"User Interface": 6321,
+"Utilities": 2028,
 "VR": 512,
 "Visuals and Graphics": 1933,
-"Weapons": 5740,
+"Weapons": 5741,
 "Weapons and Armour": 1655
 },
 "30": {
@@ -3729,10 +3729,10 @@
 "Armour": 11333,
 "Armour - Shields": 347,
 "Audio": 2911,
-"Body, Face, and Hair": 10033,
+"Body, Face, and Hair": 10032,
 "Bug Fixes": 2728,
 "Buildings": 1223,
-"Cheats and God items": 847,
+"Cheats and God items": 846,
 "Cities, Towns, Villages, and Hamlets": 2211,
 "Clothing and Accessories": 3989,
 "Collectables, Treasure Hunts, and Puzzles": 383,
@@ -3767,7 +3767,7 @@
 "Skills and Leveling": 690,
 "Stealth": 129,
 "User Interface": 6144,
-"Utilities": 1902,
+"Utilities": 1900,
 "VR": 489,
 "Visuals and Graphics": 1889,
 "Weapons": 5676,
@@ -3779,10 +3779,10 @@
 "Armour": 9309,
 "Armour - Shields": 309,
 "Audio": 2356,
-"Body, Face, and Hair": 8585,
+"Body, Face, and Hair": 8584,
 "Bug Fixes": 2219,
 "Buildings": 1132,
-"Cheats and God items": 757,
+"Cheats and God items": 756,
 "Cities, Towns, Villages, and Hamlets": 1973,
 "Clothing and Accessories": 3319,
 "Collectables, Treasure Hunts, and Puzzles": 312,
@@ -3829,10 +3829,10 @@
 "Armour": 10935,
 "Armour - Shields": 341,
 "Audio": 2742,
-"Body, Face, and Hair": 9744,
+"Body, Face, and Hair": 9743,
 "Bug Fixes": 2610,
 "Buildings": 1208,
-"Cheats and God items": 824,
+"Cheats and God items": 823,
 "Cities, Towns, Villages, and Hamlets": 2141,
 "Clothing and Accessories": 3925,
 "Collectables, Treasure Hunts, and Puzzles": 360,
@@ -3880,15 +3880,15 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 335,
-"Translation": 9464,
-"_total": 35252,
-"ai": 2085,
+"Translation": 9468,
+"_total": 35258,
+"ai": 2088,
 "presets": 672
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 330,
-"Translation": 9226,
-"_total": 34253,
+"Translation": 9227,
+"_total": 34254,
 "ai": 1655,
 "presets": 654
 },
@@ -3901,8 +3901,8 @@
 },
 "90": {
 "Related to Movies/TV/Books/Other Games": 318,
-"Translation": 8475,
-"_total": 32337,
+"Translation": 8476,
+"_total": 32338,
 "ai": 1107,
 "presets": 639
 }
@@ -3910,8 +3910,8 @@
 "windows": {
 "0": {
 "Audio": 362,
-"Buildings": 1241,
-"Characters": 4301,
+"Buildings": 1240,
+"Characters": 4302,
 "Cheats": 440,
 "Clothing": 1275,
 "Crafting": 870,
@@ -3921,12 +3921,12 @@
 "Expansions": 794,
 "Fishing": 364,
 "Furniture": 1626,
-"Gameplay Mechanics": 4400,
+"Gameplay Mechanics": 4404,
 "Interiors": 323,
 "Items": 2240,
 "Livestock and Animals": 1758,
 "Locations": 338,
-"Maps": 1361,
+"Maps": 1362,
 "Miscellaneous": 1688,
 "Modding Tools": 606,
 "New Characters": 1339,
@@ -3934,12 +3934,12 @@
 "Player": 363,
 "Portraits": 2576,
 "User Interface": 1567,
-"Visuals and Graphics": 2331
+"Visuals and Graphics": 2332
 },
 "30": {
 "Audio": 351,
 "Buildings": 1217,
-"Characters": 4207,
+"Characters": 4208,
 "Cheats": 425,
 "Clothing": 1250,
 "Crafting": 860,
@@ -3995,7 +3995,7 @@
 "90": {
 "Audio": 332,
 "Buildings": 1180,
-"Characters": 4044,
+"Characters": 4045,
 "Cheats": 401,
 "Clothing": 1195,
 "Crafting": 843,
@@ -4028,28 +4028,28 @@
 "0": {
 "Related to Movies/TV/Books/Other Games": 574,
 "Translation": 2214,
-"_total": 14086,
-"ai": 536,
+"_total": 14085,
+"ai": 537,
 "presets": 886
 },
 "30": {
 "Related to Movies/TV/Books/Other Games": 567,
 "Translation": 2190,
-"_total": 13820,
+"_total": 13816,
 "ai": 455,
 "presets": 872
 },
 "365": {
 "Related to Movies/TV/Books/Other Games": 499,
 "Translation": 1408,
-"_total": 11243,
+"_total": 11239,
 "ai": 248,
 "presets": 752
 },
 "90": {
 "Related to Movies/TV/Books/Other Games": 558,
 "Translation": 2101,
-"_total": 13409,
+"_total": 13405,
 "ai": 365,
 "presets": 848
 }
@@ -4061,28 +4061,28 @@
 "Armor": 224,
 "Audio": 347,
 "Characters": 670,
-"Clothing": 1497,
+"Clothing": 1498,
 "Companions": 305,
 "Crafting": 139,
 "Environment": 330,
 "Gameplay": 2482,
 "Items": 304,
-"Locations": 194,
+"Locations": 196,
 "Miscellaneous": 916,
 "Modders Resources": 197,
-"Outposts": 397,
-"Perks and Skills": 293,
+"Outposts": 398,
+"Perks and Skills": 292,
 "Planets": 100,
 "Player Home": 189,
 "Quests": 153,
 "Races": 10,
 "Ships": 1191,
 "Space Suits": 293,
-"User Interface": 932,
+"User Interface": 929,
 "Utilities": 222,
 "Vehicles": 86,
 "Visuals": 1197,
-"Weapons": 1038
+"Weapons": 1037
 },
 "30": {
 "Animations": 126,
@@ -4100,14 +4100,14 @@
 "Miscellaneous": 906,
 "Modders Resources": 188,
 "Outposts": 390,
-"Perks and Skills": 284,
+"Perks and Skills": 283,
 "Planets": 100,
 "Player Home": 189,
 "Quests": 150,
 "Races": 10,
 "Ships": 1176,
 "Space Suits": 291,
-"User Interface": 914,
+"User Interface": 911,
 "Utilities": 212,
 "Vehicles": 83,
 "Visuals": 1189,
@@ -4129,14 +4129,14 @@
 "Miscellaneous": 799,
 "Modders Resources": 146,
 "Outposts": 314,
-"Perks and Skills": 240,
+"Perks and Skills": 239,
 "Planets": 78,
 "Player Home": 159,
 "Quests": 100,
 "Races": 4,
 "Ships": 927,
 "Space Suits": 227,
-"User Interface": 709,
+"User Interface": 706,
 "Utilities": 162,
 "Vehicles": 64,
 "Visuals": 1080,
@@ -4158,14 +4158,14 @@
 "Miscellaneous": 891,
 "Modders Resources": 176,
 "Outposts": 379,
-"Perks and Skills": 282,
+"Perks and Skills": 281,
 "Planets": 98,
 "Player Home": 185,
 "Quests": 137,
 "Races": 10,
 "Ships": 1143,
 "Space Suits": 283,
-"User Interface": 840,
+"User Interface": 837,
 "Utilities": 203,
 "Vehicles": 82,
 "Visuals": 1180,
@@ -4178,9 +4178,9 @@
 "tags": {
 "0": {
 "Related to Movies/TV/Books/Other Games": 66,
-"Translation": 1823,
-"_total": 10740,
-"ai": 1027,
+"Translation": 1829,
+"_total": 10751,
+"ai": 1031,
 "presets": 538
 },
 "30": {
@@ -4207,23 +4207,23 @@
 },
 "windows": {
 "0": {
-"Alchemy and Crafting": 319,
+"Alchemy and Crafting": 318,
 "Armour": 632,
 "Audio": 133,
 "Balancing": 148,
-"Bug Fixes": 287,
+"Bug Fixes": 288,
 "Camera": 102,
-"Characters": 1007,
+"Characters": 1008,
 "Cheats and God items": 137,
 "Combat": 294,
 "Controller Button Layout": 98,
 "Debug Console": 34,
-"Gameplay Changes": 1151,
+"Gameplay Changes": 1156,
 "Gwent": 229,
 "Hair and Face": 213,
-"Immersion": 562,
+"Immersion": 563,
 "Inventory": 92,
-"Items": 215,
+"Items": 216,
 "Miscellaneous": 324,
 "Modders Resources and Tutorials": 101,
 "Models and Textures": 812,
@@ -4234,11 +4234,12 @@
 "Save Games": 302,
 "Signs": 94,
 "Skills and Leveling": 121,
+"The Witcher 3": 5113,
 "Tweaks": 332,
 "User Interface": 941,
-"Utilities": 166,
+"Utilities": 168,
 "Visuals and Graphics": 590,
-"Weapons": 301,
+"Weapons": 302,
 "Weapons and Armour": 177
 },
 "30": {
@@ -4269,6 +4270,7 @@
 "Save Games": 298,
 "Signs": 90,
 "Skills and Leveling": 107,
+"The Witcher 3": 3872,
 "Tweaks": 314,
 "User Interface": 705,
 "Utilities": 141,
@@ -4304,6 +4306,7 @@
 "Save Games": 285,
 "Signs": 80,
 "Skills and Leveling": 87,
+"The Witcher 3": 2606,
 "Tweaks": 290,
 "User Interface": 511,
 "Utilities": 108,
@@ -4339,6 +4342,7 @@
 "Save Games": 295,
 "Signs": 87,
 "Skills and Leveling": 96,
+"The Witcher 3": 3111,
 "Tweaks": 305,
 "User Interface": 580,
 "Utilities": 124,
@@ -4350,7 +4354,7 @@
 }
 },
 "starwars": {
-"count": 511,
+"count": 512,
 "date": "2026-11-06",
 "franchise_tagged": 328,
 "monthly_new": {
@@ -4390,12 +4394,13 @@
 "2026-07": 6,
 "2026-08": 8,
 "2026-09": 7,
-"2026-10": 12
+"2026-10": 12,
+"2026-11": 1
 },
 "per_term": {
 "boba fett": 24,
 "clone trooper": 3,
-"darth": 11,
+"darth": 12,
 "galactic empire": 5,
 "grogu": 4,
 "jedi": 16,
