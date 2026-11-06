@@ -296,6 +296,32 @@ def critics_section():
             "games": games, "quarters": quarters, "downloads": dl, "sw_terms": list((sw.get("per_term") or {}).keys())}
 
 
+HL_PATH = os.path.join(HERE, "data", "headlines.json")
+HL_KEEP = 30   # days of headline history kept
+
+
+def mark_new(today_hl, history, snapshot):
+    """Mark each headline new (its key wasn't in the previous report for that Part).
+    history = {snapshot date: {part: [{"k", "t"}]}}; the previous report is the latest date before `snapshot`,
+    so a second run on the same day still compares with the day before.
+    Returns {part: {"prev": date or None, "items": [{"k", "t", "new"}]}}."""
+    prev = max((d for d in history if d < snapshot), default=None)
+    out = {}
+    for part, items in today_hl.items():
+        before = {h["k"] for h in history[prev].get(part, [])} if prev else set()
+        out[part] = {"prev": prev, "items": [dict(h, new=bool(prev) and h["k"] not in before) for h in items]}
+    return out
+
+
+def save_headlines(today_hl, history, snapshot, path=HL_PATH):
+    history = dict(history)
+    history[snapshot] = today_hl
+    keep = sorted(history)[-HL_KEEP:]
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        json.dump({d: history[d] for d in keep}, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+
+
 def jsonable(res):
     out = {"rows": [], "passes": [], "unknown": res["unknown"]}
     for r in res["rows"]:
@@ -360,10 +386,18 @@ def main():
         cutoff = (datetime.datetime.now(datetime.timezone.utc).date() - datetime.timedelta(days=7)).isoformat()
         with open(issues_path, newline="", encoding="utf-8") as f:
             page_data["issues"] = [r for r in csv.DictReader(f) if r["date"] >= cutoff]
-    page_data["headlines"] = {"dl": headlines.downloads(data, dl, FOCUS), "mods": headlines.mods(data, mods, FOCUS),
-                              "types": headlines.types(page_data["types"]),
-                              "critics": headlines.critics(page_data["critics"]),
-                              "top": headlines.top(page_data["top"])}
+    today_hl = {"dl": headlines.downloads(data, dl, FOCUS), "mods": headlines.mods(data, mods, FOCUS),
+                "types": headlines.types(page_data["types"]),
+                "critics": headlines.critics(page_data["critics"]),
+                "top": headlines.top(page_data["top"])}
+    # compare with the previous report's headlines (data/headlines.json); only GitHub runs save today's
+    hl_history = {}
+    if os.path.exists(HL_PATH):
+        with open(HL_PATH, encoding="utf-8") as f:
+            hl_history = json.load(f)
+    page_data["headlines"] = mark_new(today_hl, hl_history, today)
+    if not args.local:
+        save_headlines(today_hl, hl_history, today)
     if page_data["critics"]:
         page_data["critics"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:

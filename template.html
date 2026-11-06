@@ -137,6 +137,8 @@ td .cnt { color: var(--muted); font-size: 11.5px; }
 .headlines li { line-height: 1.5; }
 .headlines li::marker { color: var(--p); font-weight: 700; }
 .headlines b { font-weight: 650; }
+.headlines .new { display: inline-block; margin-right: 6px; padding: 0 7px; border-radius: 999px; background: var(--p); color: var(--panel); font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; vertical-align: 1px; }
+.headlines h3 span b { color: var(--p); font-weight: 700; }
 
 main { padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); min-width: 0; }
 .col { max-width: 62rem; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
@@ -616,6 +618,7 @@ footer .thanks { margin: 8px 0 0; color: var(--text); font-size: 13px; }
         <div class="panel">
           <p><b>Speed.</b> For each game, the gain per day over the last 30, 90 and 365 days (whichever the history covers, at least 7 days). The likely forecast uses the 90-day speed (or the longest window available); the range uses the slowest and fastest of the windows. Every forecast starts from the newest real count.</p>
           <p><b>Pass dates.</b> The day the gap closes at those speeds. If the game behind isn't gaining, the table says "not on current trend". Sales, updates and DLC spikes show up as a wider range rather than being modelled.</p>
+          <p><b>Headlines.</b> Rules write each Part's headlines from the day's data. A headline marked <b>New</b> wasn't in the previous report: a new story, or the same kind of story about a different game, mod or type. A headline that only has updated numbers isn't marked new.</p>
           <p><b>Data.</b> Totals come from the Nexus Mods public GraphQL API (one request a day). Download history before daily collection began comes from hand-recorded figures for Witcher 3, Bannerlord, Starfield, Morrowind and Fallout 3. Mod-count history comes from mod creation dates.</p>
           <div class="tablewrap"><table id="srcTable"></table></div>
         </div>
@@ -1468,10 +1471,17 @@ if ((DATA.issues || []).length) {
     DATA.issues.map(i => `<li>${esc(i.date)}: ${esc(i.what)}${i.detail ? " (" + esc(i.detail) + ")" : ""}</li>`).join("") + "</ul>";
 }
 // Headlines: generated server-side (headlines.py) from today's data; names are already HTML-escaped there.
+// Each Part is {prev, items: [{k, t, new}]}: "new" = not among the previous report's headlines (older builds: plain strings).
 document.querySelectorAll(".headlines[data-part]").forEach(box => {
-  const items = (DATA.headlines || {})[box.dataset.part] || [];
+  const part = (DATA.headlines || {})[box.dataset.part] || [];
+  const items = (Array.isArray(part) ? part : part.items || []).map(h => typeof h === "string" ? {t: h} : h);
   if (!items.length) { box.style.display = "none"; return; }
-  box.innerHTML = `<h3>Headlines <span>as of ${DATA.latest_snapshot}, written automatically from the data</span></h3><ol>${items.map(s => `<li>${s}</li>`).join("")}</ol>`;
+  const prev = Array.isArray(part) ? null : part.prev;
+  const n = items.filter(h => h.new).length;
+  const note = !prev ? "new headlines will be marked from the next report"
+    : n ? `<b>${n} new</b> since ${prev}` : `no new headlines since ${prev}`;
+  box.innerHTML = `<h3>Headlines <span>as of ${DATA.latest_snapshot}, written automatically from the data · ${note}</span></h3><ol>` +
+    items.map(h => `<li>${h.new ? '<span class="new">New</span>' : ""}${h.t}</li>`).join("") + `</ol>`;
 });
 renderPickers(); drawPassTable();
 drawAll();
