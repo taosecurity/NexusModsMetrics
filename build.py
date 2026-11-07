@@ -2,7 +2,7 @@
 
 Usage:
   python build.py            build site/index.html (what GitHub Actions runs)
-  python -I build.py --local git pull first, build, then copy to D:\\Starfield Dev\\Browser\\nexus-metrics\\
+  python -I build.py --local git pull first, build, then copy to D:\\Starfield Dev\\Browser\\reference\\github\\nexus-metrics\\
   python -I build.py --local --top <folder or top_mods.json>   preview Part 4 from data collected elsewhere
 """
 import argparse
@@ -21,7 +21,7 @@ import headlines  # noqa: E402
 
 SITE = os.path.join(HERE, "site")
 FORECASTS = os.path.join(HERE, "data", "forecasts.csv")
-LOCAL_DIR = r"D:\Starfield Dev\Browser\nexus-metrics"   # local preview: index.html + preview.png
+LOCAL_DIR = r"D:\Starfield Dev\Browser\reference\github\nexus-metrics"   # local preview: index.html + preview.png
 TOP_JSON = os.path.join(HERE, "data", "top_mods.json")
 FOCUS = "starfield"
 FC_FIELDS = ["built", "metric", "domain", "name", "dir", "earliest", "likely", "latest"]
