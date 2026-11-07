@@ -143,8 +143,9 @@ td .cnt { color: var(--muted); font-size: 11.5px; }
 main { padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); min-width: 0; }
 .col { max-width: 62rem; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
 .intro { display: grid; gap: 6px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
-.intro h1 { margin: 0; font-size: clamp(26px, 4.5vw, 34px); line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
-.intro p.lede { color: var(--text); font-size: 16px; }
+.intro h1 { margin: 0; font-size: 26px; font-weight: 650; line-height: 1.2; text-wrap: balance; }
+.intro p.eyebrow { font: 12.5px/1.3 var(--mono); color: var(--muted); letter-spacing: .02em; }
+.intro p.lede { color: var(--muted); font-size: 16px; }
 .intro p.byline, .intro p.also { font-size: 14px; }
 .intro p { margin: 0; color: var(--muted); }
 section { scroll-margin-top: 16px; display: grid; gap: 12px; min-width: 0; }
@@ -280,6 +281,7 @@ footer .thanks { margin: 8px 0 0; color: var(--text); font-size: 13px; }
   <main>
     <div class="col">
       <header class="intro" id="top">
+        <p class="eyebrow" id="stamp">Nexus Mods &middot; top 15 games &middot; updated daily</p>
         <h1>Tracking Starfield on Nexus Mods</h1>
         <p class="lede">Parts 1 and 2 track and forecast mod downloads and mod counts for the top 15 games on Nexus Mods, with a focus on Starfield. Part 3 dives into the types of mods published for Starfield on Nexus Mods. Part 4 lists Starfield's most downloaded, most endorsed and trending mods. Part 5 tests critics' claims about translations, Star Wars, character presets and AI content. Updated daily.</p>
         <p class="byline">By <a href="https://github.com/taosecurity">Richard Bejtlich</a>, <a href="https://www.youtube.com/@RichardBejtlich">Richard Presents Starfield Essentials</a> on YouTube</p>
@@ -291,7 +293,6 @@ footer .thanks { margin: 8px 0 0; color: var(--text); font-size: 13px; }
           <a class="pk top" href="#part-top"><span class="n">Part 4</span><b>Top mods</b><span>Most downloaded, most endorsed, trending and rising</span></a>
           <a class="pk crit" href="#part-crit"><span class="n">Part 5</span><b>Hot topics</b><span>Translations, Star Wars, presets and AI: testing the critics</span></a>
         </div>
-        <p id="stamp"></p>
         <div class="issues" id="issues" hidden></div>
       </header>
 
@@ -873,7 +874,7 @@ const A = DATA.dl, MA = DATA.mods;
 const dlRow = Object.fromEntries(A.rows.map(r => [r.domain, r]));
 const modRow = Object.fromEntries(MA.rows.map(r => [r.domain, r]));
 const f = dlRow[FOCUS], fm = modRow[FOCUS];
-document.getElementById("stamp").innerHTML = `Last snapshot <b>${DATA.latest_snapshot}</b> · built ${DATA.built}`;
+document.getElementById("stamp").innerHTML = `Nexus Mods · top 15 games · last snapshot ${DATA.latest_snapshot} · built ${DATA.built}`;
 document.getElementById("built").textContent = ` Page built ${DATA.built}.`;
 
 // tiles: Parts 1 and 2 use the same five tiles in the same order
