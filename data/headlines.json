@@ -201,7 +201,7 @@
   "critics": [
    {
     "k": "crit:neither",
-    "t": "<b>81% of Starfield mods</b> (11,405 of 14,095) are neither translations nor Star Wars mods: roughly 4 in 5."
+    "t": "<b>81% of Starfield mods</b> (11,404 of 14,094) are neither translations nor Star Wars mods: roughly 4 in 5."
    },
    {
     "k": "crit:none",
@@ -235,7 +235,7 @@
   "top": [
    {
     "k": "top:leaders:106:773",
-    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,205,311 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,057 endorsements)."
+    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,205,481 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,059 endorsements)."
    },
    {
     "k": "top:modlist:11114",
@@ -259,7 +259,7 @@
    },
    {
     "k": "top:rising:18047",
-    "t": "The biggest new mod of the last 90 days is <b>Collection - Revisited patches</b> (Miscellaneous, released 23 August 2026): 19,956 downloads so far."
+    "t": "The biggest new mod of the last 90 days is <b>Collection - Revisited patches</b> (Miscellaneous, released 23 August 2026): 20,000 downloads so far."
    }
   ]
  }
