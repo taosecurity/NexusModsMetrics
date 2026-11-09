@@ -62,6 +62,7 @@ nav.rail { background: var(--side); color: var(--side-text); padding-block: 20px
 .rail li.grp { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--side-muted); padding: 12px 8px 4px; }
 .rail a { display: block; padding: 5px 8px; border-radius: 4px; color: var(--side-text); text-decoration: none; font-size: 14px; }
 .rail a:hover, .rail a:focus-visible { background: var(--side-hover); color: #fff; outline: none; }
+.rail a.has-new { font-weight: 700; color: #fff; }
 .rail .key { font-size: 11px; color: var(--side-muted); margin: 14px 8px 0; }
 .rail li.grp:has(a) { padding: 14px 0 2px; }
 .rail li.grp a { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
@@ -624,7 +625,7 @@ footer .thanks { margin: 8px 0 0; color: var(--text); font-size: 13px; }
         <div class="panel">
           <p><b>Speed.</b> For each game, the gain per day over the last 30, 90 and 365 days (whichever the history covers, at least 7 days). The likely forecast uses the 90-day speed (or the longest window available); the range uses the slowest and fastest of the windows. Every forecast starts from the newest real count.</p>
           <p><b>Pass dates.</b> The day the gap closes at those speeds. If the game behind isn't gaining, the table says "not on current trend". Sales, updates and DLC spikes show up as a wider range rather than being modelled.</p>
-          <p><b>Headlines.</b> Rules write each Part's headlines from the day's data. A headline marked <b>New</b> wasn't in the previous report: a new story, or the same kind of story about a different game, mod or type. A headline that only has updated numbers isn't marked new.</p>
+          <p><b>Headlines.</b> Rules write each Part's headlines from the day's data. A headline marked <b>New</b> wasn't in the previous report: a new story, or the same kind of story about a different game, mod or type. A headline that only has updated numbers isn't marked new. A Part's <b>Headlines</b> link in the left menu is bold when that Part has new headlines.</p>
           <p><b>Data.</b> Totals come from the Nexus Mods public GraphQL API (one request a day). Download history before daily collection began comes from hand-recorded figures for Witcher 3, Bannerlord, Starfield, Morrowind and Fallout 3. Mod-count history comes from mod creation dates.</p>
           <div class="tablewrap"><table id="srcTable"></table></div>
         </div>
@@ -1486,6 +1487,8 @@ document.querySelectorAll(".headlines[data-part]").forEach(box => {
   const n = items.filter(h => h.new).length;
   const note = !prev ? "new headlines will be marked from the next report"
     : n ? `<b>${n} new</b> since ${prev}` : `no new headlines since ${prev}`;
+  const link = document.querySelector(`.rail a[href="#${box.id}"]`);  // bold rail link when this Part has new headlines
+  if (link && n) { link.classList.add("has-new"); link.title = `${n} new since ${prev}`; }
   box.innerHTML = `<h3>Headlines <span>as of ${DATA.latest_snapshot}, written automatically from the data · ${note}</span></h3><ol>` +
     items.map(h => `<li>${h.new ? '<span class="new">New</span>' : ""}${h.t}</li>`).join("") + `</ol>`;
 });
