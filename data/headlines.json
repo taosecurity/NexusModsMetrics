@@ -658,5 +658,137 @@
     "t": "The biggest new mod of the last 90 days is <b>Collection - Revisited patches</b> (Miscellaneous, released 23 August 2026): 20,664 downloads so far."
    }
   ]
+ },
+ "2026-11-11": {
+  "dl": [
+   {
+    "k": "dl:next-pass:witcher3",
+    "t": "Starfield is on course to pass <b>Witcher 3</b> in downloads around <b>March 2027</b> (between January and March 2027), closing a 11.9M gap at about 0.09M a day."
+   },
+   {
+    "k": "dl:recent-pass:fallout3",
+    "t": "Starfield recently moved past <b>Fallout 3</b>: it was behind on 26 September and ahead by 5 November 2026, and is now 7.8M clear."
+   },
+   {
+    "k": "dl:fastest:starfield",
+    "t": "<b>Starfield</b> is growing fastest of the games with enough history, adding 3.72% a month (0.26M downloads a day); next is Morrowind at 3.69%."
+   },
+   {
+    "k": "dl:surge:witcher3",
+    "t": "<b>Witcher 3</b> is in a growth spurt: its last 90 days ran 45% above its 1-year pace. If that cools off, Starfield's pass dates come sooner."
+   },
+   {
+    "k": "dl:rank-outlook:8",
+    "t": "On current trends Starfield climbs from <b>#10 to #8</b> within two years (about 400.5M downloads), with #9 likely within 12 months."
+   }
+  ],
+  "mods": [
+   {
+    "k": "mods:threat:witcher3",
+    "t": "<b>Witcher 3</b> is out-publishing Starfield about 4.0 to 1 and could pass it in mod count around <b>April 2027</b> (later, or not at all, if the faster pace cools)."
+   },
+   {
+    "k": "mods:next-pass:fallout3",
+    "t": "With 3,177 mods to go, Starfield should pass <b>Fallout 3</b> in mod count around <b>May 2028</b> (between March and May 2028)."
+   },
+   {
+    "k": "mods:pace:up",
+    "t": "Starfield modders published <b>657</b> mods in August–October 2026, up 3% on the same three months a year earlier."
+   },
+   {
+    "k": "mods:burst:witcher3:2026-10",
+    "t": "<b>Witcher 3</b> had a modding burst in October 2026: 1,587 new mods, 15.1× its usual month (105)."
+   },
+   {
+    "k": "mods:fastest:witcher3",
+    "t": "<b>Witcher 3</b> has the fastest-growing mod library, up 8.2% a month (about 885 new mods a month)."
+   }
+  ],
+  "types": [
+   {
+    "k": "types:gaining:User Interface",
+    "t": "<b>User Interface</b> is the type gaining the most ground: 13.2% of the last 90 days' new mods, against 6.6% of all Starfield mods."
+   },
+   {
+    "k": "types:fading:Visuals",
+    "t": "<b>Visuals</b> is fading: only 2.7% of new mods, against 8.5% of all mods. Its share of all mods has fallen from 15% in January 2024 to 8.5%."
+   },
+   {
+    "k": "types:biggest:Gameplay",
+    "t": "<b>Gameplay</b> is the biggest type (17.6% of mods) and also takes 20.5% of all downloads."
+   },
+   {
+    "k": "types:over:Utilities",
+    "t": "<b>Utilities</b> mods punch above their weight: 1.6% of mods but 3.8% of downloads (34,370 per mod)."
+   },
+   {
+    "k": "types:under:Clothing",
+    "t": "<b>Clothing</b> is crowded but less downloaded: 10.6% of mods, only 5.6% of downloads."
+   }
+  ],
+  "critics": [
+   {
+    "k": "crit:neither",
+    "t": "<b>81% of Starfield mods</b> (11,421 of 14,111) are neither translations nor Star Wars mods: roughly 4 in 5."
+   },
+   {
+    "k": "crit:none",
+    "t": "Counting all four hot topics together (translations, Star Wars, character presets and saves, AI), <b>72% of Starfield mods are none of them</b>, and those mods get 81% of downloads."
+   },
+   {
+    "k": "crit:translation-rank",
+    "t": "Translations are <b>15.7%</b> of Starfield mods, which ranks #7 of 15 games. Translation shares are higher for Baldur&#x27;s Gate 3 (35%), Bannerlord (29%), Skyrim SE (28%), Stardew Valley (27%) and 2 more."
+   },
+   {
+    "k": "crit:starwars-popular",
+    "t": "Star Wars mods are few but popular: about <b>3.6% of Starfield mods</b> (512) but <b>15.2% of downloads</b>, 4× their share. That's where critics' impression comes from: not volume, but visibility."
+   },
+   {
+    "k": "crit:ai",
+    "t": "AI-generated or AI-assisted mods are <b>4.3%</b> of Starfield mods (607), #7 of 15 games, and rising fast: <b>29% of the last 90 days' new mods</b>. They get 5.3% of downloads."
+   },
+   {
+    "k": "crit:translation-downloads",
+    "t": "Players rarely download translations: they get only <b>0.5% of Starfield mod downloads</b>, against 15.7% of mods."
+   },
+   {
+    "k": "crit:franchise",
+    "t": "Where critics have a point: mods tagged as related to other films, shows, books or games are 4.1% of Starfield mods, the highest share among the 15 games. That's still about 1 mod in 25."
+   },
+   {
+    "k": "crit:presets",
+    "t": "Another point for critics: character presets and save games are <b>6.3%</b> of Starfield mods (891), the highest share of the 15 games. But they get only 0.9% of downloads."
+   }
+  ],
+  "top": [
+   {
+    "k": "top:leaders:106:773",
+    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,209,134 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,070 endorsements)."
+   },
+   {
+    "k": "top:modlist:11114",
+    "t": "The most downloaded upload of all isn't a single mod: it's the modlist <b>Star Wars Genesis - Total Conversion Modlist</b>, with 6.1M downloads against 3.2M for the top mod, but only 810 endorsements. Part 4 lists modlists with the collections."
+   },
+   {
+    "k": "top:starwars-gap",
+    "t": "Star Wars mods are the most downloaded mod in <b>10 of 27 categories</b>, but the most endorsed in none. They fill 38 of the 135 top-5 places by downloads, but just 4 by endorsements: widely installed, much less often endorsed."
+   },
+   {
+    "k": "top:early",
+    "t": "<b>All 10 most endorsed mods</b> came out in Starfield's first two months (by the end of October 2023). Early mods have had the longest to collect endorsements."
+   },
+   {
+    "k": "top:sfse",
+    "t": "3 of the 10 most endorsed mods are script-extender tools or need it (Starfield Script Extender (SFSE), Baka Achievement Enabler (SFSE), Address Library for SFSE Plugins): Starfield's most valued mods are often the plumbing other mods build on."
+   },
+   {
+    "k": "top:concentration",
+    "t": "Starfield's top 10 mods take <b>9.3% of its downloads</b>, #7 of 15 games (middle of the pack). The range runs from Bannerlord (23%) to Skyrim SE (2%). Counting only ordinary mods (no modlists), Starfield's figure is 6.7%."
+   },
+   {
+    "k": "top:rising:18047",
+    "t": "The biggest new mod of the last 90 days is <b>Collection - Revisited patches</b> (Miscellaneous, released 23 August 2026): 20,894 downloads so far."
+   }
+  ]
  }
 }
