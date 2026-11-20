@@ -337,6 +337,15 @@ def jsonable(res):
     return out
 
 
+def inside(path, root):
+    """True when path is root or a folder inside it, after links and short names are resolved."""
+    p, r = (os.path.normcase(os.path.realpath(x)) for x in (path, root))
+    try:
+        return os.path.commonpath([p, r]) == r
+    except ValueError:   # different drives
+        return False
+
+
 def local_dir(arg, environ=None):
     """The --local preview folder: the option's value, else $NEXUS_METRICS_LOCAL_DIR, else None.
     arg is None when --local wasn't given at all, and "" when it was given without a folder.
@@ -345,7 +354,7 @@ def local_dir(arg, environ=None):
     if arg is None:
         return None
     environ = os.environ if environ is None else environ
-    value = arg.strip() or environ.get(LOCAL_ENV, "").strip()
+    value = arg if arg.strip() else environ.get(LOCAL_ENV, "").strip()   # a typed folder is kept as typed
     return os.path.abspath(os.path.expanduser(value)) if value else None
 
 
@@ -359,8 +368,8 @@ def main(argv=None):
     out_dir = local_dir(args.local)
     if args.local is not None and not out_dir:
         ap.error(f"--local needs a folder: give --local <folder> or set the {LOCAL_ENV} environment variable")
-    if out_dir and os.path.normcase(out_dir) == os.path.normcase(os.path.abspath(SITE)):
-        ap.error(f"--local {out_dir} is the site folder the page is built in: give another folder")
+    if out_dir and inside(out_dir, HERE):
+        ap.error(f"--local {out_dir} is inside this repo (the page is built in site\\): give a folder outside it")
     args.local = out_dir
     if args.local:
         r = subprocess.run(["git", "-C", HERE, "pull", "--ff-only", "--quiet"], capture_output=True, text=True)

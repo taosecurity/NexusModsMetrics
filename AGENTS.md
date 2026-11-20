@@ -25,7 +25,7 @@ Instructions for AI assistants working with this repository.
      Then open `site/index.html`.
    - Preview Part 4 without touching `data/`: `python topmods.py --out <folder>` (needs the network), then `python build.py --top <folder>`. Note that `build.py` still rewrites `data/forecasts.csv` and `data/headlines.json`.
    - Force the weekly passes: `python modtypes.py --force-downloads` and `python topmods.py --force-weekly` (each about 180 requests).
-   - Preview the page without logging forecasts or headlines: `python build.py --local <folder>` (or set `NEXUS_METRICS_LOCAL_DIR` and run `python build.py --local`). It runs `git pull --ff-only` first (which can bring new `data/` files), rebuilds `site/`, and copies `index.html` and `preview.png` to the folder (exit 1 if the copy fails). Without a folder or the variable, or with the `site` folder itself, it exits 2 with an error.
+   - Preview the page without logging forecasts or headlines: `python build.py --local <folder>` (or set `NEXUS_METRICS_LOCAL_DIR` and run `python build.py --local`). It runs `git pull --ff-only` first (which can bring new `data/` files), rebuilds `site/`, and copies `index.html` and `preview.png` to the folder (exit 1 if the copy fails). Without a folder or the variable, or with a folder inside the repo, it exits 2 with an error.
    - Run the tests (no network, `data/` untouched): `python -m unittest discover -s tests`.
    - Change the page layout or text: edit `template.html`, then run `python build.py`. The build puts the data into the `{{DATA}}` placeholder.
 6. **Inputs:** the Nexus Mods API, and the files in `data/` (see the README's "Data files" section). `collect.py --count N` sets how many games to record (default 40).

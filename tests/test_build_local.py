@@ -24,7 +24,7 @@ class LocalDirTest(unittest.TestCase):
         self.assertEqual(build.local_dir("", {build.LOCAL_ENV: "env"}), os.path.abspath("env"))
 
     def test_spaces_and_home_folder(self):
-        self.assertEqual(build.local_dir("  out  ", {}), os.path.abspath("out"))
+        self.assertEqual(build.local_dir("out", {}), os.path.abspath("out"))
         self.assertEqual(build.local_dir(" ", {build.LOCAL_ENV: "env"}), os.path.abspath("env"))
         self.assertEqual(build.local_dir(os.path.join("~", "x"), {}), os.path.abspath(os.path.expanduser(os.path.join("~", "x"))))
 
@@ -43,12 +43,24 @@ class LocalErrorTest(unittest.TestCase):
         self.assertIn(build.LOCAL_ENV, r.stderr)
         self.assertNotIn("build:", r.stdout)  # stopped before git pull and the build
 
-    def test_site_folder_is_refused(self):
-        r = subprocess.run([sys.executable, "-I", os.path.join(REPO, "build.py"), "--local", build.SITE],
-                           capture_output=True, text=True, cwd=REPO)
-        self.assertEqual(r.returncode, 2)
-        self.assertIn("is the site folder", r.stderr)
-        self.assertNotIn("build:", r.stdout)
+    def test_folders_inside_the_repo_are_refused(self):
+        # In-process: the refusal comes from argparse before git pull or the build, and nothing else is called.
+        import contextlib
+        import io
+        from unittest import mock
+        for folder in (build.SITE, REPO, os.path.join(REPO, "data")):
+            err = io.StringIO()
+            with mock.patch.object(build.subprocess, "run", side_effect=AssertionError("git pull ran")), \
+                    contextlib.redirect_stderr(err), self.assertRaises(SystemExit) as cm:
+                build.main(["--local", folder])
+            self.assertEqual(cm.exception.code, 2)
+            self.assertIn("is inside this repo", err.getvalue())
+
+    def test_inside(self):
+        self.assertTrue(build.inside(REPO, REPO))
+        self.assertTrue(build.inside(build.SITE, REPO))
+        self.assertFalse(build.inside(os.path.dirname(REPO), REPO))
+        self.assertFalse(build.inside(REPO + "-other", REPO))
 
 
 if __name__ == "__main__":
