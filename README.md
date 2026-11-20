@@ -108,7 +108,7 @@ python build.py
 
 Then open `site/index.html`. `collect.py` needs the internet and appends to `data/`, and `build.py` rewrites `data/forecasts.csv`, `data/headlines.json` and `site/index.html`.
 
-For a local preview that logs nothing to `data/`, run `python build.py --local <folder>`. It runs `git pull --ff-only` first, builds the page without logging forecasts or headlines, and copies `index.html` and `preview.png` to the folder. If you leave out the folder, it uses the `NEXUS_METRICS_LOCAL_DIR` environment variable, and if neither is set it stops with an error that names both. The GitHub workflow runs plain `python build.py`, which never copies anything.
+For a local preview, run `python build.py --local <folder>`. It runs `git pull --ff-only` first (which can bring new `data/` files from GitHub), rebuilds `site/` without logging forecasts or headlines, and copies `index.html` and `preview.png` to the folder. A relative folder is taken from the current folder. If the copy fails, it exits 1. If you leave out the folder, it uses the `NEXUS_METRICS_LOCAL_DIR` environment variable, and if neither is set it stops with an error that names both. The GitHub workflow runs plain `python build.py`, which never copies anything.
 
 The tests need no network and never touch `data/`. Run them from the repo folder with `python -m unittest discover -s tests`.
 

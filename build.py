@@ -339,13 +339,14 @@ def jsonable(res):
 
 def local_dir(arg, environ=None):
     """The --local preview folder: the option's value, else $NEXUS_METRICS_LOCAL_DIR, else None.
-    arg is None when --local wasn't given at all, and "" when it was given without a folder."""
+    arg is None when --local wasn't given at all, and "" when it was given without a folder.
+    The folder comes back as an absolute path (spaces around it removed, ~ expanded); a relative one is taken from
+    the current folder."""
     if arg is None:
         return None
-    if arg:
-        return arg
     environ = os.environ if environ is None else environ
-    return environ.get(LOCAL_ENV, "").strip() or None
+    value = arg.strip() or environ.get(LOCAL_ENV, "").strip()
+    return os.path.abspath(os.path.expanduser(value)) if value else None
 
 
 def main(argv=None):
@@ -358,6 +359,8 @@ def main(argv=None):
     out_dir = local_dir(args.local)
     if args.local is not None and not out_dir:
         ap.error(f"--local needs a folder: give --local <folder> or set the {LOCAL_ENV} environment variable")
+    if out_dir and os.path.normcase(out_dir) == os.path.normcase(os.path.abspath(SITE)):
+        ap.error(f"--local {out_dir} is the site folder the page is built in: give another folder")
     args.local = out_dir
     if args.local:
         r = subprocess.run(["git", "-C", HERE, "pull", "--ff-only", "--quiet"], capture_output=True, text=True)
@@ -443,7 +446,8 @@ def main(argv=None):
                     shutil.copyfile(os.path.join(SITE, name), os.path.join(args.local, name))
             print(f"build: copied to {os.path.join(args.local, 'index.html')}")
         except OSError as e:
-            print(f"build: local copy failed: {e}")
+            print(f"build: local copy to {args.local} failed: {e}. Check that the folder can be made and written to.")
+            return 1
     return 0
 
 
