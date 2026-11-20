@@ -4,7 +4,7 @@ Only typed numbers come in: every cell holding a formula (the FORECAST.LINEAR ro
 columns) is skipped. Values in the sheet are millions of downloads, stored here as whole numbers
 (rounded to the sheet's 0.1M precision). Rows are tagged source=sheet.
 
-Usage: python -I import_sheet.py "C:\\temp\\FromRB\\Mod growth estimates.xlsx"
+Usage: python -I import_sheet.py "<path to Mod growth estimates.xlsx>"
 """
 import csv
 import datetime
