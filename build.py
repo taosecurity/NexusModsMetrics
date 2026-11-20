@@ -354,7 +354,7 @@ def local_dir(arg, environ=None):
     if arg is None:
         return None
     environ = os.environ if environ is None else environ
-    value = arg if arg.strip() else environ.get(LOCAL_ENV, "").strip()   # a typed folder is kept as typed
+    value = arg.strip() or environ.get(LOCAL_ENV, "").strip()
     return os.path.abspath(os.path.expanduser(value)) if value else None
 
 
@@ -369,7 +369,7 @@ def main(argv=None):
     if args.local is not None and not out_dir:
         ap.error(f"--local needs a folder: give --local <folder> or set the {LOCAL_ENV} environment variable")
     if out_dir and inside(out_dir, HERE):
-        ap.error(f"--local {out_dir} is inside this repo (the page is built in site\\): give a folder outside it")
+        ap.error(f"--local {out_dir} is inside this repo (the page is built in its site folder): give a folder outside it")
     args.local = out_dir
     if args.local:
         r = subprocess.run(["git", "-C", HERE, "pull", "--ff-only", "--quiet"], capture_output=True, text=True)

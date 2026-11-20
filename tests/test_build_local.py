@@ -24,7 +24,7 @@ class LocalDirTest(unittest.TestCase):
         self.assertEqual(build.local_dir("", {build.LOCAL_ENV: "env"}), os.path.abspath("env"))
 
     def test_spaces_and_home_folder(self):
-        self.assertEqual(build.local_dir("out", {}), os.path.abspath("out"))
+        self.assertEqual(build.local_dir("  out  ", {}), os.path.abspath("out"))   # a pasted folder with spaces around it
         self.assertEqual(build.local_dir(" ", {build.LOCAL_ENV: "env"}), os.path.abspath("env"))
         self.assertEqual(build.local_dir(os.path.join("~", "x"), {}), os.path.abspath(os.path.expanduser(os.path.join("~", "x"))))
 
