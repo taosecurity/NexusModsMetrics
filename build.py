@@ -2,8 +2,9 @@
 
 Usage:
   python build.py            build site/index.html (what GitHub Actions runs)
-  python -I build.py --local git pull first, build, then copy to D:\\Starfield Dev\\Browser\\reference\\github\\nexus-metrics\\
-  python -I build.py --local --top <folder or top_mods.json>   preview Part 4 from data collected elsewhere
+  python -I build.py --local <folder>   git pull first, build without logging, then copy index.html and preview.png to <folder>
+  python -I build.py --local            the same, with the folder taken from the NEXUS_METRICS_LOCAL_DIR environment variable
+  python -I build.py --local <folder> --top <folder or top_mods.json>   preview Part 4 from data collected elsewhere
 """
 import argparse
 import csv
@@ -21,7 +22,7 @@ import headlines  # noqa: E402
 
 SITE = os.path.join(HERE, "site")
 FORECASTS = os.path.join(HERE, "data", "forecasts.csv")
-LOCAL_DIR = r"D:\Starfield Dev\Browser\reference\github\nexus-metrics"   # local preview: index.html + preview.png
+LOCAL_ENV = "NEXUS_METRICS_LOCAL_DIR"   # local preview folder when --local is given without one
 TOP_JSON = os.path.join(HERE, "data", "top_mods.json")
 FOCUS = "starfield"
 FC_FIELDS = ["built", "metric", "domain", "name", "dir", "earliest", "likely", "latest"]
@@ -336,11 +337,28 @@ def jsonable(res):
     return out
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--local", action="store_true", help="git pull first and copy the page to the local DD folder")
+def local_dir(arg, environ=None):
+    """The --local preview folder: the option's value, else $NEXUS_METRICS_LOCAL_DIR, else None.
+    arg is None when --local wasn't given at all, and "" when it was given without a folder."""
+    if arg is None:
+        return None
+    if arg:
+        return arg
+    environ = os.environ if environ is None else environ
+    return environ.get(LOCAL_ENV, "").strip() or None
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description="Build site/index.html from data/ (no network).")
+    ap.add_argument("--local", nargs="?", const="", metavar="FOLDER",
+                    help="local preview: git pull first, don't log forecasts or headlines, and copy the page to "
+                         f"FOLDER (or to ${LOCAL_ENV} when FOLDER is left out)")
     ap.add_argument("--top", help="top_mods.json (or its folder) to use instead of data/top_mods.json (previews)")
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
+    out_dir = local_dir(args.local)
+    if args.local is not None and not out_dir:
+        ap.error(f"--local needs a folder: give --local <folder> or set the {LOCAL_ENV} environment variable")
+    args.local = out_dir
     if args.local:
         r = subprocess.run(["git", "-C", HERE, "pull", "--ff-only", "--quiet"], capture_output=True, text=True)
         if r.returncode != 0:
@@ -419,11 +437,11 @@ def main():
         print(f"   {p['dir']:4} {p['name']:32} gap {p['gap'] / 1e6:6.1f}M  dates {d}")
     if args.local:
         try:
-            os.makedirs(LOCAL_DIR, exist_ok=True)
+            os.makedirs(args.local, exist_ok=True)
             for name in ("index.html", "preview.png"):
                 if os.path.exists(os.path.join(SITE, name)):
-                    shutil.copyfile(os.path.join(SITE, name), os.path.join(LOCAL_DIR, name))
-            print(f"build: copied to {LOCAL_DIR}\\index.html")
+                    shutil.copyfile(os.path.join(SITE, name), os.path.join(args.local, name))
+            print(f"build: copied to {os.path.join(args.local, 'index.html')}")
         except OSError as e:
             print(f"build: local copy failed: {e}")
     return 0

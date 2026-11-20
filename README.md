@@ -56,7 +56,7 @@ To run it now, open the repo's Actions tab, click **daily**, then click **Run wo
 | `topmods.py` | Gathers Part 4's top mods, daily and weekly (see below). |
 | `model.py` | Works out growth speeds, pass dates and rank projections. |
 | `headlines.py` | Writes each Part's Headlines (3 to 5 plain-English sentences) from the day's data, by rules: passes, surges, and types gaining or losing ground. |
-| `build.py` | Builds the page. `--top DIR` uses Part 4 data from another folder. |
+| `build.py` | Builds the page. `--top DIR` uses Part 4 data from another folder, and `--local FOLDER` makes a local preview (see below). |
 | `template.html` | Holds the page layout and chart code. |
 | `import_sheet.py` | Did the one-time import of the hand-recorded history (2025-04 to 2026-11) from a spreadsheet. Formula (forecast) cells are skipped. |
 | `backfill_mods.py` | Did the one-time rebuild of monthly mod counts back to each game's first mod. |
@@ -107,6 +107,10 @@ python build.py
 ```
 
 Then open `site/index.html`. `collect.py` needs the internet and appends to `data/`, and `build.py` rewrites `data/forecasts.csv`, `data/headlines.json` and `site/index.html`.
+
+For a local preview that logs nothing to `data/`, run `python build.py --local <folder>`. It runs `git pull --ff-only` first, builds the page without logging forecasts or headlines, and copies `index.html` and `preview.png` to the folder. If you leave out the folder, it uses the `NEXUS_METRICS_LOCAL_DIR` environment variable, and if neither is set it stops with an error that names both. The GitHub workflow runs plain `python build.py`, which never copies anything.
+
+The tests need no network and never touch `data/`. Run them from the repo folder with `python -m unittest discover -s tests`.
 
 ## Troubleshooting
 

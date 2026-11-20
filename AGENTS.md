@@ -25,6 +25,8 @@ Instructions for AI assistants working with this repository.
      Then open `site/index.html`.
    - Preview Part 4 without touching `data/`: `python topmods.py --out <folder>` (needs the network), then `python build.py --top <folder>`. Note that `build.py` still rewrites `data/forecasts.csv` and `data/headlines.json`.
    - Force the weekly passes: `python modtypes.py --force-downloads` and `python topmods.py --force-weekly` (each about 180 requests).
+   - Preview the page without logging to `data/`: `python build.py --local <folder>` (or set `NEXUS_METRICS_LOCAL_DIR` and run `python build.py --local`). It runs `git pull --ff-only` first, doesn't log forecasts or headlines, and copies `index.html` and `preview.png` to the folder. Without a folder or the variable it exits 2 with an error that names both.
+   - Run the tests (no network, `data/` untouched): `python -m unittest discover -s tests`.
    - Change the page layout or text: edit `template.html`, then run `python build.py`. The build puts the data into the `{{DATA}}` placeholder.
 6. **Inputs:** the Nexus Mods API, and the files in `data/` (see the README's "Data files" section). `collect.py --count N` sets how many games to record (default 40).
 7. **Outputs:**
@@ -38,7 +40,7 @@ Instructions for AI assistants working with this repository.
 10. **Limits:**
     - It only reads public totals from Nexus Mods, about 20 requests a day plus about 180 a week for each weekly pass, with a 1-second gap between requests. Respect the [API acceptable use policy](https://help.nexusmods.com/article/114-api-acceptable-use-policy) and don't add bulk crawls.
     - It never stores adult-flagged mods, and only Part 4 (`data/top_mods.json`) names mods.
-    - Don't run `build.py --local`: it is the maintainer's preview option and copies the page to a folder on the maintainer's PC.
+    - `build.py --local` runs `git pull`, so don't use it on a copy with work you haven't committed or that you don't want updated.
     - `import_sheet.py` and `backfill_mods.py` were one-time imports. Don't run them again.
     - It is not affiliated with or endorsed by Nexus Mods.
 11. **Corrections:** open an issue at https://github.com/taosecurity/NexusModsMetrics/issues.
