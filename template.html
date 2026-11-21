@@ -901,7 +901,7 @@ function partTiles(boxId, an, row, o) {
   const est = m => row.speed ? row.value + row.speed[1] * m * 30.44 : null;
   const tiles = [
     [`Starfield rank (${o.measure})`, "#" + row.rank, `of ${an.rows.length} tracked games`],
-    [`Starfield ${o.noun}`, o.fmt(row.value), row.speed ? `${o.rate(row.speed[1])} · ${row.pct_month.toFixed(2)}% a month` : "collecting"],
+    [`Starfield ${o.noun}`, o.fmt(row.value), row.speed ? `${o.rate(row.speed[1])}` + (row.pct_month != null ? ` · ${row.pct_month.toFixed(2)}% a month` : "") : "collecting"],
     ["Next to pass", up ? esc(up.name) : "–", up ? `${o.fmt(up.gap)} ahead · ` + (!up.known ? "collecting data" : up.dates && up.dates[1] ? `likely ${up.dates[1]}` : "not catching up on current trends") : "Starfield leads this list"],
     ["Closest behind", down ? esc(down.name) : "–", down ? `${o.fmt(down.gap)} behind · ${down.dates && down.dates[1] ? "could pass " + down.dates[1] : "not catching up"}` : "nothing behind"],
     ["Starfield in 12 months", "#" + row.proj_rank[12], row.speed ? `about ${o.fmt(est(12))} ${o.noun} · #${row.proj_rank[24]} in 24 months` : `projected rank · #${row.proj_rank[24]} in 24 months`],
@@ -941,7 +941,7 @@ function renderPickers() {
     dp.querySelector("summary").textContent = `Games (${sel.length} of ${allDoms.length})`;
     const menu = dp.querySelector(".menu");
     menu.innerHTML = `<div class="quick"><button type="button" data-q="near">Neighbours</button><button type="button" data-q="all">All</button><button type="button" data-q="none">None</button></div>` +
-      A.rows.map(r => { const c = colorOf(r.domain); return `<label><input type="checkbox" value="${r.domain}" ${sel.includes(r.domain) ? "checked" : ""}><i style="background:${c || "transparent"}"></i>${esc(r.name)}<span class="rk">#${r.rank}</span></label>`; }).join("");
+      A.rows.map(r => { const c = colorOf(r.domain); return `<label><input type="checkbox" value="${esc(r.domain)}" ${sel.includes(r.domain) ? "checked" : ""}><i style="background:${c || "transparent"}"></i>${esc(r.name)}<span class="rk">#${r.rank}</span></label>`; }).join("");
     menu.querySelectorAll("input").forEach(cb => cb.addEventListener("change", () => setSel(cb.checked ? sel.concat(cb.value) : sel.filter(d => d !== cb.value))));
     menu.querySelectorAll(".quick button").forEach(b => b.addEventListener("click", () => {
       const q = b.dataset.q; setSel(q === "near" ? DATA.race.slice() : q === "all" ? [FOCUS].concat(allDoms.filter(d => d !== FOCUS)) : []);
@@ -1012,7 +1012,7 @@ document.querySelectorAll("#dlScale button").forEach(b => b.addEventListener("cl
 // mods
 partTiles("modTiles", MA, fm, { measure: "mod count", noun: "mods", fmt: fmtInt, rate: v => `+${fmtInt(v * 30.44)} a month` });
 const newModsPick = document.getElementById("newModsPick");
-newModsPick.innerHTML = A.rows.map(r => `<option value="${r.domain}">${esc(r.name)}</option>`).join("");
+newModsPick.innerHTML = A.rows.map(r => `<option value="${esc(r.domain)}">${esc(r.name)}</option>`).join("");
 newModsPick.value = FOCUS;
 newModsPick.addEventListener("change", drawNewMods);
 function drawMods() {
@@ -1289,7 +1289,7 @@ function drawTop() {
     mine ? ["Top 10 mods' share of downloads", (mine.top10 / mine.total * 100).toFixed(1) + "%", `#${myRank} of ${me.length} games (highest = most concentrated)`] : null,
     ["Starfield collections", fmtInt(TP.collections.total), TP.collections.downloads[0] ? `biggest: ${fmtInt(TP.collections.downloads[0].dl)} downloads` : ""],
   ].filter(Boolean);
-  document.getElementById("topTiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v" style="font-size:${v.length > 22 ? 18 : 26}px">${v}</span><span class="s">${s}</span></div>`).join("");
+  document.getElementById("topTiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v" style="font-size:${v.replace(/&[#\w]+;/g, "x").length > 22 ? 18 : 26}px">${v}</span><span class="s">${s}</span></div>`).join("");
 
   modTable("topOverallDl", od, [C_CAT, C_REL, C_DL(true), C_EN(false)]);
   modTable("topOverallEn", oe, [C_CAT, C_REL, C_EN(true), C_DL(false)]);
@@ -1340,7 +1340,7 @@ function drawTop() {
     const at = (id, rows, key) => {
       const tot = key === "dl" ? W.downloads_counted : W.endorsements_counted;
       document.getElementById(id).innerHTML = `<thead><tr><th class="num">#</th><th>Author</th><th class="num">Mods</th><th class="num ${key === "dl" ? "sorted" : ""}">Downloads</th><th class="num ${key === "en" ? "sorted" : ""}">Endorsements</th><th class="num">Share</th></tr></thead><tbody>` +
-        rows.map((a, i) => `<tr><td class="num">${i + 1}</td><td class="game">${esc(a.name)}</td><td class="num">${fmtInt(a.mods)}</td><td class="num ${key === "dl" ? "sorted" : ""}">${fmtM(a.dl)}</td><td class="num ${key === "en" ? "sorted" : ""}">${fmtInt(a.en)}</td><td class="num">${(a[key] / tot * 100).toFixed(1)}%</td></tr>`).join("") + "</tbody>";
+        rows.map((a, i) => `<tr><td class="num">${i + 1}</td><td class="game">${esc(a.name)}</td><td class="num">${fmtInt(a.mods)}</td><td class="num ${key === "dl" ? "sorted" : ""}">${fmtM(a.dl)}</td><td class="num ${key === "en" ? "sorted" : ""}">${fmtInt(a.en)}</td><td class="num">${tot ? (a[key] / tot * 100).toFixed(1) + "%" : "–"}</td></tr>`).join("") + "</tbody>";
     };
     at("topAuthorsDl", A_.downloads, "dl"); at("topAuthorsEn", A_.endorsements, "en");
   } else {
@@ -1465,8 +1465,8 @@ function drawCritTrend() {
   if (!CR) return;
   let qs = CR.quarters.map(q => ({ ms: t(q.start) + 45 * DAY, q }));
   qs = RANGE.crit === "launch" ? qs.filter(x => x.ms >= LAUNCH) : qs.slice(-8);
-  const series = [["translation", "Translations"], ["starwars", "Star Wars (by name)"], ["franchise", "Franchise-tagged"], ["presets", "Character presets & saves"], ["ai", "AI content"]].filter(([k]) => qs.length && qs[0].q[k] != null).map(([k, name]) => ({
-    name, label: name, color: C_COL[k], width: 2, dots: true, pts: qs.map(x => [x.ms, x.q[k]]) }));
+  const series = [["translation", "Translations"], ["starwars", "Star Wars (by name)"], ["franchise", "Franchise-tagged"], ["presets", "Character presets & saves"], ["ai", "AI content"]].filter(([k]) => qs.some(x => x.q[k] != null)).map(([k, name]) => ({
+    name, label: name, color: C_COL[k], width: 2, dots: true, pts: qs.filter(x => x.q[k] != null).map(x => [x.ms, x.q[k]]) }));
   document.getElementById("critTrendLegend").innerHTML = series.map(s => `<span><i style="border-color:${s.color}"></i>${s.name}</span>`).join("");
   if (!qs.length) { document.getElementById("critTrend").innerHTML = '<p class="note">No quarters in range.</p>'; return; }
   lineChart(document.getElementById("critTrend"), { series, x0: Math.min(...qs.map(x => x.ms)) - 30 * DAY, x1: Math.max(...qs.map(x => x.ms)) + 30 * DAY, zero: true,

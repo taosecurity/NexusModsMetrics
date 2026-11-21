@@ -381,6 +381,11 @@ def main(argv=None):
         print("build: no API snapshot yet; run collect.py first", file=sys.stderr)
         return 1
     ranked = model.current_ranking(data)[:model.TOP_N]
+    if FOCUS not in ranked:
+        print(f"build: {FOCUS} is not in the top {model.TOP_N} games of snapshot {data['latest_snapshot']}; "
+              "the page is built around it, so nothing was written. Check data/ for a bad or partial snapshot.",
+              file=sys.stderr)
+        return 1
     names = data["names"]
     dl = model.analyse(data["downloads"], names, ranked, FOCUS)
     by_mods = sorted(ranked, key=lambda d: -(data["mods"].get(d, [(0, 0)])[-1][1]))
@@ -432,7 +437,9 @@ def main(argv=None):
         page_data["critics"]["games"].sort(key=lambda g: order.get(g["domain"], 99))
     with open(os.path.join(HERE, "template.html"), encoding="utf-8") as f:
         tpl = f.read()
-    blob = json.dumps(page_data, separators=(",", ":")).replace("</", "<\\/")
+    # escape <, > and & so no name can end the <script> data block or start an HTML comment in it
+    blob = (json.dumps(page_data, separators=(",", ":"))
+            .replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026"))
     html = tpl.replace("{{DATA}}", blob)
     os.makedirs(SITE, exist_ok=True)
     out = os.path.join(SITE, "index.html")

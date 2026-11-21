@@ -91,7 +91,7 @@ def downloads(data, dl, focus="starfield"):
         return []
     out = []
     series = data["downloads"]
-    name = short(f["name"])
+    name = _e(short(f["name"]))
 
     # 1. the next pass
     ups = sorted((p for p in dl["passes"] if p["dir"] == "up" and p["known"] and p["dates"] and p["dates"][1]),
@@ -171,7 +171,7 @@ def mods(data, ma, focus="starfield"):
     f = rows.get(focus)
     if not f:
         return []
-    name = short(f["name"])
+    name = _e(short(f["name"]))
     series = data["mods"]
     out = []
 
