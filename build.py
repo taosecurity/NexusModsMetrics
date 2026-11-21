@@ -309,7 +309,8 @@ def mark_new(today_hl, history, snapshot):
     prev = max((d for d in history if d < snapshot), default=None)
     out = {}
     for part, items in today_hl.items():
-        before = {h["k"] for h in history[prev].get(part, [])} if prev else set()
+        # older history saved plain strings: such a headline is its own key
+        before = {h if isinstance(h, str) else h["k"] for h in history[prev].get(part, [])} if prev else set()
         out[part] = {"prev": prev, "items": [dict(h, new=bool(prev) and h["k"] not in before) for h in items]}
     return out
 

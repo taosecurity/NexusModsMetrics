@@ -731,12 +731,14 @@ function lineChart(box, opt) {
   const W = Math.max(320, box.clientWidth || 640), H = opt.height || Math.round(Math.min(380, Math.max(240, W * 0.5)));
   const pad = { l: 56, r: opt.rightPad != null ? opt.rightPad : (W < 520 ? 12 : 110), t: 10, b: 26 };
   const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opt.aria || "chart" }, box);
-  let x0 = opt.x0, x1 = opt.x1, lo = Infinity, hi = -Infinity;
-  for (const s of opt.series) for (const arr of [s.pts, s.fc || []]) for (const p of arr) { if (p[0] < x0 || p[0] > x1) continue; lo = Math.min(lo, p[1]); hi = Math.max(hi, p[1]); }
-  for (const s of opt.series) for (const p of (s.band || [])) { if (p[0] < x0 || p[0] > x1) continue; lo = Math.min(lo, p[1]); hi = Math.max(hi, p[2]); }
-  if (!isFinite(lo)) { lo = 1; hi = 10; }
   const log = opt.log;
-  if (log) { if (opt.minY) lo = Math.max(lo, opt.minY); lo = Math.pow(10, Math.floor(Math.log10(lo) * 4) / 4); hi = Math.pow(10, Math.ceil(Math.log10(hi) * 4) / 4); }
+  let x0 = opt.x0, x1 = opt.x1, lo = Infinity, hi = -Infinity;
+  // a log scale can't show 0 or negative values: leave those points out of the range and the plot
+  const inX = p => p[0] >= x0 && p[0] <= x1 && (!log || p[1] > 0);
+  for (const s of opt.series) for (const arr of [s.pts, s.fc || []]) for (const p of arr) { if (!inX(p)) continue; lo = Math.min(lo, p[1]); hi = Math.max(hi, p[1]); }
+  for (const s of opt.series) for (const p of (s.band || [])) { if (!inX(p)) continue; lo = Math.min(lo, p[1]); hi = Math.max(hi, p[2]); }
+  if (!isFinite(lo)) { lo = 1; hi = 10; }
+  if (log) { lo = Math.max(lo, opt.minY || 1); if (!(hi > lo)) hi = lo * 10; lo = Math.pow(10, Math.floor(Math.log10(lo) * 4) / 4); hi = Math.pow(10, Math.ceil(Math.log10(hi) * 4) / 4); }
   else { const pr = (hi - lo) * 0.06 || hi * 0.05; lo = Math.max(0, lo - pr); hi = hi + pr; if (opt.zero) lo = 0; }
   const X = ms => pad.l + (ms - x0) / (x1 - x0) * (W - pad.l - pad.r);
   const Y = v => log ? pad.t + (Math.log10(hi) - Math.log10(Math.max(v, lo))) / (Math.log10(hi) - Math.log10(lo)) * (H - pad.t - pad.b)
@@ -749,7 +751,7 @@ function lineChart(box, opt) {
   for (const ms of tt.ticks) { const x = X(ms); if (x - lastX < 54) continue; lastX = x; el("text", { x, y: H - pad.b + 15, "text-anchor": "middle", class: "ax" }, svg).textContent = tt.fmt(ms); }
   if (opt.today) { const x = X(opt.today); el("line", { x1: x, x2: x, y1: pad.t, y2: H - pad.b, class: "grid", "stroke-dasharray": "3 3" }, svg); }
   if (RELEASE >= x0 && RELEASE <= x1) { const x = X(RELEASE); el("line", { x1: x, x2: x, y1: pad.t, y2: H - pad.b, class: "base", "stroke-dasharray": "2 3" }, svg); el("text", { x: x + 4, y: pad.t + 10, class: "ax" }, svg).textContent = "Starfield release"; }
-  const clip = arr => arr.filter(p => p[0] >= x0 && p[0] <= x1);
+  const clip = arr => arr.filter(inX);
   const path = arr => arr.map((p, i) => (i ? "L" : "M") + X(p[0]).toFixed(1) + "," + Y(p[1]).toFixed(1)).join("");
   const order = opt.series.slice().sort((a, b) => (a.z || 0) - (b.z || 0));
   for (const s of order) {
@@ -1411,15 +1413,17 @@ function drawCritics() {
   const n = CR.games.length;
   const D = CR.downloads || {}, hasDl = !!(D.all && D.translation);
   const dshare = g => hasDl && D[g] ? D[g].downloads / D.all.downloads * 100 : null;
+  // a rank exists only when every game has the tag (build.py)
+  const rk = (key, tail) => me[key + "_rank"] != null ? `#${me[key + "_rank"]} of ${n} games${tail}` : "rank not available yet";
   const tiles = [
     ["Neither translation nor Star Wars", P(CR.neither).toFixed(0) + "%", `${fmtInt(CR.neither)} of ${fmtInt(tot)} Starfield mods`],
-    ["Translations", P(CR.translation).toFixed(1) + "%", `#${me.translation_rank} of ${n} games by translation share`],
+    ["Translations", P(CR.translation).toFixed(1) + "%", rk("translation", " by translation share")],
     ["Star Wars (by name)", P(CR.starwars).toFixed(1) + "%", `about ${fmtInt(CR.starwars)} mods`],
-    ["Franchise-tagged", P(CR.franchise).toFixed(1) + "%", `#${me.franchise_rank} of ${n} games`],
+    ["Franchise-tagged", P(CR.franchise).toFixed(1) + "%", rk("franchise", "")],
     hasDl ? ["Translations' share of downloads", dshare("translation").toFixed(1) + "%", `against ${P(CR.translation).toFixed(1)}% of mods`] : null,
     hasDl && D.starwars ? ["Star Wars' share of downloads", dshare("starwars").toFixed(1) + "%", `against ${P(CR.starwars).toFixed(1)}% of mods`] : null,
-    CR.presets != null ? ["Character presets & saves", P(CR.presets).toFixed(1) + "%", `${fmtInt(CR.presets)} mods · #${me.presets_rank} of ${n} games` + (hasDl && D.presets ? ` · ${dshare("presets").toFixed(1)}% of downloads` : "")] : null,
-    CR.ai != null ? ["AI-generated or assisted", P(CR.ai).toFixed(1) + "%", `${fmtInt(CR.ai)} mods · #${me.ai_rank} of ${n} games` + (hasDl && D.ai ? ` · ${dshare("ai").toFixed(1)}% of downloads` : "")] : null,
+    CR.presets != null ? ["Character presets & saves", P(CR.presets).toFixed(1) + "%", `${fmtInt(CR.presets)} mods` + (me.presets_rank != null ? " · " + rk("presets", "") : "") + (hasDl && D.presets ? ` · ${dshare("presets").toFixed(1)}% of downloads` : "")] : null,
+    CR.ai != null ? ["AI-generated or assisted", P(CR.ai).toFixed(1) + "%", `${fmtInt(CR.ai)} mods` + (me.ai_rank != null ? " · " + rk("ai", "") : "") + (hasDl && D.ai ? ` · ${dshare("ai").toFixed(1)}% of downloads` : "")] : null,
     hasDl && D.none ? ["None of the four hot topics", (D.none.mods / D.all.mods * 100).toFixed(0) + "%", `of Starfield mods · ${dshare("none").toFixed(0)}% of downloads`] : null,
   ].filter(Boolean);
   document.getElementById("critTiles").innerHTML = tiles.map(([k, v, s]) => `<div class="tile"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join("");
@@ -1454,8 +1458,9 @@ function drawCritics() {
     name: g.name, v: g[key], color: g.domain === FOCUS ? "var(--s1)" : null,
     tipExtra: g[key + "_new90"] != null ? `<div class="r"><span>Share of new mods (90 d)</span><span>${g[key + "_new90"].toFixed(1)}%</span></div><div class="r"><span>Mods</span><span>${fmtInt(g.mods)}</span></div>` : "" })),
     v => v.toFixed(1) + "%", "Share of mods");
-  cmp("translation", "critTr");
-  cmp("franchise", "critFr");
+  const cmpOr = (key, el) => { if (CR.games.every(g => g[key] != null)) cmp(key, el); else document.getElementById(el).innerHTML = "<p class=\"note\">Collecting.</p>"; };
+  cmpOr("translation", "critTr");
+  cmpOr("franchise", "critFr");
   if (CR.games.every(g => g.presets != null)) cmp("presets", "critPr"); else document.getElementById("critPr").innerHTML = "<p class=\"note\">Collecting.</p>";
   if (CR.games.every(g => g.ai != null)) cmp("ai", "critAi"); else document.getElementById("critAi").innerHTML = "<p class=\"note\">Collecting.</p>";
   document.getElementById("critTerms").textContent = (CR.sw_terms || []).map(s => `"${s}"`).join(", ");
