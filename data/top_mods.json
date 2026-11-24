@@ -1,5 +1,5 @@
 {
-"adult_mods": 443,
+"adult_mods": 446,
 "categories": [
 {
 "downloads": [
@@ -7,7 +7,7 @@
 "author": "2077v2",
 "cat": "Gameplay",
 "created": "2023-10-04",
-"dl": 1058973,
+"dl": 1059048,
 "en": 645,
 "id": 4643,
 "name": "Constellation Overhaul"
@@ -16,7 +16,7 @@
 "author": "checker90",
 "cat": "Gameplay",
 "created": "2024-12-07",
-"dl": 689167,
+"dl": 689195,
 "en": 376,
 "id": 12672,
 "name": "Starfield - Tweaks Fixes and Patches"
@@ -25,8 +25,8 @@
 "author": "LarannKiar",
 "cat": "Gameplay",
 "created": "2024-07-08",
-"dl": 681801,
-"en": 4557,
+"dl": 682312,
+"en": 4558,
 "id": 10457,
 "name": "Starfield Engine Fixes - SFSE"
 },
@@ -34,8 +34,8 @@
 "author": "Ixion XVII",
 "cat": "Gameplay",
 "created": "2023-09-02",
-"dl": 630963,
-"en": 11830,
+"dl": 631165,
+"en": 11832,
 "id": 451,
 "name": "Easy Digipick (Lockpick)"
 },
@@ -43,7 +43,7 @@
 "author": "Starfield Modding Community",
 "cat": "Gameplay",
 "created": "2023-10-24",
-"dl": 445226,
+"dl": 445295,
 "en": 8758,
 "id": 1,
 "name": "Starfield Community Patch (SFCP)"
@@ -54,8 +54,8 @@
 "author": "Ixion XVII",
 "cat": "Gameplay",
 "created": "2023-09-02",
-"dl": 630963,
-"en": 11830,
+"dl": 631165,
+"en": 11832,
 "id": 451,
 "name": "Easy Digipick (Lockpick)"
 },
@@ -63,7 +63,7 @@
 "author": "Starfield Modding Community",
 "cat": "Gameplay",
 "created": "2023-10-24",
-"dl": 445226,
+"dl": 445295,
 "en": 8758,
 "id": 1,
 "name": "Starfield Community Patch (SFCP)"
@@ -72,7 +72,7 @@
 "author": "JustAnOrdinaryGuy",
 "cat": "Gameplay",
 "created": "2023-09-07",
-"dl": 303384,
+"dl": 303443,
 "en": 7517,
 "id": 1143,
 "name": "Richer Merchants"
@@ -81,8 +81,8 @@
 "author": "JustAnOrdinaryGuy",
 "cat": "Gameplay",
 "created": "2023-09-05",
-"dl": 254502,
-"en": 6545,
+"dl": 254565,
+"en": 6546,
 "id": 759,
 "name": "Instant Scan"
 },
@@ -90,7 +90,7 @@
 "author": "Ixion XVII",
 "cat": "Gameplay",
 "created": "2023-09-08",
-"dl": 404501,
+"dl": 404681,
 "en": 5995,
 "id": 1392,
 "name": "Improved Combat AI"
@@ -105,7 +105,7 @@
 "author": "Bonepunk",
 "cat": "Clothing",
 "created": "2025-03-19",
-"dl": 269044,
+"dl": 269245,
 "en": 131,
 "id": 13455,
 "name": "Star Wars - Canto Bight Police"
@@ -114,8 +114,8 @@
 "author": "radiclown",
 "cat": "Clothing",
 "created": "2023-12-03",
-"dl": 197019,
-"en": 483,
+"dl": 197143,
+"en": 484,
 "id": 7410,
 "name": "Freestar Rebels"
 },
@@ -123,8 +123,8 @@
 "author": "Crozzbow",
 "cat": "Clothing",
 "created": "2024-06-22",
-"dl": 187495,
-"en": 195,
+"dl": 187600,
+"en": 196,
 "id": 10017,
 "name": "Hondo Ohnaka and the Crimson Fleet Pirates (OLD)"
 },
@@ -132,7 +132,7 @@
 "author": "Crozzbow",
 "cat": "Clothing",
 "created": "2024-05-21",
-"dl": 179420,
+"dl": 179530,
 "en": 289,
 "id": 9313,
 "name": "Coruscant Police Uniform (Neon and Ryujin Security Replacer)"
@@ -141,7 +141,7 @@
 "author": "Crozzbow",
 "cat": "Clothing",
 "created": "2024-08-01",
-"dl": 175207,
+"dl": 175325,
 "en": 224,
 "id": 10790,
 "name": "Hondo Ohnaka and the Scow Crew (Star Wars)"
@@ -152,7 +152,7 @@
 "author": "ZoNE79",
 "cat": "Clothing",
 "created": "2024-02-17",
-"dl": 167386,
+"dl": 167567,
 "en": 2553,
 "id": 8473,
 "name": "Eit Clothiers Plus - Clothes jackets belts gloves glasses necklace - ZBB"
@@ -161,7 +161,7 @@
 "author": "Kryo Zet",
 "cat": "Clothing",
 "created": "2025-01-21",
-"dl": 120378,
+"dl": 120517,
 "en": 1590,
 "id": 13032,
 "name": "KZ Tachyonic Core Arsenal"
@@ -170,8 +170,8 @@
 "author": "ZoNE79",
 "cat": "Clothing",
 "created": "2024-06-06",
-"dl": 96228,
-"en": 1439,
+"dl": 96308,
+"en": 1441,
 "id": 9520,
 "name": "Nomad Spacesuit - Weapon -  Player Home"
 },
@@ -179,8 +179,8 @@
 "author": "Kryo Zet",
 "cat": "Clothing",
 "created": "2025-05-26",
-"dl": 63533,
-"en": 1299,
+"dl": 63637,
+"en": 1300,
 "id": 13949,
 "name": "KZ Techno-Corporate Repository"
 },
@@ -188,13 +188,13 @@
 "author": "ZoNE79",
 "cat": "Clothing",
 "created": "2024-04-27",
-"dl": 81732,
+"dl": 81864,
 "en": 1245,
 "id": 9097,
 "name": "Crimson X - Clothing Jackets Glasses Masks Belts Gloves Gear - ZBB"
 }
 ],
-"mods": 1506,
+"mods": 1507,
 "name": "Clothing"
 },
 {
@@ -203,7 +203,7 @@
 "author": "luxor8071",
 "cat": "Visuals",
 "created": "2023-10-10",
-"dl": 1566727,
+"dl": 1567458,
 "en": 3136,
 "id": 5124,
 "name": "Starfield HD Overhaul"
@@ -212,8 +212,8 @@
 "author": "fadingsignal",
 "cat": "Visuals",
 "created": "2023-09-02",
-"dl": 829152,
-"en": 18808,
+"dl": 829325,
+"en": 18809,
 "id": 323,
 "name": "Neutral LUTs - No Color Filters"
 },
@@ -221,8 +221,8 @@
 "author": "Weijiesen - Team EVE",
 "cat": "Visuals",
 "created": "2023-09-04",
-"dl": 797499,
-"en": 10696,
+"dl": 797883,
+"en": 10699,
 "id": 340,
 "name": "EXE - Effect Textures Enhanced"
 },
@@ -230,7 +230,7 @@
 "author": "Erok",
 "cat": "Visuals",
 "created": "2023-09-01",
-"dl": 666658,
+"dl": 666678,
 "en": 11934,
 "id": 104,
 "name": "Starfield Performance Optimizations"
@@ -239,7 +239,7 @@
 "author": "Epiphany Absolute",
 "cat": "Visuals",
 "created": "2023-09-03",
-"dl": 372477,
+"dl": 372547,
 "en": 1369,
 "id": 496,
 "name": "Starfield High Definition Texture Pack (HDTP)"
@@ -250,8 +250,8 @@
 "author": "fadingsignal",
 "cat": "Visuals",
 "created": "2023-09-02",
-"dl": 829152,
-"en": 18808,
+"dl": 829325,
+"en": 18809,
 "id": 323,
 "name": "Neutral LUTs - No Color Filters"
 },
@@ -259,7 +259,7 @@
 "author": "Erok",
 "cat": "Visuals",
 "created": "2023-09-01",
-"dl": 666658,
+"dl": 666678,
 "en": 11934,
 "id": 104,
 "name": "Starfield Performance Optimizations"
@@ -268,8 +268,8 @@
 "author": "Weijiesen - Team EVE",
 "cat": "Visuals",
 "created": "2023-09-04",
-"dl": 797499,
-"en": 10696,
+"dl": 797883,
+"en": 10699,
 "id": 340,
 "name": "EXE - Effect Textures Enhanced"
 },
@@ -277,7 +277,7 @@
 "author": "LogRaam",
 "cat": "Visuals",
 "created": "2023-09-03",
-"dl": 311483,
+"dl": 311519,
 "en": 8172,
 "id": 493,
 "name": "The Eyes of Beauty - Starfield Edition"
@@ -286,7 +286,7 @@
 "author": "LukeFZ",
 "cat": "Visuals",
 "created": "2023-09-05",
-"dl": 342233,
+"dl": 342239,
 "en": 7817,
 "id": 761,
 "name": "Starfield Frame Generation - Replacing FSR2 with DLSS-G"
@@ -301,7 +301,7 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 597268,
+"dl": 597576,
 "en": 6371,
 "id": 1511,
 "name": "No Engine Power Limits"
@@ -310,8 +310,8 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-07",
-"dl": 583793,
-"en": 6449,
+"dl": 584054,
+"en": 6450,
 "id": 1169,
 "name": "No Reactor Limit"
 },
@@ -319,8 +319,8 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 534702,
-"en": 5178,
+"dl": 534992,
+"en": 5179,
 "id": 1510,
 "name": "No Weapon Power or Count Limits"
 },
@@ -328,7 +328,7 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 496378,
+"dl": 496646,
 "en": 4884,
 "id": 1475,
 "name": "No Shield Limit"
@@ -337,7 +337,7 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 422323,
+"dl": 422586,
 "en": 3857,
 "id": 1479,
 "name": "No Minimum Landing Gear"
@@ -348,8 +348,8 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-07",
-"dl": 583793,
-"en": 6449,
+"dl": 584054,
+"en": 6450,
 "id": 1169,
 "name": "No Reactor Limit"
 },
@@ -357,7 +357,7 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 597268,
+"dl": 597576,
 "en": 6371,
 "id": 1511,
 "name": "No Engine Power Limits"
@@ -366,8 +366,8 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 534702,
-"en": 5178,
+"dl": 534992,
+"en": 5179,
 "id": 1510,
 "name": "No Weapon Power or Count Limits"
 },
@@ -375,7 +375,7 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 496378,
+"dl": 496646,
 "en": 4884,
 "id": 1475,
 "name": "No Shield Limit"
@@ -384,13 +384,13 @@
 "author": "LordGregory",
 "cat": "Ships",
 "created": "2023-09-09",
-"dl": 422323,
+"dl": 422586,
 "en": 3857,
 "id": 1479,
 "name": "No Minimum Landing Gear"
 }
 ],
-"mods": 1194,
+"mods": 1195,
 "name": "Ships"
 },
 {
@@ -399,7 +399,7 @@
 "author": "Crozzbow",
 "cat": "Weapons",
 "created": "2024-10-20",
-"dl": 484716,
+"dl": 484976,
 "en": 398,
 "id": 12154,
 "name": "Star Wars Blasters and Melee"
@@ -408,7 +408,7 @@
 "author": "Stentorious",
 "cat": "Weapons",
 "created": "2023-09-24",
-"dl": 371002,
+"dl": 371229,
 "en": 5469,
 "id": 3855,
 "name": "Clean Reflex Sight Lenses"
@@ -417,7 +417,7 @@
 "author": "DeityVengy",
 "cat": "Weapons",
 "created": "2024-11-20",
-"dl": 250638,
+"dl": 251004,
 "en": 162,
 "id": 12540,
 "name": "Star Wars - Realistic and Lore Accurate Blasters and Melee Patch"
@@ -426,7 +426,7 @@
 "author": "Crozzbow",
 "cat": "Weapons",
 "created": "2024-03-09",
-"dl": 180323,
+"dl": 180428,
 "en": 323,
 "id": 8744,
 "name": "Crimson Fleet Arsenal - Star Wars Weapon Replacer"
@@ -435,7 +435,7 @@
 "author": "illbodyPLAGUE",
 "cat": "Weapons",
 "created": "2023-09-21",
-"dl": 153473,
+"dl": 153614,
 "en": 1587,
 "id": 3519,
 "name": "PLAGUE'S OPTICS REIMAGINED 2.5 Star Wars Update"
@@ -446,7 +446,7 @@
 "author": "Stentorious",
 "cat": "Weapons",
 "created": "2023-09-24",
-"dl": 371002,
+"dl": 371229,
 "en": 5469,
 "id": 3855,
 "name": "Clean Reflex Sight Lenses"
@@ -455,7 +455,7 @@
 "author": "illbodyPLAGUE",
 "cat": "Weapons",
 "created": "2023-09-21",
-"dl": 153473,
+"dl": 153614,
 "en": 1587,
 "id": 3519,
 "name": "PLAGUE'S OPTICS REIMAGINED 2.5 Star Wars Update"
@@ -464,7 +464,7 @@
 "author": "frogs345",
 "cat": "Weapons",
 "created": "2023-10-22",
-"dl": 98349,
+"dl": 98416,
 "en": 1527,
 "id": 5726,
 "name": "Craftable Weapon Skins - CWS"
@@ -473,7 +473,7 @@
 "author": "510deshawn",
 "cat": "Weapons",
 "created": "2024-08-30",
-"dl": 114084,
+"dl": 114160,
 "en": 984,
 "id": 11313,
 "name": "Project Warfare - Hardened Edition"
@@ -482,13 +482,13 @@
 "author": "ZY20042",
 "cat": "Weapons",
 "created": "2024-10-05",
-"dl": 76413,
-"en": 895,
+"dl": 76466,
+"en": 897,
 "id": 11874,
 "name": "Dark CombaTech - All-In-One (Weapon Skins)"
 }
 ],
-"mods": 1039,
+"mods": 1040,
 "name": "Weapons"
 },
 {
@@ -497,8 +497,8 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-05",
-"dl": 2082737,
-"en": 46129,
+"dl": 2083089,
+"en": 46132,
 "id": 773,
 "name": "StarUI Inventory"
 },
@@ -506,8 +506,8 @@
 "author": "Seb263",
 "cat": "User Interface",
 "created": "2023-09-02",
-"dl": 792861,
-"en": 14844,
+"dl": 793045,
+"en": 14845,
 "id": 404,
 "name": "Undelayed Menus"
 },
@@ -515,8 +515,8 @@
 "author": "Gametism",
 "cat": "User Interface",
 "created": "2023-08-31",
-"dl": 617174,
-"en": 12515,
+"dl": 617389,
+"en": 12517,
 "id": 88,
 "name": "Cleanfield - No-Intro and Clean Menu Fix"
 },
@@ -524,7 +524,7 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-21",
-"dl": 611267,
+"dl": 611490,
 "en": 14647,
 "id": 3444,
 "name": "StarUI HUD"
@@ -533,8 +533,8 @@
 "author": "Stentorious",
 "cat": "User Interface",
 "created": "2023-09-04",
-"dl": 586108,
-"en": 10588,
+"dl": 586329,
+"en": 10589,
 "id": 682,
 "name": "Compact Mission Menu"
 }
@@ -544,8 +544,8 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-05",
-"dl": 2082737,
-"en": 46129,
+"dl": 2083089,
+"en": 46132,
 "id": 773,
 "name": "StarUI Inventory"
 },
@@ -553,8 +553,8 @@
 "author": "Seb263",
 "cat": "User Interface",
 "created": "2023-09-02",
-"dl": 792861,
-"en": 14844,
+"dl": 793045,
+"en": 14845,
 "id": 404,
 "name": "Undelayed Menus"
 },
@@ -562,7 +562,7 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-21",
-"dl": 611267,
+"dl": 611490,
 "en": 14647,
 "id": 3444,
 "name": "StarUI HUD"
@@ -571,8 +571,8 @@
 "author": "Gametism",
 "cat": "User Interface",
 "created": "2023-08-31",
-"dl": 617174,
-"en": 12515,
+"dl": 617389,
+"en": 12517,
 "id": 88,
 "name": "Cleanfield - No-Intro and Clean Menu Fix"
 },
@@ -580,8 +580,8 @@
 "author": "Stentorious",
 "cat": "User Interface",
 "created": "2023-09-04",
-"dl": 586108,
-"en": 10588,
+"dl": 586329,
+"en": 10589,
 "id": 682,
 "name": "Compact Mission Menu"
 }
@@ -595,8 +595,8 @@
 "author": "shad0wshayd3",
 "cat": "Miscellaneous",
 "created": "2023-09-04",
-"dl": 1440284,
-"en": 26680,
+"dl": 1440639,
+"en": 26682,
 "id": 658,
 "name": "Baka Achievement Enabler (SFSE)"
 },
@@ -604,7 +604,7 @@
 "author": "xtcrefugee",
 "cat": "Miscellaneous",
 "created": "2025-03-21",
-"dl": 377522,
+"dl": 378287,
 "en": 487,
 "id": 13466,
 "name": "xtcrefugee's miscellaneous small mods"
@@ -613,7 +613,7 @@
 "author": "serverimp",
 "cat": "Miscellaneous",
 "created": "2023-09-08",
-"dl": 317521,
+"dl": 317619,
 "en": 4820,
 "id": 1402,
 "name": "Starfield Achievement Enabler"
@@ -622,8 +622,8 @@
 "author": "shad0wshayd3",
 "cat": "Miscellaneous",
 "created": "2023-09-09",
-"dl": 288167,
-"en": 5769,
+"dl": 288279,
+"en": 5771,
 "id": 1599,
 "name": "Baka Disable My Games Folder"
 },
@@ -631,8 +631,8 @@
 "author": "Bobbyclue",
 "cat": "Miscellaneous",
 "created": "2023-09-16",
-"dl": 273254,
-"en": 6618,
+"dl": 273297,
+"en": 6619,
 "id": 2740,
 "name": "Console Command Runner"
 }
@@ -642,8 +642,8 @@
 "author": "shad0wshayd3",
 "cat": "Miscellaneous",
 "created": "2023-09-04",
-"dl": 1440285,
-"en": 26680,
+"dl": 1440639,
+"en": 26682,
 "id": 658,
 "name": "Baka Achievement Enabler (SFSE)"
 },
@@ -651,8 +651,8 @@
 "author": "Bobbyclue",
 "cat": "Miscellaneous",
 "created": "2023-09-16",
-"dl": 273254,
-"en": 6618,
+"dl": 273297,
+"en": 6619,
 "id": 2740,
 "name": "Console Command Runner"
 },
@@ -660,8 +660,8 @@
 "author": "shad0wshayd3",
 "cat": "Miscellaneous",
 "created": "2023-09-09",
-"dl": 288167,
-"en": 5769,
+"dl": 288279,
+"en": 5771,
 "id": 1599,
 "name": "Baka Disable My Games Folder"
 },
@@ -669,7 +669,7 @@
 "author": "serverimp",
 "cat": "Miscellaneous",
 "created": "2023-09-08",
-"dl": 317521,
+"dl": 317619,
 "en": 4820,
 "id": 1402,
 "name": "Starfield Achievement Enabler"
@@ -678,13 +678,13 @@
 "author": "Archost",
 "cat": "Miscellaneous",
 "created": "2023-09-13",
-"dl": 137344,
+"dl": 137366,
 "en": 3944,
 "id": 2245,
 "name": "Disk Cache Enabler"
 }
 ],
-"mods": 919,
+"mods": 920,
 "name": "Miscellaneous"
 },
 {
@@ -693,7 +693,7 @@
 "author": "radiclown",
 "cat": "Characters",
 "created": "2024-02-19",
-"dl": 374612,
+"dl": 374864,
 "en": 892,
 "id": 8518,
 "name": "Star Wars Aliens"
@@ -702,7 +702,7 @@
 "author": "radiclown",
 "cat": "Characters",
 "created": "2024-08-29",
-"dl": 336829,
+"dl": 337059,
 "en": 406,
 "id": 11302,
 "name": "Star Wars Droids"
@@ -711,7 +711,7 @@
 "author": "Crozzbow",
 "cat": "Characters",
 "created": "2024-05-03",
-"dl": 172916,
+"dl": 173034,
 "en": 257,
 "id": 9125,
 "name": "Star Wars Rebel Leaders"
@@ -720,8 +720,8 @@
 "author": "Crozzbow and Bonepunk",
 "cat": "Characters",
 "created": "2024-09-22",
-"dl": 172094,
-"en": 208,
+"dl": 172200,
+"en": 210,
 "id": 11677,
 "name": "Star Wars Constellation Overhaul"
 },
@@ -729,7 +729,7 @@
 "author": "Bonepunk and Radiclown",
 "cat": "Characters",
 "created": "2024-12-16",
-"dl": 169105,
+"dl": 169233,
 "en": 216,
 "id": 12746,
 "name": "Star Wars Gangs"
@@ -740,7 +740,7 @@
 "author": "SavrenX",
 "cat": "Characters",
 "created": "2023-09-19",
-"dl": 72793,
+"dl": 72834,
 "en": 1942,
 "id": 3295,
 "name": "SavrenX HD NPC Optimized"
@@ -749,7 +749,7 @@
 "author": "Avarantia",
 "cat": "Characters",
 "created": "2023-10-10",
-"dl": 126551,
+"dl": 126672,
 "en": 1908,
 "id": 5107,
 "name": "Pekoe Brows"
@@ -758,8 +758,8 @@
 "author": "SavrenX",
 "cat": "Characters",
 "created": "2023-09-20",
-"dl": 63194,
-"en": 1668,
+"dl": 63208,
+"en": 1669,
 "id": 3391,
 "name": "SavrenX HD Crowd Optimized V2"
 },
@@ -767,7 +767,7 @@
 "author": "Fuse00",
 "cat": "Characters",
 "created": "2023-09-07",
-"dl": 35628,
+"dl": 35631,
 "en": 1548,
 "id": 1281,
 "name": "Eyebrows Redone"
@@ -776,13 +776,13 @@
 "author": "YunheeKim",
 "cat": "Characters",
 "created": "2023-09-03",
-"dl": 54064,
+"dl": 54069,
 "en": 1381,
 "id": 499,
 "name": "Hanna - A Korean Female Preset"
 }
 ],
-"mods": 675,
+"mods": 676,
 "name": "Characters"
 },
 {
@@ -791,8 +791,8 @@
 "author": "milkdrinker",
 "cat": "Outposts",
 "created": "2024-06-22",
-"dl": 196862,
-"en": 676,
+"dl": 196989,
+"en": 677,
 "id": 10018,
 "name": "Neon Vertigo - A Neon Overhaul"
 },
@@ -800,7 +800,7 @@
 "author": "wankingSkeever",
 "cat": "Outposts",
 "created": "2023-10-28",
-"dl": 141480,
+"dl": 141573,
 "en": 992,
 "id": 6079,
 "name": "Seeking out Stores - Navigate Using City Info Kiosks"
@@ -809,8 +809,8 @@
 "author": "LuxZg",
 "cat": "Outposts",
 "created": "2023-11-08",
-"dl": 130703,
-"en": 1577,
+"dl": 130726,
+"en": 1579,
 "id": 6593,
 "name": "B.A.S.E. - Building Advanced Space Encampments (walls foundations etc for your BASE outpost or settlement)"
 },
@@ -818,7 +818,7 @@
 "author": "skinnypig2",
 "cat": "Outposts",
 "created": "2024-09-27",
-"dl": 119426,
+"dl": 119550,
 "en": 446,
 "id": 11729,
 "name": "Simple Immersive Music Players"
@@ -827,8 +827,8 @@
 "author": "DownfallNemesis",
 "cat": "Outposts",
 "created": "2024-09-29",
-"dl": 89295,
-"en": 934,
+"dl": 89357,
+"en": 936,
 "id": 11750,
 "name": "Nem's Deco Pack"
 }
@@ -838,8 +838,8 @@
 "author": "LuxZg",
 "cat": "Outposts",
 "created": "2023-11-08",
-"dl": 130703,
-"en": 1577,
+"dl": 130726,
+"en": 1579,
 "id": 6593,
 "name": "B.A.S.E. - Building Advanced Space Encampments (walls foundations etc for your BASE outpost or settlement)"
 },
@@ -847,7 +847,7 @@
 "author": "TheOGTennessee",
 "cat": "Outposts",
 "created": "2023-10-26",
-"dl": 44241,
+"dl": 44278,
 "en": 1157,
 "id": 6010,
 "name": "TN's Outpost Storage (storage multiplier)"
@@ -856,7 +856,7 @@
 "author": "xatmos",
 "cat": "Outposts",
 "created": "2023-09-28",
-"dl": 48501,
+"dl": 48517,
 "en": 1077,
 "id": 4170,
 "name": "Outpost Trader"
@@ -865,7 +865,7 @@
 "author": "wankingSkeever",
 "cat": "Outposts",
 "created": "2023-10-28",
-"dl": 141480,
+"dl": 141573,
 "en": 992,
 "id": 6079,
 "name": "Seeking out Stores - Navigate Using City Info Kiosks"
@@ -874,8 +874,8 @@
 "author": "DownfallNemesis",
 "cat": "Outposts",
 "created": "2024-09-29",
-"dl": 89295,
-"en": 934,
+"dl": 89357,
+"en": 936,
 "id": 11750,
 "name": "Nem's Deco Pack"
 }
@@ -889,8 +889,8 @@
 "author": "DeityVengy",
 "cat": "Audio",
 "created": "2024-08-12",
-"dl": 606186,
-"en": 372,
+"dl": 606632,
+"en": 373,
 "id": 10945,
 "name": "Star Wars - Music and Ambience Overhaul (Re-release)"
 },
@@ -898,7 +898,7 @@
 "author": "TexanWarlord",
 "cat": "Audio",
 "created": "2024-08-09",
-"dl": 600888,
+"dl": 601295,
 "en": 339,
 "id": 10894,
 "name": "Galactic UI Audio Enhancer"
@@ -907,7 +907,7 @@
 "author": "TexanWarlord",
 "cat": "Audio",
 "created": "2024-08-21",
-"dl": 445678,
+"dl": 445982,
 "en": 221,
 "id": 11063,
 "name": "Galactic Mayhem"
@@ -916,7 +916,7 @@
 "author": "TexanWarlord",
 "cat": "Audio",
 "created": "2024-08-30",
-"dl": 425096,
+"dl": 425304,
 "en": 229,
 "id": 11335,
 "name": "Ambience of a Galaxy Far Far Away"
@@ -925,7 +925,7 @@
 "author": "TexanWarlord",
 "cat": "Audio",
 "created": "2024-08-04",
-"dl": 340203,
+"dl": 340397,
 "en": 268,
 "id": 10823,
 "name": "Galactic NPC Blaster Symphony"
@@ -936,7 +936,7 @@
 "author": "63OR63",
 "cat": "Audio",
 "created": "2023-09-27",
-"dl": 36297,
+"dl": 36305,
 "en": 1007,
 "id": 4086,
 "name": "Faster Airlock and Hatch and Door Animations - Sound Fix"
@@ -945,8 +945,8 @@
 "author": "Dylan James",
 "cat": "Audio",
 "created": "2023-09-05",
-"dl": 142932,
-"en": 972,
+"dl": 143105,
+"en": 974,
 "id": 885,
 "name": "More Subtle Scanner Sounds (No High Pitch - Menus UI Interactions - Less Annoying)"
 },
@@ -954,7 +954,7 @@
 "author": "63OR63",
 "cat": "Audio",
 "created": "2023-09-17",
-"dl": 41713,
+"dl": 41727,
 "en": 961,
 "id": 3013,
 "name": "Female Vasco Voice 2 (TTS)"
@@ -963,7 +963,7 @@
 "author": "WestTek",
 "cat": "Audio",
 "created": "2023-09-18",
-"dl": 77692,
+"dl": 77725,
 "en": 884,
 "id": 2935,
 "name": "Spoken Hazard Alerts"
@@ -972,7 +972,7 @@
 "author": "63OR63",
 "cat": "Audio",
 "created": "2023-09-18",
-"dl": 36253,
+"dl": 36261,
 "en": 706,
 "id": 3156,
 "name": "NO SOUND IN SPACE"
@@ -987,8 +987,8 @@
 "author": "JaeDL - Starborn Royalty Knights",
 "cat": "Environment",
 "created": "2024-01-06",
-"dl": 491571,
-"en": 1710,
+"dl": 491878,
+"en": 1711,
 "id": 7946,
 "name": "Royal Weathers  - An Immersive Starfield Climate Overhaul"
 },
@@ -996,7 +996,7 @@
 "author": "paulbrock",
 "cat": "Environment",
 "created": "2024-06-07",
-"dl": 343921,
+"dl": 344076,
 "en": 1056,
 "id": 9532,
 "name": "POI Cooldown - Fewer repeated POIs"
@@ -1005,7 +1005,7 @@
 "author": "DeityVengy",
 "cat": "Environment",
 "created": "2024-07-25",
-"dl": 269221,
+"dl": 269351,
 "en": 246,
 "id": 10710,
 "name": "Star Wars - Environmental Immersion Project"
@@ -1014,7 +1014,7 @@
 "author": "Battenburga",
 "cat": "Environment",
 "created": "2024-07-15",
-"dl": 225105,
+"dl": 225255,
 "en": 1091,
 "id": 10577,
 "name": "Batten's Shipwrecks (POIs)"
@@ -1023,7 +1023,7 @@
 "author": "FlippingEggs",
 "cat": "Environment",
 "created": "2024-07-09",
-"dl": 216814,
+"dl": 216993,
 "en": 322,
 "id": 10480,
 "name": "Increased Asteroid Field Density"
@@ -1034,7 +1034,7 @@
 "author": "Ziya",
 "cat": "Environment",
 "created": "2023-09-02",
-"dl": 120340,
+"dl": 120346,
 "en": 2548,
 "id": 438,
 "name": "Starfield Graphics Optimization - Custom Presets for FPS Performance"
@@ -1043,7 +1043,7 @@
 "author": "JustOkayGamer",
 "cat": "Environment",
 "created": "2023-09-13",
-"dl": 43145,
+"dl": 43147,
 "en": 1824,
 "id": 2358,
 "name": "New Atlantis - Billboard Map"
@@ -1052,8 +1052,8 @@
 "author": "JaeDL - Starborn Royalty Knights",
 "cat": "Environment",
 "created": "2024-01-06",
-"dl": 491571,
-"en": 1710,
+"dl": 491878,
+"en": 1711,
 "id": 7946,
 "name": "Royal Weathers  - An Immersive Starfield Climate Overhaul"
 },
@@ -1061,8 +1061,8 @@
 "author": "RabbitDoesStuff",
 "cat": "Environment",
 "created": "2024-08-08",
-"dl": 142136,
-"en": 1708,
+"dl": 142237,
+"en": 1709,
 "id": 10874,
 "name": "Rabbit's REAL LIGHTS New Atlantis"
 },
@@ -1070,7 +1070,7 @@
 "author": "RabbitDoesStuff",
 "cat": "Environment",
 "created": "2024-08-14",
-"dl": 144413,
+"dl": 144516,
 "en": 1512,
 "id": 10973,
 "name": "Rabbit's REAL LIGHTS Akila City"
@@ -1085,8 +1085,8 @@
 "author": "Aurelianis",
 "cat": "Companions",
 "created": "2025-02-15",
-"dl": 237690,
-"en": 729,
+"dl": 238025,
+"en": 730,
 "id": 12030,
 "name": "Upgraded Companions"
 },
@@ -1094,7 +1094,7 @@
 "author": "Aurelianis",
 "cat": "Companions",
 "created": "2023-12-24",
-"dl": 203903,
+"dl": 204133,
 "en": 2296,
 "id": 7469,
 "name": "The Gang's All Here - Multiple Companions and Crew"
@@ -1103,7 +1103,7 @@
 "author": "AlmightySE",
 "cat": "Companions",
 "created": "2024-06-10",
-"dl": 201898,
+"dl": 202049,
 "en": 636,
 "id": 9524,
 "name": "No Angry Companions"
@@ -1112,7 +1112,7 @@
 "author": "Crozzbow",
 "cat": "Companions",
 "created": "2024-04-07",
-"dl": 172335,
+"dl": 172443,
 "en": 244,
 "id": 8928,
 "name": "Greedo - Star Wars Companion"
@@ -1121,7 +1121,7 @@
 "author": "radiclown",
 "cat": "Companions",
 "created": "2024-10-22",
-"dl": 152963,
+"dl": 153081,
 "en": 200,
 "id": 12185,
 "name": "Chewbacca Follower"
@@ -1132,7 +1132,7 @@
 "author": "Aurelianis",
 "cat": "Companions",
 "created": "2023-12-24",
-"dl": 203903,
+"dl": 204133,
 "en": 2296,
 "id": 7469,
 "name": "The Gang's All Here - Multiple Companions and Crew"
@@ -1141,7 +1141,7 @@
 "author": "CDante",
 "cat": "Companions",
 "created": "2023-11-21",
-"dl": 83499,
+"dl": 83572,
 "en": 2192,
 "id": 7028,
 "name": "Visible Companion Affinity"
@@ -1150,8 +1150,8 @@
 "author": "TheRealCooper",
 "cat": "Companions",
 "created": "2024-07-23",
-"dl": 106124,
-"en": 1252,
+"dl": 106232,
+"en": 1253,
 "id": 10687,
 "name": "Polyamory - Remove single romance limit"
 },
@@ -1159,7 +1159,7 @@
 "author": "OCD Insomniac aka Kylphor",
 "cat": "Companions",
 "created": "2023-09-29",
-"dl": 94541,
+"dl": 94597,
 "en": 998,
 "id": 4242,
 "name": "Rosie Tannehill - An Actual Doctor."
@@ -1168,8 +1168,8 @@
 "author": "Korodic",
 "cat": "Companions",
 "created": "2023-10-31",
-"dl": 110016,
-"en": 987,
+"dl": 110133,
+"en": 989,
 "id": 6153,
 "name": "Alternate Vasco"
 }
@@ -1183,7 +1183,7 @@
 "author": "DeityVengy",
 "cat": "Items",
 "created": "2025-06-18",
-"dl": 165930,
+"dl": 166071,
 "en": 125,
 "id": 14171,
 "name": "Star Wars - Prop Replacement Pack"
@@ -1192,7 +1192,7 @@
 "author": "CRAFTYxGAMER",
 "cat": "Items",
 "created": "2024-06-14",
-"dl": 160841,
+"dl": 160942,
 "en": 0,
 "id": 9753,
 "name": "Star Wars Contraband - Updated"
@@ -1201,7 +1201,7 @@
 "author": "kaosnyrb",
 "cat": "Items",
 "created": "2023-11-01",
-"dl": 155886,
+"dl": 155998,
 "en": 449,
 "id": 6182,
 "name": "Avontech Suit Power Cores"
@@ -1210,7 +1210,7 @@
 "author": "JonathanOstrus",
 "cat": "Items",
 "created": "2023-10-30",
-"dl": 145828,
+"dl": 145891,
 "en": 3002,
 "id": 6074,
 "name": "Legendary Module Recycler"
@@ -1219,7 +1219,7 @@
 "author": "CRAFTYxGAMER",
 "cat": "Items",
 "created": "2024-10-07",
-"dl": 140605,
+"dl": 140709,
 "en": 136,
 "id": 11919,
 "name": "Star Wars Data Spike Digipic replacer"
@@ -1230,7 +1230,7 @@
 "author": "JonathanOstrus",
 "cat": "Items",
 "created": "2023-10-30",
-"dl": 145828,
+"dl": 145891,
 "en": 3002,
 "id": 6074,
 "name": "Legendary Module Recycler"
@@ -1239,8 +1239,8 @@
 "author": "m8r98a4f2",
 "cat": "Items",
 "created": "2023-10-19",
-"dl": 96238,
-"en": 2044,
+"dl": 96300,
+"en": 2045,
 "id": 5537,
 "name": "Item Sorter - Better Weapon and Armor Names - Improved Naming Scheme"
 },
@@ -1248,7 +1248,7 @@
 "author": "Jmak518",
 "cat": "Items",
 "created": "2023-09-22",
-"dl": 14967,
+"dl": 14969,
 "en": 811,
 "id": 3619,
 "name": "Visible Credit Stick and Digipick"
@@ -1257,7 +1257,7 @@
 "author": "Deebz96",
 "cat": "Items",
 "created": "2024-01-12",
-"dl": 22982,
+"dl": 22987,
 "en": 798,
 "id": 8092,
 "name": "Visible Chronomark Watch"
@@ -1266,8 +1266,8 @@
 "author": "TheSparkOfLife",
 "cat": "Items",
 "created": "2023-12-30",
-"dl": 75388,
-"en": 604,
+"dl": 75550,
+"en": 605,
 "id": 7922,
 "name": "Show Me Those Chunks"
 }
@@ -1281,7 +1281,7 @@
 "author": "Crozzbow",
 "cat": "Space Suits",
 "created": "2024-07-15",
-"dl": 325475,
+"dl": 325707,
 "en": 416,
 "id": 10574,
 "name": "Star Wars Spacer Overhaul"
@@ -1290,7 +1290,7 @@
 "author": "Crozzbow",
 "cat": "Space Suits",
 "created": "2024-08-01",
-"dl": 300016,
+"dl": 300221,
 "en": 256,
 "id": 10788,
 "name": "Crimson Fleet - Guavian Death Gang Overhaul (Star Wars)"
@@ -1299,7 +1299,7 @@
 "author": "Bonepunk",
 "cat": "Space Suits",
 "created": "2024-08-04",
-"dl": 250355,
+"dl": 250477,
 "en": 210,
 "id": 10817,
 "name": "Star Wars - Imperial Ground Crew"
@@ -1308,7 +1308,7 @@
 "author": "Bonepunk",
 "cat": "Space Suits",
 "created": "2024-03-15",
-"dl": 208952,
+"dl": 209070,
 "en": 264,
 "id": 8822,
 "name": "Star Wars - Shoretrooper"
@@ -1317,7 +1317,7 @@
 "author": "Crozzbow and ShootTheGringo",
 "cat": "Space Suits",
 "created": "2024-05-10",
-"dl": 187473,
+"dl": 187580,
 "en": 366,
 "id": 9193,
 "name": "Boba Fett 1313 (Star Wars)"
@@ -1328,7 +1328,7 @@
 "author": "Kryo Zet",
 "cat": "Space Suits",
 "created": "2024-03-14",
-"dl": 176375,
+"dl": 176534,
 "en": 2706,
 "id": 8814,
 "name": "KZ Mantis 2.0"
@@ -1337,7 +1337,7 @@
 "author": "radiclown",
 "cat": "Space Suits",
 "created": "2023-10-01",
-"dl": 71642,
+"dl": 71659,
 "en": 1223,
 "id": 4450,
 "name": "The Mandalorian"
@@ -1346,7 +1346,7 @@
 "author": "TheOGTennessee",
 "cat": "Space Suits",
 "created": "2023-10-26",
-"dl": 39961,
+"dl": 39970,
 "en": 1095,
 "id": 5992,
 "name": "TN's Modular Starborn Suits"
@@ -1355,7 +1355,7 @@
 "author": "DanishCrusader",
 "cat": "Space Suits",
 "created": "2024-05-26",
-"dl": 44805,
+"dl": 44818,
 "en": 802,
 "id": 9356,
 "name": "The Female Spacesuit Refit Collection - Updated"
@@ -1364,7 +1364,7 @@
 "author": "XilaMonstrr",
 "cat": "Space Suits",
 "created": "2023-09-29",
-"dl": 66518,
+"dl": 66568,
 "en": 677,
 "id": 4035,
 "name": "Spacesuits Redone - MonstrrMagic Texture Series"
@@ -1379,7 +1379,7 @@
 "author": "Deebz96 and DeityVengy",
 "cat": "Perks and Skills",
 "created": "2024-06-17",
-"dl": 130476,
+"dl": 130489,
 "en": 251,
 "id": 9866,
 "name": "Star Wars -  Force Push Skill"
@@ -1388,7 +1388,7 @@
 "author": "SenterPat",
 "cat": "Perks and Skills",
 "created": "2024-07-09",
-"dl": 117514,
+"dl": 117534,
 "en": 451,
 "id": 10474,
 "name": "Starborn Perk Tree"
@@ -1397,7 +1397,7 @@
 "author": "SenterPat",
 "cat": "Perks and Skills",
 "created": "2024-01-05",
-"dl": 106005,
+"dl": 106126,
 "en": 506,
 "id": 8012,
 "name": "More Traits"
@@ -1406,8 +1406,8 @@
 "author": "Argonil",
 "cat": "Perks and Skills",
 "created": "2023-10-20",
-"dl": 94085,
-"en": 1575,
+"dl": 94127,
+"en": 1576,
 "id": 5660,
 "name": "Skill Fixes"
 },
@@ -1415,8 +1415,8 @@
 "author": "SenterPat",
 "cat": "Perks and Skills",
 "created": "2024-01-01",
-"dl": 80294,
-"en": 526,
+"dl": 80365,
+"en": 527,
 "id": 7955,
 "name": "Better Backgrounds"
 }
@@ -1426,8 +1426,8 @@
 "author": "Argonil",
 "cat": "Perks and Skills",
 "created": "2023-10-20",
-"dl": 94085,
-"en": 1575,
+"dl": 94127,
+"en": 1576,
 "id": 5660,
 "name": "Skill Fixes"
 },
@@ -1435,8 +1435,8 @@
 "author": "TheLich",
 "cat": "Perks and Skills",
 "created": "2023-09-10",
-"dl": 44938,
-"en": 1057,
+"dl": 44960,
+"en": 1058,
 "id": 1779,
 "name": "PerkPointsPerLevel"
 },
@@ -1444,8 +1444,8 @@
 "author": "Dank Rafft",
 "cat": "Perks and Skills",
 "created": "2023-11-04",
-"dl": 59692,
-"en": 635,
+"dl": 59727,
+"en": 636,
 "id": 1394,
 "name": "Legendary Effect Overhaul (LEO) - Crafting - Improvements - Bugfixes"
 },
@@ -1453,8 +1453,8 @@
 "author": "wankingSkeever",
 "cat": "Perks and Skills",
 "created": "2023-10-31",
-"dl": 77784,
-"en": 602,
+"dl": 77889,
+"en": 603,
 "id": 6185,
 "name": "Ship Command Certification Challenge Fix"
 },
@@ -1462,13 +1462,13 @@
 "author": "TheOGTennessee",
 "cat": "Perks and Skills",
 "created": "2023-10-21",
-"dl": 36786,
-"en": 586,
+"dl": 36865,
+"en": 587,
 "id": 5669,
 "name": "TN's Aid and Ammo Crafting (Enhanced)"
 }
 ],
-"mods": 293,
+"mods": 292,
 "name": "Perks and Skills"
 },
 {
@@ -1477,8 +1477,8 @@
 "author": "ZoNE79",
 "cat": "Appearance",
 "created": "2024-02-07",
-"dl": 447448,
-"en": 3913,
+"dl": 447813,
+"en": 3918,
 "id": 8364,
 "name": "Starfield Hair and Beards"
 },
@@ -1486,8 +1486,8 @@
 "author": "Nyvrak",
 "cat": "Appearance",
 "created": "2024-02-12",
-"dl": 275232,
-"en": 1084,
+"dl": 275467,
+"en": 1085,
 "id": 8421,
 "name": "Starfarer's Hairstyles"
 },
@@ -1495,7 +1495,7 @@
 "author": "Nyvrak",
 "cat": "Appearance",
 "created": "2024-03-12",
-"dl": 169214,
+"dl": 169441,
 "en": 505,
 "id": 8786,
 "name": "More Hair Colors"
@@ -1504,7 +1504,7 @@
 "author": "Nyvrak",
 "cat": "Appearance",
 "created": "2024-02-21",
-"dl": 111488,
+"dl": 111657,
 "en": 524,
 "id": 8559,
 "name": "More Piercings"
@@ -1513,7 +1513,7 @@
 "author": "Leyr",
 "cat": "Appearance",
 "created": "2024-10-02",
-"dl": 98739,
+"dl": 98856,
 "en": 235,
 "id": 11803,
 "name": "Shattered Space Headparts"
@@ -1524,8 +1524,8 @@
 "author": "ZoNE79",
 "cat": "Appearance",
 "created": "2024-02-07",
-"dl": 447448,
-"en": 3913,
+"dl": 447813,
+"en": 3918,
 "id": 8364,
 "name": "Starfield Hair and Beards"
 },
@@ -1533,8 +1533,8 @@
 "author": "Nyvrak",
 "cat": "Appearance",
 "created": "2024-02-12",
-"dl": 275232,
-"en": 1084,
+"dl": 275467,
+"en": 1085,
 "id": 8421,
 "name": "Starfarer's Hairstyles"
 },
@@ -1542,7 +1542,7 @@
 "author": "Daimos22",
 "cat": "Appearance",
 "created": "2024-05-30",
-"dl": 61061,
+"dl": 61111,
 "en": 1025,
 "id": 9427,
 "name": "Body Morph Console"
@@ -1551,8 +1551,8 @@
 "author": "Nyvrak",
 "cat": "Appearance",
 "created": "2023-11-08",
-"dl": 88738,
-"en": 658,
+"dl": 88884,
+"en": 659,
 "id": 6587,
 "name": "Starfarer's Makeup"
 },
@@ -1560,8 +1560,8 @@
 "author": "TALIOHS",
 "cat": "Appearance",
 "created": "2026-03-03",
-"dl": 29675,
-"en": 562,
+"dl": 29745,
+"en": 564,
 "id": 16126,
 "name": "Taliohs Hair Collection"
 }
@@ -1575,8 +1575,8 @@
 "author": "SFSE Team",
 "cat": "Utilities",
 "created": "2023-09-03",
-"dl": 3218436,
-"en": 40268,
+"dl": 3219416,
+"en": 40281,
 "id": 106,
 "name": "Starfield Script Extender (SFSE)"
 },
@@ -1584,7 +1584,7 @@
 "author": "Nukem",
 "cat": "Utilities",
 "created": "2023-09-28",
-"dl": 674589,
+"dl": 674685,
 "en": 13306,
 "id": 4157,
 "name": "Plugins.txt Enabler"
@@ -1593,7 +1593,7 @@
 "author": "alexbull_uk",
 "cat": "Utilities",
 "created": "2023-09-01",
-"dl": 413087,
+"dl": 413113,
 "en": 9106,
 "id": 270,
 "name": "Smooth Ship Reticle (120fps Smooth UI)"
@@ -1602,8 +1602,8 @@
 "author": "LarannKiar",
 "cat": "Utilities",
 "created": "2024-08-10",
-"dl": 396494,
-"en": 2281,
+"dl": 397019,
+"en": 2285,
 "id": 10896,
 "name": "Cassiopeia Papyrus Extender"
 },
@@ -1611,7 +1611,7 @@
 "author": "brunph",
 "cat": "Utilities",
 "created": "2023-09-01",
-"dl": 363214,
+"dl": 363228,
 "en": 12236,
 "id": 252,
 "name": "Achievement Enabler"
@@ -1622,8 +1622,8 @@
 "author": "SFSE Team",
 "cat": "Utilities",
 "created": "2023-09-03",
-"dl": 3218436,
-"en": 40268,
+"dl": 3219416,
+"en": 40281,
 "id": 106,
 "name": "Starfield Script Extender (SFSE)"
 },
@@ -1631,7 +1631,7 @@
 "author": "Nukem",
 "cat": "Utilities",
 "created": "2023-09-28",
-"dl": 674589,
+"dl": 674685,
 "en": 13306,
 "id": 4157,
 "name": "Plugins.txt Enabler"
@@ -1640,7 +1640,7 @@
 "author": "brunph",
 "cat": "Utilities",
 "created": "2023-09-01",
-"dl": 363214,
+"dl": 363228,
 "en": 12236,
 "id": 252,
 "name": "Achievement Enabler"
@@ -1649,7 +1649,7 @@
 "author": "alexbull_uk",
 "cat": "Utilities",
 "created": "2023-09-01",
-"dl": 413087,
+"dl": 413113,
 "en": 9106,
 "id": 270,
 "name": "Smooth Ship Reticle (120fps Smooth UI)"
@@ -1658,8 +1658,8 @@
 "author": "McGuffin",
 "cat": "Utilities",
 "created": "2023-09-02",
-"dl": 160033,
-"en": 6783,
+"dl": 160243,
+"en": 6789,
 "id": 313,
 "name": "xTranslator"
 }
@@ -1673,7 +1673,7 @@
 "author": "Bonepunk",
 "cat": "Armor",
 "created": "2025-02-08",
-"dl": 286607,
+"dl": 286817,
 "en": 155,
 "id": 13198,
 "name": "Star Wars - Range trooper"
@@ -1682,7 +1682,7 @@
 "author": "Bonepunk",
 "cat": "Armor",
 "created": "2025-03-30",
-"dl": 280781,
+"dl": 280995,
 "en": 148,
 "id": 13529,
 "name": "Star Wars - Havoc Squad"
@@ -1691,8 +1691,8 @@
 "author": "ZoNE79",
 "cat": "Armor",
 "created": "2024-09-22",
-"dl": 179016,
-"en": 1030,
+"dl": 179211,
+"en": 1031,
 "id": 11657,
 "name": "Varuun X - Clothing Jackets hoods Masks Belts Gloves Gear ZBB"
 },
@@ -1700,8 +1700,8 @@
 "author": "HooliG4N83",
 "cat": "Armor",
 "created": "2025-04-22",
-"dl": 165346,
-"en": 331,
+"dl": 165474,
+"en": 333,
 "id": 13706,
 "name": "Destiny 2 - armor pack"
 },
@@ -1709,8 +1709,8 @@
 "author": "Crozzbow",
 "cat": "Armor",
 "created": "2024-07-13",
-"dl": 157351,
-"en": 207,
+"dl": 157457,
+"en": 208,
 "id": 10548,
 "name": "Star Wars Ship Mechanic Outfit"
 }
@@ -1720,8 +1720,8 @@
 "author": "ZoNE79",
 "cat": "Armor",
 "created": "2024-09-22",
-"dl": 179016,
-"en": 1030,
+"dl": 179211,
+"en": 1031,
 "id": 11657,
 "name": "Varuun X - Clothing Jackets hoods Masks Belts Gloves Gear ZBB"
 },
@@ -1729,8 +1729,8 @@
 "author": "ZoNE79",
 "cat": "Armor",
 "created": "2024-08-24",
-"dl": 73626,
-"en": 1012,
+"dl": 73689,
+"en": 1013,
 "id": 11132,
 "name": "ZoNE79 Spacesuit Pack - ZBB"
 },
@@ -1738,7 +1738,7 @@
 "author": "510deshawn",
 "cat": "Armor",
 "created": "2024-12-12",
-"dl": 86437,
+"dl": 86517,
 "en": 498,
 "id": 12704,
 "name": "ATLAS Clothing - Advanced Techwear"
@@ -1747,7 +1747,7 @@
 "author": "ZoNE79",
 "cat": "Armor",
 "created": "2024-06-29",
-"dl": 12667,
+"dl": 12694,
 "en": 466,
 "id": 10277,
 "name": "Mantis - Vigilante 2"
@@ -1756,7 +1756,7 @@
 "author": "HooliG4N83",
 "cat": "Armor",
 "created": "2025-09-06",
-"dl": 28359,
+"dl": 28380,
 "en": 412,
 "id": 14812,
 "name": "Planet Diving Suit (Tachy) - Standalone"
@@ -1771,8 +1771,8 @@
 "author": "DeityVengy",
 "cat": "Locations",
 "created": "2025-05-30",
-"dl": 536940,
-"en": 253,
+"dl": 537594,
+"en": 254,
 "id": 13985,
 "name": "New Coruscant (and Star Wars Resources)"
 },
@@ -1780,8 +1780,8 @@
 "author": "Crozzbow",
 "cat": "Locations",
 "created": "2025-01-20",
-"dl": 439569,
-"en": 216,
+"dl": 439904,
+"en": 217,
 "id": 13021,
 "name": "Trackers Alliance HQ - Star Wars Overhaul"
 },
@@ -1789,8 +1789,8 @@
 "author": "FlippingEggs",
 "cat": "Locations",
 "created": "2024-10-19",
-"dl": 321153,
-"en": 1311,
+"dl": 321570,
+"en": 1312,
 "id": 12140,
 "name": "NPC Routines Expanded - Robot Vendors"
 },
@@ -1798,8 +1798,8 @@
 "author": "kaosnyrb",
 "cat": "Locations",
 "created": "2024-08-30",
-"dl": 284729,
-"en": 1442,
+"dl": 285027,
+"en": 1444,
 "id": 11045,
 "name": "Dark Universe - Takeover"
 },
@@ -1807,7 +1807,7 @@
 "author": "DeityVengy and Zee",
 "cat": "Locations",
 "created": "2024-11-20",
-"dl": 269985,
+"dl": 270093,
 "en": 159,
 "id": 12538,
 "name": "Star Wars - Vardos Relocation"
@@ -1818,8 +1818,8 @@
 "author": "kaosnyrb",
 "cat": "Locations",
 "created": "2024-08-30",
-"dl": 284729,
-"en": 1442,
+"dl": 285027,
+"en": 1444,
 "id": 11045,
 "name": "Dark Universe - Takeover"
 },
@@ -1827,8 +1827,8 @@
 "author": "FlippingEggs",
 "cat": "Locations",
 "created": "2024-10-19",
-"dl": 321153,
-"en": 1311,
+"dl": 321570,
+"en": 1312,
 "id": 12140,
 "name": "NPC Routines Expanded - Robot Vendors"
 },
@@ -1836,8 +1836,8 @@
 "author": "checker90",
 "cat": "Locations",
 "created": "2025-04-08",
-"dl": 93255,
-"en": 703,
+"dl": 93349,
+"en": 704,
 "id": 13614,
 "name": "New Atlantis Awaits"
 },
@@ -1845,7 +1845,7 @@
 "author": "VoodooChild",
 "cat": "Locations",
 "created": "2024-03-14",
-"dl": 41021,
+"dl": 41067,
 "en": 571,
 "id": 8809,
 "name": "The Den Astrodynamics"
@@ -1854,8 +1854,8 @@
 "author": "FrenchGentleman",
 "cat": "Locations",
 "created": "2025-08-10",
-"dl": 104441,
-"en": 562,
+"dl": 104660,
+"en": 563,
 "id": 14506,
 "name": "Astral Lounge - NEON'S WILDEST NIGHT"
 }
@@ -1869,8 +1869,8 @@
 "author": "meh321",
 "cat": "Modders Resources",
 "created": "2023-09-19",
-"dl": 1692782,
-"en": 22362,
+"dl": 1693525,
+"en": 22367,
 "id": 3256,
 "name": "Address Library for SFSE Plugins"
 },
@@ -1878,8 +1878,8 @@
 "author": "Bobbyclue and Meridiano",
 "cat": "Modders Resources",
 "created": "2023-11-29",
-"dl": 532875,
-"en": 4261,
+"dl": 533284,
+"en": 4262,
 "id": 7318,
 "name": "Console Command Runner Updated"
 },
@@ -1887,7 +1887,7 @@
 "author": "radiclown and Fox1120",
 "cat": "Modders Resources",
 "created": "2025-04-24",
-"dl": 194814,
+"dl": 195008,
 "en": 378,
 "id": 13703,
 "name": "Star Wars Resources - NPCs and Props"
@@ -1896,7 +1896,7 @@
 "author": "Kilonova24",
 "cat": "Modders Resources",
 "created": "2025-09-29",
-"dl": 175685,
+"dl": 176295,
 "en": 39,
 "id": 14993,
 "name": "Novafield Patch Hub"
@@ -1905,7 +1905,7 @@
 "author": "radiclown and Crozzbow",
 "cat": "Modders Resources",
 "created": "2025-02-17",
-"dl": 175379,
+"dl": 175550,
 "en": 348,
 "id": 13252,
 "name": "Star Wars Resources - Weapons and Armors"
@@ -1916,8 +1916,8 @@
 "author": "meh321",
 "cat": "Modders Resources",
 "created": "2023-09-19",
-"dl": 1692782,
-"en": 22362,
+"dl": 1693525,
+"en": 22367,
 "id": 3256,
 "name": "Address Library for SFSE Plugins"
 },
@@ -1925,8 +1925,8 @@
 "author": "Bobbyclue and Meridiano",
 "cat": "Modders Resources",
 "created": "2023-11-29",
-"dl": 532875,
-"en": 4261,
+"dl": 533284,
+"en": 4262,
 "id": 7318,
 "name": "Console Command Runner Updated"
 },
@@ -1934,8 +1934,8 @@
 "author": "Hex0x0",
 "cat": "Modders Resources",
 "created": "2023-09-01",
-"dl": 79672,
-"en": 3140,
+"dl": 79677,
+"en": 3142,
 "id": 273,
 "name": "Base StarfieldCustom.ini to Enable Loose File Mods"
 },
@@ -1943,7 +1943,7 @@
 "author": "Richy Rich",
 "cat": "Modders Resources",
 "created": "2023-09-04",
-"dl": 132770,
+"dl": 132774,
 "en": 2365,
 "id": 607,
 "name": "Console Commands Master Cheat List"
@@ -1952,13 +1952,13 @@
 "author": "JMPZ11 - fo76utils",
 "cat": "Modders Resources",
 "created": "2024-05-12",
-"dl": 25356,
+"dl": 25360,
 "en": 897,
 "id": 9234,
 "name": "Starfield .nif Mesh Path Migration Tool for SF 1.11.36"
 }
 ],
-"mods": 197,
+"mods": 199,
 "name": "Modders Resources"
 },
 {
@@ -1967,7 +1967,7 @@
 "author": "Ravageron",
 "cat": "Player Home",
 "created": "2024-06-17",
-"dl": 188122,
+"dl": 188281,
 "en": 226,
 "id": 9887,
 "name": "Akila Nomad Cave"
@@ -1976,7 +1976,7 @@
 "author": "DownfallNemesis",
 "cat": "Player Home",
 "created": "2024-06-30",
-"dl": 171147,
+"dl": 171408,
 "en": 980,
 "id": 10294,
 "name": "Dream Home - Overhaul"
@@ -1985,7 +1985,7 @@
 "author": "architekkt",
 "cat": "Player Home",
 "created": "2024-08-20",
-"dl": 157830,
+"dl": 157968,
 "en": 209,
 "id": 11047,
 "name": "The Vault"
@@ -1994,7 +1994,7 @@
 "author": "Nizon",
 "cat": "Player Home",
 "created": "2024-06-15",
-"dl": 123690,
+"dl": 123896,
 "en": 723,
 "id": 9796,
 "name": "Neon - Sky Suite Expanded and Furnished"
@@ -2003,7 +2003,7 @@
 "author": "Nizon",
 "cat": "Player Home",
 "created": "2024-06-17",
-"dl": 119518,
+"dl": 119702,
 "en": 567,
 "id": 9857,
 "name": "Akila - The Core Expanded and Furnished"
@@ -2014,7 +2014,7 @@
 "author": "DownfallNemesis",
 "cat": "Player Home",
 "created": "2024-06-30",
-"dl": 171147,
+"dl": 171408,
 "en": 980,
 "id": 10294,
 "name": "Dream Home - Overhaul"
@@ -2023,8 +2023,8 @@
 "author": "Squint",
 "cat": "Player Home",
 "created": "2024-06-19",
-"dl": 51184,
-"en": 735,
+"dl": 51221,
+"en": 736,
 "id": 9951,
 "name": "Your Personal Spacestation"
 },
@@ -2032,7 +2032,7 @@
 "author": "Nizon",
 "cat": "Player Home",
 "created": "2024-06-15",
-"dl": 123690,
+"dl": 123896,
 "en": 723,
 "id": 9796,
 "name": "Neon - Sky Suite Expanded and Furnished"
@@ -2041,7 +2041,7 @@
 "author": "DownfallNemesis",
 "cat": "Player Home",
 "created": "2024-06-17",
-"dl": 98187,
+"dl": 98291,
 "en": 670,
 "id": 9881,
 "name": "Paradiso Cabin - A Player Home"
@@ -2050,7 +2050,7 @@
 "author": "Elianora",
 "cat": "Player Home",
 "created": "2024-06-17",
-"dl": 47198,
+"dl": 47260,
 "en": 666,
 "id": 9860,
 "name": "Eli's Akila Stretch Home Overhaul"
@@ -2065,8 +2065,8 @@
 "author": "kaosnyrb",
 "cat": "Quests",
 "created": "2025-04-04",
-"dl": 260625,
-"en": 1199,
+"dl": 260907,
+"en": 1200,
 "id": 13175,
 "name": "Dark Universe - Overtime"
 },
@@ -2074,8 +2074,8 @@
 "author": "DeityVengy",
 "cat": "Quests",
 "created": "2024-08-17",
-"dl": 240303,
-"en": 228,
+"dl": 240553,
+"en": 229,
 "id": 11002,
 "name": "Star Wars - Main Story Conversion (Yuuzhan Vong Invasion)"
 },
@@ -2083,7 +2083,7 @@
 "author": "strangeWindmill",
 "cat": "Quests",
 "created": "2024-09-13",
-"dl": 224416,
+"dl": 224679,
 "en": 628,
 "id": 11533,
 "name": "The Trackers Alliance Delayed Start"
@@ -2092,8 +2092,8 @@
 "author": "Cion",
 "cat": "Quests",
 "created": "2025-04-04",
-"dl": 172982,
-"en": 268,
+"dl": 173174,
+"en": 270,
 "id": 13573,
 "name": "Unusual SOS Fix - Quest Completed"
 },
@@ -2101,7 +2101,7 @@
 "author": "Gothos25",
 "cat": "Quests",
 "created": "2024-07-05",
-"dl": 166537,
+"dl": 166791,
 "en": 724,
 "id": 10419,
 "name": "Take Your Time - Quests Don't Autostart"
@@ -2112,8 +2112,8 @@
 "author": "kaosnyrb",
 "cat": "Quests",
 "created": "2025-04-04",
-"dl": 260625,
-"en": 1199,
+"dl": 260907,
+"en": 1200,
 "id": 13175,
 "name": "Dark Universe - Overtime"
 },
@@ -2121,7 +2121,7 @@
 "author": "ConnerRia",
 "cat": "Quests",
 "created": "2023-10-23",
-"dl": 119385,
+"dl": 119515,
 "en": 828,
 "id": 5824,
 "name": "New Landmark Quests - Cut Content Restored"
@@ -2130,7 +2130,7 @@
 "author": "Gothos25",
 "cat": "Quests",
 "created": "2024-07-05",
-"dl": 166537,
+"dl": 166791,
 "en": 724,
 "id": 10419,
 "name": "Take Your Time - Quests Don't Autostart"
@@ -2139,7 +2139,7 @@
 "author": "strangeWindmill",
 "cat": "Quests",
 "created": "2024-09-13",
-"dl": 224416,
+"dl": 224679,
 "en": 628,
 "id": 11533,
 "name": "The Trackers Alliance Delayed Start"
@@ -2148,7 +2148,7 @@
 "author": "Thirt3nth",
 "cat": "Quests",
 "created": "2023-10-21",
-"dl": 20924,
+"dl": 20925,
 "en": 573,
 "id": 5708,
 "name": "More Mission Board Quests"
@@ -2163,8 +2163,8 @@
 "author": "Hjalmere",
 "cat": "Crafting",
 "created": "2024-08-09",
-"dl": 114338,
-"en": 759,
+"dl": 114491,
+"en": 760,
 "id": 10877,
 "name": "Hjalmere's Aquariums"
 },
@@ -2172,7 +2172,7 @@
 "author": "WykkydGaming",
 "cat": "Crafting",
 "created": "2024-06-20",
-"dl": 73095,
+"dl": 73123,
 "en": 1033,
 "id": 9963,
 "name": "DarkStar Manufacturing"
@@ -2181,7 +2181,7 @@
 "author": "Bub",
 "cat": "Crafting",
 "created": "2023-09-08",
-"dl": 72466,
+"dl": 72473,
 "en": 2577,
 "id": 1387,
 "name": "Ultra-Anim - Faster Interaction Animations - Airlocks Ladders and More By Bub"
@@ -2190,7 +2190,7 @@
 "author": "eljefe",
 "cat": "Crafting",
 "created": "2025-10-20",
-"dl": 51215,
+"dl": 51545,
 "en": 15,
 "id": 15132,
 "name": "New Workbenches Essential Framework NWEF - eljefe - patch hub"
@@ -2199,7 +2199,7 @@
 "author": "PinkConfetti",
 "cat": "Crafting",
 "created": "2023-09-11",
-"dl": 44263,
+"dl": 44316,
 "en": 405,
 "id": 1893,
 "name": "Responsive Third Person Movement"
@@ -2210,7 +2210,7 @@
 "author": "Bub",
 "cat": "Crafting",
 "created": "2023-09-08",
-"dl": 72466,
+"dl": 72473,
 "en": 2577,
 "id": 1387,
 "name": "Ultra-Anim - Faster Interaction Animations - Airlocks Ladders and More By Bub"
@@ -2219,7 +2219,7 @@
 "author": "WykkydGaming",
 "cat": "Crafting",
 "created": "2024-06-20",
-"dl": 73095,
+"dl": 73123,
 "en": 1033,
 "id": 9963,
 "name": "DarkStar Manufacturing"
@@ -2228,8 +2228,8 @@
 "author": "Hjalmere",
 "cat": "Crafting",
 "created": "2024-08-09",
-"dl": 114338,
-"en": 759,
+"dl": 114491,
+"en": 760,
 "id": 10877,
 "name": "Hjalmere's Aquariums"
 },
@@ -2237,7 +2237,7 @@
 "author": "PinkConfetti",
 "cat": "Crafting",
 "created": "2023-09-11",
-"dl": 44263,
+"dl": 44316,
 "en": 405,
 "id": 1893,
 "name": "Responsive Third Person Movement"
@@ -2261,7 +2261,7 @@
 "author": "Stentorious",
 "cat": "Animations",
 "created": "2023-10-03",
-"dl": 254711,
+"dl": 254839,
 "en": 875,
 "id": 4545,
 "name": "Longer Slide Distance"
@@ -2270,7 +2270,7 @@
 "author": "Dank Rafft",
 "cat": "Animations",
 "created": "2023-09-14",
-"dl": 236544,
+"dl": 236586,
 "en": 4817,
 "id": 2489,
 "name": "Customisable Animation Speed"
@@ -2279,8 +2279,8 @@
 "author": "smacked",
 "cat": "Animations",
 "created": "2023-09-09",
-"dl": 221772,
-"en": 712,
+"dl": 221880,
+"en": 714,
 "id": 1543,
 "name": "Immersive Mantle Animation Speed"
 },
@@ -2288,8 +2288,8 @@
 "author": "DrP",
 "cat": "Animations",
 "created": "2023-10-28",
-"dl": 214647,
-"en": 617,
+"dl": 214822,
+"en": 618,
 "id": 6090,
 "name": "Stop Flailing While Falling"
 },
@@ -2297,7 +2297,7 @@
 "author": "Crozzbow",
 "cat": "Animations",
 "created": "2023-10-13",
-"dl": 182826,
+"dl": 182960,
 "en": 504,
 "id": 5253,
 "name": "3rd Person 1-Handed Pistol Animations"
@@ -2308,7 +2308,7 @@
 "author": "Dank Rafft",
 "cat": "Animations",
 "created": "2023-09-14",
-"dl": 236544,
+"dl": 236586,
 "en": 4817,
 "id": 2489,
 "name": "Customisable Animation Speed"
@@ -2317,7 +2317,7 @@
 "author": "Snapdragon",
 "cat": "Animations",
 "created": "2023-12-03",
-"dl": 54178,
+"dl": 54180,
 "en": 928,
 "id": 7360,
 "name": "Native Animation Framework SF (NAFSF)"
@@ -2326,7 +2326,7 @@
 "author": "Stentorious",
 "cat": "Animations",
 "created": "2023-10-03",
-"dl": 254711,
+"dl": 254839,
 "en": 875,
 "id": 4545,
 "name": "Longer Slide Distance"
@@ -2335,8 +2335,8 @@
 "author": "smacked",
 "cat": "Animations",
 "created": "2023-09-09",
-"dl": 221772,
-"en": 712,
+"dl": 221880,
+"en": 714,
 "id": 1543,
 "name": "Immersive Mantle Animation Speed"
 },
@@ -2344,13 +2344,13 @@
 "author": "DrP",
 "cat": "Animations",
 "created": "2023-10-28",
-"dl": 214647,
-"en": 617,
+"dl": 214822,
+"en": 618,
 "id": 6090,
 "name": "Stop Flailing While Falling"
 }
 ],
-"mods": 138,
+"mods": 139,
 "name": "Animations"
 },
 {
@@ -2359,7 +2359,7 @@
 "author": "ItsmePaulieB",
 "cat": "Planets",
 "created": "2024-09-13",
-"dl": 221430,
+"dl": 221603,
 "en": 580,
 "id": 11530,
 "name": "Places Of Intrigue- GRiNDTerra POI"
@@ -2368,7 +2368,7 @@
 "author": "radiclown Fox1120 and Rock44",
 "cat": "Planets",
 "created": "2025-05-04",
-"dl": 185116,
+"dl": 185288,
 "en": 398,
 "id": 13786,
 "name": "Star Wars - Tatooine"
@@ -2377,7 +2377,7 @@
 "author": "DeityVengy",
 "cat": "Planets",
 "created": "2024-09-15",
-"dl": 156441,
+"dl": 156547,
 "en": 146,
 "id": 11561,
 "name": "Star Wars - Miscellaneous Planet Textures"
@@ -2386,8 +2386,8 @@
 "author": "Revan",
 "cat": "Planets",
 "created": "2023-09-13",
-"dl": 154575,
-"en": 396,
+"dl": 154676,
+"en": 397,
 "id": 2373,
 "name": "8k Milkyway (beautified)"
 },
@@ -2395,7 +2395,7 @@
 "author": "DeityVengy",
 "cat": "Planets",
 "created": "2024-08-15",
-"dl": 150779,
+"dl": 150781,
 "en": 168,
 "id": 10979,
 "name": "Star Wars - Nar Shaddaa Planet Texture (Neon Replacer)"
@@ -2406,8 +2406,8 @@
 "author": "wankingSkeever",
 "cat": "Planets",
 "created": "2023-10-22",
-"dl": 121853,
-"en": 940,
+"dl": 121914,
+"en": 941,
 "id": 5738,
 "name": "Human Activity on Earth - Man-made Points of Interest"
 },
@@ -2415,7 +2415,7 @@
 "author": "ItsmePaulieB",
 "cat": "Planets",
 "created": "2024-09-13",
-"dl": 221430,
+"dl": 221603,
 "en": 580,
 "id": 11530,
 "name": "Places Of Intrigue- GRiNDTerra POI"
@@ -2424,7 +2424,7 @@
 "author": "Ainsy",
 "cat": "Planets",
 "created": "2023-10-27",
-"dl": 15373,
+"dl": 15377,
 "en": 457,
 "id": 6024,
 "name": "Earth Restored"
@@ -2433,7 +2433,7 @@
 "author": "radiclown Fox1120 and Rock44",
 "cat": "Planets",
 "created": "2025-05-04",
-"dl": 185116,
+"dl": 185288,
 "en": 398,
 "id": 13786,
 "name": "Star Wars - Tatooine"
@@ -2442,8 +2442,8 @@
 "author": "Revan",
 "cat": "Planets",
 "created": "2023-09-13",
-"dl": 154575,
-"en": 396,
+"dl": 154676,
+"en": 397,
 "id": 2373,
 "name": "8k Milkyway (beautified)"
 }
@@ -2457,7 +2457,7 @@
 "author": "TheSniper9",
 "cat": "Vehicles",
 "created": "2024-11-12",
-"dl": 170738,
+"dl": 170901,
 "en": 357,
 "id": 12475,
 "name": "Star Wars Vehicle Pack (The Sniper 9)"
@@ -2466,7 +2466,7 @@
 "author": "radiclown",
 "cat": "Vehicles",
 "created": "2024-08-22",
-"dl": 163184,
+"dl": 163295,
 "en": 332,
 "id": 11075,
 "name": "X-34 Landspeeder"
@@ -2475,7 +2475,7 @@
 "author": "Bonepunk",
 "cat": "Vehicles",
 "created": "2024-09-24",
-"dl": 152733,
+"dl": 152834,
 "en": 149,
 "id": 11693,
 "name": "Star Wars - K79-S80 Troop Transporter"
@@ -2484,7 +2484,7 @@
 "author": "Acure8",
 "cat": "Vehicles",
 "created": "2025-03-04",
-"dl": 111187,
+"dl": 111189,
 "en": 143,
 "id": 13355,
 "name": "Rev8BoostBetter"
@@ -2493,7 +2493,7 @@
 "author": "Satou",
 "cat": "Vehicles",
 "created": "2024-08-22",
-"dl": 75429,
+"dl": 75465,
 "en": 650,
 "id": 11065,
 "name": "M12B FAV (Warthog) (Standalone)"
@@ -2504,7 +2504,7 @@
 "author": "Shadedness",
 "cat": "Vehicles",
 "created": "2024-08-21",
-"dl": 56902,
+"dl": 56944,
 "en": 1106,
 "id": 11058,
 "name": "Shades Vehicle Tuner"
@@ -2513,7 +2513,7 @@
 "author": "Satou",
 "cat": "Vehicles",
 "created": "2024-08-22",
-"dl": 75429,
+"dl": 75465,
 "en": 650,
 "id": 11065,
 "name": "M12B FAV (Warthog) (Standalone)"
@@ -2522,8 +2522,8 @@
 "author": "StaticMeth0d",
 "cat": "Vehicles",
 "created": "2025-05-31",
-"dl": 62156,
-"en": 500,
+"dl": 62244,
+"en": 501,
 "id": 13993,
 "name": "All Vehicles Have Storage"
 },
@@ -2531,7 +2531,7 @@
 "author": "Outrora",
 "cat": "Vehicles",
 "created": "2024-12-19",
-"dl": 44582,
+"dl": 44611,
 "en": 394,
 "id": 12773,
 "name": "HopeTech Hammer V Land Vehicle"
@@ -2540,8 +2540,8 @@
 "author": "COCayneT",
 "cat": "Vehicles",
 "created": "2024-08-22",
-"dl": 32630,
-"en": 362,
+"dl": 32633,
+"en": 363,
 "id": 11068,
 "name": "REV-9 Rover - Standalone"
 }
@@ -2555,7 +2555,7 @@
 "author": "Lynxgal",
 "cat": "Races",
 "created": "2026-04-19",
-"dl": 4273,
+"dl": 4306,
 "en": 15,
 "id": 16671,
 "name": "Elven Race"
@@ -2564,7 +2564,7 @@
 "author": "Lynxgal",
 "cat": "Races",
 "created": "2025-12-07",
-"dl": 4201,
+"dl": 4237,
 "en": 17,
 "id": 15599,
 "name": "Space Orc Race"
@@ -2582,7 +2582,7 @@
 "author": "Abbalovesyou",
 "cat": "Races",
 "created": "2024-08-27",
-"dl": 2030,
+"dl": 2031,
 "en": 67,
 "id": 11014,
 "name": "Playable Children"
@@ -2602,7 +2602,7 @@
 "author": "Abbalovesyou",
 "cat": "Races",
 "created": "2024-08-27",
-"dl": 2030,
+"dl": 2031,
 "en": 67,
 "id": 11014,
 "name": "Playable Children"
@@ -2629,7 +2629,7 @@
 "author": "Lynxgal",
 "cat": "Races",
 "created": "2025-12-07",
-"dl": 4201,
+"dl": 4237,
 "en": 17,
 "id": 15599,
 "name": "Space Orc Race"
@@ -2638,7 +2638,7 @@
 "author": "Lynxgal",
 "cat": "Races",
 "created": "2026-04-19",
-"dl": 4273,
+"dl": 4306,
 "en": 15,
 "id": 16671,
 "name": "Elven Race"
@@ -2653,31 +2653,31 @@
 {
 "cat": "Total Overhaul",
 "curator": "2077v2",
-"dl": 22507,
+"dl": 22522,
 "en": 227,
 "name": "Constellation 4k Graphics Pack by v2",
 "rating": 80.8,
-"ratings": 4976,
+"ratings": 4977,
 "slug": "7ou329"
 },
 {
 "cat": "Vanilla Plus",
 "curator": "mmCion",
-"dl": 9830,
+"dl": 9855,
 "en": 107,
 "name": "Vanilla Completed SE",
-"rating": 79.1,
-"ratings": 1423,
+"rating": 79.0,
+"ratings": 1426,
 "slug": "cpe527"
 },
 {
 "cat": "Total Overhaul",
 "curator": "CnRJay",
-"dl": 4391,
+"dl": 4398,
 "en": 92,
 "name": "High-Res Texture Pack - 4K Version",
-"rating": 77.8,
-"ratings": 882,
+"rating": 77.7,
+"ratings": 883,
 "slug": "eyhsoe"
 },
 {
@@ -2686,28 +2686,28 @@
 "dl": 4006,
 "en": 42,
 "name": "Rabbit's Real Lights",
-"rating": 82.3,
-"ratings": 874,
+"rating": 82.1,
+"ratings": 876,
 "slug": "1ehd6m"
 },
 {
 "cat": "Essentials",
 "curator": "Crusadez",
-"dl": 3813,
+"dl": 3824,
 "en": 39,
 "name": "Star Fixes - 1.16.244 \u2611\ufe0f",
-"rating": 82.5,
-"ratings": 795,
+"rating": 82.6,
+"ratings": 797,
 "slug": "oud6kv"
 },
 {
 "cat": "Essentials",
 "curator": "Kazhamania",
-"dl": 3756,
+"dl": 3758,
 "en": 36,
 "name": "Starfield Starter Mods Pack",
-"rating": 66.2,
-"ratings": 538,
+"rating": 66.0,
+"ratings": 539,
 "slug": "sxfcmt"
 },
 {
@@ -2723,7 +2723,7 @@
 {
 "cat": "Vanilla Plus",
 "curator": "JaeDL",
-"dl": 2284,
+"dl": 2287,
 "en": 47,
 "name": "Royal Galaxy - The Collection",
 "rating": 64.6,
@@ -2733,7 +2733,7 @@
 {
 "cat": "Total Overhaul",
 "curator": "Boeyn",
-"dl": 2148,
+"dl": 2151,
 "en": 11,
 "name": "Star Wars Conversion END 2025 +extra",
 "rating": 31.5,
@@ -2755,37 +2755,37 @@
 {
 "cat": "Total Overhaul",
 "curator": "2077v2",
-"dl": 22507,
+"dl": 22522,
 "en": 227,
 "name": "Constellation 4k Graphics Pack by v2",
 "rating": 80.8,
-"ratings": 4976,
+"ratings": 4977,
 "slug": "7ou329"
 },
 {
 "cat": "Vanilla Plus",
 "curator": "mmCion",
-"dl": 9830,
+"dl": 9855,
 "en": 107,
 "name": "Vanilla Completed SE",
-"rating": 79.1,
-"ratings": 1423,
+"rating": 79.0,
+"ratings": 1426,
 "slug": "cpe527"
 },
 {
 "cat": "Total Overhaul",
 "curator": "CnRJay",
-"dl": 4391,
+"dl": 4398,
 "en": 92,
 "name": "High-Res Texture Pack - 4K Version",
-"rating": 77.8,
-"ratings": 882,
+"rating": 77.7,
+"ratings": 883,
 "slug": "eyhsoe"
 },
 {
 "cat": "Vanilla Plus",
 "curator": "JaeDL",
-"dl": 2284,
+"dl": 2287,
 "en": 47,
 "name": "Royal Galaxy - The Collection",
 "rating": 64.6,
@@ -2798,28 +2798,28 @@
 "dl": 4006,
 "en": 42,
 "name": "Rabbit's Real Lights",
-"rating": 82.3,
-"ratings": 874,
+"rating": 82.1,
+"ratings": 876,
 "slug": "1ehd6m"
 },
 {
 "cat": "Essentials",
 "curator": "Crusadez",
-"dl": 3813,
+"dl": 3824,
 "en": 39,
 "name": "Star Fixes - 1.16.244 \u2611\ufe0f",
-"rating": 82.5,
-"ratings": 795,
+"rating": 82.6,
+"ratings": 797,
 "slug": "oud6kv"
 },
 {
 "cat": "Essentials",
 "curator": "Kazhamania",
-"dl": 3756,
+"dl": 3758,
 "en": 36,
 "name": "Starfield Starter Mods Pack",
-"rating": 66.2,
-"ratings": 538,
+"rating": 66.0,
+"ratings": 539,
 "slug": "sxfcmt"
 },
 {
@@ -2848,8 +2848,8 @@
 "dl": 1706,
 "en": 23,
 "name": "Gambit77's Starfield Extended",
-"rating": 70.3,
-"ratings": 418,
+"rating": 70.4,
+"ratings": 419,
 "slug": "uc1b4t"
 }
 ],
@@ -2859,118 +2859,118 @@
 {
 "domain": "skyrimspecialedition",
 "name": "Skyrim Special Edition",
-"top10": 281290543,
-"top100": 1283362194,
-"total": 13931675776
+"top10": 281600200,
+"top100": 1284555264,
+"total": 13946341576
 },
 {
 "domain": "fallout4",
 "name": "Fallout 4",
-"top10": 111869750,
-"top100": 460436885,
-"total": 2514587958
+"top10": 111916883,
+"top100": 460601365,
+"total": 2515795255
 },
 {
 "domain": "skyrim",
 "name": "Skyrim",
-"top10": 168147019,
-"top100": 552567958,
-"total": 1992597542
+"top10": 168150009,
+"top100": 552580464,
+"total": 1992661955
 },
 {
 "domain": "cyberpunk2077",
 "name": "Cyberpunk 2077",
-"top10": 121841061,
-"top100": 366605189,
-"total": 1952971549
+"top10": 122111346,
+"top100": 367408440,
+"total": 1958863630
 },
 {
 "domain": "newvegas",
 "name": "Fallout New Vegas",
-"top10": 87271190,
-"top100": 327208197,
-"total": 1399846939
+"top10": 87295009,
+"top100": 327337585,
+"total": 1400608634
 },
 {
 "domain": "stardewvalley",
 "name": "Stardew Valley",
-"top10": 159390183,
-"top100": 383483038,
-"total": 869266541
+"top10": 159454053,
+"top100": 383657884,
+"total": 869872122
 },
 {
 "domain": "baldursgate3",
 "name": "Baldur's Gate 3",
-"top10": 43533206,
-"top100": 143598821,
-"total": 569467582
+"top10": 43544510,
+"top100": 143681771,
+"total": 570133310
 },
 {
 "domain": "oblivion",
 "name": "Oblivion",
-"top10": 30280763,
-"top100": 94608361,
-"total": 343329541
+"top10": 30283084,
+"top100": 94618023,
+"total": 343378149
 },
 {
 "domain": "witcher3",
 "name": "The Witcher 3: Wild Hunt",
-"top10": 26510214,
-"top100": 85381522,
-"total": 224659839
+"top10": 26511134,
+"top100": 85394172,
+"total": 224782758
 },
 {
 "domain": "starfield",
 "name": "Starfield",
-"top10": 19677675,
-"top100": 55640860,
-"top10_no_modlists": 14168618,
-"total": 213477419
+"top10": 19687891,
+"top100": 55672043,
+"top10_no_modlists": 14172623,
+"total": 213681073
 },
 {
 "domain": "fallout3",
 "name": "Fallout 3",
-"top10": 32127618,
-"top100": 88138973,
-"total": 204340162
+"top10": 32131122,
+"top100": 88151225,
+"total": 204380154
 },
 {
 "domain": "mountandblade2bannerlord",
 "name": "Mount & Blade II: Bannerlord",
-"top10": 35277159,
-"top100": 82985321,
-"total": 155000169
+"top10": 35297465,
+"top100": 83026555,
+"total": 155106507
 },
 {
 "domain": "morrowind",
 "name": "Morrowind",
-"top10": 12196563,
-"top100": 38941168,
-"total": 145356193
+"top10": 12203726,
+"top100": 38973557,
+"total": 145540587
 },
 {
 "domain": "monsterhunterworld",
 "name": "Monster Hunter: World",
-"top10": 18483542,
-"top100": 42632948,
-"total": 95702612
+"top10": 18486466,
+"top100": 42641451,
+"total": 95728651
 },
 {
 "domain": "bladeandsorcery",
 "name": "Blade & Sorcery",
-"top10": 10330909,
-"top100": 29862837,
-"total": 87130005
+"top10": 10332272,
+"top100": 29866927,
+"total": 87153399
 }
 ],
-"date": "2026-11-22",
+"date": "2026-11-24",
 "modlists": [
 {
 "author": "DeityVengy",
 "cat": "Gameplay",
 "created": "2024-08-24",
-"dl": 6198223,
-"en": 818,
+"dl": 6204463,
+"en": 819,
 "id": 11114,
 "name": "Star Wars Genesis - Total Conversion Modlist"
 },
@@ -2978,7 +2978,7 @@
 "author": "GTS Team",
 "cat": "Miscellaneous",
 "created": "2025-09-01",
-"dl": 668650,
+"dl": 669489,
 "en": 173,
 "id": 14762,
 "name": "Gate To Stars - Starfield Mod List"
@@ -2987,7 +2987,7 @@
 "author": "eljefe",
 "cat": "Modders Resources",
 "created": "2024-12-04",
-"dl": 221326,
+"dl": 221641,
 "en": 103,
 "id": 12658,
 "name": "Starfield - Melius - Wabbajack Mod List"
@@ -2996,7 +2996,7 @@
 "author": "Ixion XVII",
 "cat": "Gameplay",
 "created": "2023-09-08",
-"dl": 187114,
+"dl": 187339,
 "en": 261,
 "id": 1363,
 "name": "Odyssey - A True RPG (Collection)"
@@ -3005,7 +3005,7 @@
 "author": "JaeDL - Starborn Knights",
 "cat": "Gameplay",
 "created": "2023-11-05",
-"dl": 13338,
+"dl": 13339,
 "en": 210,
 "id": 6397,
 "name": "Starborn Royalty - A Starfield Mod List 2.70"
@@ -3014,7 +3014,7 @@
 "author": "Alaxouche",
 "cat": "Utilities",
 "created": "2026-02-21",
-"dl": 2533,
+"dl": 2539,
 "en": 3,
 "id": 16027,
 "name": "EXTRASOLAR CONTAINMENT PROTOCOL - Wabbajack Modlist"
@@ -3023,7 +3023,7 @@
 "author": "eljefe",
 "cat": "Modders Resources",
 "created": "2026-05-26",
-"dl": 1915,
+"dl": 1923,
 "en": 8,
 "id": 17249,
 "name": "The Hardline Protocol - Wabbajack Mod List"
@@ -3032,7 +3032,7 @@
 "author": "Andromeda",
 "cat": "Gameplay",
 "created": "2024-03-23",
-"dl": 1523,
+"dl": 1524,
 "en": 53,
 "id": 8819,
 "name": "Andromeda - A Starfield Mod List"
@@ -3041,7 +3041,7 @@
 "author": "gespensen",
 "cat": "Utilities",
 "created": "2026-10-28",
-"dl": 58,
+"dl": 60,
 "en": 2,
 "id": 18644,
 "name": "Starfield Launchpad"
@@ -3054,8 +3054,8 @@
 "author": "SFSE Team",
 "cat": "Utilities",
 "created": "2023-09-03",
-"dl": 3218436,
-"en": 40268,
+"dl": 3219416,
+"en": 40281,
 "id": 106,
 "name": "Starfield Script Extender (SFSE)"
 },
@@ -3063,8 +3063,8 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-05",
-"dl": 2082737,
-"en": 46129,
+"dl": 2083089,
+"en": 46132,
 "id": 773,
 "name": "StarUI Inventory"
 },
@@ -3072,8 +3072,8 @@
 "author": "meh321",
 "cat": "Modders Resources",
 "created": "2023-09-19",
-"dl": 1692782,
-"en": 22362,
+"dl": 1693525,
+"en": 22367,
 "id": 3256,
 "name": "Address Library for SFSE Plugins"
 },
@@ -3081,7 +3081,7 @@
 "author": "luxor8071",
 "cat": "Visuals",
 "created": "2023-10-10",
-"dl": 1566727,
+"dl": 1567458,
 "en": 3136,
 "id": 5124,
 "name": "Starfield HD Overhaul"
@@ -3090,8 +3090,8 @@
 "author": "shad0wshayd3",
 "cat": "Miscellaneous",
 "created": "2023-09-04",
-"dl": 1440284,
-"en": 26680,
+"dl": 1440639,
+"en": 26682,
 "id": 658,
 "name": "Baka Achievement Enabler (SFSE)"
 },
@@ -3099,7 +3099,7 @@
 "author": "2077v2",
 "cat": "Gameplay",
 "created": "2023-10-04",
-"dl": 1058973,
+"dl": 1059048,
 "en": 645,
 "id": 4643,
 "name": "Constellation Overhaul"
@@ -3108,8 +3108,8 @@
 "author": "fadingsignal",
 "cat": "Visuals",
 "created": "2023-09-02",
-"dl": 829152,
-"en": 18808,
+"dl": 829325,
+"en": 18809,
 "id": 323,
 "name": "Neutral LUTs - No Color Filters"
 },
@@ -3117,8 +3117,8 @@
 "author": "Weijiesen - Team EVE",
 "cat": "Visuals",
 "created": "2023-09-04",
-"dl": 797499,
-"en": 10696,
+"dl": 797883,
+"en": 10699,
 "id": 340,
 "name": "EXE - Effect Textures Enhanced"
 },
@@ -3126,8 +3126,8 @@
 "author": "Seb263",
 "cat": "User Interface",
 "created": "2023-09-02",
-"dl": 792861,
-"en": 14844,
+"dl": 793045,
+"en": 14845,
 "id": 404,
 "name": "Undelayed Menus"
 },
@@ -3135,7 +3135,7 @@
 "author": "checker90",
 "cat": "Gameplay",
 "created": "2024-12-07",
-"dl": 689167,
+"dl": 689195,
 "en": 376,
 "id": 12672,
 "name": "Starfield - Tweaks Fixes and Patches"
@@ -3146,8 +3146,8 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-05",
-"dl": 2082737,
-"en": 46129,
+"dl": 2083089,
+"en": 46132,
 "id": 773,
 "name": "StarUI Inventory"
 },
@@ -3155,8 +3155,8 @@
 "author": "SFSE Team",
 "cat": "Utilities",
 "created": "2023-09-03",
-"dl": 3218436,
-"en": 40268,
+"dl": 3219416,
+"en": 40281,
 "id": 106,
 "name": "Starfield Script Extender (SFSE)"
 },
@@ -3164,8 +3164,8 @@
 "author": "shad0wshayd3",
 "cat": "Miscellaneous",
 "created": "2023-09-04",
-"dl": 1440284,
-"en": 26680,
+"dl": 1440639,
+"en": 26682,
 "id": 658,
 "name": "Baka Achievement Enabler (SFSE)"
 },
@@ -3173,8 +3173,8 @@
 "author": "meh321",
 "cat": "Modders Resources",
 "created": "2023-09-19",
-"dl": 1692782,
-"en": 22362,
+"dl": 1693525,
+"en": 22367,
 "id": 3256,
 "name": "Address Library for SFSE Plugins"
 },
@@ -3182,8 +3182,8 @@
 "author": "fadingsignal",
 "cat": "Visuals",
 "created": "2023-09-02",
-"dl": 829152,
-"en": 18808,
+"dl": 829325,
+"en": 18809,
 "id": 323,
 "name": "Neutral LUTs - No Color Filters"
 },
@@ -3191,8 +3191,8 @@
 "author": "Seb263",
 "cat": "User Interface",
 "created": "2023-09-02",
-"dl": 792861,
-"en": 14844,
+"dl": 793045,
+"en": 14845,
 "id": 404,
 "name": "Undelayed Menus"
 },
@@ -3200,7 +3200,7 @@
 "author": "m8r98a4f2",
 "cat": "User Interface",
 "created": "2023-09-21",
-"dl": 611267,
+"dl": 611490,
 "en": 14647,
 "id": 3444,
 "name": "StarUI HUD"
@@ -3209,7 +3209,7 @@
 "author": "Nukem",
 "cat": "Utilities",
 "created": "2023-09-28",
-"dl": 674589,
+"dl": 674685,
 "en": 13306,
 "id": 4157,
 "name": "Plugins.txt Enabler"
@@ -3218,8 +3218,8 @@
 "author": "Gametism",
 "cat": "User Interface",
 "created": "2023-08-31",
-"dl": 617174,
-"en": 12515,
+"dl": 617389,
+"en": 12517,
 "id": 88,
 "name": "Cleanfield - No-Intro and Clean Menu Fix"
 },
@@ -3227,7 +3227,7 @@
 "author": "brunph",
 "cat": "Utilities",
 "created": "2023-09-01",
-"dl": 363214,
+"dl": 363228,
 "en": 12236,
 "id": 252,
 "name": "Achievement Enabler"
@@ -3241,43 +3241,25 @@
 "author": "SWCatLady",
 "cat": "Visuals",
 "created": "2026-09-16",
-"dl": 13424,
+"dl": 13609,
 "en": 54,
 "id": 18238,
 "name": "SciField - A Science Fiction Themed Texture Reimagining"
 },
 {
-"author": "PouYad0",
-"cat": "Gameplay",
-"created": "2026-08-24",
-"dl": 12523,
-"en": 21,
-"id": 18058,
-"name": "Outpost Raids"
-},
-{
 "author": "Stonyr0ck",
 "cat": "Locations",
 "created": "2026-08-26",
-"dl": 10970,
-"en": 36,
+"dl": 11107,
+"en": 38,
 "id": 18074,
 "name": "Slightly Better Shepherd's Store"
-},
-{
-"author": "DeityVengy",
-"cat": "Gameplay",
-"created": "2026-08-24",
-"dl": 9205,
-"en": 44,
-"id": 18057,
-"name": "Airlock Replacement Overhaul - Energy Shields"
 },
 {
 "author": "Lynxgal",
 "cat": "Animations",
 "created": "2026-09-10",
-"dl": 9016,
+"dl": 9137,
 "en": 16,
 "id": 18205,
 "name": "One armed Pistol Animations"
@@ -3286,7 +3268,7 @@
 "author": "IxionXVII",
 "cat": "Companions",
 "created": "2026-09-03",
-"dl": 8356,
+"dl": 8479,
 "en": 30,
 "id": 18137,
 "name": "Crew Skill Overhaul - DLC Addon"
@@ -3295,7 +3277,7 @@
 "author": "RaelGG",
 "cat": "Gameplay",
 "created": "2026-08-29",
-"dl": 8004,
+"dl": 8078,
 "en": 107,
 "id": 18084,
 "name": "360 Directional Movement"
@@ -3304,7 +3286,7 @@
 "author": "dwnfdrknss",
 "cat": "Gameplay",
 "created": "2026-09-21",
-"dl": 7943,
+"dl": 8045,
 "en": 171,
 "id": 18296,
 "name": "Improved Follower Behavior - Updated Expanded (Unofficial)"
@@ -3313,8 +3295,8 @@
 "author": "ozooma10",
 "cat": "User Interface",
 "created": "2026-10-02",
-"dl": 7606,
-"en": 173,
+"dl": 7726,
+"en": 176,
 "id": 18326,
 "name": "OSF Settings - Mod Configuration Menu (MCM)"
 },
@@ -3322,10 +3304,28 @@
 "author": "EagleFour",
 "cat": "Audio",
 "created": "2026-11-13",
-"dl": 7244,
-"en": 102,
+"dl": 7437,
+"en": 105,
 "id": 18804,
 "name": "Player Voice - Male And Female - English And German"
+},
+{
+"author": "fabs1",
+"cat": "Planets",
+"created": "2026-08-29",
+"dl": 7086,
+"en": 81,
+"id": 18091,
+"name": "Immersive Play - fabs1's Planet Descriptions"
+},
+{
+"author": "Rebelember",
+"cat": "Clothing",
+"created": "2026-10-22",
+"dl": 5736,
+"en": 159,
+"id": 18508,
+"name": "Modular Outfit System - VCO and Vanilla"
 }
 ],
 "endorsements": [
@@ -3333,8 +3333,8 @@
 "author": "ozooma10",
 "cat": "User Interface",
 "created": "2026-10-02",
-"dl": 7606,
-"en": 173,
+"dl": 7726,
+"en": 176,
 "id": 18326,
 "name": "OSF Settings - Mod Configuration Menu (MCM)"
 },
@@ -3342,35 +3342,35 @@
 "author": "dwnfdrknss",
 "cat": "Gameplay",
 "created": "2026-09-21",
-"dl": 7943,
+"dl": 8045,
 "en": 171,
 "id": 18296,
 "name": "Improved Follower Behavior - Updated Expanded (Unofficial)"
 },
 {
+"author": "Rebelember",
+"cat": "Clothing",
+"created": "2026-10-22",
+"dl": 5736,
+"en": 159,
+"id": 18508,
+"name": "Modular Outfit System - VCO and Vanilla"
+},
+{
 "author": "ousnius",
 "cat": "Utilities",
 "created": "2026-10-13",
-"dl": 2663,
+"dl": 2759,
 "en": 157,
 "id": 18449,
 "name": "BodySlide and Outfit Studio"
 },
 {
-"author": "Rebelember",
-"cat": "Clothing",
-"created": "2026-10-22",
-"dl": 5616,
-"en": 156,
-"id": 18508,
-"name": "Modular Outfit System - VCO and Vanilla"
-},
-{
 "author": "INTDEXGaming",
 "cat": "Clothing",
 "created": "2026-10-02",
-"dl": 4808,
-"en": 137,
+"dl": 4855,
+"en": 139,
 "id": 18364,
 "name": "ELEGANT - Clothing and Accessories"
 },
@@ -3378,8 +3378,8 @@
 "author": "Rebelember",
 "cat": "Gameplay",
 "created": "2026-10-22",
-"dl": 3841,
-"en": 128,
+"dl": 3924,
+"en": 129,
 "id": 18521,
 "name": "Quasar Exchange - Virtual Shopping Terminal"
 },
@@ -3387,8 +3387,8 @@
 "author": "LX6R",
 "cat": "User Interface",
 "created": "2026-10-07",
-"dl": 5098,
-"en": 112,
+"dl": 5286,
+"en": 114,
 "id": 18393,
 "name": "Skill Menu UI Overhaul"
 },
@@ -3396,7 +3396,7 @@
 "author": "RaelGG",
 "cat": "Gameplay",
 "created": "2026-08-29",
-"dl": 8004,
+"dl": 8078,
 "en": 107,
 "id": 18084,
 "name": "360 Directional Movement"
@@ -3405,24 +3405,24 @@
 "author": "EagleFour",
 "cat": "Audio",
 "created": "2026-11-13",
-"dl": 7244,
-"en": 102,
+"dl": 7437,
+"en": 105,
 "id": 18804,
 "name": "Player Voice - Male And Female - English And German"
 },
 {
-"author": "dwnfdrknss",
-"cat": "Utilities",
-"created": "2026-09-25",
-"dl": 3994,
+"author": "concex1",
+"cat": "Visuals",
+"created": "2026-08-30",
+"dl": 2707,
 "en": 93,
-"id": 18325,
-"name": "Orbit Traffic Fix - Persistent Ship Traffic Manager Script Fix"
+"id": 18094,
+"name": "STARFIELD - ULTRA-OPTIMIZED TEXTURES PACK (BA2)"
 }
 ],
-"since": "2026-08-24"
+"since": "2026-08-26"
 },
-"total_mods": 14180,
+"total_mods": 14187,
 "weekly": {
 "authors": {
 "count": 3874,
