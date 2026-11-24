@@ -2291,7 +2291,7 @@
   "types": [
    {
     "k": "types:gaining:Gameplay",
-    "t": "<b>Gameplay</b> is the type gaining the most ground: 22.4% of the last 90 days' new mods, against 17.7% of all Starfield mods."
+    "t": "<b>Gameplay</b> is the type gaining the most ground: 22.6% of the last 90 days' new mods, against 17.7% of all Starfield mods."
    },
    {
     "k": "types:fading:Visuals",
@@ -2313,7 +2313,7 @@
   "critics": [
    {
     "k": "crit:neither",
-    "t": "<b>81% of Starfield mods</b> (11,487 of 14,187) are neither translations nor Star Wars mods: roughly 4 in 5."
+    "t": "<b>81% of Starfield mods</b> (11,492 of 14,192) are neither translations nor Star Wars mods: roughly 4 in 5."
    },
    {
     "k": "crit:none",
@@ -2329,7 +2329,7 @@
    },
    {
     "k": "crit:ai",
-    "t": "AI-generated or AI-assisted mods are <b>4.7%</b> of Starfield mods (673), #7 of 15 games, and rising fast: <b>35% of the last 90 days' new mods</b>. They get 5.4% of downloads."
+    "t": "AI-generated or AI-assisted mods are <b>4.8%</b> of Starfield mods (677), #7 of 15 games, and rising fast: <b>35% of the last 90 days' new mods</b>. They get 5.4% of downloads."
    },
    {
     "k": "crit:translation-downloads",
@@ -2347,11 +2347,11 @@
   "top": [
    {
     "k": "top:leaders:106:773",
-    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,219,416 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,132 endorsements)."
+    "t": "Starfield's most downloaded mod is <b>Starfield Script Extender (SFSE)</b> with 3,220,287 downloads (1.5× the #2, StarUI Inventory). The most endorsed is <b>StarUI Inventory</b> (46,133 endorsements)."
    },
    {
     "k": "top:modlist:11114",
-    "t": "The most downloaded upload of all isn't a single mod: it's the modlist <b>Star Wars Genesis - Total Conversion Modlist</b>, with 6.2M downloads against 3.2M for the top mod, but only 819 endorsements. Part 4 lists modlists with the collections."
+    "t": "The most downloaded upload of all isn't a single mod: it's the modlist <b>Star Wars Genesis - Total Conversion Modlist</b>, with 6.2M downloads against 3.2M for the top mod, but only 822 endorsements. Part 4 lists modlists with the collections."
    },
    {
     "k": "top:trending:9509",
