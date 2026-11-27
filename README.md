@@ -24,7 +24,7 @@ Open the site, click **Part 4 · Top mods** in the side menu, and then click **C
 
 The two bar charts below the box compare all 15 games, with Starfield's bar in its own color. The numbers change a little every day as the Action collects new totals. For a broader view, **Part 1 · Mod downloads** showed Starfield as the 10th game on Nexus Mods by downloads on the same day, with 213.0 million downloads and 14,159 mods.
 
-What's new: the page opens with a dated What's new list, newest first. Smaller changes to the page and the scripts are in the [commit history](https://github.com/taosecurity/NexusModsMetrics/commits/main), next to the daily "Data: snapshot" commits.
+What's new: a dated What's new list, newest first, sits near the top of the page. Smaller changes to the page and the scripts are in the [commit history](https://github.com/taosecurity/NexusModsMetrics/commits/main), next to the daily "Data: snapshot" commits.
 
 ## What the page leaves out
 
